@@ -1,0 +1,11 @@
+{
+  // Markdownlint config for the Duolingo skill graph.
+  // Runs locally and in CI. Tuned for prose + code-fence Markdown.
+  "default": true,
+  "MD013": false,           // line length — prose can be long
+  "MD024": { "siblings_only": true }, // duplicate headings allowed under different parents
+  "MD033": false,           // inline HTML — allowed for callouts
+  "MD041": false,           // first-line H1 — frontmatter precedes
+  "MD046": { "style": "fenced" },
+  "MD048": { "style": "backtick" }
+}
