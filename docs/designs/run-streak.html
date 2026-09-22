@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run streak and health score</title>
+<meta name="description" content="A habit surface for a product used twice a month: a run-based chain beside a continuous health scalar.">
+<meta name="theme-color" content="#F7F7F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131F24" media="(prefers-color-scheme: dark)">
+<style>
+/* =========================================================================
+   run-streak.html · the live version of docs/designs/run-streak.svg
+
+   Every value here traces to a node. Sources are named beside each one.
+   pov.md = design-engineering/references/meta/pov.md (outranks canon)
+   ========================================================================= */
+
+:root {
+  /* pov.md §2 — six named hues, one meaning each. Not a palette, a vocabulary. */
+  --feather:  #58CC02;  /* primary / correct / progress · NON-TEXT FILLS ONLY */
+  --tree:     #58A700;  /* green display type on a light ground */
+  --green:    #367F00;  /* pov.md §8 — the darkened green that clears 4.5:1 on white */
+  --green-lip:#366800;  /* derived: red held, green channel x0.82, pov.md's own ratio */
+  --eel:      #4B4B4B;
+  --snow:     #FFFFFF;
+  --wolf:     #6E6E6E;  /* computed: 5.10:1 on Snow, 4.76:1 on Polar. #777777 was 4.48/4.18 */
+  --swan:     #E5E5E5;
+  --polar:    #F7F7F7;
+  --fox:      #FF9600;  /* time, urgency */
+  --bee:      #FFC800;  /* earned, celebrated */
+  --macaw:    #1CB0F6;  /* information, secondary */
+  --humpback: #2B70C9;  /* calm depth — the pause and the freeze */
+  --on-green: #FFFFFF;  /* whatever sits on a green fill */
+  --calm:     var(--humpback);
+
+  /* semantic layer. pov.md §2: dark mode is a remap, names stay, values flip. */
+  --ground:  var(--polar);
+  --surface: var(--snow);
+  --inset:   var(--polar);
+  --line:    var(--swan);
+  --text:    var(--eel);
+  --text-2:  var(--wolf);
+
+  /* motion/easing-curves.md */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  /* 1.56 peaks at 1.0978 normalised: 0.95 -> 1 overshoots 0.49%, 0.37px on a 76px
+     tile, below the perception threshold. 2.4 peaks at 1.4059, so the tile peaks at
+     1.0203 - a 2.03% / 1.54px overshoot, the restrained 1-2% band. */
+  --ease-spring:    cubic-bezier(0.34, 2.4, 0.64, 1);
+
+  /* motion/duration-table.md + pov.md §5 */
+  --t-press:   100ms;   /* button press feedback, 100–160ms band, bottom of it */
+  --t-enter:   250ms;   /* hierarchy shift */
+  --t-exit:    180ms;   /* 72% of enter — the Sonner asymmetry rule */
+  --t-count:   400ms;   /* longest "ok" UI duration */
+  --t-stagger:  50ms;   /* stagger-choreography.md sweet spot is 30–80ms */
+  --t-fade:    120ms;   /* the fade reduced motion keeps */
+
+  /* surface/border-radius.md + pov.md §4 — nothing is pointy */
+  --r-tile: 12px;
+  --r-card: 16px;
+  --r-full: 999px;
+
+  color-scheme: light dark;
+}
+
+/* pov.md §2 — Polar flips to #202F36, ground to #131F24, text to #F1F7FB.
+   Border and secondary text come from surface/dark-mode.md.
+
+   Two roles invert rather than flip. On a dark ground the contrast problem runs
+   the other way: Feather Green now has the headroom, so green becomes the bright
+   fill and what sits on it becomes the dark ground colour, which computes to
+   about 7.6:1 instead of the 2.1:1 pov.md §8 refuses to ship. Humpback drops to
+   about 2.6:1 on #202F36, so the calm role moves up to Macaw. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground:    #131F24;
+    --surface:   #202F36;
+    --inset:     #131F24;
+    --line:      rgba(255, 255, 255, 0.10);
+    --text:      #F1F7FB;
+    --text-2:    rgba(255, 255, 255, 0.62);
+    --green:     #58CC02;
+    --green-lip: #58A700;
+    --on-green:  #131F24;
+    --calm:      var(--macaw);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 28px max(16px, env(safe-area-inset-right)) max(40px, env(safe-area-inset-bottom))
+           max(16px, env(safe-area-inset-left));
+  background: var(--ground);
+  color: var(--text);
+  /* pov.md §3 wants a rounded face. No CDN, no @font-face, so this asks for the
+     rounded faces a machine may already have and falls back to the system sans.
+     The roundness that always survives is geometric, per pov.md §4. */
+  font-family: "SF Pro Rounded", "Nunito", -apple-system, BlinkMacSystemFont,
+               "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  /* this file is deliberately stack-dependent, so a missing 800 must fail visibly
+     rather than smear into a synthesised bold that only looks approximately right. */
+  font-synthesis: none;
+}
+
+.page { max-width: 1152px; margin: 0 auto; }
+
+/* ---------- the window ---------- */
+/* surface/shadows-whisper.md: layered, 4–6% on a #111 base. The only floating
+   layer on this page, so the only thing that gets a shadow at all. */
+.window {
+  background: var(--surface);
+  border-radius: var(--r-card);
+  box-shadow:
+    0 1px 2px rgba(17, 17, 17, 0.05),
+    0 4px 8px rgba(17, 17, 17, 0.05),
+    0 8px 24px rgba(17, 17, 17, 0.04);
+}
+@media (prefers-color-scheme: dark) {
+  .window { box-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06); }
+}
+
+/* ---------- header ---------- */
+.bar {
+  display: flex; align-items: center; gap: 26px;
+  padding: 11px 24px;
+  border-bottom: 2px solid var(--line);
+}
+.mark {
+  width: 26px; height: 26px; border-radius: 9px;
+  background: var(--green);
+  display: grid; align-content: center; justify-items: start;
+  gap: 3.5px; padding-left: 6px; flex: none;
+}
+.mark i { display: block; height: 3.5px; border-radius: var(--r-full); background: var(--on-green); }
+.mark i:first-child { width: 14px; }
+.mark i:last-child  { width: 9px; }
+
+.wordmark { font-size: 17px; font-weight: 800; letter-spacing: -0.2px; margin-right: 4px; }
+
+.nav { display: flex; gap: 24px; margin: 0; padding: 0; list-style: none; }
+.nav a {
+  position: relative; display: block; padding: 4px 0 6px;
+  font-size: 14px; font-weight: 500; color: var(--text-2);
+  text-decoration: none; border-bottom: 3px solid transparent;
+}
+/* the label box is 30px tall and its baseline is fixed by the still, so the target
+   grows into space instead of pushing the header down. The 24px gap is untouched and
+   the extension is vertical only, so two targets never overlap. */
+.nav a::before { content: ""; position: absolute; inset: -7px 0; }
+/* colour plus the already-reserved 3px underline carry the state. Weight stays 500:
+   a 500 -> 700 swap reflows the whole row every time the current tab changes. */
+.nav a[aria-current] { color: var(--text); border-bottom-color: var(--green); }
+
+.bar__right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+.cycle { font-size: 13px; color: var(--text-2); }
+
+/* every figure a filing rewrites. .score__n counts frame by frame; the rest swap
+   once, and none of them move their neighbours while doing it. */
+.cycle, .chip, .score__n, .score__next, .stat, .display, .ledger b, .tile__num {
+  font-variant-numeric: tabular-nums;
+}
+.mark, .avatar, .glyph, .spark, .meter, .freeze b, .fill { user-select: none; }
+.mark, .spark, .meter, .fill { pointer-events: none; }
+.avatar {
+  width: 30px; height: 30px; border-radius: var(--r-full);
+  background: var(--bee); color: var(--eel);
+  display: grid; place-items: center;
+  font-size: 12px; font-weight: 700; flex: none;
+}
+
+/* ---------- pov.md §1 — buttons are physical objects ---------- */
+/* The host reserves the lip with a transparent bottom border, so pressing moves
+   the fill into space that already exists. No reflow, no layout shift. */
+.btn {
+  position: relative; z-index: 0;
+  height: 40px; padding: 0 20px;
+  border: 0; border-bottom: 4px solid transparent;
+  border-radius: var(--r-tile);
+  background: none; color: var(--on-green);
+  font: inherit; font-size: 15px; font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  cursor: pointer;
+}
+.btn::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  border-radius: var(--r-tile);
+  background: var(--green);
+  box-shadow: 0 4px 0 0 var(--green-lip);
+  transition: transform var(--t-press) var(--ease-out-quart),
+              box-shadow var(--t-press) var(--ease-out-quart),
+              filter     var(--t-press) var(--ease-out-quart);
+}
+.btn:hover::before { filter: brightness(1.08); }     /* hover lightens the fill, pov.md §1 */
+.btn:active::before { transform: translateY(4px); box-shadow: 0 0 0 0 var(--green-lip); }
+.btn:focus-visible { outline: none; }
+.btn:focus-visible::before { box-shadow: 0 4px 0 0 var(--green-lip), 0 0 0 3px var(--surface), 0 0 0 6px var(--green); }
+.btn[disabled] { cursor: default; color: var(--text-2); }
+.btn[disabled]::before { background: var(--inset); box-shadow: 0 4px 0 0 var(--line); }
+
+/* secondary: same geometry, no fill. pov.md §1 */
+.btn--ghost { color: var(--calm); height: 34px; font-size: 13px; padding: 0 14px; }
+.btn--ghost::before { background: var(--surface); box-shadow: 0 2px 0 0 var(--line), inset 0 0 0 2px var(--line); }
+.btn--ghost { border-bottom-width: 2px; }
+/* .btn:focus-visible::before is (0,2,1) and beats .btn--ghost::before at (0,1,1)
+   whatever the source order, so the secondary control needs its own focus rule: its
+   own calm colour, and a 2px lip so nothing grows at the moment of focus. */
+.btn--ghost:focus-visible::before {
+  box-shadow: 0 2px 0 0 var(--line), inset 0 0 0 2px var(--line),
+              0 0 0 3px var(--surface), 0 0 0 6px var(--calm);
+}
+.btn--ghost:hover::before { background: var(--inset); }
+/* 34px box, 44px target. Vertical only, so it cannot reach the control beside it. */
+.btn--ghost::after { content: ""; position: absolute; inset: -5px 0; }
+.btn--ghost:active::before { transform: translateY(2px); box-shadow: 0 0 0 0 var(--line), inset 0 0 0 2px var(--line); }
+
+/* ---------- grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: 1.53fr 1fr;
+  gap: 20px 24px;                      /* matches the still: 24px column, 20px row */
+  padding: 28px 24px;
+}
+.card {
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-bottom-width: 4px;            /* pov.md §1 — cards carry a lip too */
+  border-radius: var(--r-card);
+  padding: 20px 22px 18px;
+}
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--text-2); text-transform: uppercase;
+}
+
+/* ---------- pov.md §3 — display face: lowercase, 30px floor, never a neutral ---------- */
+.display {
+  margin: 0;
+  font-size: 30px; font-weight: 800; line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--tree);
+  text-wrap: balance;
+}
+
+/* ---------- the chain ---------- */
+.chain { display: flex; gap: 10px; margin: 20px 0 0; padding: 0; list-style: none; }
+.link { flex: 1 1 0; min-width: 0; text-align: center; }
+
+.tile {
+  position: relative;
+  height: 76px; border-radius: var(--r-tile);
+  display: grid; align-content: center; justify-items: center; gap: 8px;
+
+}
+/* The entrance exists only when a script is running to finish it. Without JS the
+   chain is simply there — a decorative opacity:0 that nothing ever clears is the
+   worst bug this pattern has.
+   motion/never-scale-from-zero.md — 0.95, never 0. Opacity does the visible work. */
+.js .tile {
+  opacity: 0;
+  transform: scale(0.95);
+  transition:
+    opacity   var(--t-enter) var(--ease-out-quart) calc(var(--i) * var(--t-stagger)),
+    transform var(--t-enter) var(--ease-out-quart) calc(var(--i) * var(--t-stagger));
+}
+/* stagger-choreography.md — first appearance only. Filing a run does not restagger. */
+.chain.is-mounted .tile { opacity: 1; transform: scale(1); }
+
+.tile--filed { background: var(--green); box-shadow: 0 2px 0 0 var(--green-lip); color: var(--on-green); }
+.tile--paused {
+  background: var(--inset); border: 2px solid var(--line); color: var(--calm);
+  /* deliberately no lip: it is not pressable, it is a gap being held */
+}
+.tile--open {
+  border: 2px dashed var(--line); color: var(--text);
+  background: var(--surface);
+}
+.tile__num { font-size: 14px; font-weight: 700; line-height: 1; }
+.tile__date { display: block; margin-top: 12px; font-size: 10px; color: var(--text-2); }
+
+.glyph { width: 26px; height: 22px; display: block; }
+.glyph--pause { display: flex; gap: 4px; justify-content: center; align-items: center; }
+.glyph--pause i { width: 6px; height: 20px; border-radius: 3px; background: currentColor; display: block; }
+
+/* Both markers live in the DOM at once and swap. The pending dot and the filed
+   check are different objects, so one leaves while the other arrives — this is
+   not the crossfading-icons tell from ai-default-tells.md, which is one icon
+   pretending to be two. */
+.glyph--swap { display: grid; place-items: center; }
+.glyph--swap > * { grid-area: 1 / 1; }
+.glyph__dot { width: 12px; height: 12px; border-radius: var(--r-full); background: var(--fox); display: block; }
+.glyph__check { display: block; }
+
+/* exit at 180ms, 72% of the 250ms enter — duration-table.md's asymmetry rule */
+.tile--open .glyph__dot   { opacity: 1; transform: scale(1); }
+.tile--filed .glyph__dot  { opacity: 0; transform: scale(0.6); }
+.glyph__dot { transition: opacity var(--t-exit) var(--ease-out-quart), transform var(--t-exit) var(--ease-out-quart); }
+
+.tile--open .glyph__check  { opacity: 0; transform: scale(0.9); }
+.tile--filed .glyph__check { opacity: 1; transform: scale(1); }
+.glyph__check { transition: opacity var(--t-enter) var(--ease-spring) 60ms, transform var(--t-enter) var(--ease-spring) 60ms; }
+
+/* the reward beat. pov.md §5 puts the daily beat at medium tier: scale-in, overshoot. */
+@keyframes seal {
+  from { transform: scale(0.95); }
+  to   { transform: scale(1); }
+}
+.tile--sealing { animation: seal var(--t-enter) var(--ease-spring) both; }
+
+.pause-flag {
+  display: inline-block; margin-bottom: 8px;
+  padding: 3px 10px; border-radius: var(--r-full);
+  background: var(--calm); color: var(--ground); 
+  font-size: 9px; font-weight: 700; letter-spacing: 0.09em;
+}
+.pause-flag[data-hidden] { visibility: hidden; }
+
+.note { margin: 0; font-size: 13px; color: var(--text-2); }
+.chain-foot { display: flex; align-items: center; gap: 16px; margin-top: 26px; }
+.chain-foot .note { flex: 1 1 auto; }
+
+.freeze {
+  display: inline-flex; align-items: center; gap: 8px; flex: none;
+  padding: 5px 14px 5px 5px; border-radius: var(--r-full);
+  background: var(--inset); border: 2px solid var(--line);
+  font-size: 12px; font-weight: 700; color: var(--calm);
+}
+.freeze b {
+  width: 18px; height: 18px; border-radius: var(--r-full);
+  background: var(--calm); color: var(--ground);
+  display: grid; place-items: center; font-size: 11px;
+}
+
+/* ---------- the scalar ---------- */
+.score-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.chip {
+  padding: 4px 12px; border-radius: var(--r-full);
+  background: var(--inset); color: var(--green);
+  font-size: 11px; font-weight: 700; white-space: nowrap;
+}
+
+.score { display: flex; align-items: baseline; gap: 10px; margin: 10px 0 0; }
+.score__n {
+  font-size: 72px; font-weight: 800; line-height: 0.9;
+  letter-spacing: -0.03em; color: var(--tree);
+  font-variant-numeric: tabular-nums;  /* no width jitter while it counts */
+}
+.score__of { font-size: 20px; font-weight: 700; color: var(--text-2); }
+.score__next { margin-left: auto; font-size: 12px; color: var(--text-2); align-self: flex-end; }
+
+/* pov.md §4 — progress bars are full radius with an inset highlight, and they are
+   the most-looked-at element in the product, so they get the care. */
+.track {
+  position: relative; height: 14px; margin: 14px 0 0;
+  border-radius: var(--r-full);
+  background: var(--inset); border: 1px solid var(--line);
+  overflow: hidden;
+}
+.fill {
+  position: absolute; inset: 0;
+  border-radius: var(--r-full);
+  background: var(--feather);
+  transform-origin: left center;
+  transform: scaleX(0.62);      /* transform, never width — transform-opacity-only.md */
+}
+.fill::after {
+  content: ""; position: absolute; left: 6px; right: 6px; top: 3px; height: 4px;
+  border-radius: var(--r-full); background: rgba(255,255,255,0.32);
+}
+
+.spark { display: flex; align-items: flex-end; gap: 9px; height: 40px; margin: 22px 0 0; }
+.spark i { flex: 1 1 0; border-radius: 4px; background: var(--feather); display: block; }
+.spark i[data-zero] { background: var(--line); height: 3px !important; border-radius: 2px; }
+.spark i[data-today] { background: var(--green); }
+@media (prefers-color-scheme: dark) { .spark i[data-today] { background: var(--tree); } } /* today stays the deeper green */
+
+.cando { margin: 8px 0 0; font-size: 13px; color: var(--text); }
+
+/* ---------- two instruments ---------- */
+.split { display: flex; gap: 22px; }
+.split > div:first-child { flex: 0 0 300px; border-right: 2px solid var(--line); padding-right: 22px; }
+.stat { margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+.stat--chain { color: var(--tree); }
+.sub { margin: 6px 0 0; font-size: 12px; color: var(--text-2); }
+.target-row { display: flex; align-items: center; gap: 14px; }
+.meter { display: flex; gap: 5px; flex: 1 1 auto; }
+.meter i { flex: 1 1 0; height: 14px; border-radius: var(--r-full); background: var(--bee); display: block; }
+.meter i[data-missed] { background: var(--inset); box-shadow: inset 0 0 0 1px var(--line); }
+
+/* ---------- ledger ---------- */
+.ledger { margin: 6px 0 0; padding: 0; list-style: none; }
+.ledger li { display: flex; align-items: baseline; gap: 10px; padding: 7px 0; font-size: 12px; }
+.ledger span { margin-left: auto; font-size: 11px; color: var(--text-2); }
+.ledger b { font-weight: 700; color: var(--green); min-width: 22px; text-align: right; }
+
+/* ---------- the annotation rail ---------- */
+.rail {
+  margin: 20px 0 0; padding-top: 18px;
+  border-top: 2px solid var(--line);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px; color: var(--text-2);
+  display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: center;
+}
+.rail b { color: var(--text); font-weight: 700; }
+.rail .spacer { margin-left: auto; }
+
+/* =========================================================================
+   prefers-reduced-motion.md — disable the translations, the scale and the
+   celebration. Keep the opacity fade and keep every state change legible.
+   pov.md §8: celebration is the first thing to drop, not the last.
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .js .tile {
+    transform: none;
+    transition: opacity var(--t-fade) linear;   /* no stagger delay, no scale */
+  }
+  .chain.is-mounted .tile { transform: none; }
+  .tile--sealing { animation: none; }
+  /* the dot/check swap is the one celebratory beat in the design, so it is the first
+     thing to lose its motion. These are the live selectors: .glyph--open and
+     .tile--sealed died with the .glyph--swap refactor and matched nothing, which left
+     the spring and the 180ms shrink running under reduce. */
+  .glyph__dot, .glyph__check { transition: opacity var(--t-fade) linear; }
+  .tile--open .glyph__dot,  .tile--open .glyph__check,
+  .tile--filed .glyph__dot, .tile--filed .glyph__check { transform: none; }
+  .btn::before { transition: none; }
+  .btn:active::before { transform: none; box-shadow: 0 0 0 0 var(--green-lip); }
+  .fill { transition: none; }
+}
+
+/* ---------- narrow ---------- */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .split { display: block; }
+  .split > div:first-child { border-right: 0; border-bottom: 2px solid var(--line); padding: 0 0 16px; margin-bottom: 16px; }
+  .nav, .cycle { display: none; }
+  /* .bar__right was a non-wrapping flex row and .btn a shrinkable item with a fixed
+     40px height, so the primary CTA collapsed to min-content and its label spilled
+     out of the green fill. After filing, revealing Replay pushed the avatar off the
+     right edge. Wrapping the bar clears both, and 44px clears the tap-target floor. */
+  .bar { flex-wrap: wrap; row-gap: 12px; }
+  .bar__right { flex: 1 1 100%; margin-left: 0; }
+  .btn { flex: none; height: 44px; white-space: nowrap; }
+  .btn--ghost { height: 44px; }
+  .btn--ghost::after { content: none; }   /* the box is already 44px here */
+  .chain { flex-wrap: wrap; }
+  .link { flex: 1 1 60px; }
+  .display { font-size: 30px; }
+}
+</style>
+<script>document.documentElement.className = 'js';</script>
+</head>
+<body>
+
+<main class="page">
+  <div class="window">
+
+    <header class="bar">
+      <span class="mark" aria-hidden="true"><i></i><i></i></span>
+      <span class="wordmark">clearline</span>
+      <nav aria-label="Primary">
+        <ul class="nav">
+          <li><a href="#" aria-current="page">runs</a></li>
+          <li><a href="#">people</a></li>
+          <li><a href="#">filings</a></li>
+          <li><a href="#">reports</a></li>
+        </ul>
+      </nav>
+      <div class="bar__right">
+        <span class="cycle" id="cycle">run 18 · sep 16 – sep 30</span>
+        <button class="btn" id="file">File run 18</button>
+        <button class="btn btn--ghost" id="replay" hidden>Replay</button>
+        <span class="avatar" aria-hidden="true">rk</span>
+      </div>
+    </header>
+
+    <div class="grid">
+
+      <!-- ===== the chain ===== -->
+      <section class="card" aria-labelledby="chain-h">
+        <p class="eyebrow">Run chain</p>
+        <h1 class="display" id="chain-h"><span id="chain-n">6</span> consecutive runs filed clean</h1>
+
+        <ul class="chain" id="chain">
+          <li class="link" style="--i:0">
+            <span class="pause-flag" data-hidden>paused</span>
+            <div class="tile tile--filed"><span class="glyph"><svg viewBox="0 0 26 22" width="26" height="22" aria-hidden="true"><path d="M4 12 L10 18 L22 4" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tile__num">11</span></div>
+            <span class="tile__date">jun 1–15</span>
+          </li>
+          <li class="link" style="--i:1">
+            <span class="pause-flag" data-hidden>paused</span>
+            <div class="tile tile--filed"><span class="glyph"><svg viewBox="0 0 26 22" width="26" height="22" aria-hidden="true"><path d="M4 12 L10 18 L22 4" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tile__num">12</span></div>
+            <span class="tile__date">jun 16–30</span>
+          </li>
+          <li class="link" style="--i:2">
+            <span class="pause-flag" data-hidden>paused</span>
+            <div class="tile tile--filed"><span class="glyph"><svg viewBox="0 0 26 22" width="26" height="22" aria-hidden="true"><path d="M4 12 L10 18 L22 4" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tile__num">13</span></div>
+            <span class="tile__date">jul 1–15</span>
+          </li>
+          <li class="link" style="--i:3">
+            <span class="pause-flag">paused</span>
+            <div class="tile tile--paused"><span class="glyph glyph--pause" aria-hidden="true"><i></i><i></i></span><span class="tile__num">14</span></div>
+            <span class="tile__date">jul 16–31</span>
+          </li>
+          <li class="link" style="--i:4">
+            <span class="pause-flag" data-hidden>paused</span>
+            <div class="tile tile--filed"><span class="glyph"><svg viewBox="0 0 26 22" width="26" height="22" aria-hidden="true"><path d="M4 12 L10 18 L22 4" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tile__num">15</span></div>
+            <span class="tile__date">aug 1–15</span>
+          </li>
+          <li class="link" style="--i:5">
+            <span class="pause-flag" data-hidden>paused</span>
+            <div class="tile tile--filed"><span class="glyph"><svg viewBox="0 0 26 22" width="26" height="22" aria-hidden="true"><path d="M4 12 L10 18 L22 4" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tile__num">16</span></div>
+            <span class="tile__date">aug 16–31</span>
+          </li>
+          <li class="link" style="--i:6">
+            <span class="pause-flag" data-hidden>paused</span>
+            <div class="tile tile--filed"><span class="glyph"><svg viewBox="0 0 26 22" width="26" height="22" aria-hidden="true"><path d="M4 12 L10 18 L22 4" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tile__num">17</span></div>
+            <span class="tile__date">sep 1–15</span>
+          </li>
+          <li class="link" style="--i:7">
+            <span class="pause-flag" data-hidden>paused</span>
+            <div class="tile tile--open" id="tile18"><span class="glyph glyph--swap" aria-hidden="true"><i class="glyph__dot"></i><svg class="glyph__check" viewBox="0 0 26 22" width="26" height="22"><path d="M4 12 L10 18 L22 4" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tile__num">18</span></div>
+            <span class="tile__date">sep 16–30</span>
+          </li>
+        </ul>
+
+        <div class="chain-foot">
+          <p class="note">run 14 paused for q2 filing week. scheduled, not spent.</p>
+          <span class="freeze"><b>2</b> run freezes left</span>
+        </div>
+        <p class="note" style="margin-top:12px">one clean filing extends the chain. an unchanged run approves in under 2 minutes.</p>
+      </section>
+
+      <!-- ===== the scalar ===== -->
+      <section class="card" aria-labelledby="score-h">
+        <div class="score-head">
+          <p class="eyebrow" id="score-h">Payroll health</p>
+          <span class="chip" id="delta">+4 in 14 days</span>
+        </div>
+
+        <p class="score">
+          <span class="score__n" id="score" aria-live="polite">84</span>
+          <span class="score__of">/ 160</span>
+          <span class="score__next" id="next">3 checks from 85</span>
+        </p>
+
+        <div class="track" role="img" aria-label="Distance to the next health point">
+          <span class="fill" id="fill"></span>
+        </div>
+
+        <p class="eyebrow" style="margin:22px 0 0; letter-spacing:0; text-transform:none; font-weight:400; font-size:11px">checks cleared, last 14 days</p>
+        <div class="spark" id="spark" aria-hidden="true"></div>
+
+        <p class="note" style="margin-top:14px">10 of 14 days moved the score. it does not wait for a run.</p>
+        <p class="cando">at 84 you file multi-state runs with no corrections.</p>
+      </section>
+
+      <!-- ===== two instruments ===== -->
+      <section class="card">
+        <div class="split">
+          <div>
+            <p class="eyebrow">The chain</p>
+            <p class="stat stat--chain"><span id="chain-n2">6</span> runs</p>
+            <p class="sub">extends on one clean filing</p>
+          </div>
+          <div style="flex:1 1 auto">
+            <p class="eyebrow">On-time target</p>
+            <div class="target-row">
+              <p class="stat">5 of 6</p>
+              <span class="meter" aria-hidden="true">
+                <i></i><i></i><i data-missed></i><i></i><i></i><i></i>
+              </span>
+            </div>
+            <p class="sub">last 6 runs. run 14 was paused.</p>
+          </div>
+        </div>
+        <p class="note" style="margin-top:18px">targets are celebrated, never required. missing one costs the target, not the chain.</p>
+      </section>
+
+      <!-- ===== off-cycle ledger ===== -->
+      <section class="card">
+        <p class="eyebrow">Off-cycle activity</p>
+        <ul class="ledger">
+          <li>verified 14 employee records <span>thu</span> <b>+2</b></li>
+          <li>cleared the q2 state filing <span>tue</span> <b>+1</b></li>
+          <li>resolved 2 pay exceptions <span>mon</span> <b>+1</b></li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="rail">
+    <span><b>press</b> 100ms</span>
+    <span><b>seal</b> 250ms · scale 0.95 → 1 · ease-spring .34, 2.4, .64, 1</span>
+    <span><b>count</b> 400ms · ease-out-quart</span>
+    <span><b>stagger</b> 50ms · first mount only</span>
+    <span><b>exit</b> 180ms · 72% of enter</span>
+    <span class="spacer">reduced motion: opacity 120ms, nothing else</span>
+  </div>
+</main>
+
+<script>
+(() => {
+  'use strict';
+
+  /* ---- ease-out-quart, evaluated exactly. easing-curves.md ---- */
+  const bezier = (x1, y1, x2, y2) => {
+    const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
+    const cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+    const fx = t => ((ax * t + bx) * t + cx) * t;
+    const dx = t => (3 * ax * t + 2 * bx) * t + cx;
+    return x => {
+      let t = x;
+      for (let i = 0; i < 6; i++) {
+        const d = dx(t); if (Math.abs(d) < 1e-6) break;
+        t -= (fx(t) - x) / d;
+      }
+      t = Math.min(1, Math.max(0, t));
+      return ((ay * t + by) * t + cy) * t;
+    };
+  };
+  const easeOutQuart = bezier(0.25, 1, 0.5, 1);
+
+  const D = { press: 100, seal: 250, count: 400 };
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* ---- the 14-day trace. checks cleared per day; 10 of 14 are non-zero. ---- */
+  const trace = [2, 0, 5, 3, 1, 0, 0, 4, 2, 6, 1, 3, 0, 2];
+  const spark = document.getElementById('spark');
+  trace.forEach((v, i) => {
+    const b = document.createElement('i');
+    b.style.height = Math.max(3, v * 6) + 'px';
+    if (v === 0) b.dataset.zero = '';
+    if (i === trace.length - 1) b.dataset.today = '';
+    spark.appendChild(b);
+  });
+
+  /* ---- stagger on mount, and only on mount. stagger-choreography.md ----
+     A hidden tab does not tick rAF and does not advance transitions, so the
+     reveal is held until the page is actually looked at. That is also what the
+     node means by first appearance. */
+  const chain = document.getElementById('chain');
+  const mount = () => requestAnimationFrame(() =>
+    requestAnimationFrame(() => chain.classList.add('is-mounted')));
+
+  if (document.hidden) {
+    document.addEventListener('visibilitychange', function seen() {
+      if (document.hidden) return;
+      document.removeEventListener('visibilitychange', seen);
+      mount();
+    });
+  } else {
+    mount();
+  }
+
+  const els = {
+    file:   document.getElementById('file'),
+    replay: document.getElementById('replay'),
+    tile:   document.getElementById('tile18'),
+    score:  document.getElementById('score'),
+    fill:   document.getElementById('fill'),
+    next:   document.getElementById('next'),
+    delta:  document.getElementById('delta'),
+    cycle:  document.getElementById('cycle'),
+    n1:     document.getElementById('chain-n'),
+    n2:     document.getElementById('chain-n2'),
+    cando:  document.querySelector('.cando')
+  };
+
+  const FROM = 0.62;   /* where the bar sits at 84 */
+  const TO   = 0.18;   /* where it lands at 85 */
+  let filed = false;
+  let landed = false;
+  let floor;            /* the rAF-starvation fallback, cleared on replay */
+
+  const setBar = f => { els.fill.style.transform = 'scaleX(' + f.toFixed(4) + ')'; };
+
+  function land() {
+    if (landed) return;
+    landed = true;
+    els.score.textContent = '85';
+    setBar(TO);
+    els.next.textContent = '9 checks from 86';
+    els.delta.textContent = '+5 in 14 days';
+    els.n1.textContent = '7';
+    els.n2.textContent = '7';
+    els.cando.textContent = 'at 85 you file multi-state runs with no corrections.';
+    els.cycle.textContent = 'run 19 · oct 1 – oct 15';
+    els.file.textContent = 'Run 18 filed';
+    /* a disabled control is not focusable, so leaving focus on it restarts Tab from
+       the top of the document. The replay handler does the mirror of this. */
+    const hadFocus = document.activeElement === els.file;
+    els.file.disabled = true;
+    els.replay.hidden = false;
+    if (hadFocus) els.replay.focus();
+  }
+
+  /* The reward beat, laid out exactly as the still annotates it:
+     press 0–100 · seal 100–350 · count 350–750. pov.md §5 puts the daily beat at
+     medium tier, so this is a scale-in and a count-up, not confetti. */
+  function fileRun() {
+    if (filed) return;
+    filed = true;
+
+    els.tile.classList.remove('tile--open');
+    els.tile.classList.add('tile--filed');
+
+    if (reduced.matches) { land(); return; }
+
+    els.tile.classList.add('tile--sealing');
+    setTimeout(() => els.tile.classList.remove('tile--sealing'), D.seal + 30);
+
+    /* same floor as the mount: if rAF is paused, the numbers still land */
+    floor = setTimeout(land, D.press + D.seal + D.count + 120);
+
+    setTimeout(() => {
+      const t0 = performance.now();
+      const span = (1 - FROM) + TO;          /* the bar wraps past the point */
+      const step = now => {
+        if (landed) return;
+        const p = Math.min(1, (now - t0) / D.count);
+        const e = easeOutQuart(p);
+        const travelled = e * span;
+        setBar(FROM + travelled <= 1 ? FROM + travelled : FROM + travelled - 1);
+        els.score.textContent = String(84 + Math.round(e));
+        if (p < 1) requestAnimationFrame(step); else land();
+      };
+      requestAnimationFrame(step);
+    }, D.press + D.seal);
+  }
+
+  els.file.addEventListener('click', fileRun);
+
+  els.replay.addEventListener('click', () => {
+    /* rAF normally lands at ~750ms while the 870ms floor is still pending. Without
+       this, a replay inside that window is silently undone 120ms later. */
+    clearTimeout(floor);
+    filed = false;
+    landed = false;
+    els.tile.classList.remove('tile--filed', 'tile--sealing');
+    els.tile.classList.add('tile--open');
+    els.score.textContent = '84';
+    setBar(FROM);
+    els.next.textContent = '3 checks from 85';
+    els.delta.textContent = '+4 in 14 days';
+    els.n1.textContent = '6';
+    els.n2.textContent = '6';
+    els.cando.textContent = 'at 84 you file multi-state runs with no corrections.';
+    els.cycle.textContent = 'run 18 · sep 16 – sep 30';
+    els.file.textContent = 'File run 18';
+    els.file.disabled = false;
+    els.replay.hidden = true;
+    els.file.focus();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  run-streak · a habit surface for an episodic product (payroll, roughly 2 logins a month)
+
+  Two packs, one screen. Every value below traces to a node that was read, not remembered.
+
+  RATIONALE (Duolingo pack)
+
+  · The period is one run, not one day. The router is explicit that a product genuinely used
+    twice a month does not have a retention problem, and that a daily loop will only
+    manufacture guilt. So the chain counts runs and the health scalar carries the 28 days
+    in between. (skills/duolingo/SKILL.md, "Before any habit-family route, check frequency")
+
+  · One clean filing extends the chain. The on time target sits beside it and never gates it.
+    Duolingo's move from goal gated to one lesson extends it returned +3.3% Day 14 retention,
+    +1% daily actives, and +10.5% more daily learners on a streak within 20 days.
+    (duo-streak-mechanics/references/fixed-low-bar-separate-ambition-dial.md)
+
+  · "under 2 minutes" on the floor line is the node's own target for a minimum viable day,
+    stated in time rather than intent. Duolingo names the tactics and the durations itself.
+    (duo-streak-mechanics/references/trivial-floor-protects-the-chain-not-the-outcome.md)
+
+  · run 14 is a scheduled pause aimed at a known dip, q2 filing week, and the chain reads 6
+    consecutive because the pause carried it rather than broke it. Duolingo's Weekend Amulet
+    was aimed at a measured weekend trough of 5 to 10% below midweek and made learners 4%
+    more likely to return a week later and 5% less likely to lose the streak.
+    (duo-streak-mechanics/references/scheduled-pause-at-the-known-dip.md)
+
+  · The pause is drawn as an inset, unpressable tile; the freeze is a counted token with its
+    balance shown before it is needed. The node insists these are two different instruments,
+    so they are two different shapes. (duo-streak-mechanics/references/scarce-recovery-token.md)
+
+  · Payroll health is the fine grained scalar beside the coarse chain: a 0 to 160 scale, a bar
+    to the next point, a delta, and a 14 day trace proving it moves on ordinary days. The
+    design test from the node is not "is this accurate" but "does this move within one session
+    of ordinary use". (duo-perceived-progress/references/rate-of-change-beats-absolute-position.md)
+
+  · "at 84 you file multi-state runs with no corrections" is the score written in can do terms,
+    in the user's task language rather than internal units.
+    (duo-perceived-progress/references/a-portable-number-in-can-do-terms.md)
+
+  CRAFT (design-engineering; meta/pov.md outranks canon)
+
+  · Tokens, all from pov.md §2: Feather Green #58CC02, Tree Frog #58A700, Eel #4B4B4B,
+    Snow #FFFFFF, Wolf #6E6E6E, Hare #AFAFAF, Swan #E5E5E5, Polar #F7F7F7, Macaw #1CB0F6,
+    Fox #FF9600, Bee #FFC800, Humpback #2B70C9.
+
+  · Every pressable surface carries a solid lip in a darker shade of its own fill: 4px on the
+    button, 2px on cards and tiles, because pickable things look pickable. (pov.md §1)
+
+  · Contrast. pov.md §8 computes white on Feather Green at roughly 2.1:1 and says do not ship
+    it. So every text bearing green surface here is #367F00, the darkened green pov.md
+    sanctions as clearing 4.5:1 on white, with lip #366800 derived by pov.md's own Feather to
+    Tree Frog ratio (red channel held, green channel scaled 0.82). #58CC02 survives only as a
+    non text fill: the progress bar and the sparkline. Hare #AFAFAF is used for no text at all.
+    The same arithmetic applies to Wolf, which carries far more text here than the green
+    does: pov.md's #777777 computes to 4.48:1 on Snow and 4.18:1 on Polar, so every
+    secondary label and the whole motion rail sat under the line. #6E6E6E computes to
+    5.10:1 and 4.76:1, and the hue shift is imperceptible beside it.
+    Right and wrong are never carried by colour alone: check, pause bars and hollow dot are
+    three different glyphs. (pov.md §8, components/accessibility-baseline.md,
+    surface/contrast-and-color-scheme.md)
+
+  · Radius: 12px on tiles and the button, 16px on cards and the window, full radius on the
+    progress bar and every pill. Nothing is pointy. (pov.md §4, surface/border-radius.md)
+
+  · Shadow: one layered whisper at 5/5/4% on a #111 base, on the window only, because that is
+    the single floating layer. Cards get lips instead, which is pov.md's stated override of
+    shadows-whisper. (surface/shadows-whisper.md)
+
+  · Type: the display role is lowercase, never below 30px, tracking -0.02em at the 30px floor
+    and tightening as the type grows (-0.031em on the 72px score, because larger type wants
+    less tracking), and never set in a neutral, so the 30px headline and the 72px score are
+    Tree Frog rather than Eel. Eyebrows are the one uppercase exception, at 11px with
+    +0.1em, which is where uppercase is allowed.
+    (pov.md §3, typography/line-length-tracking.md)
+
+  · Copy: sentence case headings, ALL CAPS button at +0.04em with no punctuation, numerals for
+    every number, contractions, and no em dashes in product copy. (pov.md §6)
+
+  · Rounded geometry carries the warmth, because pov.md's rounded faces cannot be embedded in a
+    SVG that GitHub will render. That is a constraint, not a preference. (pov.md §3, §4)
+
+  · Motion is annotated, not faked. Press 100ms (pov.md §5). Seal 250ms from scale 0.95, never
+    from 0, on ease-spring cubic-bezier(0.34, 2.4, 0.64, 1). The y1 is 2.4 rather than the
+    usual 1.56 because the range is small: 1.56 peaks at 1.0978 normalised, which on a
+    0.95 to 1 range is a 0.49% overshoot, 0.37px on a 76px tile, below the threshold where a
+    spring reads as a spring at all. 2.4 peaks at 1.4059, so the tile peaks at 1.0203 - the
+    restrained 1 to 2% band. Stagger 50ms across 8 tiles, on
+    first appearance only. Count up 400ms on ease-out-quart cubic-bezier(0.25, 1, 0.5, 1).
+    Exit 180ms, which is 72% of the 250ms enter. Reduced motion keeps a 120ms opacity fade and
+    drops the count up, the stagger and the overshoot.
+    (motion/duration-table.md, motion/easing-curves.md, motion/stagger-choreography.md,
+     motion/never-scale-from-zero.md, motion/prefers-reduced-motion.md,
+     philosophy/delight-impact-curve.md)
+
+  · Deleted per anti-patterns/ai-default-tells.md: no purple gradient, no glassmorphism, no
+    emoji, no centred hero, no Inter, no spinner, no lorem ipsum, no round marketing numbers.
+
+  The live version, with the motion actually running: run-streak.html
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700"
+     font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+
+  <defs>
+    <filter id="whisper" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#111111" flood-opacity="0.05"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#111111" flood-opacity="0.05"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#111111" flood-opacity="0.04"/>
+    </filter>
+  </defs>
+
+  <!-- ground: Polar, explicit, never transparent -->
+  <rect width="1200" height="700" fill="#F7F7F7"/>
+
+  <!-- ============ app window ============ -->
+  <rect x="24" y="24" width="1152" height="560" rx="16" fill="#FFFFFF" filter="url(#whisper)"/>
+
+  <!-- header -->
+  <rect x="24" y="82" width="1152" height="2" fill="#E5E5E5"/>
+
+  <!-- the header shares the cards' rules: 52 on the left, 1148 on the right. It used to
+       be inset 24 while every card was inset 28, so the mark hung 4px left of the RUN
+       CHAIN card directly under the eye's entry point. Nav x values are set off the
+       rendered label widths rather than a round grid, so the three gaps come out even. -->
+  <rect x="52" y="42" width="26" height="26" rx="9" fill="#367F00"/>
+  <rect x="58" y="50" width="14" height="3.5" rx="1.75" fill="#FFFFFF"/>
+  <rect x="58" y="57" width="9" height="3.5" rx="1.75" fill="#FFFFFF"/>
+  <text x="88" y="61" font-size="17" font-weight="800" fill="#4B4B4B" letter-spacing="-0.2">clearline</text>
+
+  <!-- current tab: colour and the underline carry it. The weight stays 500 like its
+       neighbours, so moving between tabs never reflows the row. -->
+  <text x="204" y="61" font-size="14" font-weight="500" fill="#4B4B4B">runs</text>
+  <rect x="204" y="70" width="28" height="3" rx="1.5" fill="#367F00"/>
+  <text x="257" y="61" font-size="14" font-weight="500" fill="#6E6E6E">people</text>
+  <text x="326" y="61" font-size="14" font-weight="500" fill="#6E6E6E">filings</text>
+  <text x="389" y="61" font-size="14" font-weight="500" fill="#6E6E6E">reports</text>
+
+  <text x="951" y="56" font-size="13" fill="#6E6E6E" text-anchor="end">run 18 · sep 16 – sep 30</text>
+
+  <rect x="967" y="34" width="138" height="40" rx="12" fill="#366800"/>
+  <rect x="967" y="30" width="138" height="40" rx="12" fill="#367F00"/>
+  <text x="1036" y="55" font-size="15" font-weight="700" fill="#FFFFFF" letter-spacing="0.6" text-anchor="middle">FILE RUN 18</text>
+
+  <circle cx="1133" cy="52" r="15" fill="#FFC800"/>
+  <text x="1133" y="57" font-size="12" font-weight="700" fill="#4B4B4B" text-anchor="middle">rk</text>
+
+  <!-- ============ card A · the run chain ============ -->
+  <rect x="52" y="114" width="648" height="288" rx="16" fill="#E5E5E5"/>
+  <rect x="52" y="112" width="648" height="288" rx="16" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+
+  <text x="76" y="142" font-size="11" font-weight="700" fill="#6E6E6E" letter-spacing="1.1">RUN CHAIN</text>
+  <text x="76" y="182" font-size="30" font-weight="800" fill="#58A700" letter-spacing="-0.6">6 consecutive runs filed clean</text>
+
+  <!-- the chain solves for the container: 8 tiles of 66.25 and 7 gaps of 10 fill the 600
+       of card A's inner width exactly, so the run ends on the card's right rule at 676
+       instead of 2px short of it. -->
+
+  <!-- sanctioned pause, labelled above its own tile -->
+  <rect x="290.875" y="192" width="94" height="19" rx="9.5" fill="#2B70C9"/>
+  <text x="337.875" y="205.5" font-size="9" font-weight="700" fill="#FFFFFF" letter-spacing="0.9" text-anchor="middle">PAUSED</text>
+
+  <!-- run 11 · filed -->
+  <rect x="76" y="218" width="66.25" height="76" rx="12" fill="#366800"/>
+  <rect x="76" y="216" width="66.25" height="76" rx="12" fill="#367F00"/>
+  <path d="M 97.125 254 L 105.125 262 L 121.125 244" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="109.125" y="282" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">11</text>
+  <text x="109.125" y="308" font-size="10" fill="#6E6E6E" text-anchor="middle">jun 1–15</text>
+
+  <!-- run 12 · filed -->
+  <rect x="152.25" y="218" width="66.25" height="76" rx="12" fill="#366800"/>
+  <rect x="152.25" y="216" width="66.25" height="76" rx="12" fill="#367F00"/>
+  <path d="M 173.375 254 L 181.375 262 L 197.375 244" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="185.375" y="282" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">12</text>
+  <text x="185.375" y="308" font-size="10" fill="#6E6E6E" text-anchor="middle">jun 16–30</text>
+
+  <!-- run 13 · filed -->
+  <rect x="228.5" y="218" width="66.25" height="76" rx="12" fill="#366800"/>
+  <rect x="228.5" y="216" width="66.25" height="76" rx="12" fill="#367F00"/>
+  <path d="M 249.625 254 L 257.625 262 L 273.625 244" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="261.625" y="282" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">13</text>
+  <text x="261.625" y="308" font-size="10" fill="#6E6E6E" text-anchor="middle">jul 1–15</text>
+
+  <!-- run 14 · scheduled pause. inset surface, no lip: it is not pressable, it is a gap being held -->
+  <rect x="304.75" y="216" width="66.25" height="76" rx="12" fill="#F7F7F7" stroke="#E5E5E5" stroke-width="2"/>
+  <rect x="329.875" y="240" width="6" height="20" rx="3" fill="#2B70C9"/>
+  <rect x="339.875" y="240" width="6" height="20" rx="3" fill="#2B70C9"/>
+  <text x="337.875" y="282" font-size="14" font-weight="700" fill="#2B70C9" text-anchor="middle">14</text>
+  <text x="337.875" y="308" font-size="10" fill="#6E6E6E" text-anchor="middle">jul 16–31</text>
+
+  <!-- run 15 · filed -->
+  <rect x="381" y="218" width="66.25" height="76" rx="12" fill="#366800"/>
+  <rect x="381" y="216" width="66.25" height="76" rx="12" fill="#367F00"/>
+  <path d="M 402.125 254 L 410.125 262 L 426.125 244" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="414.125" y="282" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">15</text>
+  <text x="414.125" y="308" font-size="10" fill="#6E6E6E" text-anchor="middle">aug 1–15</text>
+
+  <!-- run 16 · filed -->
+  <rect x="457.25" y="218" width="66.25" height="76" rx="12" fill="#366800"/>
+  <rect x="457.25" y="216" width="66.25" height="76" rx="12" fill="#367F00"/>
+  <path d="M 478.375 254 L 486.375 262 L 502.375 244" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="490.375" y="282" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">16</text>
+  <text x="490.375" y="308" font-size="10" fill="#6E6E6E" text-anchor="middle">aug 16–31</text>
+
+  <!-- run 17 · filed -->
+  <rect x="533.5" y="218" width="66.25" height="76" rx="12" fill="#366800"/>
+  <rect x="533.5" y="216" width="66.25" height="76" rx="12" fill="#367F00"/>
+  <path d="M 554.625 254 L 562.625 262 L 578.625 244" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="566.625" y="282" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">17</text>
+  <text x="566.625" y="308" font-size="10" fill="#6E6E6E" text-anchor="middle">sep 1–15</text>
+
+  <!-- run 18 · open -->
+  <rect x="609.75" y="216" width="66.25" height="76" rx="12" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2" stroke-dasharray="7 7" stroke-linecap="round"/>
+  <circle cx="642.875" cy="250" r="6" fill="#FF9600"/>
+  <text x="642.875" y="282" font-size="14" font-weight="700" fill="#4B4B4B" text-anchor="middle">18</text>
+  <text x="642.875" y="308" font-size="10" fill="#6E6E6E" text-anchor="middle">sep 16–30</text>
+
+  <text x="76" y="345" font-size="13" fill="#6E6E6E">run 14 paused for q2 filing week. scheduled, not spent.</text>
+
+  <!-- scarce recovery token, balance visible before it is needed -->
+  <rect x="524" y="328" width="152" height="28" rx="14" fill="#F7F7F7" stroke="#E5E5E5" stroke-width="2"/>
+  <circle cx="544" cy="342" r="9" fill="#2B70C9"/>
+  <text x="544" y="346" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+  <text x="560" y="346" font-size="12" font-weight="700" fill="#2B70C9">run freezes left</text>
+
+  <text x="76" y="372" font-size="13" fill="#6E6E6E">one clean filing extends the chain. an unchanged run approves in under 2 minutes.</text>
+
+  <!-- ============ card C · payroll health ============ -->
+  <rect x="724" y="114" width="424" height="288" rx="16" fill="#E5E5E5"/>
+  <rect x="724" y="112" width="424" height="288" rx="16" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+
+  <text x="748" y="142" font-size="11" font-weight="700" fill="#6E6E6E" letter-spacing="1.1">PAYROLL HEALTH</text>
+  <rect x="1028" y="128" width="96" height="24" rx="12" fill="#F7F7F7"/>
+  <text x="1076" y="144" font-size="11" font-weight="700" fill="#367F00" text-anchor="middle">+4 in 14 days</text>
+
+  <text x="748" y="216" font-size="72" font-weight="800" fill="#58A700" letter-spacing="-2.2">84</text>
+  <text x="842" y="216" font-size="20" font-weight="700" fill="#6E6E6E">/ 160</text>
+  <text x="1124" y="210" font-size="12" fill="#6E6E6E" text-anchor="end">3 checks from 85</text>
+
+  <!-- distance to the next point. full radius track and fill, inset highlight -->
+  <rect x="748.5" y="240.5" width="375" height="13" rx="6.5" fill="#F7F7F7" stroke="#E5E5E5" stroke-width="1"/>
+  <rect x="748" y="240" width="233" height="14" rx="7" fill="#58CC02"/>
+  <rect x="753" y="243" width="223" height="4" rx="2" fill="#FFFFFF" opacity="0.32"/>
+
+  <text x="748" y="292" font-size="11" fill="#6E6E6E">checks cleared, last 14 days</text>
+
+  <!-- the same solve: 14 bars of 18.5 and 13 gaps of 9 fill 376, so the trace ends on
+       1124 with the track it is read against, instead of 7px short of it. -->
+  <rect x="748" y="326" width="18.5" height="12" rx="4" fill="#58CC02"/>
+  <rect x="775.5" y="335" width="18.5" height="3" rx="1.5" fill="#E5E5E5"/>
+  <rect x="803" y="308" width="18.5" height="30" rx="4" fill="#58CC02"/>
+  <rect x="830.5" y="320" width="18.5" height="18" rx="4" fill="#58CC02"/>
+  <rect x="858" y="332" width="18.5" height="6" rx="3" fill="#58CC02"/>
+  <rect x="885.5" y="335" width="18.5" height="3" rx="1.5" fill="#E5E5E5"/>
+  <rect x="913" y="335" width="18.5" height="3" rx="1.5" fill="#E5E5E5"/>
+  <rect x="940.5" y="314" width="18.5" height="24" rx="4" fill="#58CC02"/>
+  <rect x="968" y="326" width="18.5" height="12" rx="4" fill="#58CC02"/>
+  <rect x="995.5" y="302" width="18.5" height="36" rx="4" fill="#58CC02"/>
+  <rect x="1023" y="332" width="18.5" height="6" rx="3" fill="#58CC02"/>
+  <rect x="1050.5" y="320" width="18.5" height="18" rx="4" fill="#58CC02"/>
+  <rect x="1078" y="335" width="18.5" height="3" rx="1.5" fill="#E5E5E5"/>
+  <rect x="1105.5" y="326" width="18.5" height="12" rx="4" fill="#367F00"/>
+
+  <text x="748" y="358" font-size="12" fill="#6E6E6E">10 of 14 days moved the score. it does not wait for a run.</text>
+  <text x="748" y="380" font-size="13" fill="#4B4B4B">at 84 you file multi-state runs with no corrections.</text>
+
+  <!-- ============ card B · two instruments, side by side ============ -->
+  <rect x="52" y="422" width="648" height="136" rx="16" fill="#E5E5E5"/>
+  <rect x="52" y="420" width="648" height="136" rx="16" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+
+  <text x="76" y="448" font-size="11" font-weight="700" fill="#6E6E6E" letter-spacing="1.1">THE CHAIN</text>
+  <text x="76" y="478" font-size="22" font-weight="800" fill="#58A700" letter-spacing="-0.4">6 runs</text>
+  <text x="76" y="500" font-size="12" fill="#6E6E6E">extends on one clean filing</text>
+
+  <rect x="376" y="440" width="2" height="68" fill="#E5E5E5"/>
+
+  <text x="400" y="448" font-size="11" font-weight="700" fill="#6E6E6E" letter-spacing="1.1">ON-TIME TARGET</text>
+  <text x="400" y="478" font-size="22" font-weight="800" fill="#4B4B4B" letter-spacing="-0.4">5 of 6</text>
+  <!-- 6 pills of 29.167 and 5 gaps of 5 fill the 200 to the card's right rule at 676 -->
+  <rect x="476" y="464" width="29.167" height="14" rx="7" fill="#FFC800"/>
+  <rect x="510.167" y="464" width="29.167" height="14" rx="7" fill="#FFC800"/>
+  <rect x="544.333" y="464" width="29.167" height="14" rx="7" fill="#F7F7F7" stroke="#E5E5E5" stroke-width="1"/>
+  <rect x="578.5" y="464" width="29.167" height="14" rx="7" fill="#FFC800"/>
+  <rect x="612.667" y="464" width="29.167" height="14" rx="7" fill="#FFC800"/>
+  <rect x="646.833" y="464" width="29.167" height="14" rx="7" fill="#FFC800"/>
+  <text x="400" y="500" font-size="12" fill="#6E6E6E">last 6 runs. run 14 was paused.</text>
+
+  <text x="76" y="532" font-size="13" fill="#6E6E6E">targets are celebrated, never required. missing one costs the target, not the chain.</text>
+
+  <!-- ============ card D · what moved it off cycle ============ -->
+  <rect x="724" y="422" width="424" height="136" rx="16" fill="#E5E5E5"/>
+  <rect x="724" y="420" width="424" height="136" rx="16" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+
+  <text x="748" y="448" font-size="11" font-weight="700" fill="#6E6E6E" letter-spacing="1.1">OFF-CYCLE ACTIVITY</text>
+
+  <text x="748" y="478" font-size="12" fill="#4B4B4B">verified 14 employee records</text>
+  <text x="1086" y="478" font-size="11" fill="#6E6E6E" text-anchor="end">thu</text>
+  <text x="1124" y="478" font-size="12" font-weight="700" fill="#367F00" text-anchor="end">+2</text>
+
+  <text x="748" y="504" font-size="12" fill="#4B4B4B">cleared the q2 state filing</text>
+  <text x="1086" y="504" font-size="11" fill="#6E6E6E" text-anchor="end">tue</text>
+  <text x="1124" y="504" font-size="12" font-weight="700" fill="#367F00" text-anchor="end">+1</text>
+
+  <text x="748" y="530" font-size="12" fill="#4B4B4B">resolved 2 pay exceptions</text>
+  <text x="1086" y="530" font-size="11" fill="#6E6E6E" text-anchor="end">mon</text>
+  <text x="1124" y="530" font-size="12" font-weight="700" fill="#367F00" text-anchor="end">+1</text>
+
+  <!-- ============ motion annotation · the still can only imply it ============ -->
+  <!-- This rail carries the craft argument and is the densest type in the image, so it
+       cannot be the one part that is illegible at delivery size. A 1200-unit SVG renders
+       at roughly 900px in a README, a 0.75 scale, which put the old 8.5/9/9.5 floor at
+       6.4 to 7.1 CSS px. The floor is now 12, which lands at 9px, on #6E6E6E. -->
+  <rect x="24" y="604" width="1152" height="2" fill="#E5E5E5"/>
+
+  <text x="24" y="620" font-size="13" font-weight="700" fill="#6E6E6E" letter-spacing="0.8"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">MOTION · REAL VALUES · run-streak.html PLAYS IT</text>
+
+  <!-- mount. Eight tiles, each running 250ms, each starting 50ms after the one before.
+       The stagger is carried by the x offset alone. It used to be carried a second time
+       by an opacity ramp down to 0.3, inside the one diagram whose subject is an opacity
+       transition, which reads as "tile 8 only fades in to 30%" - which is false. One flat
+       opacity now, and the bars shingle on a Polar hairline so every start stays visible. -->
+  <text x="24" y="638" font-size="12" fill="#6E6E6E"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">mount</text>
+  <rect x="140" y="630" width="250" height="8" rx="4" fill="#58CC02" opacity="0.85" stroke="#F7F7F7" stroke-width="1.5"/>
+  <rect x="190" y="630" width="250" height="8" rx="4" fill="#58CC02" opacity="0.85" stroke="#F7F7F7" stroke-width="1.5"/>
+  <rect x="240" y="630" width="250" height="8" rx="4" fill="#58CC02" opacity="0.85" stroke="#F7F7F7" stroke-width="1.5"/>
+  <rect x="290" y="630" width="250" height="8" rx="4" fill="#58CC02" opacity="0.85" stroke="#F7F7F7" stroke-width="1.5"/>
+  <rect x="340" y="630" width="250" height="8" rx="4" fill="#58CC02" opacity="0.85" stroke="#F7F7F7" stroke-width="1.5"/>
+  <rect x="390" y="630" width="250" height="8" rx="4" fill="#58CC02" opacity="0.85" stroke="#F7F7F7" stroke-width="1.5"/>
+  <rect x="440" y="630" width="250" height="8" rx="4" fill="#58CC02" opacity="0.85" stroke="#F7F7F7" stroke-width="1.5"/>
+  <rect x="490" y="630" width="250" height="8" rx="4" fill="#58CC02" opacity="0.85" stroke="#F7F7F7" stroke-width="1.5"/>
+  <text x="750" y="638" font-size="12" fill="#6E6E6E"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">each 250ms · starts 0–350</text>
+
+  <!-- the reward beat, drawn to scale against its own axis: 1 unit = 1ms -->
+  <text x="24" y="664" font-size="12" fill="#6E6E6E"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">run files clean</text>
+  <rect x="140" y="652" width="100" height="16" rx="8" fill="#367F00"/>
+  <text x="190" y="664" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">press 100</text>
+  <rect x="240" y="652" width="250" height="16" rx="8" fill="#58CC02"/>
+  <text x="365" y="664" font-size="12" font-weight="700" fill="#4B4B4B" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">seal 0.95→1 · 250</text>
+  <rect x="490" y="652" width="400" height="16" rx="8" fill="#FFC800"/>
+  <text x="690" y="664" font-size="12" font-weight="700" fill="#4B4B4B" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">count 84→85 · 400</text>
+
+  <rect x="140" y="676" width="800" height="1" fill="#E5E5E5"/>
+  <rect x="140" y="676" width="1" height="5" fill="#E5E5E5"/>
+  <rect x="340" y="676" width="1" height="5" fill="#E5E5E5"/>
+  <rect x="540" y="676" width="1" height="5" fill="#E5E5E5"/>
+  <rect x="740" y="676" width="1" height="5" fill="#E5E5E5"/>
+  <rect x="940" y="676" width="1" height="5" fill="#E5E5E5"/>
+  <text x="140" y="692" font-size="12" fill="#6E6E6E" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">0</text>
+  <text x="340" y="692" font-size="12" fill="#6E6E6E" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">200ms</text>
+  <text x="540" y="692" font-size="12" fill="#6E6E6E" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">400</text>
+  <text x="740" y="692" font-size="12" fill="#6E6E6E" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">600</text>
+  <text x="940" y="692" font-size="12" fill="#6E6E6E" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">800</text>
+
+  <text x="964" y="620" font-size="12" fill="#6E6E6E"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">stagger 50ms · first mount</text>
+  <text x="964" y="635" font-size="12" fill="#6E6E6E"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">seal spring .34,2.4,.64,1</text>
+  <text x="964" y="650" font-size="12" fill="#6E6E6E"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">count quart .25,1,.5,1</text>
+  <text x="964" y="665" font-size="12" fill="#6E6E6E"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">exit 180ms · 72% of enter</text>
+  <text x="964" y="680" font-size="12" fill="#6E6E6E"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">reduced: opacity 120ms only</text>
+</svg>

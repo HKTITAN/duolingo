@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  FIRST DASHBOARD COMPLETE · Quarry (B2B analytics)
+  Peak frame of the celebration. Live version: celebration.html
+
+  WHY THIS IS NOT CONFETTI
+  duo-gamification/references/celebration-moments  · three tiers, distinct grammar per tier.
+                                                     Confetti is the rare-milestone grammar. This is the
+                                                     medium tier, so the celebration IS the dashboard
+                                                     performing: charts draw, the number counts, one line
+                                                     lands, one share affordance.
+  duo-design/references/celebration-design         · "layer, don't stack" · things enter at different times,
+                                                     peak together, settle. The timing strip below is that
+                                                     timeline, drawn.
+  philosophy/delight-impact-curve                  · first export / first dashboard is a rare moment, so it
+                                                     earns a medium-to-big budget. Everything after it
+                                                     collapses back to per action.
+
+  EVERY VALUE, AND WHERE IT CAME FROM
+
+  COLOUR
+  #367F00 share button fill, white label   meta/pov.md §8 · white on Feather Green computes to ~2.1:1 and on
+                                            Tree Frog to ~3.0:1. Neither ships. pov names #367F00 as the
+                                            darkened fill that clears 4.5:1 on white. Feather Green #58CC02
+                                            is kept only where it bears no text (progress fill, chart stroke).
+  #2B6600 button lip                        meta/pov.md §1 · "same hue, ~15% darker" than its own fill,
+                                            applied to #367F00.
+  #367F00 the display headline, the LIVE    meta/pov.md §2 · "Never set text in Feather Green on Snow." §3 ·
+  badge, the +18.2% label and its arrow     display face is "never set in a neutral like Eel." Tree Frog
+                                            #58A700 obeys both rules but measures only 2.82:1 on Polar and
+                                            3.02:1 on Snow, so it fails the 3:1 large-text floor on the ground
+                                            and never reaches 4.5:1 for the 11px badge or the 14px delta.
+                                            The same audited #367F00 clears both: 4.68:1 on Polar, 5.01:1 on
+                                            Snow. Tree Frog is still the right green on the dark ground
+                                            (5.56:1 on #131F24) — see celebration.html's dark remap.
+  #4B4B4B Eel · #6E6E6E Wolf · #AFAFAF Hare Wolf is darkened from the #777777 in the §2 token table: at
+  #E5E5E5 Swan · #F7F7F7 Polar              #777777 it is 4.18:1 on Polar and 4.48:1 on Snow, a UI grey, not
+                                            a text grey. #6E6E6E is 4.76:1 and 5.10:1. Hare keeps #AFAFAF but
+                                            only where it bears no text — the inert lane tracks.
+  #1CB0F6 Macaw appears nowhere             meta/pov.md §2 · "a colour that means nothing gets deleted."
+                                            A five segment source breakdown was cut for exactly this reason;
+                                            the three sparklines are one grey, not a categorical palette.
+  annotation type floors at 13px            This canvas is usually shown at ~900px in a README, a 0.75x
+                                            reduction. 10 and 11px annotation landed at 7.5 to 8.25px, below
+                                            the point at which it resolves at all. 13px displays at 9.75px.
+  delta arrow next to "+18.2%"              components/accessibility-baseline · don't rely on colour alone.
+                                            Same for the LIVE dot, which is paired with the word.
+
+  SURFACE
+  radius 16 card, 12 button, full pill/bar  meta/pov.md §4 radius scale. surface/border-radius nested rule:
+                                            card is 16 with 28 padding, so interior blocks get no radius at
+                                            all. Hairlines and whitespace separate them instead
+                                            (components/cards-design · "whitespace beats borders", no nesting).
+  layered drop shadow, 4 / 5 / 4 percent    surface/shadows-whisper · 4 to 6 percent opacity on a #111 base,
+                                            three layers, y offset never larger than the blur.
+  progress bar: full radius + inset shine   meta/pov.md §4 · "full radius fill and an inset highlight."
+                                            duo-design/references/progress-bars · treat it as a feature.
+  track in Swan, not Polar                  the page ground already IS Polar, so the Polar track would vanish.
+
+  TYPE
+  headline 36px/105%, tracking -0.02em      meta/pov.md §3 · display face: lowercase always, 10 words max,
+  lowercase, left aligned, 2 balanced lines  leading 100 to 110 percent, tracking -0.02em, never below 30px,
+                                            left aligned, never justified.
+  LIVE badge 11px, tracking 0.08em          typography/line-length-tracking · uppercase is fine at 10 to 12px
+                                            with wide tracking. Body tracking stays at 0.
+  button label 15px/700 caps, 0.04em        meta/pov.md §1 · ALL CAPS, 700, 15px, 0.04em, no punctuation.
+
+  COPY
+  "nobody has to ask you for this number     duo-voice/references/celebration-copy · reference what the user
+   again"                                    did, vary register, don't say "Congratulations!". This names the
+                                             outcome, not the action. duo-voice/references/screenshot-bait ·
+                                             one surface designed to leave the product. meta/pov.md §6 ·
+                                             sentence case, no punctuation in headlines except "!".
+  "4 of 4 charts placed"                     meta/pov.md §6 · numerals for every number, even under 10.
+  "2,847"                                    §6 · comma above 999 (the no comma rule is for XP and currency).
+  "SHARE DASHBOARD"                          §6 · no punctuation in buttons.
+
+  MOTION (peak frame here, real in celebration.html)
+  card settle 260ms                          motion/duration-table · modal class, 200 to 300ms.
+  scale 0.95 not 0                           motion/never-scale-from-zero. The progress bar fills
+                                             scaleX(0.75) to scaleX(1) for the same reason: 75 percent is the
+                                             real prior state (3 of 4 charts), so it never starts at zero.
+                                             duo-design/references/progress-bars · the 95 to 100 percent
+                                             transition is the part worth the care.
+  4 chart paths, 50ms stagger, 700ms         motion/stagger-choreography · 30 to 80ms sweet spot, 4 items is
+                                             under the cap of 12. motion/duration-table · celebration 600
+                                             to 1200ms.
+  count up 0 to 2,847 over 900ms             motion/duration-table celebration band. meta/pov.md §5 · the
+                                             daily reward beat gets "a number that counts up."
+  headline and button rise 8px, 240ms        motion/transform-opacity-only · translateY(8px) is the node's own
+                                             compose with translate example. duration-table popover band.
+  ease-out-quart cubic-bezier(.25, 1, .5, 1) motion/easing-curves · named curve, entrances.
+  ease-out-expo cubic-bezier(.16, 1, .3, 1)  motion/easing-curves · named curve, taps and presses.
+  press compresses the lip 4px in 100ms      meta/pov.md §1 and §5 · "a tap with no physical response is a bug."
+  reduce: opacity only, number lands at      motion/prefers-reduced-motion · disable translations and scales,
+  2,847, no wipe                             keep the ~120ms opacity fade. meta/pov.md §8 · celebration is the
+                                             first thing to drop, not the last.
+
+  DELETED ON PURPOSE (anti-patterns/ai-default-tells)
+  purple to indigo gradient · glassmorphism · emoji feature grid · centred hero · "Congratulations!" ·
+  "Get started" CTA · Lucide chevrons · a categorical five colour palette · a second share button ·
+  confetti · Bootstrap's 0 2px 8px shadow · lorem ipsum (every figure here is internally consistent).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="805" viewBox="0 0 1200 805" role="img" aria-label="Quarry analytics: a first dashboard published. Headline reads nobody has to ask you for this number again. The dashboard shows 2,847 qualified leads in the last 30 days, up 18.2 percent.">
+
+  <defs>
+    <filter id="cardShadow" x="-12%" y="-12%" width="124%" height="130%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="1" stdDeviation="0.5" flood-color="#111111" flood-opacity="0.04"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#111111" flood-opacity="0.05"/>
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#111111" flood-opacity="0.04"/>
+    </filter>
+
+    <linearGradient id="areaFill" x1="0" y1="336" x2="0" y2="428" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#58CC02" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#58CC02" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="ghostFade" x1="0" y1="176" x2="0" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="1"/>
+    </linearGradient>
+
+    <mask id="ghostMask" maskUnits="userSpaceOnUse" x="540" y="160" width="340" height="80">
+      <rect x="540" y="160" width="340" height="80" fill="url(#ghostFade)"/>
+    </mask>
+  </defs>
+
+  <!-- explicit ground, never transparent · Polar #F7F7F7 -->
+  <rect x="0" y="0" width="1200" height="805" fill="#F7F7F7"/>
+
+  <g font-family="Nunito, ui-rounded, 'Segoe UI', system-ui, -apple-system, sans-serif">
+
+    <!-- ===================== LEFT COLUMN ===================== -->
+
+    <!-- wordmark -->
+    <rect x="72" y="75" width="14" height="14" rx="4" fill="#58CC02"/>
+    <text x="94" y="88" font-size="17" font-weight="800" letter-spacing="-0.17" fill="#4B4B4B">quarry</text>
+
+    <!-- build progress, landed at 100 percent -->
+    <rect x="72" y="188" width="280" height="16" rx="8" fill="#E5E5E5"/>
+    <rect x="72" y="188" width="280" height="16" rx="8" fill="#58CC02"/>
+    <rect x="76" y="191" width="272" height="5" rx="2.5" fill="#FFFFFF" fill-opacity="0.28"/>
+    <text x="72" y="226" font-size="13" font-weight="600" fill="#6E6E6E">4 of 4 charts placed</text>
+
+    <!-- the one earned line · display face, lowercase, Tree Frog -->
+    <text x="72" y="312" font-size="36" font-weight="800" letter-spacing="-0.72" fill="#367F00">nobody has to ask you</text>
+    <text x="72" y="350" font-size="36" font-weight="800" letter-spacing="-0.72" fill="#367F00">for this number again</text>
+
+    <!-- the single share affordance · lip first, then face -->
+    <rect x="72" y="432" width="232" height="50" rx="12" fill="#2B6600"/>
+    <rect x="72" y="428" width="232" height="50" rx="12" fill="#367F00"/>
+    <text x="188" y="459" font-size="15" font-weight="700" letter-spacing="0.6" fill="#FFFFFF" text-anchor="middle">SHARE DASHBOARD</text>
+    <text x="72" y="514" font-size="13" fill="#6E6E6E">anyone at northwind.co can open it</text>
+
+    <!-- ===================== THE DASHBOARD ===================== -->
+
+    <rect x="522" y="72" width="606" height="488" rx="16" fill="#FFFFFF" filter="url(#cardShadow)"/>
+
+    <!-- header -->
+    <text x="550" y="112" font-size="19" font-weight="700" letter-spacing="-0.19" fill="#4B4B4B">Q3 pipeline health</text>
+    <text x="550" y="132" font-size="12" fill="#6E6E6E">northwind.co · refreshed 14 seconds ago</text>
+
+    <rect x="1034" y="92" width="66" height="26" rx="13" fill="#F7F7F7"/>
+    <circle cx="1050" cy="105" r="4" fill="#58CC02"/>
+    <text x="1062" y="109" font-size="11" font-weight="700" letter-spacing="0.88" fill="#367F00">LIVE</text>
+
+    <line x1="550" y1="148.5" x2="1100" y2="148.5" stroke="#E5E5E5" stroke-width="1"/>
+
+    <!-- ghosted keyframe of the count up, fading out above the settled value -->
+    <g mask="url(#ghostMask)" opacity="0.12">
+      <text x="550" y="218" font-size="58" font-weight="800" letter-spacing="-1.16" fill="#4B4B4B">2,614</text>
+    </g>
+
+    <!-- the first real number -->
+    <text x="550" y="256" font-size="58" font-weight="800" letter-spacing="-1.16" fill="#4B4B4B">2,847</text>
+    <text x="550" y="282" font-size="13" fill="#6E6E6E">Qualified leads · last 30 days</text>
+
+    <rect x="760" y="230" width="104" height="30" rx="15" fill="#F7F7F7"/>
+    <path d="M 774 249 L 780.5 240 L 787 249" fill="none" stroke="#367F00" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="795" y="250" font-size="14" font-weight="700" fill="#367F00">+18.2%</text>
+    <text x="876" y="250" font-size="12" fill="#6E6E6E">vs prior 30 days</text>
+
+    <!-- primary chart -->
+    <text x="550" y="318" font-size="12" font-weight="700" letter-spacing="0.48" fill="#6E6E6E">Leads by week</text>
+    <text x="1100" y="318" font-size="13" fill="#6E6E6E" text-anchor="end">last 12 weeks</text>
+
+    <path d="M 550 418.9 L 600 411.9 L 650 415.8 L 700 403.5 L 750 405 L 800 393.4 L 850 387 L 900 389.8 L 950 373.3 L 1000 363 L 1050 355.5 L 1100 339.7 L 1100 428.5 L 550 428.5 Z" fill="url(#areaFill)"/>
+    <path d="M 550 418.9 L 600 411.9 L 650 415.8 L 700 403.5 L 750 405 L 800 393.4 L 850 387 L 900 389.8 L 950 373.3 L 1000 363 L 1050 355.5 L 1100 339.7" fill="none" stroke="#58CC02" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1100" cy="339.7" r="11" fill="#58CC02" fill-opacity="0.16"/>
+    <circle cx="1100" cy="339.7" r="5" fill="#58CC02" stroke="#FFFFFF" stroke-width="2.5"/>
+
+    <line x1="550" y1="428.5" x2="1100" y2="428.5" stroke="#E5E5E5" stroke-width="1"/>
+    <text x="550" y="446" font-size="13" fill="#6E6E6E">Jul 7</text>
+    <text x="825" y="446" font-size="13" fill="#6E6E6E" text-anchor="middle">Aug 14</text>
+    <text x="1100" y="446" font-size="13" fill="#6E6E6E" text-anchor="end">Sep 22</text>
+
+    <line x1="550" y1="464.5" x2="1100" y2="464.5" stroke="#E5E5E5" stroke-width="1"/>
+
+    <!-- three supporting stats, each with its own sparkline · no categorical colour -->
+    <text x="550" y="492" font-size="11" font-weight="700" letter-spacing="0.66" fill="#6E6E6E">Win rate</text>
+    <text x="550" y="520" font-size="22" font-weight="700" letter-spacing="-0.22" fill="#4B4B4B">23.6%</text>
+    <polyline points="658,522 669.3,517.1 680.7,514.3 692,515.5 703.3,508.1 714.7,502.9 726,500" fill="none" stroke="#777777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <text x="733.3" y="492" font-size="11" font-weight="700" letter-spacing="0.66" fill="#6E6E6E">Time to qualify</text>
+    <text x="733.3" y="520" font-size="22" font-weight="700" letter-spacing="-0.22" fill="#4B4B4B">4.2 days</text>
+    <polyline points="841.3,500 852.7,503.5 864,502.3 875.3,510.4 886.7,513.9 898,519.7 909.3,522" fill="none" stroke="#777777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <text x="916.7" y="492" font-size="11" font-weight="700" letter-spacing="0.66" fill="#6E6E6E">Open deals</text>
+    <text x="916.7" y="520" font-size="22" font-weight="700" letter-spacing="-0.22" fill="#4B4B4B">184</text>
+    <polyline points="1024.7,522 1036,516.4 1047.3,518.4 1058.7,510.7 1070,506.7 1081.3,504.1 1092.7,500" fill="none" stroke="#777777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- ===================== MOTION ANNOTATION ===================== -->
+
+    <line x1="72" y1="584.5" x2="1128" y2="584.5" stroke="#E5E5E5" stroke-width="1"/>
+
+    <text x="72" y="608" font-size="12" font-weight="700" letter-spacing="0.72" fill="#6E6E6E">Motion</text>
+    <text x="1128" y="608" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" fill="#6E6E6E" text-anchor="end">out-quart cubic-bezier(.25, 1, .5, 1) · out-expo cubic-bezier(.16, 1, .3, 1)</text>
+
+    <!-- the axis is 0 to 1400ms across a 656px track, so every label sits at its real fraction of it.
+         Label column runs 72 to 330: the longest lane label measures 208.5px at 13px, and 13px is
+         the floor at which this strip still resolves when the 1200px canvas is shown at ~900px. -->
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#6E6E6E">
+      <text x="330" y="632" text-anchor="middle">0</text>
+      <text x="517.4" y="632" text-anchor="middle">400</text>
+      <text x="704.9" y="632" text-anchor="middle">800</text>
+      <text x="892.3" y="632" text-anchor="middle">1200 ms</text>
+    </g>
+    <line x1="330" y1="640.5" x2="986" y2="640.5" stroke="#E5E5E5" stroke-width="1"/>
+
+    <!-- the timings stay left-anchored on a common x so their numerals read as one column -->
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#6E6E6E">
+      <text x="1006" y="664">260ms · out-quart</text>
+      <text x="1006" y="686">700ms · out-quart</text>
+      <text x="1006" y="708">900ms · out-quart</text>
+      <text x="1006" y="730">240ms · out-expo</text>
+    </g>
+
+    <!-- lane 1 -->
+    <text x="72" y="664" font-size="13" fill="#6E6E6E">card settles, bar fills · scale + opacity</text>
+    <rect x="330" y="657" width="656" height="6" rx="3" fill="#E5E5E5"/>
+    <rect x="330" y="657" width="121.8" height="6" rx="3" fill="#AFAFAF"/>
+
+    <!-- lane 2 -->
+    <text x="72" y="686" font-size="13" fill="#6E6E6E">4 chart paths wipe in · 50ms stagger</text>
+    <rect x="330" y="679" width="656" height="6" rx="3" fill="#E5E5E5"/>
+    <rect x="386.2" y="679" width="398.3" height="6" rx="3" fill="#AFAFAF"/>
+
+    <!-- lane 3 · the hero beat, the only accent in the strip -->
+    <text x="72" y="708" font-size="13" fill="#4B4B4B">2,847 counts up from 0</text>
+    <rect x="330" y="701" width="656" height="6" rx="3" fill="#E5E5E5"/>
+    <rect x="508.1" y="701" width="421.7" height="6" rx="3" fill="#58CC02"/>
+
+    <!-- lane 4 -->
+    <text x="72" y="730" font-size="13" fill="#6E6E6E">line and button rise 8px</text>
+    <rect x="330" y="723" width="656" height="6" rx="3" fill="#E5E5E5"/>
+    <rect x="592.4" y="723" width="112.5" height="6" rx="3" fill="#AFAFAF"/>
+
+  </g>
+</svg>

@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- contrast-and-color-scheme: theme-color per scheme, color-scheme on :root -->
+<meta name="theme-color" content="#F7F7F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131F24" media="(prefers-color-scheme: dark)">
+<title>First dashboard complete — Quarry</title>
+
+<!--
+  Live version of celebration.svg. Same design, real motion.
+  Every duration, curve, radius and hex is traced in the SVG's header comment.
+  No build step, no CDN, no external font. Nunito is named first in the stack because
+  meta/pov.md §3 sanctions it as the rounded body face; it falls back to the system
+  rounded/UI sans when it is not installed locally.
+-->
+
+<style>
+:root{
+  /* meta/pov.md §2 — colour is a vocabulary, one meaning each */
+  --feather:#58CC02;      /* progress, correct, the hero series */
+  --tree-frog:#58A700;    /* green type on dark ground only — 2.82:1 on Polar, it cannot carry light-mode text */
+  --btn-fill:#367F00;     /* §8 — the audited fill that clears 4.5:1 under white */
+  --btn-lip:#2B6600;      /* §1 — same hue, ~15% darker */
+  --eel:#4B4B4B; --snow:#FFFFFF;
+  --wolf:#6E6E6E;         /* Wolf darkened from #777777: 4.76:1 on Polar, 5.10:1 on Snow */
+  --hare:#AFAFAF; --swan:#E5E5E5; --polar:#F7F7F7;
+
+  --ground:var(--polar);
+  --surface:var(--snow);
+  --text:var(--eel);
+  --text-2:var(--wolf);
+  --text-3:var(--wolf);   /* the 10–11px annotation is text, not chrome — it gets a text grey */
+  --line:var(--swan);
+  --track:var(--swan);
+  --edge:var(--swan);
+  --inset:var(--polar);
+  /* every green that carries type: #367F00 is 4.68:1 on Polar, 5.01:1 on Snow */
+  --green-text:var(--btn-fill);
+  --headline:var(--green-text);
+
+  /* motion/easing-curves — named curves, nothing improvised */
+  --ease-out-quart:cubic-bezier(.25, 1, .5, 1);
+  --ease-out-expo:cubic-bezier(.16, 1, .3, 1);
+
+  /* motion/duration-table */
+  --d-card:260ms;     /* modal class, 200–300ms */
+  --d-draw:700ms;     /* celebration, 600–1200ms */
+  --d-count:900ms;    /* celebration, 600–1200ms */
+  --d-rise:240ms;     /* popover class, 150–250ms */
+  --d-press:100ms;    /* meta/pov.md §5 — the lip compress */
+  --d-hover:120ms;    /* hover state change, 120–200ms */
+  --stagger:50ms;     /* motion/stagger-choreography, 30–80ms */
+
+  /* meta/pov.md §4 — nothing is pointy */
+  --r-btn:12px; --r-card:16px; --r-full:9999px;
+
+  /* surface/shadows-whisper — three layers, 4–6%, #111 base, offset never above blur */
+  --shadow-card:
+    0 1px 1px rgba(17,17,17,.04),
+    0 4px 6px rgba(17,17,17,.05),
+    0 12px 28px rgba(17,17,17,.04);
+
+  color-scheme: light dark;
+}
+
+/* meta/pov.md §2 — dark mode is a remap, not a second palette */
+@media (prefers-color-scheme: dark){
+  :root{
+    --ground:#131F24;
+    --surface:#202F36;
+    --text:#F1F7FB;
+    --text-2:rgba(241,247,251,.62);   /* surface/dark-mode secondary ramp, remapped onto the Duolingo dark ink */
+    --text-3:rgba(241,247,251,.55);   /* 4.99:1 on the card, 5.57:1 on the ground */
+    --green-text:var(--tree-frog);    /* 5.56:1 on #131F24 — on dark, Tree Frog is the one that reads */
+    --line:rgba(255,255,255,.08);
+    --track:rgba(255,255,255,.12);
+    --edge:rgba(255,255,255,.14);     /* surface/dark-mode — border-strong; Swan's dark value */
+    --inset:rgba(255,255,255,.05);
+    --shadow-card:
+      0 12px 28px rgba(0,0,0,.40),
+      0 0 0 1px rgba(255,255,255,.06);
+  }
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--text);
+  font-family:Nunito, ui-rounded, "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size:16px;
+  line-height:1.4;                    /* meta/pov.md §3 — body leading 140% */
+  letter-spacing:0;
+  -webkit-font-smoothing:antialiased;
+}
+
+.stage{
+  max-width:1200px;
+  margin:0 auto;
+  padding:72px;
+  display:grid;
+  grid-template-columns:418px 606px;
+  column-gap:32px;
+  align-items:start;
+}
+
+@media (max-width:1060px){
+  .stage{grid-template-columns:minmax(0,1fr); row-gap:40px; padding:40px 16px}
+}
+
+/* ---------------- left column: the claim ---------------- */
+
+.mark{display:flex; align-items:center; gap:8px; margin:0 0 88px}
+.mark i{width:14px; height:14px; border-radius:4px; background:var(--feather); display:block}
+.mark b{font-size:17px; font-weight:800; letter-spacing:-.01em}
+
+.progress{width:280px; max-width:100%; height:16px; border-radius:var(--r-full); background:var(--track); overflow:hidden}
+.progress span{
+  display:block; position:relative; height:100%; border-radius:var(--r-full); background:var(--feather);
+  transform-origin:left center;
+  transform:scaleX(.75);              /* 3 of 4 charts — the real prior state, not scale(0) */
+}
+/* meta/pov.md §4 — inset highlight. The same 5px pill inset 4px the SVG draws, so the two files match. */
+.progress span::after{
+  content:""; position:absolute; left:4px; right:4px; top:3px; height:5px;
+  border-radius:2.5px; background:rgba(255,255,255,.28); pointer-events:none;
+}
+.progress-label{margin:18px 0 0; font-size:13px; font-weight:600; color:var(--text-2)}
+
+/* meta/pov.md §3 — display face: lowercase, 10 words max, 105% leading, -0.02em, never a neutral */
+.claim{
+  margin:68px 0 0;
+  font-size:36px; font-weight:800; line-height:1.05; letter-spacing:-.02em;
+  color:var(--headline);
+  text-transform:lowercase;
+  text-wrap:balance;                  /* typography/line-length-tracking — balance on headings */
+}
+
+.share{
+  margin-top:78px;
+  position:relative;
+  isolation:isolate;                 /* keeps the z-index:-1 face inside the button's own stacking context */
+  display:inline-block;
+  height:50px; padding:0 34px;
+  border:0; border-bottom:4px solid transparent;   /* reserves the lip — no reflow on press */
+  border-radius:var(--r-btn);
+  background:none;
+  color:var(--snow);
+  font:700 15px/1 Nunito, ui-rounded, "Segoe UI", system-ui, sans-serif;
+  letter-spacing:.04em;
+  cursor:pointer;
+}
+/* the label is its own layer so it sinks with the face instead of floating over it */
+.share span{
+  display:block; line-height:46px;    /* centres on the 46px face, not on the 50px box */
+  transition:transform var(--d-press) var(--ease-out-expo);
+}
+.share::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  border-radius:var(--r-btn);
+  background:var(--btn-fill);
+  box-shadow:0 4px 0 0 var(--btn-lip);
+  transition:transform var(--d-press) var(--ease-out-expo),
+             box-shadow var(--d-press) var(--ease-out-expo),
+             filter var(--d-hover) var(--ease-out-quart);
+}
+@media (hover:hover){                 /* anti-patterns/ai-default-tells — never hover-only on touch */
+  .share:hover::before{filter:brightness(1.06)}   /* meta/pov.md — hover lightens the fill */
+}
+.share:active::before{transform:translateY(4px); box-shadow:0 0 0 0 var(--btn-lip)}
+.share:active span{transform:translateY(4px)}
+/* ui-polish — a focus ring is neutral ink, never a brand colour competing with the fill */
+.share:focus-visible{outline:2px solid var(--text); outline-offset:4px}
+
+.share-note{margin:36px 0 0; font-size:13px; color:var(--text-2)}
+
+/* ---------------- right column: the dashboard ---------------- */
+
+.card{
+  background:var(--surface);
+  border-radius:var(--r-card);
+  box-shadow:var(--shadow-card);
+  padding:28px;
+}
+/* components/cards-design — no nested cards. Hairlines and whitespace do the separating. */
+.rule{height:1px; background:var(--line); border:0; margin:0}
+
+.card-head{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:16px}
+.card-head h2{margin:0; font-size:19px; font-weight:700; letter-spacing:-.01em}
+.card-head p{margin:4px 0 0; font-size:12px; color:var(--text-2)}
+
+.live{
+  display:inline-flex; align-items:center; gap:8px; flex:none;
+  height:26px; padding:0 12px; border-radius:var(--r-full);
+  background:var(--inset);
+  font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--green-text);
+}
+/* components/accessibility-baseline — the dot never carries the meaning alone; the word does */
+.live i{width:8px; height:8px; border-radius:var(--r-full); background:var(--feather)}
+
+.hero{display:flex; align-items:baseline; flex-wrap:wrap; gap:0 20px; padding-top:34px}
+.count{
+  font-size:58px; font-weight:800; letter-spacing:-.02em; line-height:1;
+  font-variant-numeric:tabular-nums;   /* the digits must not reflow while counting */
+  min-width:5ch;
+}
+.delta{
+  display:inline-flex; align-items:center; gap:7px;
+  height:30px; padding:0 14px; border-radius:var(--r-full);
+  background:var(--inset); color:var(--green-text);
+  font-size:14px; font-weight:700;
+  font-variant-numeric:tabular-nums;
+}
+.delta svg{display:block}
+.delta-note{font-size:12px; color:var(--text-2)}
+.hero-label{margin:14px 0 0; font-size:13px; color:var(--text-2)}
+
+.chart-head{display:flex; align-items:baseline; justify-content:space-between; margin:36px 0 0}
+.chart-head h3{margin:0; font-size:12px; font-weight:700; letter-spacing:.04em; color:var(--text-2)}
+.chart-head span{font-size:11px; color:var(--text-3)}
+.axis{display:flex; justify-content:space-between; margin:4px 0 0; font-size:10px; color:var(--text-3)}
+
+.stats{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; padding-top:26px}
+.stats h4{margin:0; font-size:11px; font-weight:700; letter-spacing:.06em; color:var(--text-2)}
+.stats .row{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:8px}
+.stats b{font-size:22px; font-weight:700; letter-spacing:-.01em; font-variant-numeric:tabular-nums}
+
+/* ---------------- motion annotation ---------------- */
+
+.strip{max-width:1200px; margin:0 auto;
+  padding:0 72px calc(56px + env(safe-area-inset-bottom, 0px))}   /* ui-polish — clear the home indicator */
+@media (max-width:1060px){.strip{padding:0 16px calc(40px + env(safe-area-inset-bottom, 0px))}}
+.strip-head{display:flex; align-items:baseline; justify-content:space-between; gap:24px;
+  padding-top:24px; border-top:1px solid var(--line)}
+.strip-head h2{margin:0; font-size:12px; font-weight:700; letter-spacing:.06em; color:var(--text-2)}
+.mono{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:10px; color:var(--text-3)}
+
+.lanes{position:relative; margin-top:18px}
+.lane{display:grid; grid-template-columns:230px minmax(0,1fr) 120px; align-items:center; gap:16px; height:22px}
+.lane > span:first-child{font-size:11px; color:var(--text-2)}
+.lane.is-hero > span:first-child{color:var(--text)}
+.track{height:6px; border-radius:var(--r-full); background:var(--track); position:relative}
+.track i{position:absolute; top:0; height:6px; border-radius:var(--r-full); background:var(--hare)}
+.lane.is-hero .track i{background:var(--feather)}
+
+.playhead{
+  position:absolute; top:-22px; bottom:-2px; width:1px; background:var(--hare);
+  left:230px; margin-left:16px;                 /* aligns with the start of the track column */
+  opacity:0;
+  pointer-events:none;                          /* ui-polish — a decorative layer never takes a click */
+}
+/* the axis is 0 to 1400ms, so the labels sit at their real fraction of it, not evenly spaced */
+.ticks{display:grid; grid-template-columns:230px minmax(0,1fr) 120px; gap:16px; margin:26px 0 8px}
+.scale{position:relative; height:12px}
+.scale span{position:absolute; top:0; transform:translateX(-50%); white-space:nowrap}
+.scale span:first-child{transform:none}
+
+.replay{
+  margin-top:28px;
+  height:44px; padding:0 18px;                 /* ui-polish — the tap-target floor, not 38 */
+  border:2px solid var(--edge); border-bottom-width:4px;   /* meta/pov.md §1 — secondary keeps the geometry */
+  border-radius:var(--r-btn);
+  background:none; color:var(--text-2);
+  font:700 13px/1 Nunito, ui-rounded, "Segoe UI", system-ui, sans-serif;
+  letter-spacing:.04em; cursor:pointer;
+}
+.replay:focus-visible{outline:2px solid var(--text); outline-offset:3px}
+
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+
+/* the timing strip is an annotation, so on a phone it folds rather than scrolls sideways */
+@media (max-width:760px){
+  .strip-head{flex-wrap:wrap; row-gap:8px}
+  .lane{grid-template-columns:minmax(0,1fr) auto; height:auto; padding:12px 0; row-gap:8px}
+  .lane > span:first-child{grid-column:1; grid-row:1}
+  .lane .track{grid-column:1 / -1; grid-row:2}
+  .lane > .mono{grid-column:2; grid-row:1; text-align:right}
+  .ticks, .playhead{display:none}
+}
+@media (max-width:640px){
+  .stats{grid-template-columns:minmax(0,1fr); gap:20px}
+  .claim{font-size:32px}
+}
+
+/* ================= the choreography =================
+   motion/transform-opacity-only — transform, opacity, and clip-path (the node's
+   sanctioned tool for reveals). Nothing here touches width, height, top or left. */
+
+.card, .claim, .share, .share-note, .mark{opacity:0}
+
+.is-playing .card{animation:settle var(--d-card) var(--ease-out-quart) both}
+.is-playing .mark{animation:fade var(--d-card) var(--ease-out-quart) both}
+.is-playing .progress span{animation:fill var(--d-card) var(--ease-out-quart) both}
+.is-playing .progress-label{animation:fade var(--d-card) var(--ease-out-quart) 160ms both}
+
+.is-playing .wipe{animation:wipe var(--d-draw) var(--ease-out-quart) both}
+.is-playing .wipe:nth-of-type(1){animation-delay:120ms}
+.is-playing .spark:nth-of-type(1) .wipe{animation-delay:170ms}
+.is-playing .spark:nth-of-type(2) .wipe{animation-delay:220ms}
+.is-playing .spark:nth-of-type(3) .wipe{animation-delay:270ms}
+
+.is-playing .claim{animation:rise var(--d-rise) var(--ease-out-expo) 560ms both}
+.is-playing .share{animation:rise var(--d-rise) var(--ease-out-expo) 620ms both}
+.is-playing .share-note{animation:fade var(--d-rise) var(--ease-out-expo) 680ms both}
+
+/* 1280ms of real time; the script sizes --sweep to 1280/1400 of the track so it lands on the beat */
+.is-playing .playhead{animation:sweep 1280ms linear both}
+
+@keyframes settle{
+  from{opacity:0; transform:scale(.95)}   /* motion/never-scale-from-zero */
+  to  {opacity:1; transform:scale(1)}
+}
+@keyframes rise{
+  from{opacity:0; transform:translateY(8px)}
+  to  {opacity:1; transform:translateY(0)}
+}
+@keyframes fade{from{opacity:0} to{opacity:1}}
+@keyframes fill{from{transform:scaleX(.75)} to{transform:scaleX(1)}}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0)} to{clip-path:inset(0 0 0 0)}}
+@keyframes sweep{
+  0%  {opacity:.55; transform:translateX(0)}
+  92% {opacity:.55}
+  100%{opacity:0; transform:translateX(var(--sweep,100%))}
+}
+
+/* motion/prefers-reduced-motion + meta/pov.md §8 —
+   celebration is the first thing to drop, not the last.
+   Translations, scales and the wipe go. The ~120ms opacity fade stays.
+   The number is set to its final value by script, it never counts. */
+@media (prefers-reduced-motion: reduce){
+  .is-playing .card,
+  .is-playing .claim,
+  .is-playing .share,
+  .is-playing .share-note,
+  .is-playing .mark,
+  .is-playing .progress-label{animation:fade 120ms var(--ease-out-quart) both}
+  .is-playing .progress span{animation:none; transform:scaleX(1)}
+  .is-playing .wipe{animation:none; clip-path:none}
+  .is-playing .playhead{animation:none; opacity:0}
+  .share::before{transition:filter var(--d-hover) var(--ease-out-quart)}
+  .share span{transition:none}
+  .share:active::before{transform:none}
+  .share:active span{transform:none}
+}
+</style>
+</head>
+
+<body>
+
+<main class="stage">
+
+  <section>
+    <p class="mark"><i></i><b>quarry</b></p>
+
+    <div class="progress"><span></span></div>
+    <p class="progress-label">4 of 4 charts placed</p>
+
+    <!-- duo-voice/celebration-copy — name the outcome, not the action. One line, and it is the only one. -->
+    <h1 class="claim">nobody has to ask you for this number again</h1>
+
+    <button class="share" type="button"><span>SHARE DASHBOARD</span></button>
+    <p class="share-note">anyone at northwind.co can open it</p>
+  </section>
+
+  <section class="card">
+
+    <div class="card-head">
+      <div>
+        <h2>Q3 pipeline health</h2>
+        <p>northwind.co · refreshed 14 seconds ago</p>
+      </div>
+      <span class="live"><i></i>LIVE</span>
+    </div>
+
+    <hr class="rule">
+
+    <div class="hero">
+      <strong class="count" id="count" aria-hidden="true">0</strong>
+      <span class="delta">
+        <svg width="14" height="10" viewBox="0 0 14 10" aria-hidden="true">
+          <path d="M 1.8 8.2 L 7 2 L 12.2 8.2" fill="none" stroke="currentColor"
+                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>+18.2%</span>
+      <span class="delta-note">vs prior 30 days</span>
+    </div>
+    <p class="hero-label">Qualified leads · last 30 days</p>
+
+    <div class="chart-head">
+      <h3>Leads by week</h3>
+      <span>last 12 weeks</span>
+    </div>
+
+    <!-- uniform scale: preserveAspectRatio="none" squashed the r=11 halo and r=5 dot into
+         ellipses below 1060px, where the card's inner width drops under the 550 viewBox -->
+    <svg class="wipe" viewBox="0 0 550 100" width="100%"
+         style="height:auto; display:block"
+         role="img" aria-label="Leads per week rising from 438 to 768 over 12 weeks">
+      <defs>
+        <linearGradient id="area" x1="0" y1="0" x2="0" y2="100" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#58CC02" stop-opacity=".20"/>
+          <stop offset="1" stop-color="#58CC02" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#area)"
+        d="M 0 90.4 L 50 83.4 L 100 87.3 L 150 75 L 200 76.5 L 250 64.9 L 300 58.5 L 350 61.3 L 400 44.8 L 450 34.5 L 500 27 L 548 11.2 L 548 100 L 0 100 Z"/>
+      <path fill="none" stroke="#58CC02" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+        vector-effect="non-scaling-stroke"
+        d="M 0 90.4 L 50 83.4 L 100 87.3 L 150 75 L 200 76.5 L 250 64.9 L 300 58.5 L 350 61.3 L 400 44.8 L 450 34.5 L 500 27 L 548 11.2"/>
+      <circle cx="548" cy="11.2" r="11" fill="#58CC02" fill-opacity=".16"/>
+      <circle cx="548" cy="11.2" r="5" fill="#58CC02" stroke-width="2.5" style="stroke:var(--surface)"/>
+    </svg>
+
+    <hr class="rule">
+    <div class="axis"><span>Jul 7</span><span>Aug 14</span><span>Sep 22</span></div>
+
+    <hr class="rule" style="margin-top:18px">
+
+    <div class="stats">
+      <div class="spark">
+        <h4>Win rate</h4>
+        <div class="row">
+          <b>23.6%</b>
+          <svg class="wipe" width="68" height="22" viewBox="0 0 68 22" aria-hidden="true">
+            <polyline fill="none" stroke="currentColor" stroke-opacity=".62" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"
+              points="1,21 12.3,16.1 23.7,13.3 35,14.5 46.3,7.1 57.7,1.9 67,1"/>
+          </svg>
+        </div>
+      </div>
+      <div class="spark">
+        <h4>Time to qualify</h4>
+        <div class="row">
+          <b>4.2 days</b>
+          <svg class="wipe" width="68" height="22" viewBox="0 0 68 22" aria-hidden="true">
+            <polyline fill="none" stroke="currentColor" stroke-opacity=".62" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"
+              points="1,1 12.3,4.5 23.7,3.3 35,11.4 46.3,14.9 57.7,20.7 67,21"/>
+          </svg>
+        </div>
+      </div>
+      <div class="spark">
+        <h4>Open deals</h4>
+        <div class="row">
+          <b>184</b>
+          <svg class="wipe" width="68" height="22" viewBox="0 0 68 22" aria-hidden="true">
+            <polyline fill="none" stroke="currentColor" stroke-opacity=".62" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"
+              points="1,21 12.3,15.4 23.7,17.4 35,9.7 46.3,5.7 57.7,3.1 67,1"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<p class="sr" role="status" id="announce"></p>
+
+<footer class="strip">
+  <div class="strip-head">
+    <h2>Motion</h2>
+    <span class="mono">out-quart cubic-bezier(.25, 1, .5, 1) · out-expo cubic-bezier(.16, 1, .3, 1)</span>
+  </div>
+
+  <div class="ticks">
+    <div></div>
+    <div class="scale mono">
+      <span style="left:0%">0</span>
+      <span style="left:28.571%">400</span>
+      <span style="left:57.143%">800</span>
+      <span style="left:85.714%">1200 ms</span>
+    </div>
+    <div></div>
+  </div>
+
+  <div class="lanes">
+    <div class="playhead"></div>
+
+    <div class="lane">
+      <span>card settles, bar fills · scale + opacity</span>
+      <div class="track"><i style="left:0%; width:18.6%"></i></div>
+      <span class="mono">260ms · out-quart</span>
+    </div>
+    <div class="lane">
+      <span>4 chart paths wipe in · 50ms stagger</span>
+      <div class="track"><i style="left:8.6%; width:60.7%"></i></div>
+      <span class="mono">700ms · out-quart</span>
+    </div>
+    <div class="lane is-hero">
+      <span>2,847 counts up from 0</span>
+      <div class="track"><i style="left:27.1%; width:64.3%"></i></div>
+      <span class="mono">900ms · out-quart</span>
+    </div>
+    <div class="lane">
+      <span>line and button rise 8px</span>
+      <div class="track"><i style="left:40%; width:17.1%"></i></div>
+      <span class="mono">240ms · out-expo</span>
+    </div>
+  </div>
+
+  <button class="replay" type="button" id="replay">REPLAY</button>
+</footer>
+
+<script>
+(function () {
+  var TARGET = 2847;
+  var START_MS = 380;              // the count begins after the first charts land
+  var DURATION = 900;              // motion/duration-table — celebration band
+  var body = document.body;
+  var el = document.getElementById('count');
+  var announce = document.getElementById('announce');
+  var replay = document.getElementById('replay');
+  var head = document.querySelector('.playhead');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var fmt = new Intl.NumberFormat('en-US');
+  var raf = null;
+
+  // motion/easing-curves — the count is eased on the same curve as everything else it
+  // arrives with, so it reads as one move rather than a number doing its own thing.
+  function bezier(p1x, p1y, p2x, p2y) {
+    function A(a, b) { return 1 - 3 * b + 3 * a; }
+    function B(a, b) { return 3 * b - 6 * a; }
+    function C(a) { return 3 * a; }
+    function calc(t, a, b) { return ((A(a, b) * t + B(a, b)) * t + C(a)) * t; }
+    function slope(t, a, b) { return 3 * A(a, b) * t * t + 2 * B(a, b) * t + C(a); }
+    return function (x) {
+      var t = x;
+      for (var i = 0; i < 6; i++) {
+        var d = slope(t, p1x, p2x);
+        if (d === 0) break;
+        t -= (calc(t, p1x, p2x) - x) / d;
+      }
+      return calc(t, p1y, p2y);
+    };
+  }
+  var outQuart = bezier(0.25, 1, 0.5, 1);
+
+  // The tick scale calls the full track width 1400ms, but the sweep runs for SWEEP_MS.
+  // Stop the head where the last beat actually ends so px and ms stay in the same scale —
+  // otherwise it crosses the "1200 ms" tick at 1097ms of real time.
+  var SWEEP_MS = 1280;
+  var AXIS_MS = 1400;
+
+  function measurePlayhead() {
+    var track = document.querySelector('.lanes .track');
+    if (track && head) {
+      var px = track.getBoundingClientRect().width * (SWEEP_MS / AXIS_MS);
+      head.style.setProperty('--sweep', px + 'px');
+    }
+  }
+
+  function land() {
+    el.textContent = fmt.format(TARGET);
+    el.removeAttribute('aria-hidden');   // hidden while it churns, readable once it has settled
+    announce.textContent = 'Dashboard published. 2,847 qualified leads in the last 30 days, up 18.2 percent.';
+  }
+
+  function play() {
+    if (raf) cancelAnimationFrame(raf);
+    announce.textContent = '';
+    el.setAttribute('aria-hidden', 'true');   // a churning number is noise; land() hands it back
+    body.classList.remove('is-playing');
+    void body.offsetWidth;                 // restart the CSS timeline
+    measurePlayhead();
+    body.classList.add('is-playing');
+
+    if (reduce.matches) { land(); return; }
+
+    el.textContent = '0';
+    var t0 = performance.now();
+    (function step(now) {
+      var t = now - t0 - START_MS;
+      if (t < 0) { raf = requestAnimationFrame(step); return; }
+      var p = Math.min(t / DURATION, 1);
+      el.textContent = fmt.format(Math.round(outQuart(p) * TARGET));
+      if (p < 1) { raf = requestAnimationFrame(step); } else { land(); }
+    })(performance.now());
+  }
+
+  replay.addEventListener('click', play);
+  window.addEventListener('resize', measurePlayhead);
+  reduce.addEventListener('change', play);
+  play();
+})();
+</script>
+
+</body>
+</html>

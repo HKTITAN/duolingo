@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>teach step</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&amp;display=swap">
+<!--
+  The live version of docs/designs/teach-step.svg. Same design, actually moving.
+
+  Every value below came from a node that was read, not remembered:
+
+    de/meta/pov 1          physical pressable surfaces, 4px primary lip, 2px on tiles
+    de/meta/pov 2          six meaning bearing hues, one meaning each
+    de/meta/pov 3          lowercase display face, two faces with a hard role split
+    de/meta/pov 4          radius 12 tile, 16 card, full for bars and pills
+    de/meta/pov 5          feedback on every tap, medium celebration on the reward beat
+    de/meta/pov 6          ALL CAPS buttons, sentence case body, numerals, no blame
+    de/meta/pov 8          green is a fill and never type; #367F00 where green must read
+    de/motion/easing-curves        cubic-bezier(0.25, 1, 0.5, 1), never ease-in
+    de/motion/duration-table       press 100ms, footer in 250ms, exit 72% of the enter
+    de/motion/transform-opacity-only   transform, opacity, and the 2px box-shadow lip on press
+    de/motion/stagger-choreography     50ms between tiles, first appearance only
+    de/motion/never-scale-from-zero    the badge enters at 0.95, never at 0
+    de/motion/prefers-reduced-motion   travel dropped, 120ms fade kept, press still legible
+    de/surface/shadows-whisper     three layers at 4 to 5% on a #111 base
+    de/surface/dark-mode           a remap: ground #131F24, surface #202F36, text #F1F7FB
+    de/components/accessibility-baseline  focus-visible, 44px touch targets, aria-live
+
+    duo-attention-budget/hold-everything-but-the-target-constant
+    duo-attention-budget/a-redundant-cue-suppresses-what-it-duplicates
+    duo-attention-budget/salience-is-a-budget-and-it-front-loads
+    duo-difficulty-calibration/the-narrow-band-between-bored-and-lost
+    duo-difficulty-calibration/fifty-percent-success-is-the-honest-signal
+    duo-progression-design/recognition-then-guided-then-production
+    duo-progression-design/make-the-scaffold-removable-by-the-user
+    duo-rules-and-heuristics/explanation-lands-at-the-moment-of-the-error
+    duo-rules-and-heuristics/give-them-a-handle-they-can-hold-under-pressure
+-->
+<style>
+  :root {
+    /* colour is a vocabulary. each token owns exactly one meaning. */
+    --feather:    #58CC02;   /* primary, correct, progress */
+    --tree-frog:  #58A700;   /* the lip paired with feather */
+    --green-text: #367F00;   /* the only green that reads as type on snow, 5.0:1 */
+    --eel:        #4B4B4B;   /* body text and headings, 8.9:1 */
+    --snow:       #FFFFFF;
+    --hare:       #AFAFAF;   /* disabled controls and the empty slot glyph only */
+    --quiet:      #6E6E6E;   /* dimmed but still read: 4.8:1 on polar, 5.1:1 on snow */
+    --swan:       #E5E5E5;   /* borders, dividers, lips */
+    --polar:      #F7F7F7;   /* inset surfaces and the page ground */
+    --macaw:      #1CB0F6;   /* information. never type: 2.5:1 */
+    --cardinal:   #FF4B4B;   /* wrong */
+    --fire-ant:   #EA2B2B;   /* the lip paired with cardinal */
+    --humpback:   #2B70C9;   /* chrome and headers, 4.9:1 */
+    --on-accent:  #FFFFFF;   /* type and marks that sit ON cardinal or feather. never remapped. */
+
+    --hairline: var(--swan);
+
+    /* type: eight steps, no half pixels. a step below perception buys no hierarchy. */
+    --t-11: 11px;
+    --t-12: 12px;
+    --t-13: 13px;
+    --t-15: 15px;
+    --t-17: 17px;
+    --t-19: 19px;
+    --t-30: 30px;
+    --t-32: 32px;
+
+    --fw-regular: 400;
+    --fw-bold:    700;
+    --fw-display: 800;
+
+    /* spacing: 4px multiples, nothing between them */
+    --s-1:  4px;
+    --s-2:  8px;
+    --s-3:  12px;
+    --s-4:  16px;
+    --s-5:  20px;
+    --s-6:  24px;
+    --s-7:  28px;
+    --s-8:  32px;
+    --s-10: 40px;
+
+    --r-tile: 12px;
+    --r-card: 16px;
+    --r-full: 9999px;
+
+    --ease: cubic-bezier(0.25, 1, 0.5, 1);   /* ease-out-quart */
+    --press: 100ms;
+    --enter: 250ms;
+    --exit: 180ms;
+    --fade: 120ms;
+
+    --shadow-card:
+      0 1px 1px  rgba(17,17,17,0.04),
+      0 4px 8px  rgba(17,17,17,0.05),
+      0 12px 32px rgba(17,17,17,0.04);
+
+    --body: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  /* dark mode is a remap, not a second palette. names stay, values flip.
+     --on-accent is deliberately absent: it is an on-colour, not a surface. */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --snow:  #202F36;   /* the raised surface */
+      --polar: #131F24;   /* the ground, and inset wells */
+      --eel:   #F1F7FB;
+      --hare:  rgba(241,247,251,0.45);
+      --quiet: rgba(241,247,251,0.55);   /* 5.6:1 on the ground, 5.0:1 on the card */
+      --swan:  rgba(241,247,251,0.14);
+      --humpback: #7FC0FF;
+      --green-text: #93D333;
+      --hairline: rgba(255,255,255,0.06);
+      --shadow-card: 0 4px 12px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: var(--s-7) var(--s-6) var(--s-10);
+    background: var(--polar);
+    color: var(--eel);
+    font-family: var(--body);
+    font-synthesis: none;   /* a missing weight fails visibly instead of being smeared */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection { background: rgba(43,112,201,0.16); }
+
+  h1, h2, h3 { text-wrap: balance; }
+
+  .sheet { max-width: 1152px; margin: 0 auto; }
+
+  header.top {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: var(--s-4); flex-wrap: wrap;
+    padding-bottom: var(--s-4); border-bottom: 1px solid var(--hairline);
+  }
+  header.top h1 { margin: 0; font-size: var(--t-15); font-weight: var(--fw-bold); }
+  header.top .meta { font-size: var(--t-12); }
+
+  .split {
+    display: grid; grid-template-columns: 700px 1px 1fr;
+    gap: var(--s-5); margin-top: var(--s-7); align-items: start;
+  }
+  .rule-v { background: var(--hairline); align-self: stretch; min-height: 100%; }
+
+  /* ---------- the product surface ---------- */
+  .card {
+    background: var(--snow);
+    border-radius: var(--r-card);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    isolation: isolate;   /* nothing inside the card can stack above the page */
+  }
+
+  .chrome { display: flex; align-items: center; gap: var(--s-5); padding: var(--s-5) var(--s-10) 0 var(--s-8); }
+  .close {
+    flex: none; width: 44px; height: 44px; border: 0; background: none; padding: 0;
+    cursor: pointer; border-radius: var(--r-full);
+    display: grid; place-items: center; color: var(--quiet);
+    transition: color var(--press) var(--ease);
+  }
+  .close:focus-visible { outline: 2px solid var(--humpback); outline-offset: 3px; }
+  .track {
+    position: relative; flex: 1; height: 16px;
+    border-radius: var(--r-full); background: var(--swan); overflow: hidden;
+  }
+  .fill {
+    position: absolute; inset: 0 auto 0 0; width: 62%;
+    border-radius: var(--r-full); background: var(--feather);
+  }
+  .fill::after {   /* the inset highlight. progress bars are looked at most. */
+    content: ""; position: absolute; left: var(--s-2); right: var(--s-2); top: var(--s-1); height: 5px;
+    border-radius: var(--r-full); background: rgba(255,255,255,0.38);
+    pointer-events: none;
+  }
+
+  .body { padding: var(--s-7) var(--s-10) 0; }
+
+  .brief { margin: 0; font-size: var(--t-15); line-height: 1.5; }
+
+  /* display face: lowercase, never below 30px, never a neutral */
+  .prompt {
+    margin: var(--s-3) 0 0; font-size: var(--t-32); line-height: 1.08; font-weight: var(--fw-display);
+    letter-spacing: -0.02em; color: var(--humpback); text-wrap: balance;
+    max-width: 18ch;
+  }
+
+  .stmt {
+    margin-top: var(--s-6); padding: var(--s-6) var(--s-7);
+    background: var(--polar); border-radius: var(--r-tile);
+    font-family: var(--mono); font-size: var(--t-17); line-height: 26px;
+  }
+  /* no syntax highlighting. the only colour in the block is the target.
+     the held lines are dimmed, not disabled: they are the query the learner
+     wrote in step 2, so they carry the full 4.5:1 text floor. */
+  .stmt .held { color: var(--quiet); display: block; }
+  .stmt .live { display: flex; align-items: center; gap: var(--s-3); padding-left: var(--s-5); margin-top: 0; }
+  .stmt::-webkit-scrollbar { height: 8px; }
+  .stmt::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: var(--s-1); }
+
+  .slot {
+    display: inline-grid; place-items: center;
+    min-width: 58px; height: 36px; padding: 0 var(--s-3); margin-bottom: 2px;
+    border-radius: 10px; background: var(--snow);
+    font-family: var(--mono); font-size: var(--t-19); font-weight: var(--fw-bold);
+    color: var(--hare);   /* the empty-slot glyph: a disabled affordance, not content */
+    box-shadow: 0 2px 0 0 var(--swan), inset 0 0 0 2px var(--swan);
+  }
+  .slot[data-state="wrong"] { color: var(--cardinal); box-shadow: 0 2px 0 0 var(--fire-ant), inset 0 0 0 2px var(--cardinal); }
+  .slot[data-state="right"] { color: var(--green-text); box-shadow: 0 2px 0 0 var(--tree-frog), inset 0 0 0 2px var(--feather); }
+
+  /* ---------- the word bank: pickable things look pickable ---------- */
+  .bank { display: flex; flex-wrap: wrap; gap: var(--s-4); margin-top: var(--s-6); }
+
+  .tile {
+    position: relative; margin-bottom: 2px;
+    min-width: 68px; height: 48px; padding: 0 var(--s-4);
+    border: 0; border-radius: var(--r-tile); background: var(--snow);
+    font-family: var(--mono); font-size: var(--t-19); font-weight: var(--fw-bold); color: var(--eel);
+    cursor: pointer;
+    box-shadow: 0 2px 0 0 var(--swan), inset 0 0 0 2px var(--swan);
+    transition: transform var(--press) var(--ease), box-shadow var(--press) var(--ease);
+    animation: tile-in var(--enter) var(--ease) backwards;
+    animation-delay: calc(var(--i) * 50ms);
+  }
+  /* gated: on touch the hover style latches after a tap and reads as disabled */
+  @media (hover: hover) and (pointer: fine) {
+    .tile:hover { background: var(--polar); }
+    .close:hover { color: var(--eel); }
+  }
+  /* on a dark ground a hovered surface must come closer, not sink */
+  @media (hover: hover) and (pointer: fine) and (prefers-color-scheme: dark) {
+    .tile:hover {
+      background: var(--snow);
+      background-image: linear-gradient(rgba(241,247,251,0.06) 0 100%);
+    }
+  }
+  .tile:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 0 var(--swan), inset 0 0 0 2px var(--swan);
+  }
+  .tile:focus-visible { outline: 2px solid var(--humpback); outline-offset: 3px; }
+  .tile[aria-disabled="true"] {
+    color: var(--hare); background: var(--polar); cursor: default;
+    box-shadow: none; pointer-events: none;
+  }
+  /* the one new element carries a visible flag */
+  .tile.fresh::after {
+    content: ""; position: absolute; left: var(--s-4); right: var(--s-4); bottom: var(--s-2);
+    height: 3px; border-radius: var(--r-full); background: var(--macaw);
+    pointer-events: none;
+  }
+
+  @keyframes tile-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .new-note {
+    display: flex; align-items: center; gap: var(--s-2);
+    margin: var(--s-6) 0 0; font-size: var(--t-13);
+  }
+  .dot {
+    width: 8px; height: 8px; border-radius: var(--r-full); background: var(--macaw); flex: none;
+    transform: translateY(-1px);   /* optical: the cap height sits above the line box centre */
+    pointer-events: none; user-select: none;
+  }
+
+  /* the scaffold's off switch: on the exercise, one tap from the work */
+  .offswitch {
+    position: relative;
+    display: inline-flex; align-items: center; gap: var(--s-3);
+    margin: var(--s-4) 0 var(--s-8); padding: 0 var(--s-4) 0 14px; height: 32px;
+    border: 0; border-radius: var(--r-full); background: var(--snow);
+    font-family: var(--body); font-size: var(--t-11); font-weight: var(--fw-bold);
+    letter-spacing: 0.04em; color: var(--eel); cursor: pointer;
+    box-shadow: 0 2px 0 0 var(--swan), inset 0 0 0 2px var(--swan);
+    transition: transform var(--press) var(--ease), box-shadow var(--press) var(--ease);
+  }
+  /* the pill stays 32px; the target reaches 44. nothing interactive sits in the bleed. */
+  .offswitch::after, .replay::after {
+    content: ""; position: absolute; left: 0; right: 0; top: -6px; bottom: -6px;
+  }
+  .offswitch:active { transform: translateY(2px); box-shadow: 0 0 0 0 var(--swan), inset 0 0 0 2px var(--swan); }
+  .offswitch:focus-visible { outline: 2px solid var(--humpback); outline-offset: 3px; }
+
+  /* ---------- the feedback state ---------- */
+  .foot {
+    position: relative; padding: var(--s-6) var(--s-10) var(--s-7);
+    min-height: 216px;   /* the taller of the two states: neither rule string resizes the card */
+    border-top: 2px solid var(--hairline);
+    display: grid; grid-template-columns: 1fr auto; gap: var(--s-6); align-items: center;
+    font-variant-numeric: tabular-nums;
+    opacity: 0; transform: translateY(16px);
+    transition: opacity var(--enter) var(--ease), transform var(--enter) var(--ease);
+  }
+  .foot[hidden] { display: none; }
+  .foot.in { opacity: 1; transform: none; }
+  .foot.out { transition-duration: var(--exit); opacity: 0; transform: translateY(16px); }
+  .foot.wrong { background: rgba(255,75,75,0.06); }
+  .foot.right { background: rgba(88,204,2,0.08); }
+
+  .verdict { display: flex; align-items: center; gap: var(--s-4); }
+  .badge {
+    flex: none; width: 38px; height: 38px; border-radius: var(--r-full);
+    display: grid; place-items: center; color: var(--on-accent);
+    animation: badge-in var(--enter) var(--ease) 60ms backwards;
+  }
+  .wrong .badge { background: var(--cardinal); }
+  .right .badge { background: var(--feather); }
+  @keyframes badge-in {   /* 0.95, never 0 */
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* 30px display: cardinal clears the 3:1 AA large threshold at 3.0:1
+     on the tinted footer, computed against #FFF2F2 rather than pure white */
+  .verdict h2 { margin: 0; font-size: var(--t-30); font-weight: var(--fw-display); letter-spacing: -0.02em; }
+  .wrong .verdict h2 { color: var(--cardinal); }
+  .right .verdict h2 { color: var(--green-text); }
+
+  .answer { margin: var(--s-4) 0 0; font-family: var(--mono); font-size: var(--t-17); }
+  .answer b { color: var(--green-text); }
+  .rule { margin: var(--s-2) 0 0; font-size: var(--t-15); line-height: 1.5; max-width: 52ch; }
+  .handle { margin: var(--s-3) 0 0; font-size: var(--t-13); font-weight: var(--fw-bold); }
+
+  .cta {
+    min-width: 156px; height: 50px; margin-bottom: 2px; padding: 0 var(--s-4);
+    border: 0; border-radius: var(--r-tile); background: var(--snow);
+    font-family: var(--body); font-size: var(--t-15); font-weight: var(--fw-bold);
+    letter-spacing: 0.04em; color: var(--eel); cursor: pointer;
+    box-shadow: 0 2px 0 0 var(--swan), inset 0 0 0 2px var(--swan);
+    transition: transform var(--press) var(--ease), box-shadow var(--press) var(--ease);
+  }
+  .cta:active { transform: translateY(2px); box-shadow: 0 0 0 0 var(--swan), inset 0 0 0 2px var(--swan); }
+  .cta:focus-visible { outline: 2px solid var(--humpback); outline-offset: 3px; }
+
+  /* ---------- the rail: quiet on purpose ---------- */
+  .rail { font-size: var(--t-13); line-height: 1.45; padding-top: 2px; /* optical: aligns to the card's top edge */ }
+  .rail > h2 { margin: 0 0 var(--s-4); font-size: var(--t-13); font-weight: var(--fw-bold); }
+  .note { border-left: 3px solid var(--hairline); padding: 0 0 0 var(--s-3); margin-bottom: var(--s-5); }
+  .note h3 { margin: 0 0 var(--s-2); font-size: var(--t-13); font-weight: var(--fw-bold); }
+  .note p { margin: 0; }
+  .note cite {
+    display: block; margin-top: var(--s-2); font-style: normal;
+    font-size: var(--t-11); line-height: 1.25; color: var(--quiet); word-break: break-word;
+  }
+  .audit { font-size: var(--t-11); line-height: 1.45; margin: 0 0 var(--s-5); }
+
+  .strip { border-left: 3px solid var(--hairline); padding-left: var(--s-3); font-variant-numeric: tabular-nums; }
+  .strip h3 { margin: 0 0 var(--s-2); font-size: var(--t-13); font-weight: var(--fw-bold); }
+  .strip .row { margin-top: var(--s-3); font-size: var(--t-11); }
+  .strip .bar {
+    height: 6px; border-radius: var(--r-full); background: var(--humpback);
+    margin-top: var(--s-1);
+    pointer-events: none;
+  }
+  .strip .bar.ghost { opacity: 0.55; }
+  .replay {
+    position: relative;
+    margin-top: var(--s-4); height: 32px; padding: 0 var(--s-4); border: 0;
+    border-radius: var(--r-full); background: var(--snow);
+    font-family: var(--body); font-size: var(--t-11); font-weight: var(--fw-bold);
+    letter-spacing: 0.04em; color: var(--eel); cursor: pointer;
+    box-shadow: 0 2px 0 0 var(--swan), inset 0 0 0 2px var(--swan);
+    transition: transform var(--press) var(--ease), box-shadow var(--press) var(--ease);
+  }
+  .replay:active { transform: translateY(2px); box-shadow: 0 0 0 0 var(--swan), inset 0 0 0 2px var(--swan); }
+  .replay:focus-visible { outline: 2px solid var(--humpback); outline-offset: 3px; }
+
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  @media (max-width: 1120px) {
+    .split { grid-template-columns: 1fr; }
+    .rule-v { display: none; }
+    .card { max-width: 700px; }
+  }
+  @media (max-width: 720px) {
+    body { padding: var(--s-5) var(--s-4) var(--s-8); }
+    .chrome { padding: var(--s-4) var(--s-5) 0 var(--s-3); }
+    .body { padding: var(--s-6) var(--s-5) 0; }
+    .foot { padding: var(--s-5); grid-template-columns: 1fr; align-items: start; }
+    .prompt { font-size: var(--t-30); }
+    .stmt { font-size: var(--t-13); padding: var(--s-4) var(--s-5); overflow-x: auto; }
+  }
+
+  /* celebration is the first thing to drop, not the last.
+     travel goes, the 120ms fade stays, and every press stays legible. */
+  @media (prefers-reduced-motion: reduce) {
+    .tile, .offswitch, .cta, .replay {
+      transition: box-shadow var(--press) var(--ease);
+    }
+    .tile:active, .offswitch:active, .cta:active, .replay:active { transform: none; }
+    .tile {
+      animation: fade-in var(--fade) linear backwards;
+      animation-delay: calc(var(--i) * 50ms);
+    }
+    .badge { animation: fade-in var(--fade) linear 60ms backwards; }
+    .foot { transform: none; transition: opacity var(--fade) linear; }
+    .foot.in { transform: none; }
+    .foot.out { transform: none; transition-duration: var(--fade); }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="top">
+    <h1>one lesson step, one second after a wrong answer</h1>
+    <span class="meta">duolingo pack × design-engineering</span>
+  </header>
+
+  <div class="split">
+
+    <!-- ================= the product surface ================= -->
+    <main class="card" id="card">
+      <div class="chrome">
+        <button class="close" id="close" aria-label="Leave the lesson">
+          <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+            <g stroke="currentColor" stroke-width="3" stroke-linecap="round">
+              <line x1="3" y1="3" x2="17" y2="17"/><line x1="17" y1="3" x2="3" y2="17"/>
+            </g>
+          </svg>
+        </button>
+        <div class="track" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"
+             aria-label="Lesson progress"><div class="fill"></div></div>
+      </div>
+
+      <div class="body">
+        <p class="brief">Ops needs every refund logged on or after 14 September.</p>
+
+        <!-- the loudest thing on the screen is the thing being taught -->
+        <h2 class="prompt">fill the gap so it catches the whole day</h2>
+
+        <div class="stmt">
+          <!-- held constant: the learner wrote these in step 2 -->
+          <span class="held">SELECT order_id, amount, created_at</span>
+          <span class="held">FROM orders</span>
+          <span class="held">WHERE status = 'refunded'</span>
+          <span class="live">AND created_at
+            <span class="slot" id="slot" data-state="wrong">=</span>
+            '2026-09-14'</span>
+        </div>
+
+        <div class="bank" id="bank">
+          <button class="tile fresh" style="--i:0" data-op="&gt;=">&gt;=</button>
+          <button class="tile" style="--i:1" data-op="=" aria-disabled="true">=</button>
+          <button class="tile" style="--i:2" data-op="&gt;">&gt;</button>
+          <button class="tile" style="--i:3" data-op="&lt;">&lt;</button>
+          <button class="tile" style="--i:4" data-op="LIKE">LIKE</button>
+        </div>
+
+        <p class="new-note"><span class="dot"></span>&gt;= is new here. Everything else came from step 2.</p>
+
+        <button class="offswitch">
+          <svg width="22" height="16" viewBox="0 0 22 16" aria-hidden="true">
+            <rect x="1" y="1" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <line x1="6" y1="11" x2="16" y2="11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          TYPE IT INSTEAD
+        </button>
+      </div>
+
+      <!-- the explanation arrives at the moment of the error, and names the rule.
+           no live semantics here: the announcement lives in #announce, which is
+           never unmounted, so the mutation always reaches the accessibility tree. -->
+      <section class="foot wrong" id="foot" aria-labelledby="verdict" hidden>
+        <div>
+          <div class="verdict">
+            <span class="badge" id="badge" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18">
+                <g stroke="currentColor" stroke-width="3.2" stroke-linecap="round">
+                  <line x1="3" y1="3" x2="15" y2="15"/><line x1="15" y1="3" x2="3" y2="15"/>
+                </g>
+              </svg>
+            </span>
+            <h2 id="verdict">not quite</h2>
+          </div>
+          <p class="answer" id="answer">created_at <b>&gt;=</b> '2026-09-14'</p>
+          <p class="rule" id="rule">created_at stores a timestamp, so = matches only the instant 00:00:00, not the day.</p>
+          <p class="handle" id="handle">dates are ranges, not values</p>
+        </div>
+        <button class="cta" id="cta">TRY IT AGAIN</button>
+      </section>
+    </main>
+
+    <div class="rule-v"></div>
+
+    <!-- ================= the rail ================= -->
+    <aside class="rail">
+      <h2>why each piece is there</h2>
+
+      <div class="note">
+        <h3>the step</h3>
+        <p>Four lines of SQL. Three sit dimmed because the learner wrote them in step 2.
+           Only the operator varies, so a wrong answer can mean one thing.</p>
+        <cite>duo-attention-budget<br>hold-everything-but-the-target-constant</cite>
+      </div>
+
+      <div class="note">
+        <h3>revealed, and withheld</h3>
+        <p>The word bank is the scaffold and the keyboard is the one tap out of it.
+           &ldquo;on or after&rdquo; is a redundant cue that hands over the answer, so it
+           ships with a removal date: step 9 reads &ldquo;refunds from Monday&rdquo;.</p>
+        <cite>duo-attention-budget<br>a-redundant-cue-suppresses-what-it-duplicates</cite>
+      </div>
+
+      <div class="note">
+        <h3>the difficulty signal</h3>
+        <p>&gt;= is the 1 new item. First try correct on this step runs at 54%, a little
+           above half, which is where a calibrated step is supposed to sit.</p>
+        <cite>duo-difficulty-calibration<br>fifty-percent-success-is-the-honest-signal</cite>
+      </div>
+
+      <div class="note">
+        <h3>the feedback</h3>
+        <p>It names the rule that fired, not the verdict, and ends on a handle short
+           enough to hold at the keyboard. The button returns them to the same decision
+           rather than advancing.</p>
+        <cite>duo-rules-and-heuristics<br>explanation-lands-at-the-moment-of-the-error</cite>
+      </div>
+
+      <p class="audit">
+        Red is never the only signal: the mark and the words carry it too.<br>
+        Green is never text. #367F00 is the only green that reads on Snow.
+      </p>
+
+      <div class="strip">
+        <h3>motion, at the values it runs</h3>
+        <div class="row">tile press · 100ms · translateY(2px)<div class="bar" style="width:36%"></div></div>
+        <div class="row">footer in · 250ms · translateY plus opacity<div class="bar" style="width:90%"></div></div>
+        <div class="row">footer out · 180ms · 72% of the enter<div class="bar ghost" style="width:65%"></div></div>
+        <div class="row">tile stagger · 50ms apart, first appearance only<div class="bar" style="width:18%"></div></div>
+        <button class="replay" id="replay">REPLAY THE MOMENT</button>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- always rendered, never unmounted: the one thing that announces -->
+  <p class="sr" id="announce" role="status" aria-live="polite"></p>
+</div>
+
+<script>
+  const foot     = document.getElementById('foot');
+  const slot     = document.getElementById('slot');
+  const badge    = document.getElementById('badge');
+  const verdict  = document.getElementById('verdict');
+  const answer   = document.getElementById('answer');
+  const rule     = document.getElementById('rule');
+  const handle   = document.getElementById('handle');
+  const cta      = document.getElementById('cta');
+  const bank     = document.getElementById('bank');
+  const announce = document.getElementById('announce');
+  const closeBtn = document.getElementById('close');
+
+  const EXIT = 180;
+
+  const CORRECT = '>=';
+
+  const STATES = {
+    wrong: {
+      verdict: 'not quite',
+      rule: "created_at stores a timestamp, so = matches only the instant 00:00:00, not the day.",
+      handle: 'dates are ranges, not values',
+      cta: 'TRY IT AGAIN',
+      mark: '<line x1="3" y1="3" x2="15" y2="15"/><line x1="15" y1="3" x2="3" y2="15"/>'
+    },
+    right: {
+      verdict: 'that is it',
+      rule: '>= starts at midnight and runs to the end of the day, so a refund at 09:41 is caught too.',
+      handle: 'dates are ranges, not values',
+      cta: 'CONTINUE',
+      mark: '<polyline points="3,9.5 7,13.5 15,4.5" fill="none"/>'
+    }
+  };
+
+  function fill(kind) {
+    const s = STATES[kind];
+    foot.classList.remove('wrong', 'right');
+    foot.classList.add(kind);
+    verdict.textContent = s.verdict;
+    rule.textContent = s.rule;
+    handle.textContent = s.handle;
+    cta.textContent = s.cta;
+    answer.innerHTML = "created_at <b>&gt;=</b> '2026-09-14'";
+    badge.innerHTML =
+      '<svg width="18" height="18" viewBox="0 0 18 18"><g stroke="currentColor" stroke-width="3.2" ' +
+      'stroke-linecap="round" stroke-linejoin="round">' + s.mark + '</g></svg>';
+  }
+
+  function say(kind) {
+    const s = STATES[kind];
+    announce.textContent = s.verdict + '. ' + s.rule;
+  }
+
+  function focusBank() {
+    const next = bank.querySelector('.tile:not([aria-disabled="true"])');
+    if (next) next.focus();
+  }
+
+  // reading offsetWidth flushes the start state, so the transition runs from it.
+  // rAF would not: it never fires in a background tab, and the footer would be
+  // left mounted at opacity 0 with no way back.
+  function flush() { void foot.offsetWidth; }
+
+  // mount: the only path that changes the card's height, and it runs once per lesson beat
+  function showFoot(kind) {
+    fill(kind);
+    foot.hidden = false;
+    flush();
+    foot.classList.add('in');
+    say(kind);
+  }
+
+  // swap: the footer stays in the flow and cross-fades, so the most repeated tap
+  // on the screen does not reflow the card under the learner's finger
+  function swapFoot(kind) {
+    foot.classList.remove('in');
+    foot.classList.add('out');
+    setTimeout(() => {
+      foot.classList.remove('out');
+      fill(kind);
+      flush();
+      foot.classList.add('in');
+      say(kind);
+    }, EXIT);
+  }
+
+  // unmount: only where the footer is genuinely gone. focus moves out first,
+  // because everything inside here is about to leave the accessibility tree.
+  function hideFoot() {
+    foot.classList.remove('in');
+    foot.classList.add('out');
+    setTimeout(() => {
+      foot.hidden = true;
+      foot.classList.remove('out');
+      announce.textContent = '';
+    }, EXIT);
+  }
+
+  function dismiss() {
+    if (foot.hidden) return;
+    focusBank();
+    hideFoot();
+  }
+
+  bank.addEventListener('click', (e) => {
+    const tile = e.target.closest('.tile');
+    if (!tile || tile.getAttribute('aria-disabled') === 'true') return;
+
+    const op = tile.dataset.op;
+    const kind = op === CORRECT ? 'right' : 'wrong';
+
+    // return the previously used tile to the bank
+    bank.querySelectorAll('.tile[aria-disabled="true"]').forEach(t => t.removeAttribute('aria-disabled'));
+    tile.setAttribute('aria-disabled', 'true');
+
+    slot.textContent = op;
+    slot.dataset.state = kind;
+
+    if (foot.hidden) showFoot(kind); else swapFoot(kind);
+  });
+
+  cta.addEventListener('click', dismiss);
+
+  // the exit is real chrome with nowhere to go in a single screen mock, so it does
+  // the one reversible thing on the canvas rather than sitting there inert
+  closeBtn.addEventListener('click', dismiss);
+
+  // the feedback is dismissible without reaching for the button
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') dismiss(); });
+
+  document.getElementById('replay').addEventListener('click', () => {
+    const kind = foot.classList.contains('right') ? 'right' : 'wrong';
+    if (foot.hidden) showFoot(kind); else swapFoot(kind);
+  });
+
+  // open the file and the beat plays: bank staggers in, then the footer rises.
+  // 5 tiles at 50ms plus the 250ms tile entrance.
+  setTimeout(() => showFoot('wrong'), 500);
+</script>
+</body>
+</html>

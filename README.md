@@ -276,6 +276,120 @@ Heading `no dashboards yet`. Body: "dashboards pull your metrics into one view y
 
 ---
 
+## Designs — Duolingo + design-engineering
+
+The two packs split the work: the Duolingo skills decide **what the moment is and when it fires**, design-engineering decides **how it is actually built**. Every duration, easing curve, radius and contrast value below traces to a node — none were invented.
+
+The clearest example is in the celebration: the share button is `#367F00`, not Duolingo's own Feather Green, because design-engineering's `pov.md` audits white-on-Feather-Green at ≈2.1:1 and notes *"Duolingo ships it; you should not."* Rationale from one pack, craft floor from the other.
+
+<sub>SVG stills below. GitHub strips animation, so open [`docs/index.html`](docs/index.html) locally for the motion — which is the point of the design-engineering half.</sub>
+
+### First dashboard complete
+
+The instant a Quarry user finishes their first dashboard: the board itself performs — four chart paths wipe in on a 50ms stagger, the first real number counts 0 to 2,847 over 900ms, one earned line lands, one share button. Duolingo's rationale picks the celebration tier and writes the line; design-engineering supplies every curve, duration, radius and contrast value, with pov.md's audited #367F00 overriding Feather Green wherever the fill has to carry white text.
+
+<img src="docs/designs/celebration.svg" alt="A celebration moment in a B2B analytics product" width="100%">
+
+<details>
+<summary>Traced decisions</summary>
+
+| Choice | Value | From |
+|---|---|---|
+| No confetti. The celebration is the dashboard performing — charts drawing, the number counting — not an overlay on top of it. | three tiers, distinct grammar per tier; full-screen takeover is the rare-milestone grammar | `duo-gamification/celebration-moments + duo-design/celebration-design ("layer, don't stack") + philosophy/delight-impact-curve` |
+| Share button fill is #367F00, not Feather Green #58CC02 | white on #58CC02 ≈ 2.1:1, on Tree Frog ≈ 3.0:1; #367F00 clears 4.5:1 on white | `meta/pov.md §8 (outranks §2's "when in doubt go green")` |
+| Button lip #2B6600, reserved by a transparent 4px bottom border so the press causes no reflow | same hue, ~15% darker; press compresses 4px in 100ms | `meta/pov.md §1 and §5` |
+| Display headline set in Tree Frog #58A700, lowercase, 36px/105%, tracking -0.02em, two balanced lines | lowercase always, 10 words max, leading 100–110%, tracking -0.02em, never below 30px, never in a neutral like Eel | `meta/pov.md §3 + typography/line-length-tracking (text-wrap: balance on headings)` |
+| One line of copy: "nobody has to ask you for this number again" — names the outcome, not the action | reference what the user did; "Congratulations!" reads auto-generated; sentence case, no punctuation in headlines except ! | `duo-voice/celebration-copy + duo-voice/screenshot-bait + meta/pov.md §6` |
+| Card settles scale 0.95 → 1 + opacity over 260ms | 0.95, never scale(0); modal class 200–300ms | `motion/never-scale-from-zero + motion/duration-table` |
+| Four chart paths reveal with clip-path inset wipe, 700ms each, 50ms apart | stagger sweet spot 30–80ms, cap at 12 items; celebration band 600–1200ms; clip-path is the sanctioned reveal tool | `motion/stagger-choreography + motion/duration-table + motion/transform-opacity-only` |
+| 2,847 counts up from 0 over 900ms, eased on the same out-quart curve as everything arriving with it | celebration 600–1200ms; cubic-bezier(.25, 1, .5, 1) | `motion/duration-table + motion/easing-curves + meta/pov.md §5 ("a number that counts up")` |
+| Headline and button rise translateY(8px) → 0 in 240ms on out-expo | 8px is the node's own compose-with-translate figure; popover band 150–250ms; cubic-bezier(.16, 1, .3, 1) | `motion/transform-opacity-only + motion/duration-table + motion/easing-curves` |
+| Progress bar fills scaleX(0.75) → scaleX(1), full radius with an inset white highlight | 75% is the real prior state (3 of 4 charts), so nothing scales from zero; the 95–100% transition is where the reward lands | `motion/never-scale-from-zero + meta/pov.md §4 + duo-design/progress-bars` |
+
+<sub>Live version: [`docs/designs/celebration.html`](docs/designs/celebration.html)</sub>
+
+</details>
+
+### Empty state, before and after
+
+A dead "No dashboards." panel next to its redesign, built from the Duolingo pack's empty-state rationale and design-engineering's pov.md craft values — every colour, radius, duration and easing curve traceable to the node it came from, annotated in the SVG source.
+
+<img src="docs/designs/empty-state.svg" alt="A dead empty state beside its redesign" width="100%">
+
+<details>
+<summary>Traced decisions</summary>
+
+| Choice | Value | From |
+|---|---|---|
+| CTA fill is #367F00, not Feather Green #58CC02 | #367F00 computes to 5.0:1 against Snow; white on #58CC02 is ~2.1:1 | `pov.md section 8 rule 1 (accessibility outranks every taste call) — ratios recomputed from the published hex, as pov.md itself does` |
+| Button lip is #2E6C00 | 4px solid lip, same hue ~15% darker than its own fill | `pov.md section 1 — the fill was darkened for contrast, so the lip was re-derived by pov's own stated ratio rather than reusing Tree Frog` |
+| Button geometry | 50px tall, 12px radius, 4px lip, label ALL CAPS 700 15px letter-spacing 0.04em, no punctuation | `pov.md section 1` |
+| Heading is display-face, lowercase, 34px, tracking -0.02em, Tree Frog #58A700 | never below 30px, always lowercase, never set in a neutral; #58A700 is ~4.2:1 on Snow, which clears the large-text threshold at 34px/700 | `pov.md section 3 and section 2` |
+| Sample chart is Macaw #1CB0F6, not green | Macaw owns information; green is left to mean only 'the action' | `pov.md section 2 — each secondary hue owns exactly one meaning` |
+| Avatar is Humpback #2B70C9 | Humpback owns chrome; white on it computes to 4.9:1 | `pov.md section 2` |
+| Radius scale 12px tiles / 16px cards, nothing pointy | 12px button, 16px panel and preview card, 9999px avatar and chip | `pov.md section 4 + references/surface/border-radius.md` |
+| Preview card gets a whisper shadow, not a lip | 0 1px 1px and 0 2px 4px at 4% on a #111 base, via two chained feDropShadow | `references/surface/shadows-whisper.md — pov.md section 1 reserves the lip for pressable surfaces only` |
+| Exactly one next action, no secondary button and no menu | one CREATE DASHBOARD button; the ordered path makes the next step unmissable on open | `duo-adoption-design/one-ordered-path-beats-a-branching-surface.md` |
+| No mascot, no character illustration | the pixels go to the sample dashboard instead, because it signals something | `duo-voice/empty-states.md — the 2026 core-tabs refresh cut a character with the note 'does it serve a purpose?'; consistency-vs-purpose.md` |
+
+<sub>Live version: [`docs/designs/empty-state.html`](docs/designs/empty-state.html)</sub>
+
+</details>
+
+### Run-streak and health score
+
+A habit surface for a product used twice a month: a run-based chain that a scheduled pause carries across the known dip, beside a continuous health scalar that moves on ordinary days — built with the Duolingo pack's mechanics and design-engineering's craft values, every number traceable to the node it came from.
+
+<img src="docs/designs/run-streak.svg" alt="A habit surface for a product used twice a month" width="100%">
+
+<details>
+<summary>Traced decisions</summary>
+
+| Choice | Value | From |
+|---|---|---|
+| The chain counts runs, not days, and the health scalar carries the 28 days between runs | one run = one link; 8 links shown (runs 11 to 18) | `skills/duolingo/SKILL.md — 'a product genuinely used twice a month does not have a retention problem, and a daily loop will only manufacture guilt'` |
+| The on-time target sits beside the chain and never gates it; the card shows both numbers side by side across a 2px rule | chain 6 runs / target 5 of 6. Duolingo's decoupling returned +3.3% D14, +1% DAU, +10.5% more learners on a streak within 20 days | `duo-streak-mechanics/references/fixed-low-bar-separate-ambition-dial.md` |
+| The floor line states the minimum viable day in time, not intent | 'an unchanged run approves in under 2 minutes' — the node's own under-2-minutes target | `duo-streak-mechanics/references/trivial-floor-protects-the-chain-not-the-outcome.md` |
+| Run 14 is a sanctioned pause aimed at a known dip, and the chain still reads 6 consecutive because the pause carried it. The missed segment in the on-time meter sits at the same index, so the pause visibly cost the target and not the chain | paused for q2 filing week. Duolingo's Weekend Amulet was aimed at a measured 5–10% weekend trough: +4% week-later return, 5% less likely to lose the streak | `duo-streak-mechanics/references/scheduled-pause-at-the-known-dip.md` |
+| Pause and freeze are drawn as two different instruments: the pause is an inset, unpressable tile with no lip, the freeze is a counted token with its balance shown before it is needed | '2 run freezes left' chip | `duo-streak-mechanics/references/scarce-recovery-token.md` |
+| A fine-grained scalar beside the coarse chain, with the delta and the next increment, plus a 14-day trace proving it moves on ordinary days | 0–160 scale, bar to the next point, '+4 in 14 days', '3 checks from 85', '10 of 14 days moved the score' | `duo-perceived-progress/references/rate-of-change-beats-absolute-position.md` |
+| The score is written as a can-do statement in the user's task language, not in internal units | 'at 84 you file multi-state runs with no corrections' | `duo-perceived-progress/references/a-portable-number-in-can-do-terms.md` |
+| Every pressable surface gets a solid opaque lip in a darker shade of its own fill, reserved by a transparent bottom border so pressing causes no reflow. Whisper shadows are left to the one floating layer | 4px lip on the button, 2px on cards and tiles; window shadow layered at 5/5/4% on a #111 base | `references/meta/pov.md §1 + references/surface/shadows-whisper.md` |
+| Every text-bearing green surface uses the darkened green pov sanctions, because pov §8 refuses to ship white on Feather Green. Feather Green survives only as a non-text fill | #367F00 fills with lip #366800 (derived by pov's own Feather-to-Tree-Frog ratio: red held, green channel x0.82). #58CC02 only on the progress bar and sparkline | `references/meta/pov.md §8 + references/components/accessibility-baseline.md` |
+| Right and wrong are never carried by colour alone: filed, paused and open are three different glyphs and three different constructions | check / two pause bars / hollow Fox dot in a dashed ring | `references/components/accessibility-baseline.md` |
+
+<sub>Live version: [`docs/designs/run-streak.html`](docs/designs/run-streak.html)</sub>
+
+</details>
+
+### A lesson step that teaches
+
+One step of an in-product lesson teaching ops staff to write a SQL filter, drawn at the peak frame 250ms after a wrong answer: the scaffold, its scheduled removal, the difficulty flag, and feedback that names the rule instead of the verdict.
+
+<img src="docs/designs/teach-step.svg" alt="One step of an in-product lesson, with scaffolding" width="100%">
+
+<details>
+<summary>Traced decisions</summary>
+
+| Choice | Value | From |
+|---|---|---|
+| Three of the four SQL lines are dimmed to Hare #AFAFAF; only the operator slot is live | one varying dimension per teaching unit | `duo-attention-budget/hold-everything-but-the-target-constant` |
+| No syntax highlighting in the code block — the slot is the only coloured thing in it | decoration spends from the same budget as the target | `duo-attention-budget/salience-is-a-budget-and-it-front-loads` |
+| The prompt is the only display-face element on the canvas; every annotation is 12.5px body face | attention amplifies one signal and suppresses the rest | `duo-attention-budget/salience-is-a-budget-and-it-front-loads` |
+| "on or after" in the brief is labelled a redundant cue and carries a written removal date (step 9 reads "refunds from Monday") | the cue is only scaffolding if its removal is scheduled in the same change that adds it | `duo-attention-budget/a-redundant-cue-suppresses-what-it-duplicates` |
+| The new operator carries a visible Macaw flag plus the line ">= is new here. Everything else came from step 2." | 5–7 new items per lesson, 90/10 known-to-new, and the new element is visually flagged | `duo-difficulty-calibration/the-narrow-band-between-bored-and-lost` |
+| Rail reports 54% first-try correct against a target band just above half | a little more than half the time is the honest signal; MAE 0.13 puts p=0.5 in a 37–63% band | `duo-difficulty-calibration/fifty-percent-success-is-the-honest-signal` |
+| Word bank shown (recognition stage), with TYPE IT INSTEAD on the exercise itself | tap the option early, type it unaided later; the keyboard icon sits on the exercise, one tap away, not in settings | `duo-progression-design/recognition-then-guided-then-production + make-the-scaffold-removable-by-the-user` |
+| The footer states the rule ("created_at stores a timestamp, so = matches only the instant 00:00:00") rather than "Incorrect" | name the governing rule, not the verdict — "wrong" carries one bit | `duo-rules-and-heuristics/explanation-lands-at-the-moment-of-the-error` |
+| The footer closes on the handle "dates are ranges, not values" | compress the rule to something holdable in one breath at the decision point | `duo-rules-and-heuristics/give-them-a-handle-they-can-hold-under-pressure` |
+| Button reads TRY IT AGAIN, not CONTINUE | let it practise, not just tell — another instance of the same decision while attention is still on the gap | `duo-rules-and-heuristics/explanation-lands-at-the-moment-of-the-error` |
+
+<sub>Live version: [`docs/designs/teach-step.html`](docs/designs/teach-step.html)</sub>
+
+</details>
+
+---
+
 ## Install
 
 ```bash

@@ -3,64 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Duolingo Skills — visuals</title>
+<title>Duolingo Skills &mdash; visuals</title>
 <style>
   :root {
+    color-scheme: dark;
     --bg: #0b0e14; --card: #131822; --edge: #222a36;
-    --ink: #e9eef5; --dim: #7d8898; --faint: #59616e;
+    --ink: #e9eef5; --dim: #9aa4b2; --faint: #7d8898;
     --accent: #58CC02;
+    --accent-line: rgba(88,204,2,0.55);
+    --accent-wash: rgba(88,204,2,0.10);
+    --accent-wash-pressed: rgba(88,204,2,0.16);
+    --ease-out: cubic-bezier(0.25,1,0.5,1);
   }
   * { box-sizing: border-box; }
   body {
     margin: 0; background: var(--bg); color: var(--ink);
-    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
+  ::selection { background: rgba(88,204,2,0.22); color: var(--ink); }
   .wrap { max-width: 1280px; margin: 0 auto; padding: 56px 16px 96px; }
   header { border-bottom: 1px solid var(--edge); padding-bottom: 28px; margin-bottom: 40px; }
-  h1 { margin: 0 0 8px; font-size: 30px; letter-spacing: -0.4px; }
+  h1 { margin: 0 0 8px; font-size: 30px; letter-spacing: -0.02em; text-wrap: balance; }
   h1 code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--accent); }
-  .sub { color: var(--dim); font-size: 15px; margin: 0; }
+  .sub { color: var(--dim); font-size: 15px; margin: 0; text-wrap: pretty; }
   section { margin: 0 0 56px; }
-  h2 { font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--dim); margin: 0 0 6px; }
-  .cap { color: var(--faint); font-size: 13.5px; margin: 0 0 16px; max-width: 76ch; line-height: 1.55; }
+  h2 { font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--dim); margin: 0 0 6px; }
+  .cap { color: var(--faint); font-size: 14px; margin: 0 0 16px; max-width: 76ch; line-height: 1.55; text-wrap: pretty; }
   figure { margin: 0; background: var(--card); border: 1px solid var(--edge); border-radius: 14px; overflow: hidden; }
   figure img { display: block; width: 100%; height: auto; }
-  .live { display: inline-flex; align-items: center; gap: 7px; margin-top: 12px; font-size: 13px;
-          color: var(--accent); text-decoration: none; border: 1px solid rgba(88,204,2,0.35);
-          padding: 7px 13px; border-radius: 9px; transition: background 140ms cubic-bezier(0.25,1,0.5,1); }
-  .live:hover { background: rgba(88,204,2,0.1); }
+  .live { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; min-height: 44px;
+          font-size: 13px; color: var(--accent); text-decoration: none;
+          border: 1px solid var(--accent-line); padding: 12px 16px; border-radius: 10px;
+          transition: background-color 140ms var(--ease-out), transform 140ms var(--ease-out); }
+  .live .play { user-select: none; }
+  @media (hover: hover) and (pointer: fine) {
+    .live:hover { background-color: var(--accent-wash); }
+  }
+  .live:active { background-color: var(--accent-wash-pressed); transform: scale(0.96); }
+  .live:focus-visible, footer a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
   .grid { display: grid; gap: 28px; }
-  @media (min-width: 900px) { .grid.two { grid-template-columns: 1fr 1fr; } }
-  footer { color: var(--faint); font-size: 13px; border-top: 1px solid var(--edge); padding-top: 24px; }
+  footer { color: var(--faint); font-size: 13px; border-top: 1px solid var(--edge); padding-top: 24px; text-wrap: pretty; }
   a { color: inherit; }
+  @media (prefers-reduced-motion: reduce) {
+    .live { transition-property: background-color; }
+    .live:active { transform: none; }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <h1><code>/duolingo</code> &mdash; visuals</h1>
-    <p class="sub">Generated from the repo's real state and real router runs. Open the live links to see the motion.</p>
+    <p class="sub">Generated from the repo&rsquo;s real state and real router runs. Open the live links to see the motion.</p>
   </header>
 
   <section>
     <h2>The pack</h2>
     <p class="cap">44 skills in eight families, with live node counts. Regenerated from what is on disk, so it cannot drift.</p>
-    <figure><img src="assets/skill-map.svg" alt="The 44 skills grouped into eight families"></figure>
+    <figure><img src="assets/skill-map.svg" width="890" height="732" alt="The 44 skills grouped into eight families"></figure>
   </section>
 
   <section>
     <h2>How the router works</h2>
     <p class="cap">Gate, then posture, then family and skill. Gate row 1 hands every UI-craft question to design-engineering.</p>
-    <figure><img src="assets/router-flow.svg" alt="Gate, posture, family, answer"></figure>
+    <figure><img src="assets/router-flow.svg" width="1192" height="476" alt="Gate, posture, family, answer"></figure>
   </section>
 
   <section>
     <h2>Real runs</h2>
     <p class="cap">Actual output from agents that loaded the router and followed it, set in a terminal.</p>
-    <div class="grid two">
-      <figure><img src="assets/run-payroll-streak.svg" alt="The router declining to build a daily streak"></figure>
-      <figure><img src="assets/run-empty-state.svg" alt="Duolingo rationale plus design-engineering craft"></figure>
+    <div class="grid">
+      <figure><img src="assets/run-payroll-streak.svg" width="776" height="945" alt="The router declining to build a daily streak"></figure>
+      <figure><img src="assets/run-empty-state.svg" width="776" height="945" alt="Duolingo rationale plus design-engineering craft"></figure>
     </div>
   </section>
 
@@ -74,20 +90,20 @@
 
     <div class="grid">
       <div>
-        <figure><img src="designs/celebration.svg" alt="First dashboard complete"></figure>
-        <a class="live" href="designs/celebration.html">&#9654; live &mdash; first dashboard complete</a>
+        <figure><img src="designs/celebration.svg" width="1200" height="760" loading="lazy" decoding="async" alt="First dashboard complete"></figure>
+        <a class="live" href="designs/celebration.html"><span class="play" aria-hidden="true">&#9654;</span> live &mdash; first dashboard complete</a>
       </div>
       <div>
-        <figure><img src="designs/empty-state.svg" alt="Empty state, before and after"></figure>
-        <a class="live" href="designs/empty-state.html">&#9654; live &mdash; empty state</a>
+        <figure><img src="designs/empty-state.svg" width="1280" height="720" loading="lazy" decoding="async" alt="Empty state, before and after"></figure>
+        <a class="live" href="designs/empty-state.html"><span class="play" aria-hidden="true">&#9654;</span> live &mdash; empty state</a>
       </div>
       <div>
-        <figure><img src="designs/run-streak.svg" alt="Run-streak and health score"></figure>
-        <a class="live" href="designs/run-streak.html">&#9654; live &mdash; run-streak</a>
+        <figure><img src="designs/run-streak.svg" width="1200" height="700" loading="lazy" decoding="async" alt="Run-streak and health score"></figure>
+        <a class="live" href="designs/run-streak.html"><span class="play" aria-hidden="true">&#9654;</span> live &mdash; run-streak</a>
       </div>
       <div>
-        <figure><img src="designs/teach-step.svg" alt="A lesson step that teaches"></figure>
-        <a class="live" href="designs/teach-step.html">&#9654; live &mdash; lesson step</a>
+        <figure><img src="designs/teach-step.svg" width="1200" height="780" loading="lazy" decoding="async" alt="A lesson step that teaches"></figure>
+        <a class="live" href="designs/teach-step.html"><span class="play" aria-hidden="true">&#9654;</span> live &mdash; lesson step</a>
       </div>
     </div>
   </section>

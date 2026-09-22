@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  empty state, before and after  ·  viewBox 1280x720, drawn at 1000x562.5  ·  static,
+  self contained, no script, no external assets
+
+  The intrinsic size is 1000 wide, not 1280, on purpose: rendered full width in a
+  README the artboard downscales by about 0.9 instead of 0.70, which keeps the
+  annotation layer above roughly 11px effective. The annotation type below is
+  sized against that 0.9, not against the nominal viewBox units.
+
+  Scenario is the one the repo already ships as a real run (docs/assets/run-empty-state.svg):
+  a dashboards list whose empty state is grey "No dashboards." on a blank panel.
+
+  ── WHY (Duolingo pack) ─────────────────────────────────────────────────────────
+  Three jobs, no void / say what will be here / keep the voice
+      skills/duo-voice/references/empty-states.md
+  Exactly one next action, "make the single next action unmissable on open"
+      skills/duo-adoption-design/references/one-ordered-path-beats-a-branching-surface.md
+  No mascot bolted on. The 2026 core tabs refresh cut a character from the Friends
+  header with the note "does it serve a purpose?" so this design has no character:
+  the pixels go to the sample dashboard, which is the thing that carries information
+      skills/duo-design/references/consistency-vs-purpose.md
+      skills/duo-voice/references/empty-states.md
+  Identical chrome on both panels is the FIXED part that guarantees recognition;
+  only the body is GRADED. Whitespace separates the blocks, no container rules
+      skills/duo-design/references/consistency-vs-purpose.md
+      skills/duo-design/references/type-system.md
+  Numerals for every number, comma above 999, sentence case body, ALL CAPS button
+      design-engineering references/meta/pov.md section 6
+
+  ── HOW (design-engineering, pov.md outranks canon) ──────────────────────────────
+  Button    50px tall, 12px radius, 4px solid lip in a darker shade of its own fill,
+            label ALL CAPS 700 15px letter spacing 0.04em, no punctuation
+              pov.md section 1
+  Button    fill #367F00 not Feather Green #58CC02. pov section 8 rule 1: white on
+  contrast  Feather Green computes to about 2.1:1 and must not carry text. #367F00
+            computes to 5.01:1 on Snow. Lip #2E6C00 derived by pov's stated rule,
+            same hue about 15 percent darker
+              pov.md section 1 and section 8
+  Heading   display face, always lowercase, never below 30px, tracking 0.02em
+            negative, never set in a neutral. #367F00, which measures 4.68:1 on the
+            Polar ground and 5.01:1 on Snow. Tree Frog #58A700 was measured first
+            and rejected: 2.82:1 on Polar and 3.02:1 on Snow, so it fails WCAG's
+            3:1 large text floor on the ground this file actually stands on, even
+            at 34px 700. The display face and the action now share one hue, which
+            is also what pov's "each hue owns one meaning" wants
+              pov.md section 3 and section 2
+  Colour    each hue owns one meaning. Macaw #1CB0F6 is information, so the sample
+            chart is Macaw. Macaw is NOT a text colour on a light ground: it is
+            2.28:1 on Polar, so nothing lettered uses it. Humpback #2B70C9 is
+            chrome, so the avatar is Humpback, white on it is 4.9:1
+              pov.md section 2
+  Radius    12px buttons and tiles, 16px cards and modals, nothing pointy
+              pov.md section 4, references/surface/border-radius.md
+  Shadow    the preview card is not pressable, so it gets the whisper shadow, not a
+            lip: layered 1px and 2px offsets at 4 percent on a #111 base
+              references/surface/shadows-whisper.md, pov.md section 1
+  Dead text #AFAFAF is the light value of the documented "disabled text,
+  on left   placeholders" step. It is used once, on purpose, on the panel being
+            criticised. The live counterpart reaches it through a remapped token so
+            the before/after gap does not invert in dark mode
+              pov.md section 2
+  Motion    an empty state is first run, and the delight impact curve's gotcha says
+            onboarding carries weekly tier delight, which pov grades as scale in
+            plus stagger. Onboarding hero motion budget is 400 to 800ms, floor
+            taken. ease out quart cubic-bezier(0.25, 1, 0.5, 1) for entrances.
+            Transform and opacity only, translateY 8px. Press compresses 4px in
+            about 100ms
+              references/philosophy/delight-impact-curve.md, pov.md section 5,
+              references/motion/duration-table.md, easing-curves.md,
+              transform-opacity-only.md
+  No conf-  confetti is rare milestone budget, not this
+  etti        pov.md section 5, delight-impact-curve.md
+
+  ── DELETED PER references/anti-patterns/ai-default-tells.md ────────────────────
+  no purple or indigo gradient, no glassmorphism, no emoji, no icon feature grid,
+  no centred hero, no "Get started" CTA (specific verb instead), no lorem ipsum,
+  no round "100+" figures, no Lucide chevrons, no spinner.
+
+  ── VALUES NOT GIVEN BY ANY NODE ────────────────────────────────────────────────
+  stagger step 60ms. No node specifies a stagger interval. Derived so the whole
+  sequence, 3 steps plus a 400ms tail, lands at 580ms and stays inside the
+  documented 400 to 800ms onboarding budget. Flagged rather than presented as read.
+
+  Nunito is named first in the font stack but no webfont is embedded, so in a
+  README this renders in Trebuchet MS / Segoe UI / system-ui. The tracking figures
+  are pov.md's, held as-is, and are tuned for Nunito. Flagged, not claimed.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="562.5" viewBox="0 0 1280 720" role="img"
+     font-family="Nunito, 'Trebuchet MS', 'Segoe UI', system-ui, -apple-system, sans-serif">
+  <title>Empty state, before and after</title>
+  <desc>Two identical dashboard screens side by side. The left shows only grey text reading No dashboards. The right shows a dimmed sample dashboard preview, the heading no dashboards yet, one line of explanation, and a single green CREATE DASHBOARD button with a four pixel lip. Below, a timing strip records the enter choreography.</desc>
+
+  <defs>
+    <filter id="whisper" x="-20%" y="-20%" width="140%" height="160%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="1" stdDeviation="0.5" flood-color="#111111" flood-opacity="0.04"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#111111" flood-opacity="0.04"/>
+    </filter>
+  </defs>
+
+  <!-- ground: Polar, the inset surface token, so Snow panels read as surfaces -->
+  <rect width="1280" height="720" fill="#F7F7F7"/>
+
+  <!-- == header =============================================================== -->
+  <text x="40" y="48" font-size="34" font-weight="700" fill="#367F00" letter-spacing="-0.02em">the empty state, before and after</text>
+  <text x="40" y="74" font-size="13.5" fill="#4B4B4B">Same product, same chrome. Only the state changes.</text>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#4B4B4B" text-anchor="end">
+    <text x="1240" y="40">duo-voice · empty-states</text>
+    <text x="1240" y="58">duo-adoption-design · one-ordered-path</text>
+    <text x="1240" y="76">design-engineering · meta/pov + duration-table</text>
+  </g>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" letter-spacing="0.14em">
+    <text x="40" y="110" fill="#4B4B4B">before</text>
+    <text x="664" y="110" fill="#367F00">after</text>
+  </g>
+
+  <!-- == left panel: the dead original ======================================== -->
+  <rect x="40" y="128" width="576" height="444" rx="16" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+  <line x1="41" y1="180" x2="615" y2="180" stroke="#E5E5E5" stroke-width="2"/>
+  <text x="64" y="161" font-size="14">
+    <tspan font-weight="700" fill="#4B4B4B">Beacon</tspan><tspan fill="#AFAFAF"> / </tspan><tspan font-weight="600" fill="#4B4B4B">Dashboards</tspan>
+  </text>
+  <circle cx="578" cy="154" r="14" fill="#2B70C9"/>
+  <text x="578" y="158" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.02em">RK</text>
+
+  <text x="328" y="381" font-size="15" fill="#AFAFAF" text-anchor="middle">No dashboards.</text>
+
+  <!-- == right panel: the redesign ============================================ -->
+  <rect x="664" y="128" width="576" height="444" rx="16" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+  <line x1="665" y1="180" x2="1239" y2="180" stroke="#E5E5E5" stroke-width="2"/>
+  <text x="688" y="161" font-size="14">
+    <tspan font-weight="700" fill="#4B4B4B">Beacon</tspan><tspan fill="#AFAFAF"> / </tspan><tspan font-weight="600" fill="#4B4B4B">Dashboards</tspan>
+  </text>
+  <circle cx="1202" cy="154" r="14" fill="#2B70C9"/>
+  <text x="1202" y="158" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.02em">RK</text>
+
+  <!-- job 2: show what it will look like. Dimmed so it reads as a sample, not as
+       the user's data. 0.88, not 0.8: at 0.8 the green delta composited to about
+       3.45:1 and was the first thing that stopped reading at display size.
+       Decorative in the live version, aria-hidden and pointer-events:none. -->
+  <g opacity="0.88">
+    <rect x="712" y="200" width="480" height="168" rx="16" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2" filter="url(#whisper)"/>
+    <text x="732" y="228" font-size="14" font-weight="700" fill="#4B4B4B">Checkout funnel</text>
+    <rect x="1076" y="214" width="96" height="22" rx="11" fill="#F7F7F7"/>
+    <text x="1124" y="229" font-size="11" font-weight="600" fill="#4B4B4B" text-anchor="middle">Last 7 days</text>
+
+    <text x="732" y="272" font-size="12" font-weight="600" fill="#4B4B4B">Completion rate</text>
+    <text x="732" y="308" font-size="34" font-weight="700" fill="#4B4B4B" letter-spacing="-0.02em" style="font-variant-numeric:tabular-nums">68.4%</text>
+    <!-- "+" carries the direction, so colour is never the only signal.
+         skills/duo-design/references/accessibility-default.md rule 1 -->
+    <text x="732" y="330" font-size="12" font-weight="700" fill="#367F00" style="font-variant-numeric:tabular-nums">+4.2 pts vs last week</text>
+
+    <g fill="#1CB0F6">
+      <rect x="920"     y="303.4" width="26" height="32.6" rx="5"/>
+      <rect x="957.67"  y="295.5" width="26" height="40.5" rx="5"/>
+      <rect x="995.33"  y="298.9" width="26" height="37.1" rx="5"/>
+      <rect x="1033"    y="283.7" width="26" height="52.3" rx="5"/>
+      <rect x="1070.67" y="275.9" width="26" height="60.1" rx="5"/>
+      <rect x="1108.33" y="272.5" width="26" height="63.5" rx="5"/>
+      <rect x="1146"    y="264"   width="26" height="72"   rx="5"/>
+    </g>
+    <line x1="920" y1="336.5" x2="1172" y2="336.5" stroke="#E5E5E5" stroke-width="1"/>
+  </g>
+
+  <!-- job 1: say what goes here -->
+  <text x="712" y="410" font-size="34" font-weight="700" fill="#367F00" letter-spacing="-0.02em">no dashboards yet</text>
+  <text x="712" y="442" font-size="15" fill="#4B4B4B">Dashboards pull your metrics into one view you</text>
+  <text x="712" y="462" font-size="15" fill="#4B4B4B">can share with your team.</text>
+
+  <!-- job 3: exactly one next action. Lip first, fill on top: 50px fill sitting on
+       a 4px lip, 54px total, which is what the live button's border box reserves. -->
+  <rect x="712" y="486" width="208" height="50" rx="12" fill="#2E6C00"/>
+  <rect x="712" y="482" width="208" height="50" rx="12" fill="#367F00"/>
+  <text x="816" y="512" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.04em">CREATE DASHBOARD</text>
+
+  <!-- == annotation layer: mono, so spec never reads as product ===============
+       Nothing here is under 12 viewBox units, which is about 11px effective once
+       the 1000-wide artboard is downscaled in a README. Below that the layer that
+       carries the argument stops being text and becomes decoration. -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+
+    <text x="40" y="606" font-size="13" fill="#4B4B4B" letter-spacing="0.1em">the three jobs an empty state has · duo-voice/empty-states</text>
+
+    <g font-size="14" fill="#4B4B4B">
+      <text x="40" y="634" font-size="15" font-weight="700" fill="#FF4B4B">×</text>
+      <text x="58" y="634">no explanation</text>
+      <text x="296" y="634" font-size="15" font-weight="700" fill="#367F00">✓</text>
+      <text x="314" y="634">heading plus one line</text>
+
+      <text x="40" y="658" font-size="15" font-weight="700" fill="#FF4B4B">×</text>
+      <text x="58" y="658">nothing to picture</text>
+      <text x="296" y="658" font-size="15" font-weight="700" fill="#367F00">✓</text>
+      <text x="314" y="658">a sample dashboard</text>
+
+      <text x="40" y="682" font-size="15" font-weight="700" fill="#FF4B4B">×</text>
+      <text x="58" y="682">nowhere to go</text>
+      <text x="296" y="682" font-size="15" font-weight="700" fill="#367F00">✓</text>
+      <text x="314" y="682">one button, no menu</text>
+    </g>
+
+    <text x="664" y="606" font-size="13" fill="#4B4B4B" letter-spacing="0.1em">enter choreography</text>
+    <!-- two right-aligned lines, not one: at 13 the single line reached back to
+         x=764 and ran into the header, which ends near x=828 -->
+    <text x="1240" y="594" font-size="13" fill="#4B4B4B" text-anchor="end" style="font-variant-numeric:tabular-nums">each 400ms  ·  60ms stagger</text>
+    <text x="1240" y="610" font-size="13" fill="#4B4B4B" text-anchor="end" style="font-variant-numeric:tabular-nums">cubic-bezier(0.25, 1, 0.5, 1)</text>
+
+    <!-- 18-unit row pitch, up from 16, so 13px labels are not crowded -->
+    <g font-size="13" fill="#4B4B4B" text-anchor="end">
+      <text x="756" y="627">sample preview</text>
+      <text x="756" y="645">heading</text>
+      <text x="756" y="663">body copy</text>
+      <text x="756" y="681">button</text>
+    </g>
+
+    <rect x="768"   y="618" width="282.7" height="8" rx="4" fill="#1CB0F6"/>
+    <rect x="810.4" y="636" width="282.7" height="8" rx="4" fill="#1CB0F6"/>
+    <rect x="852.8" y="654" width="282.7" height="8" rx="4" fill="#1CB0F6"/>
+    <rect x="895.2" y="672" width="282.7" height="8" rx="4" fill="#367F00"/>
+
+    <line x1="768" y1="688" x2="1192" y2="688" stroke="#E5E5E5" stroke-width="1.5"/>
+    <g stroke="#AFAFAF" stroke-width="1">
+      <line x1="768"    y1="684" x2="768"    y2="688"/>
+      <line x1="909.3"  y1="684" x2="909.3"  y2="688"/>
+      <line x1="1050.7" y1="684" x2="1050.7" y2="688"/>
+      <line x1="1192"   y1="684" x2="1192"   y2="688"/>
+    </g>
+    <g font-size="13" fill="#4B4B4B" text-anchor="middle" style="font-variant-numeric:tabular-nums">
+      <text x="768"    y="702">0</text>
+      <text x="909.3"  y="702">200ms</text>
+      <text x="1050.7" y="702">400ms</text>
+      <text x="1192"   y="702">600ms</text>
+    </g>
+  </g>
+</svg>

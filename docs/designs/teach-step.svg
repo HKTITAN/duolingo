@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  teach-step.svg  ·  1200x848  ·  static, self contained
+
+  One step of an in product lesson teaching non technical ops staff to write a SQL
+  filter, drawn at the peak frame: 250ms after a wrong answer, with the feedback
+  footer fully in.
+
+  DECISIONS, AND THE NODE EACH ONE CAME FROM
+  (duo-* = skills/<skill>/references/<node>.md in this pack;
+   de/*  = design-engineering references/<cluster>/<node>.md)
+
+  THE STEP
+  1.  Four SQL lines, three of them dimmed to #6E6E6E. The learner wrote those three
+      in step 2; only the operator varies, so a wrong answer can mean exactly one
+      thing. The dim is a hierarchy step, not a disabled state: those lines are the
+      query the learner wrote, so they hold the full 4.5:1 text floor (4.8:1 on Polar)
+      rather than borrowing Hare's disabled exemption.
+      duo-attention-budget / hold-everything-but-the-target-constant
+  2.  No syntax highlighting. The only colour inside the code block is the slot being
+      taught, because a decorative highlight spends the same budget as the target.
+      duo-attention-budget / salience-is-a-budget-and-it-front-loads
+  3.  The prompt is the single display face element on the canvas and the loudest
+      thing on it. Every annotation is set in the body face at 13px, so the mock
+      never out shouts its own commentary.
+      duo-attention-budget / salience-is-a-budget-and-it-front-loads
+  4.  The new element gets a visible flag (Macaw rule under the tile) so the learner
+      can tell which part of the difficulty is intentional.
+      duo-difficulty-calibration / the-narrow-band-between-bored-and-lost
+
+  REVEALED VS WITHHELD
+  5.  Word bank shown: this step is the recognition stage, not production.
+      duo-progression-design / recognition-then-guided-then-production
+  6.  TYPE IT INSTEAD sits on the exercise itself, one tap from the work, never in
+      settings. The scaffold carries a visible off switch.
+      duo-progression-design / make-the-scaffold-removable-by-the-user
+  7.  "on or after" in the brief is a redundant cue that fully determines the answer.
+      It is deliberate scaffolding and it ships with a removal date (step 9 reads
+      "refunds from Monday"), written into the same change that added it.
+      duo-attention-budget / a-redundant-cue-suppresses-what-it-duplicates
+  8.  Withheld: the operator reference table, and BETWEEN. An escalation in
+      documentation is the wrong answer to a recurring mistake.
+      duo-rules-and-heuristics / explanation-lands-at-the-moment-of-the-error
+
+  THE FEEDBACK
+  9.  The footer names the governing rule, not the verdict. "Wrong" carries one bit.
+      duo-rules-and-heuristics / explanation-lands-at-the-moment-of-the-error
+  10. It closes on a compressed handle, "dates are ranges, not values", short enough
+      to survive at a keyboard, and shipped with its coverage.
+      duo-rules-and-heuristics / give-them-a-handle-they-can-hold-under-pressure
+  11. The button reads TRY IT AGAIN, not CONTINUE: the explanation is followed
+      immediately by the same decision while attention is still on the gap.
+      duo-rules-and-heuristics / explanation-lands-at-the-moment-of-the-error
+  12. Wrongness is carried by a mark, a word and a colour, never colour alone. The
+      mark is drawn in #FFFFFF, an on colour that never participates in the dark
+      mode remap, so it stays white on the disc in either theme.
+      de/components/accessibility-baseline  ·  de/meta/pov section 8
+  13. The footer obeys the card's content column. Badge, answer, rule and handle all
+      start at x=96 with everything above the divider; only the verdict heading is
+      set optically after the badge, at 96 + 38 + 13.
+
+  CRAFT
+  14. Pressable surfaces are physical: 4px lip on the primary scale, 2px on tiles and
+      secondary buttons, each lip a darker shade of its own fill. Nothing on this
+      canvas is on the primary scale, so every lip here reveals 2px: tiles, slot,
+      off switch and CTA alike, matching the HTML's 0 2px 0 0. Cardinal #FF4B4B
+      pairs with Fire Ant #EA2B2B on the slot.
+      de/meta/pov section 1
+  15. Radius scale: 12px tiles and buttons, 16px card, full for the progress bar and
+      pills. The progress bar carries an inset highlight.
+      de/meta/pov section 4  ·  de/surface/border-radius
+  16. Card elevation is three layered shadows at 4 to 5% on a #111 base, not one blur.
+      de/surface/shadows-whisper
+  17. Motion values in the strip: tile press 100ms, footer in 250ms, footer out 180ms
+      (72% of the enter), all on cubic-bezier(0.25, 1, 0.5, 1), transform, opacity
+      and the 2px box-shadow lip only. Reduced motion drops the travel and keeps a
+      120ms fade.
+      de/motion/duration-table  ·  easing-curves  ·  transform-opacity-only
+      de/motion/prefers-reduced-motion
+  18. Copy: lowercase display, sentence case body, ALL CAPS buttons with no
+      punctuation, numerals for every number, an error that supports instead of blames.
+      de/meta/pov section 6
+  19. Contrast, computed from the hex values rather than quoted, and against the
+      surface each one actually sits on:
+      Eel #4B4B4B on Snow 8.9:1  ·  Humpback #2B70C9 4.9:1  ·  #367F00 5.0:1  ·
+      #6E6E6E on Polar 4.8:1, carrying the held SQL lines and the node citations  ·
+      #6E6E6E on Snow 5.1:1, carrying the close icon, well over the 3:1 floor that
+      a non text control needs  ·  Cardinal #FF4B4B 3.0:1 against the tinted footer
+      (#FFF2F2, not pure white), used only on the 30px display line where the AA
+      large threshold is 3:1  ·  Hare #AFAFAF carries no text at all: only the
+      disabled tile and the empty slot glyph, where the exemption applies  ·
+      Feather Green is a fill and never type.
+      de/meta/pov section 8  ·  de/components/accessibility-baseline
+  20. Nothing meant to be read is set below 12px nominal. At the ~0.75x a 1200px
+      canvas renders at in a README that is 9px effective, and the hierarchy step
+      between the rail body and the citations is carried by size alone. Dimmed ink
+      is a solid #6E6E6E, never a fill-opacity over Eel: washing the ink out on the
+      smallest type on the canvas removes it rather than quieting it.
+
+  DELETED PER de/anti-patterns/ai-default-tells
+      no gradient, no glass, no emoji, no centred hero, no glyph grid, no purple,
+      no lorem, no spinner. Every number on this canvas is a real one.
+
+  FONT NOTE
+      pov section 3 sanctions Nunito as the body face substitute. GitHub strips
+      @font-face from inline SVG, so both faces fall back to the system sans stack
+      and the display / body role split is carried by size and weight instead. That
+      is also why the display type here is 700 while teach-step.html sets 800: the
+      HTML loads Nunito and has a real 800 to ask for, and the system stack does
+      not, so asking for it there would only get a synthesized weight.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="848" viewBox="0 0 1200 848"
+     font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title>one lesson step, one second after a wrong answer</title>
+
+  <defs>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="1"  stdDeviation="1"  flood-color="#111111" flood-opacity="0.04"/>
+      <feDropShadow dx="0" dy="4"  stdDeviation="8"  flood-color="#111111" flood-opacity="0.05"/>
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#111111" flood-opacity="0.04"/>
+    </filter>
+  </defs>
+
+  <!-- ground: Polar. explicit, never transparent -->
+  <rect width="1200" height="848" fill="#F7F7F7"/>
+
+  <!-- ============ canvas header ============ -->
+  <text x="56" y="44" font-size="15" font-weight="700" fill="#4B4B4B">one lesson step, one second after a wrong answer</text>
+  <text x="1144" y="44" font-size="12" fill="#4B4B4B" text-anchor="end">duolingo pack × design-engineering</text>
+  <line x1="56" y1="70" x2="1144" y2="70" stroke="#E5E5E5" stroke-width="1"/>
+
+  <!-- ============ the product surface ============ -->
+  <rect x="56" y="100" width="700" height="648" rx="16" fill="#FFFFFF" filter="url(#cardShadow)"/>
+
+  <!-- chrome: close, progress. the exit is the only way out of the step, so the
+       icon carries the 3:1 non text floor with headroom rather than Hare's 2.2:1 -->
+  <g stroke="#6E6E6E" stroke-width="3" stroke-linecap="round">
+    <line x1="81" y1="121" x2="95" y2="135"/>
+    <line x1="95" y1="121" x2="81" y2="135"/>
+  </g>
+  <rect x="116" y="120" width="600" height="16" rx="8" fill="#E5E5E5"/>
+  <rect x="116" y="120" width="372" height="16" rx="8" fill="#58CC02"/>
+  <rect x="123" y="124" width="352" height="5" rx="2.5" fill="#FFFFFF" fill-opacity="0.38"/>
+
+  <!-- the brief -->
+  <text x="96" y="186" font-size="15" fill="#4B4B4B">Ops needs every refund logged on or after 14 September.</text>
+
+  <!-- the prompt: the only display face element on the canvas -->
+  <text x="96" y="224" font-size="32" font-weight="700" fill="#2B70C9" letter-spacing="-0.64">fill the gap so it</text>
+  <text x="96" y="258" font-size="32" font-weight="700" fill="#2B70C9" letter-spacing="-0.64">catches the whole day</text>
+
+  <!-- the statement: three lines held constant, one line live -->
+  <rect x="96" y="280" width="620" height="134" rx="12" fill="#F7F7F7"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">
+    <text x="124" y="310" fill="#6E6E6E">SELECT order_id, amount, created_at</text>
+    <text x="124" y="336" fill="#6E6E6E">FROM orders</text>
+    <text x="124" y="362" fill="#6E6E6E">WHERE status = 'refunded'</text>
+    <text x="144" y="388" fill="#4B4B4B">AND created_at</text>
+    <text x="375" y="388" fill="#4B4B4B">'2026-09-14'</text>
+  </g>
+  <!-- the slot, holding the learner's wrong pick. lip in Fire Ant, 2px revealed -->
+  <rect x="305" y="364" width="58" height="36" rx="10" fill="#EA2B2B"/>
+  <rect x="306" y="363" width="56" height="34" rx="10" fill="#FFFFFF" stroke="#FF4B4B" stroke-width="2"/>
+  <text x="334" y="388" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="19" font-weight="700" fill="#FF4B4B" text-anchor="middle">=</text>
+
+  <!-- word bank: pickable tiles, same physical construction at 2px -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" font-weight="700">
+    <rect x="96"  y="440" width="76" height="48" rx="12" fill="#E5E5E5"/>
+    <rect x="97"  y="439" width="74" height="46" rx="12" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+    <text x="134" y="466" fill="#4B4B4B" text-anchor="middle">&gt;=</text>
+    <rect x="112" y="474" width="44" height="3" rx="1.5" fill="#1CB0F6"/>
+
+    <!-- the spent tile: disabled, and the one place Hare still earns its exemption -->
+    <rect x="186" y="438" width="68" height="48" rx="12" fill="#F7F7F7"/>
+    <text x="220" y="468" fill="#AFAFAF" text-anchor="middle">=</text>
+
+    <rect x="268" y="440" width="68" height="48" rx="12" fill="#E5E5E5"/>
+    <rect x="269" y="439" width="66" height="46" rx="12" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+    <text x="302" y="468" fill="#4B4B4B" text-anchor="middle">&gt;</text>
+
+    <rect x="350" y="440" width="68" height="48" rx="12" fill="#E5E5E5"/>
+    <rect x="351" y="439" width="66" height="46" rx="12" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+    <text x="384" y="468" fill="#4B4B4B" text-anchor="middle">&lt;</text>
+
+    <rect x="432" y="440" width="96" height="48" rx="12" fill="#E5E5E5"/>
+    <rect x="433" y="439" width="94" height="46" rx="12" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+    <text x="480" y="468" fill="#4B4B4B" text-anchor="middle">LIKE</text>
+  </g>
+
+  <!-- the difficulty signal, said in the product, in words.
+       the dot sits on the cap height centre, not the line box centre -->
+  <circle cx="100" cy="507.5" r="4" fill="#1CB0F6"/>
+  <text x="112" y="512" font-size="13" fill="#4B4B4B">&gt;= is new here. Everything else came from step 2.</text>
+
+  <!-- the scaffold's off switch: on the exercise, one tap away. 2px lip, as the tiles -->
+  <rect x="96" y="528" width="176" height="32" rx="16" fill="#E5E5E5"/>
+  <rect x="97" y="527" width="174" height="30" rx="15" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+  <rect x="112" y="534" width="22" height="15" rx="4" fill="none" stroke="#4B4B4B" stroke-width="1.6"/>
+  <line x1="117" y1="545" x2="129" y2="545" stroke="#4B4B4B" stroke-width="1.6" stroke-linecap="round"/>
+  <text x="144" y="546" font-size="11" font-weight="700" fill="#4B4B4B" letter-spacing="0.44">TYPE IT INSTEAD</text>
+
+  <!-- ============ the feedback state ============ -->
+  <path d="M 56 582 H 756 V 732 A 16 16 0 0 1 740 748 H 72 A 16 16 0 0 1 56 732 Z"
+        fill="#FF4B4B" fill-opacity="0.06"/>
+  <line x1="56" y1="582" x2="756" y2="582" stroke="#E5E5E5" stroke-width="2"/>
+
+  <!-- badge left edge at 96: the footer sits in the same content column as the step -->
+  <circle cx="115" cy="618" r="19" fill="#FF4B4B"/>
+  <g stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round">
+    <line x1="108" y1="611" x2="122" y2="625"/>
+    <line x1="122" y1="611" x2="108" y2="625"/>
+  </g>
+  <text x="147" y="628" font-size="30" font-weight="700" fill="#FF4B4B" letter-spacing="-0.6">not quite</text>
+
+  <text x="96" y="658" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="17" fill="#4B4B4B">created_at <tspan fill="#367F00" font-weight="700">&gt;=</tspan> '2026-09-14'</text>
+
+  <text x="96" y="682" font-size="15" fill="#4B4B4B">created_at stores a timestamp, so = matches only the</text>
+  <text x="96" y="704" font-size="15" fill="#4B4B4B">instant 00:00:00, not the day.</text>
+  <text x="96" y="728" font-size="13" font-weight="700" fill="#4B4B4B">dates are ranges, not values</text>
+
+  <rect x="560" y="608" width="156" height="50" rx="12" fill="#E5E5E5"/>
+  <rect x="561" y="607" width="154" height="48" rx="12" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="2"/>
+  <text x="638" y="637" font-size="15" font-weight="700" fill="#4B4B4B" letter-spacing="0.6" text-anchor="middle">TRY IT AGAIN</text>
+
+  <!-- ============ the rail. quiet on purpose, but never unreadable ============ -->
+  <line x1="776" y1="100" x2="776" y2="818" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="796" y="124" font-size="13" font-weight="700" fill="#4B4B4B">why each piece is there</text>
+
+  <g fill="#E5E5E5">
+    <rect x="796" y="136" width="3" height="114" rx="1.5"/>
+    <rect x="796" y="256" width="3" height="131" rx="1.5"/>
+    <rect x="796" y="393" width="3" height="114" rx="1.5"/>
+    <rect x="796" y="513" width="3" height="131" rx="1.5"/>
+    <rect x="796" y="714" width="3" height="104" rx="1.5"/>
+  </g>
+
+  <g font-size="13" fill="#4B4B4B">
+    <text x="810" y="149" font-weight="700">the step</text>
+    <text x="810" y="170">Four lines of SQL. Three sit dimmed because the</text>
+    <text x="810" y="187">learner wrote them in step 2. Only the operator</text>
+    <text x="810" y="204">varies, so a wrong answer can mean one thing.</text>
+
+    <text x="810" y="269" font-weight="700">revealed, and withheld</text>
+    <text x="810" y="290">The word bank is the scaffold and the keyboard is</text>
+    <text x="810" y="307">the one tap out of it. “on or after” is a redundant</text>
+    <text x="810" y="324">cue that hands over the answer, so it ships with a</text>
+    <text x="810" y="341">removal date: step 9 reads “refunds from Monday”.</text>
+
+    <text x="810" y="406" font-weight="700">the difficulty signal</text>
+    <text x="810" y="427">&gt;= is the 1 new item. First try correct on this</text>
+    <text x="810" y="444">step runs at 54%, a little above half, which is</text>
+    <text x="810" y="461">where a calibrated step is supposed to sit.</text>
+
+    <text x="810" y="526" font-weight="700">the feedback</text>
+    <text x="810" y="547">It names the rule that fired, not the verdict, and</text>
+    <text x="810" y="564">ends on a handle short enough to hold at the</text>
+    <text x="810" y="581">keyboard. The button returns them to the same</text>
+    <text x="810" y="598">decision rather than advancing.</text>
+  </g>
+
+  <!-- the citations are the thing that makes this a documented argument,
+       so they are set solid at 12px, not washed out at 10 -->
+  <g font-size="12" fill="#6E6E6E">
+    <text x="810" y="225">duo-attention-budget</text>
+    <text x="810" y="239">hold-everything-but-the-target-constant</text>
+    <text x="810" y="362">duo-attention-budget</text>
+    <text x="810" y="376">a-redundant-cue-suppresses-what-it-duplicates</text>
+    <text x="810" y="482">duo-difficulty-calibration</text>
+    <text x="810" y="496">fifty-percent-success-is-the-honest-signal</text>
+    <text x="810" y="619">duo-rules-and-heuristics</text>
+    <text x="810" y="633">explanation-lands-at-the-moment-of-the-error</text>
+  </g>
+
+  <g font-size="12" fill="#4B4B4B">
+    <text x="796" y="668">Red is never the only signal: the mark and the words</text>
+    <text x="796" y="684">carry it too. Green is never text. #367F00 is the only</text>
+    <text x="796" y="700">green that reads on Snow.</text>
+  </g>
+
+  <!-- motion: the still cannot move, so it measures -->
+  <text x="810" y="727" font-size="13" font-weight="700" fill="#4B4B4B">motion, drawn to scale</text>
+  <g font-size="12" fill="#6E6E6E">
+    <text x="910" y="745" text-anchor="middle">100</text>
+    <text x="1020" y="745" text-anchor="middle">200</text>
+    <text x="1130" y="745" text-anchor="end">300ms</text>
+  </g>
+  <g stroke="#E5E5E5" stroke-width="1">
+    <line x1="910" y1="750" x2="910" y2="818"/>
+    <line x1="1020" y1="750" x2="1020" y2="818"/>
+    <line x1="1130" y1="750" x2="1130" y2="818"/>
+  </g>
+  <g font-size="12" fill="#4B4B4B">
+    <text x="810" y="759">tile press · 100ms · translateY(2px)</text>
+    <text x="810" y="783">footer in · 250ms · translateY plus opacity</text>
+    <text x="810" y="807">footer out · 180ms · 72% of the enter</text>
+  </g>
+  <g fill="#2B70C9">
+    <rect x="810" y="764" width="110" height="6" rx="3"/>
+    <rect x="810" y="788" width="275" height="6" rx="3"/>
+    <rect x="810" y="812" width="198" height="6" rx="3" fill-opacity="0.55"/>
+  </g>
+</svg>

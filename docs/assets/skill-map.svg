@@ -1,140 +1,143 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1276" height="687" viewBox="0 0 1276 687" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="890" height="732" viewBox="0 0 890 732" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<title>The 44 skills of /duolingo, grouped into eight families, with node counts</title>
 <defs>
-<filter id="lift" x="-30%" y="-30%" width="160%" height="160%">
+<filter id="skillmap-lift" x="-30%" y="-30%" width="160%" height="160%">
   <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000" flood-opacity="0.45"/>
 </filter>
-<linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+<linearGradient id="skillmap-rule" x1="0" y1="0" x2="1" y2="0">
   <stop offset="0" stop-color="#58CC02"/><stop offset="0.28" stop-color="#1CB0F6"/>
   <stop offset="0.58" stop-color="#CE82FF"/><stop offset="0.82" stop-color="#FF9600"/>
   <stop offset="1" stop-color="#FF4B4B"/>
 </linearGradient>
+<clipPath id="skillmap-cap"><rect x="0" y="0" width="262" height="600" rx="12"/></clipPath>
 </defs>
-<rect width="1276" height="687" fill="#0b0e14"/>
-<rect x="0" y="0" width="1276" height="3" fill="url(#rule)"/>
-<text x="36" y="76" fill="#e9eef5" font-size="38" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" letter-spacing="-0.5">/duolingo</text>
-<text x="36" y="104" fill="#7d8898" font-size="15">One router. 44 skills. 489 nodes. Distilled from 750 posts on blog.duolingo.com.</text>
-<rect x="36" y="122" width="51.6" height="26" rx="13" fill="#131822" stroke="#222a36"/>
-<text x="61.8" y="139" fill="#7d8898" font-size="12.5" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">gate</text>
-<text x="96.6" y="139" fill="#59616e" font-size="12.5" text-anchor="middle">→</text>
-<rect x="105.6" y="122" width="76.80000000000001" height="26" rx="13" fill="#131822" stroke="#222a36"/>
-<text x="144" y="139" fill="#7d8898" font-size="12.5" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">posture</text>
-<text x="191.4" y="139" fill="#59616e" font-size="12.5" text-anchor="middle">→</text>
-<rect x="200.4" y="122" width="68.4" height="26" rx="13" fill="#131822" stroke="#222a36"/>
-<text x="234.60000000000002" y="139" fill="#7d8898" font-size="12.5" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">family</text>
-<text x="277.8" y="139" fill="#59616e" font-size="12.5" text-anchor="middle">→</text>
-<rect x="286.8" y="122" width="60" height="26" rx="13" fill="#131822" stroke="#222a36"/>
-<text x="316.8" y="139" fill="#7d8898" font-size="12.5" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">skill</text>
-<text x="1240" y="139" fill="#59616e" font-size="12.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">UI craft → design-engineering</text>
-<g filter="url(#lift)"><rect x="36" y="168" width="286" height="191" rx="12" fill="#131822" stroke="#222a36"/></g>
-<rect x="36" y="168" width="286" height="3" rx="1.5" fill="#58CC02"/>
-<text x="52" y="195" fill="#58CC02" font-size="11.5" font-weight="700" letter-spacing="1.1">THEY STOP COMING BACK</text>
-<text x="52" y="224" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-retention</text>
-<text x="306" y="224" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">12</text>
-<text x="52" y="251" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-streak-mechanics</text>
-<text x="306" y="251" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
-<text x="52" y="278" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-return-triggers</text>
-<text x="306" y="278" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">12</text>
-<text x="52" y="305" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-perceived-progress</text>
-<text x="306" y="305" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
-<text x="52" y="332" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-motivation-and-attachment</text>
-<text x="306" y="332" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
-<g filter="url(#lift)"><rect x="342" y="168" width="286" height="110" rx="12" fill="#131822" stroke="#222a36"/></g>
-<rect x="342" y="168" width="286" height="3" rx="1.5" fill="#FF9600"/>
-<text x="358" y="195" fill="#FF9600" font-size="11.5" font-weight="700" letter-spacing="1.1">HERE BUT FLAT</text>
-<text x="358" y="224" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-gamification</text>
-<text x="612" y="224" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">17</text>
-<text x="358" y="251" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-learner-motivation</text>
-<text x="612" y="251" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">13</text>
-<g filter="url(#lift)"><rect x="648" y="168" width="286" height="245" rx="12" fill="#131822" stroke="#222a36"/></g>
-<rect x="648" y="168" width="286" height="3" rx="1.5" fill="#1CB0F6"/>
-<text x="664" y="195" fill="#1CB0F6" font-size="11.5" font-weight="700" letter-spacing="1.1">IT HAS TO TEACH THEM</text>
-<text x="664" y="224" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-memory-and-decay</text>
-<text x="918" y="224" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">13</text>
-<text x="664" y="251" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-progression-design</text>
-<text x="918" y="251" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">13</text>
-<text x="664" y="278" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-rules-and-heuristics</text>
-<text x="918" y="278" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">13</text>
-<text x="664" y="305" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-difficulty-calibration</text>
-<text x="918" y="305" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">10</text>
-<text x="664" y="332" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-prior-knowledge-transfer</text>
-<text x="918" y="332" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">11</text>
-<text x="664" y="359" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-attention-budget</text>
-<text x="918" y="359" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">10</text>
-<text x="664" y="386" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-efficacy-measurement</text>
-<text x="918" y="386" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">8</text>
-<g filter="url(#lift)"><rect x="954" y="168" width="286" height="191" rx="12" fill="#131822" stroke="#222a36"/></g>
-<rect x="954" y="168" width="286" height="3" rx="1.5" fill="#CE82FF"/>
-<text x="970" y="195" fill="#CE82FF" font-size="11.5" font-weight="700" letter-spacing="1.1">THE WORDS AND THE FACE</text>
-<text x="970" y="224" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-voice</text>
-<text x="1224" y="224" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">17</text>
-<text x="970" y="251" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-character-systems</text>
-<text x="1224" y="251" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">11</text>
-<text x="970" y="278" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-naming-and-notation</text>
-<text x="1224" y="278" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">13</text>
-<text x="970" y="305" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-design</text>
-<text x="1224" y="305" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">17</text>
-<text x="970" y="332" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-inclusive-access</text>
-<text x="1224" y="332" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">11</text>
-<g filter="url(#lift)"><rect x="342" y="298" width="286" height="299" rx="12" fill="#131822" stroke="#222a36"/></g>
-<rect x="342" y="298" width="286" height="3" rx="1.5" fill="#FF4B4B"/>
-<text x="358" y="325" fill="#FF4B4B" font-size="11.5" font-weight="700" letter-spacing="1.1">DECIDING AND MEASURING</text>
-<text x="358" y="354" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-product</text>
-<text x="612" y="354" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">17</text>
-<text x="358" y="381" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-metric-design</text>
-<text x="612" y="381" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
-<text x="358" y="408" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-score-credibility</text>
-<text x="612" y="408" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
-<text x="358" y="435" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-adoption-design</text>
-<text x="612" y="435" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">12</text>
-<text x="358" y="462" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-freemium-monetization</text>
-<text x="612" y="462" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">13</text>
-<text x="358" y="489" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-category-entry</text>
-<text x="612" y="489" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">10</text>
-<text x="358" y="516" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-growth-model</text>
-<text x="612" y="516" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">8</text>
-<text x="358" y="543" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-experimentation</text>
-<text x="612" y="543" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">18</text>
-<text x="358" y="570" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-experiment-velocity</text>
-<text x="612" y="570" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">6</text>
-<g filter="url(#lift)"><rect x="36" y="379" width="286" height="245" rx="12" fill="#131822" stroke="#222a36"/></g>
-<rect x="36" y="379" width="286" height="3" rx="1.5" fill="#FFC800"/>
-<text x="52" y="406" fill="#FFC800" font-size="11.5" font-weight="700" letter-spacing="1.1">REACHING PEOPLE</text>
-<text x="52" y="435" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-growth</text>
-<text x="306" y="435" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">17</text>
-<text x="52" y="462" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-localization</text>
-<text x="306" y="462" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">8</text>
-<text x="52" y="489" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-proprietary-data-reports</text>
-<text x="306" y="489" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">8</text>
-<text x="52" y="516" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-timely-data-publishing</text>
-<text x="306" y="516" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
-<text x="52" y="543" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-motivation-segmentation</text>
-<text x="306" y="543" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
-<text x="52" y="570" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-measurement-validity</text>
-<text x="306" y="570" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">10</text>
-<text x="52" y="597" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-expert-content-engine</text>
-<text x="306" y="597" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">9</text>
-<g filter="url(#lift)"><rect x="954" y="379" width="286" height="272" rx="12" fill="#131822" stroke="#222a36"/></g>
-<rect x="954" y="379" width="286" height="3" rx="1.5" fill="#4C8DFF"/>
-<text x="970" y="406" fill="#4C8DFF" font-size="11.5" font-weight="700" letter-spacing="1.1">BUILDING IT</text>
-<text x="970" y="435" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-backend-architecture</text>
-<text x="1224" y="435" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">11</text>
-<text x="970" y="462" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-mobile-engineering</text>
-<text x="1224" y="462" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">13</text>
-<text x="970" y="489" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-production-reliability</text>
-<text x="1224" y="489" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">14</text>
-<text x="970" y="516" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-infra-cost-efficiency</text>
-<text x="1224" y="516" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
-<text x="970" y="543" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-ml-in-production</text>
-<text x="1224" y="543" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">12</text>
-<text x="970" y="570" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-ai-agent-platform</text>
-<text x="1224" y="570" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">10</text>
-<text x="970" y="597" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-llm-feature-engineering</text>
-<text x="1224" y="597" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">10</text>
-<text x="970" y="624" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-ai-product-strategy</text>
-<text x="1224" y="624" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">8</text>
-<g filter="url(#lift)"><rect x="648" y="433" width="286" height="83" rx="12" fill="#131822" stroke="#222a36"/></g>
-<rect x="648" y="433" width="286" height="3" rx="1.5" fill="#D98C5F"/>
-<text x="664" y="460" fill="#D98C5F" font-size="11.5" font-weight="700" letter-spacing="1.1">THE TEAM</text>
-<text x="664" y="489" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">duo-culture</text>
-<text x="918" y="489" fill="#59616e" font-size="12" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">18</text>
+<rect width="890" height="732" fill="#0b0e14"/>
+<rect x="0" y="0" width="890" height="3" fill="url(#skillmap-rule)"/>
+<text x="32" y="56" fill="#e9eef5" font-size="26" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">/duolingo</text>
+<text x="32" y="82" fill="#7d8898" font-size="15">One router. 44 skills. 489 nodes. Distilled from 750 posts on blog.duolingo.com.</text>
+<text x="32" y="102" fill="#7d8898" font-size="15">Every skill name below is prefixed duo-. The number beside it is that skill’s node count.</text>
+<rect x="32" y="120" width="55.2" height="26" rx="13.0" fill="#131822" stroke="#222a36"/>
+<text x="59.6" y="137" fill="#7d8898" font-size="13" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">gate</text>
+<text x="96.2" y="137" fill="#7d8898" font-size="13" text-anchor="middle">→</text>
+<rect x="105.2" y="120" width="78.6" height="26" rx="13.0" fill="#131822" stroke="#222a36"/>
+<text x="144.5" y="137" fill="#7d8898" font-size="13" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">posture</text>
+<text x="192.8" y="137" fill="#7d8898" font-size="13" text-anchor="middle">→</text>
+<rect x="201.8" y="120" width="70.8" height="26" rx="13.0" fill="#131822" stroke="#222a36"/>
+<text x="237.2" y="137" fill="#7d8898" font-size="13" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">family</text>
+<text x="281.6" y="137" fill="#7d8898" font-size="13" text-anchor="middle">→</text>
+<rect x="290.6" y="120" width="63.0" height="26" rx="13.0" fill="#131822" stroke="#222a36"/>
+<text x="322.1" y="137" fill="#7d8898" font-size="13" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">skill</text>
+<text x="858" y="137" fill="#7d8898" font-size="13" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">UI craft → design-engineering</text>
+<g filter="url(#skillmap-lift)"><rect x="32" y="168" width="262" height="172" rx="12" fill="#131822" stroke="#222a36"/></g>
+<g transform="translate(32,168)" clip-path="url(#skillmap-cap)"><rect width="262" height="3" fill="#222a36"/></g>
+<text x="48" y="195" fill="#e9eef5" font-size="11" font-weight="700" letter-spacing="1.1">THEY STOP COMING BACK</text>
+<text x="48" y="224" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">retention</text>
+<text x="278" y="224" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">12</text>
+<text x="48" y="248" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">streak-mechanics</text>
+<text x="278" y="248" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
+<text x="48" y="272" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">return-triggers</text>
+<text x="278" y="272" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">12</text>
+<text x="48" y="296" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">perceived-progress</text>
+<text x="278" y="296" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
+<text x="48" y="320" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">motivation-and-attachment</text>
+<text x="278" y="320" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
+<g filter="url(#skillmap-lift)"><rect x="32" y="360" width="262" height="100" rx="12" fill="#131822" stroke="#222a36"/></g>
+<g transform="translate(32,360)" clip-path="url(#skillmap-cap)"><rect width="262" height="3" fill="#222a36"/></g>
+<text x="48" y="387" fill="#e9eef5" font-size="11" font-weight="700" letter-spacing="1.1">HERE BUT FLAT</text>
+<text x="48" y="416" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">gamification</text>
+<text x="278" y="416" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">17</text>
+<text x="48" y="440" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">learner-motivation</text>
+<text x="278" y="440" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">13</text>
+<g filter="url(#skillmap-lift)"><rect x="32" y="480" width="262" height="220" rx="12" fill="#131822" stroke="#222a36"/></g>
+<g transform="translate(32,480)" clip-path="url(#skillmap-cap)"><rect width="262" height="3" fill="#222a36"/></g>
+<text x="48" y="507" fill="#e9eef5" font-size="11" font-weight="700" letter-spacing="1.1">REACHING PEOPLE</text>
+<text x="48" y="536" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">growth</text>
+<text x="278" y="536" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">17</text>
+<text x="48" y="560" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">localization</text>
+<text x="278" y="560" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">8</text>
+<text x="48" y="584" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">proprietary-data-reports</text>
+<text x="278" y="584" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">8</text>
+<text x="48" y="608" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">timely-data-publishing</text>
+<text x="278" y="608" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
+<text x="48" y="632" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">motivation-segmentation</text>
+<text x="278" y="632" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
+<text x="48" y="656" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">measurement-validity</text>
+<text x="278" y="656" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">10</text>
+<text x="48" y="680" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">expert-content-engine</text>
+<text x="278" y="680" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">9</text>
+<g filter="url(#skillmap-lift)"><rect x="314" y="168" width="262" height="220" rx="12" fill="#131822" stroke="#222a36"/></g>
+<g transform="translate(314,168)" clip-path="url(#skillmap-cap)"><rect width="262" height="3" fill="#222a36"/></g>
+<text x="330" y="195" fill="#e9eef5" font-size="11" font-weight="700" letter-spacing="1.1">IT HAS TO TEACH THEM</text>
+<text x="330" y="224" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">memory-and-decay</text>
+<text x="560" y="224" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">13</text>
+<text x="330" y="248" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">progression-design</text>
+<text x="560" y="248" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">13</text>
+<text x="330" y="272" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">rules-and-heuristics</text>
+<text x="560" y="272" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">13</text>
+<text x="330" y="296" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">difficulty-calibration</text>
+<text x="560" y="296" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">10</text>
+<text x="330" y="320" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">prior-knowledge-transfer</text>
+<text x="560" y="320" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">11</text>
+<text x="330" y="344" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">attention-budget</text>
+<text x="560" y="344" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">10</text>
+<text x="330" y="368" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">efficacy-measurement</text>
+<text x="560" y="368" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">8</text>
+<g filter="url(#skillmap-lift)"><rect x="314" y="408" width="262" height="172" rx="12" fill="#131822" stroke="#222a36"/></g>
+<g transform="translate(314,408)" clip-path="url(#skillmap-cap)"><rect width="262" height="3" fill="#222a36"/></g>
+<text x="330" y="435" fill="#e9eef5" font-size="11" font-weight="700" letter-spacing="1.1">THE WORDS AND THE FACE</text>
+<text x="330" y="464" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">voice</text>
+<text x="560" y="464" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">17</text>
+<text x="330" y="488" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">character-systems</text>
+<text x="560" y="488" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">11</text>
+<text x="330" y="512" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">naming-and-notation</text>
+<text x="560" y="512" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">13</text>
+<text x="330" y="536" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">design</text>
+<text x="560" y="536" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">17</text>
+<text x="330" y="560" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">inclusive-access</text>
+<text x="560" y="560" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">11</text>
+<g filter="url(#skillmap-lift)"><rect x="314" y="600" width="262" height="76" rx="12" fill="#131822" stroke="#222a36"/></g>
+<g transform="translate(314,600)" clip-path="url(#skillmap-cap)"><rect width="262" height="3" fill="#222a36"/></g>
+<text x="330" y="627" fill="#e9eef5" font-size="11" font-weight="700" letter-spacing="1.1">THE TEAM</text>
+<text x="330" y="656" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">culture</text>
+<text x="560" y="656" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">18</text>
+<g filter="url(#skillmap-lift)"><rect x="596" y="168" width="262" height="268" rx="12" fill="#131822" stroke="#222a36"/></g>
+<g transform="translate(596,168)" clip-path="url(#skillmap-cap)"><rect width="262" height="3" fill="#222a36"/></g>
+<text x="612" y="195" fill="#e9eef5" font-size="11" font-weight="700" letter-spacing="1.1">DECIDING AND MEASURING</text>
+<text x="612" y="224" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">product</text>
+<text x="842" y="224" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">17</text>
+<text x="612" y="248" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">metric-design</text>
+<text x="842" y="248" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
+<text x="612" y="272" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">score-credibility</text>
+<text x="842" y="272" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
+<text x="612" y="296" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">adoption-design</text>
+<text x="842" y="296" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">12</text>
+<text x="612" y="320" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">freemium-monetization</text>
+<text x="842" y="320" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">13</text>
+<text x="612" y="344" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">category-entry</text>
+<text x="842" y="344" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">10</text>
+<text x="612" y="368" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">growth-model</text>
+<text x="842" y="368" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">8</text>
+<text x="612" y="392" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">experimentation</text>
+<text x="842" y="392" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">18</text>
+<text x="612" y="416" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">experiment-velocity</text>
+<text x="842" y="416" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">6</text>
+<g filter="url(#skillmap-lift)"><rect x="596" y="456" width="262" height="244" rx="12" fill="#131822" stroke="#222a36"/></g>
+<g transform="translate(596,456)" clip-path="url(#skillmap-cap)"><rect width="262" height="3" fill="#222a36"/></g>
+<text x="612" y="483" fill="#e9eef5" font-size="11" font-weight="700" letter-spacing="1.1">BUILDING IT</text>
+<text x="612" y="512" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">backend-architecture</text>
+<text x="842" y="512" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">11</text>
+<text x="612" y="536" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">mobile-engineering</text>
+<text x="842" y="536" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">13</text>
+<text x="612" y="560" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">production-reliability</text>
+<text x="842" y="560" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">14</text>
+<text x="612" y="584" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">infra-cost-efficiency</text>
+<text x="842" y="584" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">7</text>
+<text x="612" y="608" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">ml-in-production</text>
+<text x="842" y="608" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">12</text>
+<text x="612" y="632" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">ai-agent-platform</text>
+<text x="842" y="632" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">10</text>
+<text x="612" y="656" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">llm-feature-engineering</text>
+<text x="842" y="656" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">10</text>
+<text x="612" y="680" fill="#e9eef5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">ai-product-strategy</text>
+<text x="842" y="680" fill="#e9eef5" font-size="13" font-weight="700" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">8</text>
 </svg>

@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Empty state, before and after</title>
+<!--
+  Live counterpart to empty-state.svg. Same design, real motion.
+  Every duration, curve, colour and radius below is cited inline against the node
+  it came from. pov.md outranks canonical design-engineering defaults; canonical
+  design-engineering outranks the Duolingo pack on craft.
+
+  The one value no node supplies: the 60ms stagger step. Derived so the sequence
+  (3 steps + a 400ms tail = 580ms) lands inside the documented 400-800ms
+  onboarding-hero budget. Flagged, not smuggled.
+
+  Nunito is named first in the font stack but is NOT loaded: this file ships no
+  webfont and no CDN, so it renders in Trebuchet MS / Segoe UI / system-ui. The
+  display tracking (-0.02em) and button tracking (0.04em) below are pov.md's
+  figures held as-is; they are tuned for Nunito and read a touch loose on the
+  fallback. Flagged rather than silently claimed as rendered.
+-->
+<style>
+/* -- tokens ----------------------------------------------------------------
+   Names and light values: pov.md section 2.
+   Dark values: pov.md section 2 ("dark mode is a remap, not a second palette")
+   plus references/surface/dark-mode.md for border alpha and secondary text.  */
+:root {
+  --snow:        #FFFFFF;   /* page / surface            */
+  --polar:       #F7F7F7;   /* inset surfaces, tracks    */
+  --eel:         #4B4B4B;   /* body text, headings       */
+  --macaw:       #1CB0F6;   /* information               */
+  --cardinal:    #FF4B4B;   /* wrong, destructive        */
+  --humpback:    #2B70C9;   /* chrome, calm depth        */
+
+  /* Swan #E5E5E5 (borders, dividers, lips) and Hare #AFAFAF (disabled text,
+     placeholders) are deliberately NOT declared as tokens. They are the LIGHT
+     VALUES of --border and --text-muted, which the dark block remaps. Declaring
+     them separately invited raw references that skipped the remap, which is
+     exactly what pov.md section 2 forbids: token names stay, values flip.
+     Tree Frog #58A700 is gone for a related reason -- see --display. */
+
+  /* Action green. NOT Feather Green #58CC02: white on it is ~2.1:1 and pov.md
+     section 8 rule 1 forbids shipping that on a text-bearing surface.
+     #367F00 computes to 5.01:1 on Snow. Lip = same hue ~15% darker (pov.md s.1). */
+  --action:        #367F00;
+  --action-lip:    #2E6C00;
+  /* pov.md s.1 says "hover lightens the fill". On a LIGHT ground that rule
+     inverts, because pov.md s.8 rule 1 (contrast) outranks it: the old #3F9500
+     put the white 15px/700 label at 3.81:1, under the 4.5:1 floor. Darkening to
+     the lip value measures 6.44:1. Lighten-on-hover survives in the dark block,
+     where the ground is dark and lightening IS the contrast-raising direction. */
+  --action-hover:  #2E6C00;
+  --action-label:  #FFFFFF;
+
+  /* references/motion/easing-curves.md */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* references/motion/duration-table.md */
+  --dur-enter: 400ms;   /* onboarding hero motion: 400-800ms, floor taken */
+  --dur-press: 100ms;   /* button press feedback: 100-160ms; pov.md s.5 says ~100ms */
+  --stagger:    60ms;   /* DERIVED -- see the note at the top of this file */
+
+  /* pov.md section 4 */
+  --r-tile: 12px;
+  --r-card: 16px;
+
+  /* references/surface/shadows-whisper.md -- layered, 4% on a #111 base.
+     The preview card is not pressable, so it whispers instead of getting a lip. */
+  --shadow-sm: 0 1px 1px rgba(17,17,17,.04), 0 2px 4px rgba(17,17,17,.04);
+
+  --ground: var(--polar);
+  --surface: var(--snow);
+  --border: #E5E5E5;          /* Swan */
+  --text: var(--eel);
+  --text-muted: #AFAFAF;      /* Hare */
+
+  /* Display face. Tree Frog #58A700 measures 2.82:1 on Polar and 3.02:1 on Snow:
+     it fails WCAG's 3:1 large-text floor on the page ground outright. --action
+     #367F00 measures 4.68:1 on Polar and 5.01:1 on Snow. */
+  --display: var(--action);
+
+  /* Macaw is the information hue (chart bars, timing bars), but on light grounds
+     it is not a text or focus colour: #1CB0F6 is 2.28:1 on Polar and 2.44:1 on
+     Snow, against 4.5:1 for a 12px/700 label and 3:1 for a focus indicator
+     (WCAG 2.2 SC 1.4.11). Humpback is 4.60:1 and 4.93:1 and already owns chrome.
+     Both flip back to Macaw in the dark block, where Macaw is 5.64:1 / 6.82:1. */
+  --focus-ring: var(--humpback);
+  --info-text:  var(--humpback);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* pov.md section 2: token names stay, values flip. Ground #131F24,
+       Polar becomes a step above the card, text #F1F7FB. Never #000 / #FFF. */
+    --ground:      #131F24;
+    --surface:     #202F36;
+    --border:      rgba(255,255,255,.08);   /* dark-mode.md */
+    --text:        #F1F7FB;
+    --text-muted:  rgba(255,255,255,.42);   /* dark-mode.md; 3.75:1 on --surface */
+    /* Polar's job is "inset surfaces, tracks" -- one step BACK from the card. It
+       must not equal --surface, or the step collapses and inset shapes vanish. */
+    --polar:       #2B3D45;
+    --shadow-sm:   0 4px 12px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.06);
+
+    /* On a dark ground the AA-safe direction reverses: use Feather Green at full
+       strength and set the label in the ground colour (8.0:1), with Tree Frog as
+       its documented paired lip. pov.md section 1 lists exactly that pair.
+       Here pov.md s.1's lighten-on-hover applies as written: #61DB02 under the
+       #131F24 label measures 9.25:1. */
+    --action:       #58CC02;
+    --action-lip:   #58A700;
+    --action-hover: #61DB02;
+    --action-label: #131F24;
+    --display:      #58CC02;   /* 7.99:1 on #131F24 */
+
+    --focus-ring:   var(--macaw);
+    --info-text:    var(--macaw);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 40px;
+  background: var(--ground);
+  color: var(--text);
+  font-family: Nunito, "Trebuchet MS", "Segoe UI", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(28,176,246,.22); color: var(--text); }
+
+/* Annotation layer is monospace throughout, so spec never reads as product. */
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+/* -- header ---------------------------------------------------------------- */
+header { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+
+h1 {
+  /* pov.md section 3: display face, always lowercase, never below 30px,
+     tracking -0.02em, left aligned, never set in a neutral. */
+  margin: 0;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--display);
+}
+.sub { margin: 8px 0 0; font-size: 13.5px; color: var(--text); }
+
+.provenance { margin: 0; font-size: 11px; line-height: 1.7; color: var(--text); text-align: right; }
+
+/* -- grid ------------------------------------------------------------------ */
+/* minmax(0, 1fr), not 1fr: a bare 1fr track floors at the content's min-content
+   width, which at phone widths pushed both panels past the right gutter and put
+   a horizontal scrollbar on the page. */
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; margin-top: 36px; }
+@media (max-width: 900px) { .grid { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
+
+/* The two panels are a comparison, so their bottom edges have to lock. The
+   section stretches to the grid row; the panel fills the section. */
+.grid > section { display: flex; flex-direction: column; }
+
+.chip { margin: 0 0 18px; font-size: 11.5px; letter-spacing: .14em; color: var(--text); }
+.chip--after { color: var(--action); }
+
+.panel {
+  flex: 1;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--r-card);
+  min-height: 444px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The chrome is identical on both panels. It is the FIXED part that guarantees
+   recognition; only the body is GRADED.
+   skills/duo-design/references/consistency-vs-purpose.md */
+.chrome {
+  height: 52px;
+  flex: none;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+  padding: 0 22px;
+  border-bottom: 2px solid var(--border);
+  font-size: 14px;
+}
+.chrome b { font-weight: 700; }
+.chrome .slash { color: var(--text-muted); }
+.chrome .crumb { font-weight: 600; }
+.avatar {
+  flex: none;
+  width: 28px; height: 28px; border-radius: 9999px;
+  background: var(--humpback);      /* pov.md s.2: Humpback owns chrome. White on it is 4.9:1. */
+  color: #FFFFFF;
+  font-size: 11px; font-weight: 700;
+  display: grid; place-items: center;
+}
+
+.body { flex: 1; padding: 20px 48px 36px; }
+
+/* -- left: the dead original ----------------------------------------------- */
+.body--dead { display: grid; place-items: center; }
+.body--dead p {
+  margin: 0;
+  font-size: 15px;
+  /* The "disabled text, placeholders" step, reached through the REMAPPED token so
+     the before/after gap survives the theme flip. Raw Hare measured 2.19:1 in
+     light but 6.29:1 in dark -- i.e. healthy body copy -- which inverted the
+     whole argument by accident. --text-muted is 2.19:1 light / 3.75:1 dark:
+     visibly dimmer than --text in both. */
+  color: var(--text-muted);
+}
+
+/* -- right: the redesign --------------------------------------------------- */
+
+/* job 2 of 3: show what it will look like. Dimmed so it cannot be mistaken for
+   the viewer's own data. Decorative, so aria-hidden -- and therefore inert.
+   skills/duo-voice/references/empty-states.md */
+.preview {
+  opacity: .88;   /* .8 pushed the delta to 3.45:1; .88 lifts it to ~4.2:1 and the
+                     "this is a sample, not your data" signal still reads */
+  pointer-events: none;
+  user-select: none;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-sm);
+  padding: 18px 20px 24px;   /* matches the SVG's 168px card */
+}
+.preview-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.preview-title { font-size: 14px; font-weight: 700; }
+.preview-range {
+  flex: none;
+  white-space: nowrap;
+  font-size: 11px; font-weight: 600;
+  background: var(--polar);
+  border-radius: 9999px;
+  padding: 4px 14px;
+}
+.preview-body { display: grid; grid-template-columns: minmax(0, max-content) minmax(0, 1fr); gap: 0 36px; align-items: end; margin-top: 26px; }
+.stat-label { margin: 0; font-size: 12px; font-weight: 600; }
+.stat { margin: 6px 0 0; font-size: 34px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; }
+/* Colour is never the only signal: the "+" carries the direction too.
+   skills/duo-design/references/accessibility-default.md rule 1 */
+.delta { margin: 8px 0 0; font-size: 12px; font-weight: 700; color: var(--action); font-variant-numeric: tabular-nums; }
+
+.chart {
+  display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 11px;
+  align-items: end; height: 72px;
+  border-bottom: 1px solid var(--border);
+}
+.chart i { display: block; background: var(--macaw); border-radius: 5px; }   /* Macaw = information (pov.md s.2) */
+
+/* job 1 of 3: say what goes here.
+   Vertical rhythm ported from the SVG, which is the composed version: 18px from
+   the card to the heading, 20px from the lede to the button. One rhythm, two
+   files, so the spec and the implementation stay the same artifact. */
+h2 {
+  margin: 18px 0 0;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--display);
+}
+.lede { margin: 14px 0 0; font-size: 15px; line-height: 1.4; max-width: 34ch; text-wrap: pretty; }
+
+/* job 3 of 3: exactly one next action.
+   skills/duo-adoption-design/references/one-ordered-path-beats-a-branching-surface.md
+   Construction: pov.md section 1, verbatim. The host reserves the 4px lip with a
+   transparent bottom border, so pressing moves the fill into space that already
+   exists. No reflow, no layout shift. */
+.btn {
+  position: relative;
+  /* The fill lives on ::before at z-index:-1. Without a stacking context HERE it
+     paints at the root's negative-z step -- behind .panel's opaque background --
+     and the button vanishes. It used to survive only because an ancestor happened
+     to animate a transform; under prefers-reduced-motion it did not. */
+  isolation: isolate;
+  display: inline-block;
+  margin-top: 20px;
+  /* border-box: 54px minus the 4px lip border = a 50px padding box, so the fill
+     is the 50px pov.md s.1 specifies and line-height:50px centres the label on
+     it exactly. At 50px the fill was only 46px and the label sat 1.8px low. */
+  height: 54px;
+  padding: 0 26px;
+  border: 0;
+  border-bottom: 4px solid transparent;
+  border-radius: var(--r-tile);
+  background: none;
+  color: var(--action-label);
+  font: 700 15px/50px Nunito, "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  letter-spacing: 0.04em;   /* pov.md s.1: ALL CAPS, 700, 15px, 0.04em, no punctuation */
+  cursor: pointer;
+  /* transform + opacity only. references/motion/transform-opacity-only.md */
+  transition: transform var(--dur-press) var(--ease-out-quart);
+}
+.btn::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  border-radius: var(--r-tile);
+  background: var(--action);
+  box-shadow: 0 4px 0 0 var(--action-lip);
+  transition: box-shadow var(--dur-press) var(--ease-out-quart),
+              background-color 140ms var(--ease-out-quart);
+}
+/* Gated, because a hover animation on a touch device is an ai-default tell.
+   references/anti-patterns/ai-default-tells.md */
+@media (hover: hover) { .btn:hover::before { background: var(--action-hover); } }
+/* The whole face compresses into the lip -- cap AND label together. Translating
+   only ::before left the label behind and read as a rendering glitch. */
+.btn:active { transform: translateY(4px); }
+.btn:active::before { box-shadow: 0 0 0 0 var(--action-lip); }
+.btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; }  /* accessibility-baseline.md */
+
+/* -- enter choreography ---------------------------------------------------- */
+/* Frequency check first (references/motion/animation-decision-framework.md):
+   an empty state is a first-run surface, and delight-impact-curve.md's gotcha
+   says onboarding carries weekly-tier delight even on per-action moments.
+   pov.md section 5 grades weekly tier as "scale-in, stagger". So: allowed.
+   Confetti is rare-milestone budget and is NOT here. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }   /* 8px: transform-opacity-only.md's own example */
+  to   { opacity: 1; transform: none; }
+}
+@keyframes rise-pop {
+  from { opacity: 0; transform: translateY(8px) scale(.96); }
+  to   { opacity: 1; transform: none; }
+}
+/* the reduced-motion substitute: opacity only, no translate, no scale */
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+.stage .anim { opacity: 0; }
+.stage.play .anim { animation: rise var(--dur-enter) var(--ease-out-quart) both; }
+.stage.play .anim-1 { animation-delay: 0ms; }
+.stage.play .anim-2 { animation-delay: var(--stagger); }
+.stage.play .anim-3 { animation-delay: calc(var(--stagger) * 2); }
+.stage.play .anim-4 { animation-name: rise-pop; animation-delay: calc(var(--stagger) * 3); }
+
+/* -- footer: the annotation layer ------------------------------------------ */
+footer { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; margin-top: 40px; font-size: 12.5px; }
+@media (max-width: 900px) { footer { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
+.anno-head { font-size: 10.5px; letter-spacing: .1em; margin: 0 0 18px; }
+.jobs { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.jobs li { display: grid; grid-template-columns: 18px minmax(0, 1fr) 18px minmax(0, 1fr); align-items: baseline; }
+.no  { color: var(--cardinal); font-weight: 700; }
+.yes { color: var(--action); font-weight: 700; }
+
+.strip { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0 12px; align-items: center; font-size: 10px; }
+.strip .lbl { text-align: right; }
+.track { position: relative; height: 16px; }
+.track i {
+  position: absolute; top: 4px; height: 8px; border-radius: 4px; background: var(--macaw);
+  /* 400ms of a 600ms axis = 66.67% wide; delays are 0 / 10% / 20% / 30% of 600ms */
+  width: 66.67%;
+}
+.track.t2 i { left: 10%; }
+.track.t3 i { left: 20%; }
+.track.t4 i { left: 30%; background: var(--action); }
+/* Each label is CENTRED on its position and carries a tick, the way the SVG
+   draws it. space-between put "0" flush left of the track start and "600ms"
+   flush right of the end, so neither sat on the moment it labelled. */
+.axis {
+  grid-column: 2; position: relative; height: 24px;
+  border-top: 1.5px solid var(--border); margin-top: 6px;
+  font-size: 9.5px; font-variant-numeric: tabular-nums;
+}
+.axis span { position: absolute; top: 10px; transform: translateX(-50%); white-space: nowrap; }
+.axis span::before { content: ""; position: absolute; left: 50%; top: -14px; width: 1px; height: 4px; background: var(--text-muted); }
+.axis span:nth-child(1) { left: 0; }
+.axis span:nth-child(2) { left: 33.333%; }
+.axis span:nth-child(3) { left: 66.667%; }
+.axis span:nth-child(4) { left: 100%; }
+.timing { margin: 16px 0 0; font-size: 10.5px; color: var(--text); font-variant-numeric: tabular-nums; }
+
+.replay {
+  /* pov.md s.1: secondary buttons keep the geometry, drop the fill.
+     2px border plus a 2px-deeper lip, label in the information hue. */
+  margin-top: 18px;
+  /* 48px, not 40px: box-sizing:border-box swallowed the 2px/4px borders, so the
+     computed height was exactly 40px -- under the 44px tap floor. */
+  height: 48px; padding: 0 18px;
+  border: 2px solid var(--border);   /* remapped token, so it does not blaze white in dark */
+  border-bottom-width: 4px;
+  border-radius: var(--r-tile);
+  background: transparent;
+  color: var(--info-text);
+  font: 700 12px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: transform var(--dur-press) var(--ease-out-quart);
+}
+.replay:active { transform: translateY(2px); }
+.replay:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
+
+/* -- narrow viewports ------------------------------------------------------ */
+/* The stat block and the chart stop competing for ~220px and stack instead; at
+   390px the chart's seven 1fr tracks were resolving to 0px wide, so job 2 of 3
+   disappeared on exactly the viewport the meta tag claims. */
+@media (max-width: 560px) {
+  body { padding: 24px 20px; }
+  .body { padding: 20px 24px 28px; }
+  .preview-body { grid-template-columns: minmax(0, 1fr); gap: 20px 0; }
+  .chart { gap: 6px; }
+}
+
+/* -- reduced motion -------------------------------------------------------- */
+/* references/motion/prefers-reduced-motion.md: this does NOT mean 0ms for
+   everything. Drop the large translations and scale changes; KEEP the ~120ms
+   opacity fade. pov.md section 8 rule 2: celebration drops first, and the
+   button's state change must stay legible -- so the 4px press survives, because
+   4px is not a vestibular problem and it is the entire affordance. */
+@media (prefers-reduced-motion: reduce) {
+  .stage.play .anim,
+  .stage.play .anim-4 {
+    animation-name: fade;                 /* drops translateY(8px) and scale(.96) */
+    animation-duration: 120ms;            /* the fade the node says to KEEP */
+    animation-timing-function: linear;
+  }
+  /* The 4px press and the 2px secondary press stay. They are the affordance, not
+     a vestibular hazard, and pov.md section 8 rule 2 says the button's state
+     change must remain legible. The CTA's fill is held by .btn's own
+     isolation:isolate, not by whatever an ancestor happens to animate. */
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>the empty state, before and after</h1>
+    <p class="sub">Same product, same chrome. Only the state changes.</p>
+  </div>
+  <p class="provenance mono">
+    duo-voice &#183; empty-states<br>
+    duo-adoption-design &#183; one-ordered-path<br>
+    design-engineering &#183; meta/pov + duration-table
+  </p>
+</header>
+
+<div class="grid">
+
+  <section>
+    <p class="chip mono">before</p>
+    <div class="panel">
+      <div class="chrome">
+        <span><b>Beacon</b><span class="slash"> / </span><span class="crumb">Dashboards</span></span>
+        <span class="avatar" aria-label="Riya Kulkarni">RK</span>
+      </div>
+      <div class="body body--dead">
+        <p>No dashboards.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="chip chip--after mono">after</p>
+    <div class="panel">
+      <div class="chrome">
+        <span><b>Beacon</b><span class="slash"> / </span><span class="crumb">Dashboards</span></span>
+        <span class="avatar" aria-label="Riya Kulkarni">RK</span>
+      </div>
+      <div class="body stage" id="stage">
+
+        <div class="preview anim anim-1" aria-hidden="true">
+          <div class="preview-head">
+            <span class="preview-title">Checkout funnel</span>
+            <span class="preview-range">Last 7 days</span>
+          </div>
+          <div class="preview-body">
+            <div>
+              <p class="stat-label">Completion rate</p>
+              <p class="stat">68.4%</p>
+              <p class="delta">+4.2 pts vs last week</p>
+            </div>
+            <div class="chart">
+              <i style="height:32.6px"></i><i style="height:40.5px"></i><i style="height:37.1px"></i>
+              <i style="height:52.3px"></i><i style="height:60.1px"></i><i style="height:63.5px"></i>
+              <i style="height:72px"></i>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="anim anim-2">no dashboards yet</h2>
+        <p class="lede anim anim-3">Dashboards pull your metrics into one view you can share with your team.</p>
+        <div class="anim anim-4"><button class="btn" type="button">CREATE DASHBOARD</button></div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="mono">
+  <div>
+    <p class="anno-head">the three jobs an empty state has &#183; duo-voice/empty-states</p>
+    <ul class="jobs">
+      <li><span class="no">&#215;</span><span>no explanation</span><span class="yes">&#10003;</span><span>heading plus one line</span></li>
+      <li><span class="no">&#215;</span><span>nothing to picture</span><span class="yes">&#10003;</span><span>a sample dashboard</span></li>
+      <li><span class="no">&#215;</span><span>nowhere to go</span><span class="yes">&#10003;</span><span>one button, no menu</span></li>
+    </ul>
+  </div>
+
+  <div>
+    <p class="anno-head">enter choreography</p>
+    <div class="strip">
+      <span class="lbl">sample preview</span><div class="track t1"><i></i></div>
+      <span class="lbl">heading</span><div class="track t2"><i></i></div>
+      <span class="lbl">body copy</span><div class="track t3"><i></i></div>
+      <span class="lbl">button</span><div class="track t4"><i></i></div>
+      <div class="axis"><span>0</span><span>200ms</span><span>400ms</span><span>600ms</span></div>
+    </div>
+    <p class="timing">each 400ms &nbsp;&#183;&nbsp; 60ms stagger &nbsp;&#183;&nbsp; cubic-bezier(0.25, 1, 0.5, 1)</p>
+    <button class="replay" id="replay" type="button">REPLAY</button>
+  </div>
+</footer>
+
+<script>
+  // No build step, no CDN. This exists only so the sequence can be watched twice.
+  var stage = document.getElementById('stage');
+  requestAnimationFrame(function () { stage.classList.add('play'); });
+  document.getElementById('replay').addEventListener('click', function () {
+    stage.classList.remove('play');
+    void stage.offsetWidth;             // force reflow so the animation restarts
+    stage.classList.add('play');
+  });
+</script>
+
+</body>
+</html>
