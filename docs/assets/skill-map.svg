@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1182" height="617" viewBox="0 0 1182 617" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<rect width="1182" height="617" fill="#0d1117"/>
+<rect x="28" y="24" width="1126" height="76" rx="10" fill="#161b22" stroke="#30363d"/>
+<text x="48" y="56" fill="#e6edf3" font-size="24" font-weight="700" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">/duolingo</text>
+<text x="186" y="56" fill="#8b949e" font-size="14">router — gate → posture → family → skill</text>
+<text x="48" y="82" fill="#8b949e" font-size="13">44 skills · 489 nodes · distilled from 750 posts on blog.duolingo.com</text>
+<text x="1134" y="62" fill="#8b949e" font-size="12" text-anchor="end">UI craft → design-engineering</text>
+<rect x="28" y="132" width="268" height="173" rx="9" fill="#161b22" stroke="#30363d"/>
+<rect x="28" y="132" width="4" height="173" rx="2" fill="#58CC02"/>
+<text x="44" y="155" fill="#58CC02" font-size="12.5" font-weight="700" letter-spacing="0.3">THEY STOP COMING BACK</text>
+<circle cx="47" cy="172" r="3" fill="#58CC02" opacity="0.85"/>
+<text x="58" y="176" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-retention</text>
+<text x="282" y="176" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">12</text>
+<circle cx="47" cy="197" r="3" fill="#58CC02" opacity="0.85"/>
+<text x="58" y="201" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-streak-mechanics</text>
+<text x="282" y="201" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">7</text>
+<circle cx="47" cy="222" r="3" fill="#58CC02" opacity="0.85"/>
+<text x="58" y="226" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-return-triggers</text>
+<text x="282" y="226" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">12</text>
+<circle cx="47" cy="247" r="3" fill="#58CC02" opacity="0.85"/>
+<text x="58" y="251" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-perceived-progress</text>
+<text x="282" y="251" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">7</text>
+<circle cx="47" cy="272" r="3" fill="#58CC02" opacity="0.85"/>
+<text x="58" y="276" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-motivation-and-attachment</text>
+<text x="282" y="276" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">7</text>
+<rect x="314" y="132" width="268" height="98" rx="9" fill="#161b22" stroke="#30363d"/>
+<rect x="314" y="132" width="4" height="98" rx="2" fill="#FF9600"/>
+<text x="330" y="155" fill="#FF9600" font-size="12.5" font-weight="700" letter-spacing="0.3">HERE BUT FLAT</text>
+<circle cx="333" cy="172" r="3" fill="#FF9600" opacity="0.85"/>
+<text x="344" y="176" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-gamification</text>
+<text x="568" y="176" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">17</text>
+<circle cx="333" cy="197" r="3" fill="#FF9600" opacity="0.85"/>
+<text x="344" y="201" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-learner-motivation</text>
+<text x="568" y="201" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">13</text>
+<rect x="600" y="132" width="268" height="223" rx="9" fill="#161b22" stroke="#30363d"/>
+<rect x="600" y="132" width="4" height="223" rx="2" fill="#1CB0F6"/>
+<text x="616" y="155" fill="#1CB0F6" font-size="12.5" font-weight="700" letter-spacing="0.3">IT HAS TO TEACH THEM</text>
+<circle cx="619" cy="172" r="3" fill="#1CB0F6" opacity="0.85"/>
+<text x="630" y="176" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-memory-and-decay</text>
+<text x="854" y="176" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">13</text>
+<circle cx="619" cy="197" r="3" fill="#1CB0F6" opacity="0.85"/>
+<text x="630" y="201" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-progression-design</text>
+<text x="854" y="201" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">13</text>
+<circle cx="619" cy="222" r="3" fill="#1CB0F6" opacity="0.85"/>
+<text x="630" y="226" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-rules-and-heuristics</text>
+<text x="854" y="226" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">13</text>
+<circle cx="619" cy="247" r="3" fill="#1CB0F6" opacity="0.85"/>
+<text x="630" y="251" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-difficulty-calibration</text>
+<text x="854" y="251" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">10</text>
+<circle cx="619" cy="272" r="3" fill="#1CB0F6" opacity="0.85"/>
+<text x="630" y="276" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-prior-knowledge-transfer</text>
+<text x="854" y="276" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">11</text>
+<circle cx="619" cy="297" r="3" fill="#1CB0F6" opacity="0.85"/>
+<text x="630" y="301" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-attention-budget</text>
+<text x="854" y="301" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">10</text>
+<circle cx="619" cy="322" r="3" fill="#1CB0F6" opacity="0.85"/>
+<text x="630" y="326" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-efficacy-measurement</text>
+<text x="854" y="326" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">8</text>
+<rect x="886" y="132" width="268" height="173" rx="9" fill="#161b22" stroke="#30363d"/>
+<rect x="886" y="132" width="4" height="173" rx="2" fill="#CE82FF"/>
+<text x="902" y="155" fill="#CE82FF" font-size="12.5" font-weight="700" letter-spacing="0.3">THE WORDS AND THE FACE</text>
+<circle cx="905" cy="172" r="3" fill="#CE82FF" opacity="0.85"/>
+<text x="916" y="176" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-voice</text>
+<text x="1140" y="176" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">17</text>
+<circle cx="905" cy="197" r="3" fill="#CE82FF" opacity="0.85"/>
+<text x="916" y="201" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-character-systems</text>
+<text x="1140" y="201" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">11</text>
+<circle cx="905" cy="222" r="3" fill="#CE82FF" opacity="0.85"/>
+<text x="916" y="226" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-naming-and-notation</text>
+<text x="1140" y="226" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">13</text>
+<circle cx="905" cy="247" r="3" fill="#CE82FF" opacity="0.85"/>
+<text x="916" y="251" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-design</text>
+<text x="1140" y="251" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">17</text>
+<circle cx="905" cy="272" r="3" fill="#CE82FF" opacity="0.85"/>
+<text x="916" y="276" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-inclusive-access</text>
+<text x="1140" y="276" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">11</text>
+<rect x="314" y="248" width="268" height="273" rx="9" fill="#161b22" stroke="#30363d"/>
+<rect x="314" y="248" width="4" height="273" rx="2" fill="#FF4B4B"/>
+<text x="330" y="271" fill="#FF4B4B" font-size="12.5" font-weight="700" letter-spacing="0.3">DECIDING AND MEASURING</text>
+<circle cx="333" cy="288" r="3" fill="#FF4B4B" opacity="0.85"/>
+<text x="344" y="292" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-product</text>
+<text x="568" y="292" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">17</text>
+<circle cx="333" cy="313" r="3" fill="#FF4B4B" opacity="0.85"/>
+<text x="344" y="317" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-metric-design</text>
+<text x="568" y="317" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">7</text>
+<circle cx="333" cy="338" r="3" fill="#FF4B4B" opacity="0.85"/>
+<text x="344" y="342" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-score-credibility</text>
+<text x="568" y="342" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">7</text>
+<circle cx="333" cy="363" r="3" fill="#FF4B4B" opacity="0.85"/>
+<text x="344" y="367" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-adoption-design</text>
+<text x="568" y="367" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">12</text>
+<circle cx="333" cy="388" r="3" fill="#FF4B4B" opacity="0.85"/>
+<text x="344" y="392" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-freemium-monetization</text>
+<text x="568" y="392" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">13</text>
+<circle cx="333" cy="413" r="3" fill="#FF4B4B" opacity="0.85"/>
+<text x="344" y="417" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-category-entry</text>
+<text x="568" y="417" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">10</text>
+<circle cx="333" cy="438" r="3" fill="#FF4B4B" opacity="0.85"/>
+<text x="344" y="442" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-growth-model</text>
+<text x="568" y="442" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">8</text>
+<circle cx="333" cy="463" r="3" fill="#FF4B4B" opacity="0.85"/>
+<text x="344" y="467" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-experimentation</text>
+<text x="568" y="467" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">18</text>
+<circle cx="333" cy="488" r="3" fill="#FF4B4B" opacity="0.85"/>
+<text x="344" y="492" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-experiment-velocity</text>
+<text x="568" y="492" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">6</text>
+<rect x="28" y="323" width="268" height="223" rx="9" fill="#161b22" stroke="#30363d"/>
+<rect x="28" y="323" width="4" height="223" rx="2" fill="#FFC800"/>
+<text x="44" y="346" fill="#FFC800" font-size="12.5" font-weight="700" letter-spacing="0.3">REACHING PEOPLE</text>
+<circle cx="47" cy="363" r="3" fill="#FFC800" opacity="0.85"/>
+<text x="58" y="367" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-growth</text>
+<text x="282" y="367" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">17</text>
+<circle cx="47" cy="388" r="3" fill="#FFC800" opacity="0.85"/>
+<text x="58" y="392" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-localization</text>
+<text x="282" y="392" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">8</text>
+<circle cx="47" cy="413" r="3" fill="#FFC800" opacity="0.85"/>
+<text x="58" y="417" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-proprietary-data-reports</text>
+<text x="282" y="417" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">8</text>
+<circle cx="47" cy="438" r="3" fill="#FFC800" opacity="0.85"/>
+<text x="58" y="442" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-timely-data-publishing</text>
+<text x="282" y="442" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">7</text>
+<circle cx="47" cy="463" r="3" fill="#FFC800" opacity="0.85"/>
+<text x="58" y="467" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-motivation-segmentation</text>
+<text x="282" y="467" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">7</text>
+<circle cx="47" cy="488" r="3" fill="#FFC800" opacity="0.85"/>
+<text x="58" y="492" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-measurement-validity</text>
+<text x="282" y="492" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">10</text>
+<circle cx="47" cy="513" r="3" fill="#FFC800" opacity="0.85"/>
+<text x="58" y="517" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-expert-content-engine</text>
+<text x="282" y="517" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">9</text>
+<rect x="886" y="323" width="268" height="248" rx="9" fill="#161b22" stroke="#30363d"/>
+<rect x="886" y="323" width="4" height="248" rx="2" fill="#2B70C9"/>
+<text x="902" y="346" fill="#2B70C9" font-size="12.5" font-weight="700" letter-spacing="0.3">BUILDING IT</text>
+<circle cx="905" cy="363" r="3" fill="#2B70C9" opacity="0.85"/>
+<text x="916" y="367" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-backend-architecture</text>
+<text x="1140" y="367" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">11</text>
+<circle cx="905" cy="388" r="3" fill="#2B70C9" opacity="0.85"/>
+<text x="916" y="392" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-mobile-engineering</text>
+<text x="1140" y="392" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">13</text>
+<circle cx="905" cy="413" r="3" fill="#2B70C9" opacity="0.85"/>
+<text x="916" y="417" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-production-reliability</text>
+<text x="1140" y="417" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">14</text>
+<circle cx="905" cy="438" r="3" fill="#2B70C9" opacity="0.85"/>
+<text x="916" y="442" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-infra-cost-efficiency</text>
+<text x="1140" y="442" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">7</text>
+<circle cx="905" cy="463" r="3" fill="#2B70C9" opacity="0.85"/>
+<text x="916" y="467" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-ml-in-production</text>
+<text x="1140" y="467" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">12</text>
+<circle cx="905" cy="488" r="3" fill="#2B70C9" opacity="0.85"/>
+<text x="916" y="492" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-ai-agent-platform</text>
+<text x="1140" y="492" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">10</text>
+<circle cx="905" cy="513" r="3" fill="#2B70C9" opacity="0.85"/>
+<text x="916" y="517" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-llm-feature-engineering</text>
+<text x="1140" y="517" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">10</text>
+<circle cx="905" cy="538" r="3" fill="#2B70C9" opacity="0.85"/>
+<text x="916" y="542" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-ai-product-strategy</text>
+<text x="1140" y="542" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">8</text>
+<rect x="600" y="373" width="268" height="73" rx="9" fill="#161b22" stroke="#30363d"/>
+<rect x="600" y="373" width="4" height="73" rx="2" fill="#A0522D"/>
+<text x="616" y="396" fill="#A0522D" font-size="12.5" font-weight="700" letter-spacing="0.3">THE TEAM</text>
+<circle cx="619" cy="413" r="3" fill="#A0522D" opacity="0.85"/>
+<text x="630" y="417" fill="#e6edf3" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">duo-culture</text>
+<text x="854" y="417" fill="#8b949e" font-size="11.5" text-anchor="end" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">18</text>
+</svg>

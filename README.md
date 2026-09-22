@@ -10,6 +10,8 @@ Not "skills about Duolingo." Duolingo is the case study; **your product is the t
 npx skills add HKTITAN/duolingo
 ```
 
+<img src="docs/assets/skill-map.svg" alt="The 44 skills, grouped into eight families, with node counts" width="100%">
+
 ---
 
 ## Why this exists
@@ -34,6 +36,12 @@ The pack works with the network off, and it will still work if Duolingo reorgani
 ---
 
 ## See it work
+
+<img src="docs/assets/run-payroll-streak.svg" alt="The router declining to build a daily streak for a twice-monthly product" width="100%">
+
+<img src="docs/assets/run-empty-state.svg" alt="Duolingo rationale plus design-engineering craft on an empty state" width="100%">
+
+<sub>Rendered from the real run output below &mdash; same text, set in a terminal.</sub>
 
 These are **real runs**, not illustrations. Each one was produced by an agent that loaded
 `/duolingo`, followed the gate → posture → family route, and read the actual nodes it landed on.
@@ -381,6 +389,8 @@ Start at **`/duolingo`** — it routes. The families below are how it groups the
 ## How the router works
 
 [`skills/duolingo/SKILL.md`](skills/duolingo/SKILL.md) is a two-level dispatcher, not a list.
+
+<img src="docs/assets/router-flow.svg" alt="Gate, then posture, then family and skill" width="100%">
 
 1. **Gate** — five first-match-wins checks that short-circuit routing. Is it UI craft? Hand off. Did the user already name a skill? Go there. Is it Duolingo trivia rather than a pattern? Say no skill applies.
 2. **Posture** — Diagnose / Build / Decide / Critique / Explain. This decides the *shape* of the answer. Handing an implementation to someone who is still deciding is the most common routing failure.

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="430" viewBox="0 0 1140 430" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<rect width="1140" height="430" fill="#0d1117"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/></marker></defs>
+<text x="40" y="42" fill="#e6edf3" font-size="17" font-weight="700" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">/duolingo</text>
+<text x="152" y="42" fill="#8b949e" font-size="13.5">— how a question becomes one or two skills</text>
+<rect x="40" y="72" width="250" height="200" rx="10" fill="#161b22" stroke="#FF9600" stroke-width="1.5"/>
+<circle cx="64" cy="98" r="12" fill="#FF9600"/>
+<text x="64" y="103" fill="#0d1117" font-size="13" font-weight="700" text-anchor="middle">1</text>
+<text x="86" y="103" fill="#e6edf3" font-size="15.5" font-weight="700">Gate</text>
+<text x="58" y="130" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">UI craft?      → hand off</text>
+<text x="58" y="149" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">named a skill? → go there</text>
+<text x="58" y="168" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">wants the map? → map.md</text>
+<text x="58" y="187" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">trivia?        → decline</text>
+<text x="58" y="206" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">3+ skills?     → chains.md</text>
+<rect x="322" y="72" width="250" height="200" rx="10" fill="#161b22" stroke="#1CB0F6" stroke-width="1.5"/>
+<circle cx="346" cy="98" r="12" fill="#1CB0F6"/>
+<text x="346" y="103" fill="#0d1117" font-size="13" font-weight="700" text-anchor="middle">2</text>
+<text x="368" y="103" fill="#e6edf3" font-size="15.5" font-weight="700">Posture</text>
+<text x="340" y="130" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">Diagnose  mechanism first</text>
+<text x="340" y="149" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">Build     the thing, built</text>
+<text x="340" y="168" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">Decide    a call + the trade</text>
+<text x="340" y="187" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">Critique  findings only</text>
+<text x="340" y="206" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">Explain   concept, then stop</text>
+<rect x="604" y="72" width="250" height="200" rx="10" fill="#161b22" stroke="#58CC02" stroke-width="1.5"/>
+<circle cx="628" cy="98" r="12" fill="#58CC02"/>
+<text x="628" y="103" fill="#0d1117" font-size="13" font-weight="700" text-anchor="middle">3</text>
+<text x="650" y="103" fill="#e6edf3" font-size="15.5" font-weight="700">Family → skill</text>
+<text x="622" y="130" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">8 families</text>
+<text x="622" y="149" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">rows are real phrasings,</text>
+<text x="622" y="168" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">not topic labels</text>
+<text x="622" y="187" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace"></text>
+<text x="622" y="206" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">first match wins</text>
+<rect x="886" y="72" width="214" height="200" rx="10" fill="#161b22" stroke="#CE82FF" stroke-width="1.5"/>
+<circle cx="910" cy="98" r="12" fill="#CE82FF"/>
+<text x="910" y="103" fill="#0d1117" font-size="13" font-weight="700" text-anchor="middle">4</text>
+<text x="932" y="103" fill="#e6edf3" font-size="15.5" font-weight="700">Answer</text>
+<text x="904" y="130" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">one or two skills</text>
+<text x="904" y="149" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">never five</text>
+<text x="904" y="168" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace"></text>
+<text x="904" y="187" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">translate.md:</text>
+<text x="904" y="206" fill="#8b949e" font-size="12.5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">ends in YOUR product</text>
+<line x1="290" y1="172" x2="318" y2="172" stroke="#8b949e" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="572" y1="172" x2="600" y2="172" stroke="#8b949e" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="854" y1="172" x2="882" y2="172" stroke="#8b949e" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="40" y="314" width="1060" height="62" rx="9" fill="#161b22" stroke="#30363d" stroke-dasharray="4 3"/>
+<text x="60" y="340" fill="#FF9600" font-size="13" font-weight="700">GATE ROW 1</text>
+<text x="60" y="361" fill="#8b949e" font-size="13" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">easing · contrast · tokens · layout · component behaviour  →  design-engineering (this pack owns why, not how)</text>
+</svg>

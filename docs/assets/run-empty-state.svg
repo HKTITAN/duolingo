@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="896" height="892" viewBox="0 0 896 892" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">
+<rect width="896" height="892" rx="10" fill="#0d1117"/>
+<rect width="896" height="38" rx="10" fill="#161b22"/><rect y="28" width="896" height="10" fill="#161b22"/>
+<line x1="0" y1="38" x2="896" y2="38" stroke="#30363d"/>
+<circle cx="20" cy="19" r="5.5" fill="#FF5F56"/>
+<circle cx="38" cy="19" r="5.5" fill="#FFBD2E"/>
+<circle cx="56" cy="19" r="5.5" fill="#27C93F"/>
+<text x="448" y="24" fill="#8b949e" font-size="12" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">duo-voice + design-engineering</text>
+<text x="22" y="54" fill="#FF9600" font-size="12.6" font-weight="700">$ /duolingo</text>
+<text x="22" y="74.4" fill="#58CC02" font-size="12.6" font-weight="600">Our &quot;no dashboards yet&quot; empty state is just grey text saying &quot;No dashboards.&quot;</text>
+<text x="22" y="94.80000000000001" fill="#58CC02" font-size="12.6" font-weight="600">It feels dead and new users bounce off it. Fix it.</text>
+<text x="22" y="115.19999999999999" fill="#e6edf3" font-size="12.6" font-weight="400"></text>
+<text x="22" y="135.6" fill="#e6edf3" font-size="12.6" font-weight="400">Routed to duo-voice → empty-states for why this screen matters and what it has to say, then handed the craft to</text>
+<text x="22" y="156" fill="#e6edf3" font-size="12.6" font-weight="400">  design-engineering → empty-loading-states + states-are-the-work, because Gate row 1 sends pixel work out of this</text>
+<text x="22" y="176.4" fill="#e6edf3" font-size="12.6" font-weight="400">  pack. This install's references/meta/pov.md is already forked to Duolingo's design language, so the values below are</text>
+<text x="22" y="196.79999999999998" fill="#e6edf3" font-size="12.6" font-weight="400">  real rather than improvised.</text>
+<text x="22" y="217.2" fill="#e6edf3" font-size="12.6" font-weight="400"></text>
+<text x="22" y="237.6" fill="#e6edf3" font-size="12.6" font-weight="400">Why it's worth fixing — Duolingo pack</text>
+<text x="22" y="258" fill="#e6edf3" font-size="12.6" font-weight="400"></text>
+<text x="22" y="278.4" fill="#e6edf3" font-size="12.6" font-weight="400">An empty state is the most-read and least-written screen you own: the user is staring at it because there is nothing</text>
+<text x="22" y="298.79999999999995" fill="#e6edf3" font-size="12.6" font-weight="400">  else to look at. Three rules — no void, tell them what will be here, keep the voice</text>
+<text x="22" y="319.19999999999993" fill="#e6edf3" font-size="12.6" font-weight="400">  (skills/duo-voice/references/empty-states.md).</text>
+<text x="22" y="339.59999999999997" fill="#e6edf3" font-size="12.6" font-weight="400"></text>
+<text x="22" y="359.99999999999994" fill="#e6edf3" font-size="12.6" font-weight="400">Two honest caveats from the same pack. Don't solve it by bolting on a mascot: in the 2026-02-04 core-tabs refresh</text>
+<text x="22" y="380.4" fill="#e6edf3" font-size="12.6" font-weight="400">  Duolingo cut a character illustration from the Friends header with the note &quot;does it serve a purpose?&quot; — art that</text>
+<text x="22" y="400.79999999999995" fill="#e6edf3" font-size="12.6" font-weight="400">  fills space without signalling anything &quot;can also feel forced.&quot; And don't promise this lifts activation. Run it as a</text>
+<text x="22" y="421.19999999999993" fill="#e6edf3" font-size="12.6" font-weight="400">  craft pass: signup → first-dashboard is a guardrail that must not drop, and you measure success on a secondary</text>
+<text x="22" y="441.59999999999997" fill="#e6edf3" font-size="12.6" font-weight="400">  number you commit to beforehand (skills/duo-design/references/craft-pass-guardrail.md).</text>
+<text x="22" y="461.99999999999994" fill="#e6edf3" font-size="12.6" font-weight="400"></text>
+<text x="22" y="482.4" fill="#e6edf3" font-size="12.6" font-weight="400">How it's actually built — design-engineering</text>
+<text x="22" y="502.79999999999995" fill="#e6edf3" font-size="12.6" font-weight="400"></text>
+<text x="22" y="523.1999999999999" fill="#9fb4c7" font-size="12.6" font-weight="400">| Element | Value |</text>
+<text x="22" y="543.6" fill="#9fb4c7" font-size="12.6" font-weight="400">|---|---|</text>
+<text x="22" y="563.9999999999999" fill="#9fb4c7" font-size="12.6" font-weight="400">| Heading | sentence case, display face, lowercase, ≥30px, tracking -0.02em |</text>
+<text x="22" y="584.4" fill="#9fb4c7" font-size="12.6" font-weight="400">| Button | ALL CAPS, 700, 15px, letter-spacing: 0.04em, no punctuation |</text>
+<text x="22" y="604.8" fill="#9fb4c7" font-size="12.6" font-weight="400">| Button body | 12px radius, 4px solid lip, ~100ms compress on press |</text>
+<text x="22" y="625.1999999999999" fill="#9fb4c7" font-size="12.6" font-weight="400">| Green as text | never #58CC02 on white (≈2.1:1) — use #367F00 (4.5:1) |</text>
+<text x="22" y="645.5999999999999" fill="#9fb4c7" font-size="12.6" font-weight="400">| Motion | first-run breaks the delight curve, so weekly-tier stagger/scale-in is allowed; confetti is rare-milestone</text>
+<text x="22" y="665.9999999999999" fill="#e6edf3" font-size="12.6" font-weight="400">  budget, not this |</text>
+<text x="22" y="686.4" fill="#e6edf3" font-size="12.6" font-weight="400"></text>
+<text x="22" y="706.8" fill="#e6edf3" font-size="12.6" font-weight="400">Never auto-redirect off an empty state — it reads as a crash.</text>
+<text x="22" y="727.1999999999999" fill="#e6edf3" font-size="12.6" font-weight="400"></text>
+<text x="22" y="747.5999999999999" fill="#e6edf3" font-size="12.6" font-weight="400">In your product</text>
+<text x="22" y="767.9999999999999" fill="#e6edf3" font-size="12.6" font-weight="400"></text>
+<text x="22" y="788.4" fill="#e6edf3" font-size="12.6" font-weight="400">Heading no dashboards yet. Body: &quot;dashboards pull your metrics into one view you can share with your team.&quot; Primary</text>
+<text x="22" y="808.8" fill="#e6edf3" font-size="12.6" font-weight="400">  CREATE DASHBOARD. Behind it, a dimmed sample dashboard — rule 3 is &quot;optionally provide context or example,&quot; and</text>
+<text x="22" y="829.1999999999999" fill="#e6edf3" font-size="12.6" font-weight="400">  seeing the filled version is what stops the bounce. Then check the neighbouring state: states-are-the-work's 90/10</text>
+<text x="22" y="849.5999999999999" fill="#e6edf3" font-size="12.6" font-weight="400">  rule says most &quot;this feels broken&quot; reports are an unhandled state, and an empty dashboard list must not look</text>
+<text x="22" y="869.9999999999999" fill="#e6edf3" font-size="12.6" font-weight="400">  identical to a failed fetch.</text>
+</svg>
