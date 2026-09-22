@@ -13,10 +13,15 @@ A celebration screen is the visual half of [[../duo-gamification/references/cele
 
 ## What Duolingo does
 
-- Lesson-end, streak-milestone, and league-promotion screens use layered animation: character entrance, confetti, number/badge scaling, settling pose.
-- Sound (see [[sound-as-ux]]) is part of every celebration, not an optional layer.
-- Duration is calibrated — long enough to land, short enough that users don't tap-skip.
-- Tier matters: a 7-day streak gets a smaller celebration than a 365-day streak. Visual scaling tracks the milestone weight.
+Source: blog.duolingo.com/streak-milestone-design-animation (Duolingo blog, 2022-01-21; accessed 2026-09-22)
+
+- Streak milestones were originally Duo holding number balloons. The team judged that "cute, but not quite celebratory enough, energy-wise" and replaced it with Duo *physically transforming* into a flaming phoenix — framed internally as treating milestones like power-ups in a video game. A transformation reads as earned; a prop reads as handed to you.
+- Timing is iterated as its own variable, separately from the artwork: "Multiple passes of rough animation are done to experiment with different variations on an idea before refining the overall rhythm and energy. These variables are as important to the success of Duo's transformation as the design itself."
+- Tiering is explicit and sparse — milestones fire at 1 week, 1 month, 100 days, 365 days and beyond, not on every session.
+- The celebration terminates in a share card the learner can save or post without leaving the app.
+- Inside a lesson the same grammar runs smaller: each character has its own correct-answer animation, plus mid-lesson interstitials that reward a run of correct answers (blog.duolingo.com/building-character (Duolingo blog, 2020-11-10; accessed 2026-09-22)).
+
+**The tension Duolingo names.** The fun direction was not the legible one. Sketches of Duo roasting a s'more, carrying a candle, and working a lab beaker were all rejected as not scalable and still not universal; the phoenix won because a bird in profile recurs across flags and coats of arms worldwide. Celebration art has to survive being seen by everyone, which rules out most of the charming options.
 
 ## The transferable pattern
 

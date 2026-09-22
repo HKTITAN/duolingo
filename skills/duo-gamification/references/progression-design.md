@@ -13,11 +13,15 @@ Progression is the visible structure between "today's session" and "the goal." I
 
 ## What Duolingo does
 
-- The home screen is a literal **path** — tiles representing lessons, grouped into units, grouped into sections.
+Duolingo replaced the old branching **tree** of skills with a single guided **path** for all learners on November 1, 2022 — the tree is retired, don't design against it. Source: blog.duolingo.com/new-duolingo-home-screen-design (Duolingo blog, 2022-05-06; accessed 2026-09-22)
+
+- The home screen is a literal **path** — one circle per level, grouped into units, grouped into sections. One circle equals exactly one crown level of the old tree, so the same content simply got restrung.
 - Progress is *spatial* — you move through the path, not "fill up a bar." Spatial progress reads as travel; bars read as tax.
-- Each unit has a thematic name and a visible end (a guidebook, a milestone tile).
-- The path bends and branches enough that the experience changes visually as you progress, even when the underlying activity is consistent.
-- Long-term: sections, then full languages, then optional follow-on languages.
+- Levels from different skills are **interleaved** along the path rather than stacked, which bakes spaced repetition into the default route. The old tree let learners gold out one skill at a time; the path makes the scientifically better order the only order.
+- Each unit has a descriptive goal-shaped name ("get directions" replaced "City 3") and a visible end — a guidebook, a Legendary challenge.
+- Duolingo openly acknowledged the cost: the path *looks* longer than the tree, and they had to answer that in the FAQ.
+
+The counterintuitive finding: **adding content to make the path longer always improved their learning metric, while making lessons shorter hurt it.** Learners want fresh ground, not a shorter treadmill. Source: blog.duolingo.com/time-spent-learning-well (Duolingo blog, 2024-06-13; accessed 2026-09-22)
 
 ## The transferable pattern
 

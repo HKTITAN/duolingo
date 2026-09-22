@@ -15,11 +15,16 @@ A good hypothesis names a mechanism, a metric, and a magnitude.
 
 ## What Duolingo does
 
-The handbook describes Duolingo's experimentation culture as data-driven, not data-fishing. In practice this means:
+The hypothesis is a field in the experiment setup flow, not a norm. Duolingo calls identifying the expected result "perhaps the most important part of an experiment," and uses it to establish the baseline for success or failure before any data exists; the service then computes the analysis against it. Source: blog.duolingo.com/improving-duolingo-one-experiment-at-a-time (Duolingo blog, 2020-01-10; accessed 2026-09-22)
 
-- Every shipping experiment names its primary metric in advance.
-- Hypotheses are explicit: "Doubling the streak-freeze cap will increase 30-day retention by 1–2 percentage points because users with one bad week currently churn at the next miss."
-- Surprise results trigger a follow-up: was the mechanism we predicted what actually drove the change, or did the metric move for an unrelated reason?
+PMs are expected to form and test hypotheses for anything from a copy change to an entirely new section of the app, and everyone can read past experiment data. Source: blog.duolingo.com/why-i-interned-at-duolingo-rebecca-hu-product-management-intern (Duolingo blog, 2022-08-26; accessed 2026-09-22)
+
+The mechanism is the part that gets tested — and the part that usually fails to travel:
+
+- German learners were opting into push notifications less often. The hypothesis named a mechanism: the copy never said notifications help you learn. Rewriting it to say so produced an **8% increase in opt-in** for German learners.
+- Duolingo then ran the same change in Spanish, expecting the mechanism to generalize. **No significant impact.** Their conclusion: it was not a one-size-fits-all solution. Source: blog.duolingo.com/copy-testing-experiments (Duolingo blog, 2022-01-14; accessed 2026-09-22)
+
+A hypothesis that names a mechanism is what makes that second result legible as information rather than noise. A hypothesis that only named a direction would have shipped the Spanish copy on the German evidence.
 
 ## The transferable pattern
 
@@ -46,4 +51,4 @@ Three rules:
 
 ## See also
 
-[[show-dont-tell]] · [[ab-test-structure]] · [[metric-selection]] · [[novelty-effects]]
+[[show-dont-tell]] · [[ab-test-structure]] · [[metric-selection]] · [[novelty-effects]] · [[baseline-at-first-contact]]

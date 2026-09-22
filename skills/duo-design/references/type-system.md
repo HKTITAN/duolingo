@@ -9,14 +9,19 @@ metadata:
 
 ## Concept
 
-A type system is a typography contract: which fonts, which weights, which sizes, where each is used. The Duolingo system uses a single primary typeface (Feather Bold for branding/display, with variants for body) deployed in a small, opinionated scale. The discipline is restraint — three sizes used consistently beat eight sizes used randomly.
+A type system is a typography contract: which fonts, which weights, which sizes, where each is used. The Duolingo system is a single distinctive display face deployed in a small, opinionated scale — the specific families are documented in the Handbook, not publicly. The discipline is restraint: three sizes used consistently beat eight sizes used randomly.
 
 ## What Duolingo does
 
-- A small set of type tokens (e.g. `display`, `heading`, `body`, `caption`) used everywhere; no ad-hoc font sizes.
-- A primary typeface that's distinctive (carries brand) but legible at small sizes (carries content).
-- Weight rules: bold for headings and prompts, regular for content, never lighter than regular for body text.
-- Type scales tied to user accessibility settings — Dynamic Type respected, not overridden.
+Source: blog.duolingo.com/core-tabs-redesign (Duolingo blog, 2026-02-04; accessed 2026-09-22)
+
+- The 2026 core-tabs refresh was triggered partly by type. Across tabs that each shipped fine on their own, "headers varied in size, typography lacked hierarchy, and spacing felt inconsistent" — and those small details compounded into an experience that "didn't feel polished and cohesive."
+- The fix was a scale, not a style guide: "we evolved our type system to be consistent and intentional with a minimal number of styles."
+- Hierarchy is carried by header sizes graded to each tab's *purpose*, with the title held in a constant position across tabs. Size varies where it signals something; position never does.
+- Whitespace does the separating work containers used to: the team "purposefully us[ed] the whitespace around the components instead of forcing containers around them."
+- Large type and minimal scrolling are treated as load reduction rather than styling — the Duolingo English Test uses both to cut visual and working-memory demand (blog.duolingo.com/inclusive-testing-technology (Duolingo blog, 2022-01-27; accessed 2026-09-22)).
+
+**What this shipped as.** Higher engagement across tabs *while core learning metrics held flat* — the right bar for a pure craft pass, since polish compounds into trust rather than into one metric. Typeface names and the token-level scale live in the Handbook (handbook.duolingo.com), not on the blog.
 
 ## The transferable pattern
 
@@ -38,4 +43,4 @@ Anti-patterns:
 
 ## See also
 
-[[color-tokens]] · [[accessibility-default]] · [[../duo-product/references/polish]]
+[[color-tokens]] · [[consistency-vs-purpose]] · [[accessibility-default]] · [[../duo-product/references/polish]]

@@ -15,9 +15,13 @@ The mechanic exists because the streak is so harsh that without it, a single bad
 
 ## What Duolingo does
 
-- Users can hold a small number of streak freezes at a time — typically two — earned through engagement or purchasable.
-- A freeze auto-applies on a missed day; the user wakes up and sees the counter intact.
-- The supply is intentionally scarce; freezes feel valuable, not unlimited, which keeps the underlying action incentive intact.
+Source: blog.duolingo.com/how-duolingo-streak-builds-habit (Duolingo blog, 2022-01-31; accessed 2026-09-22)
+
+- Learners can equip **up to two** Streak Freezes at a time, refillable for **400 gems**. A freeze auto-applies on a missed day; the user wakes up and sees the counter intact.
+- Duolingo grounds this in a University of Pennsylvania / UCLA study finding that offering people a little "slack" toward a goal is more motivating than a rigid rule set.
+- Going from one equippable freeze to two **increased relative daily active learners by +0.38%** — the slack bought activity, it did not license days off.
+- The same post names the objection directly: a freeze "may seem like a dishonest way to maintain a streak." Duolingo's answer is the number above.
+- A related experiment, the **Weekend Amulet** (equippable each Friday, protects the streak across an unused weekend), was scheduled at the dip Duolingo already measured — weekend DAU falls **5–10%** below midweek. Learners offered it were **4% more likely to return a week later and 5% less likely to lose their streak** (blog.duolingo.com/how-streaks-keep-duolingo-learners-committed-to-their-language-goals (Duolingo blog, 2017-05-10; accessed 2026-09-22)).
 
 ## The transferable pattern
 

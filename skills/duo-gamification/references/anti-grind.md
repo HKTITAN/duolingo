@@ -15,9 +15,17 @@ The line between the two is rarely about which mechanics you use. It's about whe
 
 ## What Duolingo does
 
-The handbook's *Take the Long View* and the explicit caps on hearts strictness, notification volume, and league competitiveness are the anti-grind discipline. When experiments show short-term engagement up but long-term retention down, the change is reversed even if the immediate metrics looked good.
+Duolingo says the quiet part out loud in public, which is the strongest evidence the discipline is real.
 
-The internal test (paraphrased from blog discussions): does this mechanic make the *learning* better, or does it just make the user open the app more?
+**They name the failure mode of their own most famous mechanic.** Duolingo's own learning scientist writes that doing "the easiest tasks (like reviewing Section 1 to keep your streak alive 🫣)" won't keep you linguistically strong, and that maintaining a skill requires a gradual increase of difficulty. The streak can be kept without learning anything, and they say so. Source: blog.duolingo.com/how-to-stay-fluent (Duolingo blog, 2024-10-01; accessed 2026-09-22)
+
+**They rebuilt the metric when it rewarded grinding.** Total Sessions was abandoned because it "biased towards people who were grinding on shorter, easier sessions." Monthly Challenges were switched from XP-based to Quest-based after learners spent the last few days of each month earning XP in bulk to game it. And XP along the path was raised because leaderboard competition "can feel unfair" to learners focused on content rather than XP volume. Source: blog.duolingo.com/time-spent-learning-well (Duolingo blog, 2024-06-13; accessed 2026-09-22)
+
+**They budget for not showing up.** The operating phrase in that post is "**they can't learn if they churn**" — if all a learner can do one day is extend their streak, that's fine. Anti-grind is not a vibe here; it is a written allowance for low-effort days.
+
+The handbook's *Take the Long View* is the principle behind all three: when an experiment moves short-term engagement up and long-term retention down, the change is reversed. Source: handbook.duolingo.com
+
+The internal test: does this mechanic make the *learning* better, or does it just make the user open the app more?
 
 ## The transferable pattern
 
@@ -39,4 +47,4 @@ If you see two or more of these, the gamification is grinding.
 
 ## See also
 
-[[hearts-and-energy]] · [[../duo-retention/references/variable-reward]] · [[../duo-retention/references/notification-discipline]] · [[../duo-retention/references/forever-product]] · [[../duo-retention/references/retention-vs-revenue]]
+[[hearts-and-energy]] · [[../duo-retention/references/variable-reward]] · [[../duo-retention/references/notification-discipline]] · [[../duo-retention/references/forever-product]] · [[../duo-retention/references/retention-vs-revenue]] · [[nested-deadlines]] · [[co-op-pairing]]

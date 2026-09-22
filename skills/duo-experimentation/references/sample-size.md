@@ -13,10 +13,10 @@ Sample size determines an experiment's resolving power: the minimum effect you c
 
 ## What Duolingo does
 
-- Tests are powered to detect the minimum effect that would justify the change — typically pre-computed as a function of baseline metric variance and target lift.
-- Tests run for at least one full week to absorb day-of-week and weekend effects on retention metrics; many run two weeks for novelty absorption ([[novelty-effects]]).
-- Stopping rules are pre-registered: an experiment doesn't get cut short just because the primary metric looks good early.
-- High-traffic surfaces (lesson screen, league screen) hit power quickly; low-traffic surfaces (settings) require longer or are decided by qualitative review instead.
+- **Power is bought by ramping rollout, not by waiting.** Duolingo's growth guideline is to roll experiments out to as many learners as you can, as quickly as you can, and the stated reason is exactly the sample-size argument: to have enough confidence in the results they need a large number of users treated into the experiment. Parking a test at a small rollout while the team moves on to the next thing is named as the common failure. Source: blog.duolingo.com/growth-principles (Duolingo blog, 2023-11-03; accessed 2026-09-22)
+- **Launch on your biggest platform first** — same post, same logic. If Android has significantly more users, running there first and porting to iOS reaches decision power sooner than the reverse.
+- **Uncertainty is rendered, not requested.** The internal A/B suite shows confidence intervals and time series by default, across the thousands of A/B tests Duolingo runs every year. Source: blog.duolingo.com/duolingos-secret-weapon-our-beautiful-and-powerful-analytics-tools (Duolingo blog, 2021-03-22; accessed 2026-09-22)
+- Tests run long enough to absorb day-of-week cycles, and longer still for changes prone to novelty ([[novelty-effects]]) — where Duolingo's own decay estimate came from a 34-day window, not a one-week one.
 
 ## The transferable pattern
 
@@ -38,4 +38,4 @@ A useful heuristic:
 
 ## See also
 
-[[ab-test-structure]] · [[hypothesis-design]] · [[novelty-effects]] · [[kill-criteria]]
+[[ab-test-structure]] · [[hypothesis-design]] · [[novelty-effects]] · [[kill-criteria]] · [[probes-inside-the-product]]

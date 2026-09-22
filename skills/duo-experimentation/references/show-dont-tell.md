@@ -19,10 +19,13 @@ This skill mostly extends the third one, but the first two come up too.
 
 ## What Duolingo does
 
-- Hundreds of A/B tests per week (the handbook explicitly calls this out as part of *Ship It* + *Show Don't Tell*).
-- Disagreements on copy, features, mechanics route to experiments, not to whoever has the bigger title.
-- Experiments are reviewed on a weekly cadence ([[experiment-cadence]]); decisions that fall out are committed quickly.
-- Senior leaders' intuitions are inputs, not vetoes — the same data review that overturns a junior PM's bet can overturn a leader's.
+"Test everything" is one of Duolingo's named operating principles, and the volume is what makes it more than a slogan: **a few hundred experiments running simultaneously** in a typical week, **over 2,000** through the internal experiments service in its first three years, and thousands of A/B tests a year — covering everything from updating a single button to launching Leaderboards. Source: blog.duolingo.com/improving-duolingo-one-experiment-at-a-time (Duolingo blog, 2020-01-10; accessed 2026-09-22)
+
+- **The evidence is everyone's, which is what takes the title out of the argument.** PMs form and test hypotheses for anything from a copy change to an entirely new app section, and *everyone has access to past experiment data* — so the counter to a senior opinion is a query, not an escalation. Source: blog.duolingo.com/why-i-interned-at-duolingo-rebecca-hu-product-management-intern (Duolingo blog, 2022-08-26; accessed 2026-09-22)
+- **Self-serve tooling is the enabling condition.** Duolingo builds its own segmentation, dashboard, retention, funnel and A/B analysis tools; an analyst who arrived from Spotify and Facebook found them as powerful and flexible as those, and easier to use. A culture where only analysts can run the query is a culture that decides by title. Source: blog.duolingo.com/duolingos-secret-weapon-our-beautiful-and-powerful-analytics-tools (Duolingo blog, 2021-03-22; accessed 2026-09-22)
+- Experiments are reviewed on a fast cadence ([[experiment-cadence]]); decisions that fall out are committed quickly.
+
+**Where Duolingo says the principle stops.** Writing up the streak milestone redesign, the team states that they test everything *but* recognize some wins are hard to measure quantitatively — and counted that launch a success on two channels at once: early iOS and Android metrics showing more people keeping streaks alive, plus overwhelmingly positive reception on Reddit, Twitter and elsewhere. A team that only ships what it can measure systematically under-invests in craft. Source: blog.duolingo.com/streak-milestone-design-animation (Duolingo blog, 2022-01-21; accessed 2026-09-22)
 
 ## The transferable pattern
 
@@ -42,4 +45,4 @@ Anti-pattern: testing decisions that everyone already agrees on. Tests are decis
 
 ## See also
 
-[[hypothesis-design]] · [[ab-test-structure]] · [[../duo-product/references/ship-it]] · [[../duo-culture/references/candor-what-not-who]]
+[[hypothesis-design]] · [[ab-test-structure]] · [[ladder-of-evidence]] · [[../duo-product/references/ship-it]] · [[../duo-culture/references/candor-what-not-who]]

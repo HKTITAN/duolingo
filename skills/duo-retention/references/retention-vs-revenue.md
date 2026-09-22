@@ -15,10 +15,13 @@ Most teams do not draw this line explicitly. Duolingo does.
 
 ## What Duolingo does
 
-- Free product is genuinely usable; the paid product (Super Duolingo) removes ads and adds convenience, not core access.
-- Ad density is capped, not maximized — the handbook describes deliberately accepting lower per-session revenue to protect long-term retention.
-- Paywalls exist but rarely block first value. Users hit them after they're invested, not before.
-- The decision rule: if a monetization move improves quarter revenue but degrades cohort retention, it doesn't ship — even if the math says short-term net positive.
+Source: blog.duolingo.com/duolingo-company-strategy (Duolingo blog, 2025-04-07; accessed 2026-09-22)
+
+- The free product is genuinely usable; the paid one is "worth it" rather than gate-keeping core access. Duolingo describes this as a **flywheel**: a better free product brings more learners, more learners produce more data and more subscribers, subscribers fund the next round of product.
+- The conversion numbers are published. Since the 2021 IPO, the share of monthly active users who pay went from **~5% to 8.8%** — **~117M MAU against 9.5M subscribers**. The overwhelming majority never pay and are still the asset.
+- The refusal is explicit and named: **"Spammy notifications, deceptive patterns, and heavy paid acquisition are short-term tactics."** They are listed as things the strategy rules out, not things to balance.
+- The margin for that patience comes from **~80% organic acquisition** (blog.duolingo.com/growth-model-duolingo (Duolingo blog, 2023-02-17; accessed 2026-09-22)) — when you are not buying users, you are not obliged to monetize them on a schedule.
+- The decision rule, per the Handbook's *Take the Long View*: a move that improves quarter revenue but degrades cohort retention doesn't ship (handbook.duolingo.com).
 
 ## The transferable pattern
 

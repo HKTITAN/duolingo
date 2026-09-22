@@ -15,10 +15,13 @@ Empty states are highly-read (the user is looking at the screen; there's nothing
 
 ## What Duolingo does
 
+Source: handbook.duolingo.com (Duolingo has not published a blog post specifically on empty states; the pattern below is from the Handbook and from observed product behavior). The adjacent, published constraint is in blog.duolingo.com/core-tabs-redesign (Duolingo blog, 2026-02-04; accessed 2026-09-22).
+
 - Empty states feature a character with a relevant pose (Duo waving, Lily looking unimpressed, Eddy with a clipboard).
 - Each empty state explains *what will be here when it's not empty*, in voice.
 - Empty states have a clear next action: a button, a link, a prompt. The void is the prompt.
 - The illustration is the same character system used elsewhere, so empty screens carry brand instead of breaking it.
+- But the illustration has to earn the pixels. In the 2026 core-tabs refresh the design team cut a character illustration from the Friends header with the note "It's consistent with other headers but does it serve a purpose?" — their stated rule is that consistency must be balanced with purpose, and simplicity with clarity. Art that occupies significant space without signaling anything useful "can also feel forced."
 
 ## The transferable pattern
 

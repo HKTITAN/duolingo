@@ -1,0 +1,53 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "duolingo",
+  "version": "2.0.0",
+  "description": "The Duolingo playbook as agent skills — retention, streaks, gamification, learning science, curriculum, efficacy measurement, metrics, experimentation, growth, brand, voice, culture, hiring, platform and mobile engineering, observability, and LLM feature design. Distilled from 750 posts on blog.duolingo.com plus the Duolingo Handbook and Design System. Start at the /duolingo router; design and UI craft routes out to design-engineering.",
+  "author": {
+    "name": "HKTITAN",
+    "email": "harshitkhemani@gmail.com",
+    "url": "https://github.com/HKTITAN"
+  },
+  "homepage": "https://github.com/HKTITAN/duolingo",
+  "repository": "https://github.com/HKTITAN/duolingo",
+  "license": "MIT",
+  "keywords": [
+    "duolingo",
+    "skill-router",
+    "retention",
+    "gamification",
+    "streaks",
+    "learning-science",
+    "spaced-repetition",
+    "curriculum",
+    "efficacy",
+    "product-metrics",
+    "experimentation",
+    "growth",
+    "brand",
+    "ux-writing",
+    "culture",
+    "engineering",
+    "observability",
+    "llm-features",
+    "skill-graph"
+  ],
+  "extensions": {
+    "com.anthropic.claude-code": {
+      "manifest": "./.claude-plugin/plugin.json",
+      "marketplace": "./.claude-plugin/marketplace.json",
+      "commands": "./commands/"
+    },
+    "com.openai.codex": {
+      "manifest": "./.codex-plugin/plugin.json"
+    },
+    "com.cursor.editor": {
+      "manifest": "./.cursor-plugin/plugin.json"
+    },
+    "sh.skills.registry": {
+      "config": "./skills.sh.json",
+      "skills": "./skills/",
+      "router": "./skills/duolingo/SKILL.md"
+    }
+  }
+}

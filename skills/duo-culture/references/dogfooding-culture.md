@@ -15,10 +15,10 @@ Dogfooding only works when culture rewards it. Without that, it dies in the firs
 
 ## What Duolingo does
 
-- Leaders use the product on their own accounts and surface issues publicly — internal Slack, all-hands, hallways.
-- Bug reports from internal users are routed and resolved with the same rigor as external reports.
-- The cultural cost of "this isn't fixable until next sprint" goes up if the issue is something a user would notice.
-- Onboarding includes dogfooding: new hires are expected to be users, not just builders.
+- **More than 70% of the company dogfoods the internal build** — everyone is encouraged to, not only people shipping user-facing features. The CEO dogfoods daily, across multiple courses and multiple device types. Source: blog.duolingo.com/dogfooding-app (Duolingo blog, 2024-03-01; accessed 2026-09-22)
+- **Duolingo pays for it.** A twice-yearly Language Challenge gives employees a financial incentive to keep up language courses across a 6-month window — because a habit product fails in ways only visible over weeks, which nobody does voluntarily on top of their real job.
+- **Internal reports get first-class tooling.** Shake-to-Report auto-attaches a screenshot, device and app version, the experiments the reporter is treated in, course and lesson state, a log file and a session recording. Internal and external feedback flow into the same aggregator (Jeeves).
+- **It is a release gate, not a suggestion box.** Monday mornings QA reviews the weekend's dogfooding bugs, and rollout does not begin while any bug is blocking or significantly degrades the experience.
 
 ## The transferable pattern
 
@@ -41,4 +41,4 @@ Anti-patterns:
 
 ## See also
 
-[[../duo-product/references/dogfooding]] · [[talent-density]] · [[quirky-by-design]] · [[../duo-product/references/raise-the-bar]]
+[[../duo-product/references/dogfooding]] · [[talent-density]] · [[managers-keep-practising-the-craft]] · [[quirky-by-design]] · [[../duo-product/references/raise-the-bar]]

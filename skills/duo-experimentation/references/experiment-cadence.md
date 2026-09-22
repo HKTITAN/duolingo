@@ -9,15 +9,15 @@ metadata:
 
 ## Concept
 
-A high-volume experimentation culture (the handbook describes "hundreds of experiments each week") only works if the review rhythm is bounded. Without a cadence, the team drowns in dashboards. With one, the volume is digestible: every test has a known review moment, every decision has a known committer.
+A high-volume experimentation culture (Duolingo runs a few hundred experiments *simultaneously* in a given week, and launches hundreds per quarter) only works if the review rhythm is bounded. Without a cadence, the team drowns in dashboards. With one, the volume is digestible: every test has a known review moment, every decision has a known committer.
 
 ## What Duolingo does
 
-- Weekly experiment review meetings, scoped to specific surface or team.
-- Pre-circulated results: anyone joining the meeting has read the results before the meeting starts. Meetings are for decision, not discovery.
+- **The readout is never what the meeting is waiting on.** The experiments service generates statistical reports *every night* for every running experiment, so results exist before anyone asks. Source: blog.duolingo.com/improving-duolingo-one-experiment-at-a-time (Duolingo blog, 2020-01-10; accessed 2026-09-22)
+- **The stated guideline is to decide the moment the data is sufficient**, not on a calendar. Duolingo's growth write-up names the specific failure: teams letting experiments sit on the back burner to "collect more data," checking in every now and then. Source: blog.duolingo.com/growth-principles (Duolingo blog, 2023-11-03; accessed 2026-09-22)
+- **They quantify the cost of the delay.** In their worked example, a 1% retention win launched one week earlier is already adding **7.2% more users per day** by the end of that week — and the gap keeps widening. Review latency is not neutral; it is compounding you never get back.
+- **Ramping rollout is part of the cadence.** "Roll out experiments to as many learners as you can, as quickly as you can" — a test parked at a small rollout is a test that will take longer to decide.
 - A small set of decision-makers per surface — clear ownership ([[../duo-culture/references/ownership-clarity-culture]]) prevents diffuse responsibility.
-- Killed experiments take less than a minute of meeting time; winners take longer because the committed action is more nuanced.
-- The cadence is *fast enough* that no test sits unattended for more than a week post-completion.
 
 ## The transferable pattern
 

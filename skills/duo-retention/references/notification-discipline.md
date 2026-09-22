@@ -13,10 +13,12 @@ A push notification is the only product surface that reaches the user when the p
 
 ## What Duolingo does
 
-- Notifications are tightly capped per day; the system tunes timing per user based on past response.
+Duolingo calls notifications **"one of the biggest factors affecting whether a learner forms a learning habit"** — and treats the *opt-in* as the thing to optimize, not the send volume (Source: blog.duolingo.com/lessons-from-asia-turning-local-research-into-global-experiments (Duolingo blog, 2021-02-02; accessed 2026-09-22)).
+
+- Local research found learners in **Japan were 50% less likely to opt into reminders** than the global average. Rather than push harder at the same moment, Duolingo moved the prompt and varied the pitch — adding it **after a leaderboard promotion** and **when a learner runs out of Hearts** (now Energy), i.e. at an earned peak and at a felt loss. The experiments shipped globally.
+- Copy framing moved the same number: testing "building a long-term habit" language on the opt-in screen instead of streak-protection language lifted opt-ins **5%** (blog.duolingo.com/putting-in-work-the-habit-of-language-learning (Duolingo blog, 2021-01-08; accessed 2026-09-22)).
 - Each notification is a [[../duo-voice/references/push-notification-copy]] artifact, not a templated string. The voice is part of why users tolerate the cadence.
-- Notification rights can be lost: ignored or muted notifications are de-prioritized, not retried at higher volume.
-- The handbook explicitly cites notification limits as an example of *Take the Long View* — short-term opens vs. long-term unsubscribes.
+- The company strategy names the failure mode as a thing it refuses outright: **"Spammy notifications, deceptive patterns, and heavy paid acquisition are short-term tactics"** (blog.duolingo.com/duolingo-company-strategy (Duolingo blog, 2025-04-07; accessed 2026-09-22)).
 
 ## The transferable pattern
 

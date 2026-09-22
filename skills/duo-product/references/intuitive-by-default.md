@@ -13,10 +13,15 @@ The handbook's *Show Don't Tell* and *Raise the Bar* both contain a version of: 
 
 ## What Duolingo does
 
+Source: blog.duolingo.com/product-principles (Duolingo blog, 2024-02-21; accessed 2026-09-22)
+
+- Duolingo's VP of Product makes "build for the global user" a standing review question, and the test is comprehension without explanation: *"Will our typical user understand what we just did? Will they understand what this main action button does? When they read what's on the screen, will it make sense to them?"* He estimates **about half the time** the team has to be reminded to design for the international, older, or low-tech-literacy user rather than for themselves.
+- The clearest application: when learners kept saying they weren't sure they were using Duolingo *"the 'correct' or 'best' way,"* the fix was not documentation. Duolingo replaced the branching skill "tree" home screen with a single linear **path**, launched to all learners **November 1, 2022** — one circle per crown level, next step always obvious (blog.duolingo.com/new-duolingo-home-screen-design (Duolingo blog, 2022-05-06; accessed 2026-09-22)).
 - Onboarding teaches by *doing the thing*, not explaining it. The first lesson is a lesson, not a tutorial about lessons.
-- Most UI elements teach themselves through interaction; the home screen path is a path, you tap a tile, you do a lesson.
 - Where explanation is unavoidable, it's compressed into a single line of voice ([[../duo-voice/references/onboarding-copy]]) rather than a multi-screen tutorial.
 - Complexity is hidden by default — advanced features (paths, scores, league details) only surface when relevant.
+
+Tension, honestly recorded in the path post: removing the branching surface removed the per-circle labels too, and Duolingo had to **add tap-to-reveal popups and rewrite unit headers** to put the lost information back. "Intuitive" did not mean "explains nothing" — it meant moving the explanation to the moment of need instead of the front of the flow. The path is also visibly longer than the tree, and a power user loses their self-directed route.
 
 ## The transferable pattern
 
@@ -36,4 +41,4 @@ A useful diagnostic: if a new user needs a tooltip to understand the primary act
 
 ## See also
 
-[[raise-the-bar]] · [[polish]] · [[../duo-voice/references/onboarding-copy]] · [[../duo-retention/references/churn-diagnostics]]
+[[raise-the-bar]] · [[polish]] · [[difficulty-with-mitigations]] · [[fit-the-artifact-to-the-moment]] · [[../duo-voice/references/onboarding-copy]] · [[../duo-retention/references/churn-diagnostics]]

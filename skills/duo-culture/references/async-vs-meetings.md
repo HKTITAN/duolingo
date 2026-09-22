@@ -13,10 +13,10 @@ A meeting is the right tool for converging — getting people aligned in real ti
 
 ## What Duolingo does
 
-- Reviews and decisions happen in tight, well-prepared meetings; people read materials *before*, not during.
-- Substantive thinking happens in writing — proposals, RFCs, post-mortems are written, then meeting time is for resolution, not exposition.
-- Meeting load is treated as a clock-speed cost ([[clock-speed]]); a calendar of back-to-back meetings is a problem to solve, not a status symbol.
-- Recurring meetings are reviewed for value — "is this still earning its slot" is a normal question.
+- **Synchronous time is spent only on what needs it.** The first Product Bootcamp (March 2023) spent roughly 1.5 of its 3 in-person days on skill sessions. New PMs said the sessions felt rushed and were not equally relevant to everyone, so Duolingo moved them out of the room into "Product School" — on-demand training completable any time between start date and the bootcamp — and gave **all 3 days to the project**. Source: blog.duolingo.com/product-bootcamp (Duolingo blog, 2025-03-14; accessed 2026-09-22)
+- **Default channel is text, not video.** Six months into remote work, with 350+ employees and stated "Zoom fatigue," Duolingo routed a company-wide activity to a single Slack channel rather than a scheduled video call, specifically so Duos across time zones could take part on their own schedule. Source: blog.duolingo.com/thinking-outside-the-box-engaging-our-team-with-interactive-care-packages (Duolingo blog, 2020-09-24; accessed 2026-09-22)
+- **"Reduce complexity" is a published operating principle scoped to internal machinery, not just the product** — "from our internal communication style to our external product." Source: blog.duolingo.com/operating-principles (Duolingo blog, 2023-12-01; accessed 2026-09-22)
+- The meeting-load norms themselves — pre-reads, meetings ending in a decision, recurring meetings reviewed for value — are Handbook practice rather than published blog practice. Source: handbook.duolingo.com
 
 ## The transferable pattern
 

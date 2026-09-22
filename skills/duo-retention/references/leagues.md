@@ -13,10 +13,14 @@ A league is a time-boxed cohort (usually weekly) of similar-skill users competin
 
 ## What Duolingo does
 
-- Cohorts of ~30 users, weekly reset, ten ascending tiers from Bronze to Diamond.
-- Promotion zone, demotion zone, "safe" middle zone — each shapes a different motivation.
+Source: blog.duolingo.com/duolingo-leagues-leaderboards (Duolingo blog, 2023-05-03; accessed 2026-09-22)
+
+- Leaderboards were first tested in **2018** with **5 leagues**. There are **10** today, topped by Diamond — Duolingo widened the ladder deliberately so that "reaching the top was an even bigger achievement."
+- A new weekly league begins **every Sunday** in your own timezone. You are matched with learners who have **similar study habits and a similar timezone** — not your friends, and not necessarily people studying your language, because the competition runs across all courses.
 - The metric (XP) is something the user already produces by doing the core action; leagues *add* a layer rather than introducing a new task.
-- Users near a zone boundary on Sunday evening produce visible activity spikes — a measured retention lift, especially among users who were drifting.
+- The top of the ladder gets its own extra loop: the top 10 in Diamond qualify for the multi-round **Diamond Tournament**, which does not run every week.
+
+Tension Duolingo has published on both sides. XP is grindable, and they say the competition "can feel 'unfair' for learners who are more focused on content than gaining thousands of XP per week" — so they **rebalanced XP toward path lessons**, worth roughly **+1.8M minutes/day** of Time Spent Learning Well at full adjustment (blog.duolingo.com/time-spent-learning-well (Duolingo blog, 2024-06-13; accessed 2026-09-22)). And the opt-out is awkward: Leaderboards can only be disabled from web Settings, by toggling off "Make My Profile Public" — an exit coupled to an unrelated privacy control.
 
 ## The transferable pattern
 

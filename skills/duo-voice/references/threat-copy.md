@@ -15,6 +15,14 @@ This is the most-imitated and most-misunderstood part of the brand.
 
 ## What Duolingo does
 
+Source: blog.duolingo.com/widget-feature (Duolingo blog, 2023-08-29; accessed 2026-09-22) · blog.duolingo.com/hi-its-duo-the-ai-behind-the-meme (Duolingo blog, 2020-09-03; accessed 2026-09-22)
+
+The home-screen widget is the purest published version of the genre, and it shows the mechanism: the menace is a **function of the clock, not of the user**. The Design Studio drew a series of Duos showing his mood at different points of the day depending on whether you'd done your lesson — "he gets more and more desperate as it nears midnight" — and relaxed and happy once the streak bar is filled. The set later expanded to **25 unhinged Duos** (buff Duo, Mona Lisa Duo, sweaty-and-scared Duo, skeleton Duo). The escalation is legible as a bit because the user can see it reset the moment they comply.
+
+It correlates with the behavior the node claims: **half of learners with the widget installed have a streak of at least 6 months.**
+
+Rarity is also enforced mechanically, not by taste. The notification bandit explicitly demotes reminders a learner has seen recently, spacing repeats on the same forgetting curve Duolingo uses for vocabulary — so a given threat lands as a surprise rather than a tax.
+
 - The classic format: Duo expressing disappointment about missed practice, in language that escalates into absurdity.
 - Threats are about loss of progress (streak, league, etc.) — they map to a real consequence the user has elected to care about.
 - They never threaten anything outside the product. No fake urgency about offers, no FOMO manufactured from thin air.

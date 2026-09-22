@@ -15,10 +15,13 @@ This is the [[../duo-gamification/references/juicy-feedback|juicy-feedback]] nod
 
 ## What Duolingo does
 
-- Easing curves on tap, success, and progress events use slight overshoot (a value briefly exceeding its target then settling).
-- Motion durations are calibrated, not stock — fast enough to never feel laggy, slow enough to feel deliberate.
-- Spring physics show up in character animations, panel transitions, and progress increments.
-- Reduce-motion preferences are respected: the same product gets a quieter, non-bouncy version for users who opt out ([[accessibility-default]]).
+Source: blog.duolingo.com/shape-language-duolingos-art-style (Duolingo blog, 2020-07-02; accessed 2026-09-22)
+
+- Motion is used as an attention instrument, and Duolingo measured the effect: animating the skill icons on a high-ROI screen meant "learners spend more time watching the entire animation play through than they did quickly glancing at a static illustration." The art team also rotates lines and angles *inside* static artwork to steer the eye toward UI or text — motion and composition doing the same job.
+- Rhythm and energy are iterated as their own variable over multiple rough-animation passes, held to be "as important to the success of Duo's transformation as the design itself" (blog.duolingo.com/streak-milestone-design-animation (Duolingo blog, 2022-01-21; accessed 2026-09-22)).
+- Motion and audio are one synchronized unit in code, not a visual layer with sound bolted on: Duolingo ABC on Android uses Kotlin coroutines' `awaitAll` to fire an icon pulse and its audio cue together and wait for both before advancing, because the callback pattern offered "no clear solution to the simultaneous case" (blog.duolingo.com/a-good-read-building-duolingo-abc-for-android (Duolingo blog, 2022-10-06; accessed 2026-09-22)).
+- The character rig is a Rive State Machine, picked to turn a limited asset set into a virtually unlimited number of combinations at a file size small enough to run on Android, iOS, and Web (blog.duolingo.com/world-character-visemes (Duolingo blog, 2022-11-10; accessed 2026-09-22)).
+- Reduce-motion behavior is a Handbook-level rule (handbook.duolingo.com); the public blog does not document it ([[accessibility-default]]).
 
 ## The transferable pattern
 

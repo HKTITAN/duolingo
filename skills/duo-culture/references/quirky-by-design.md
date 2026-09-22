@@ -15,10 +15,12 @@ This isn't decoration. It's a recruiting and retention mechanism — the people 
 
 ## What Duolingo does
 
-- Office spaces (when used) lean into the brand: characters, color, deliberate weirdness rather than corporate beige.
-- Internal rituals — all-hands, anniversaries, internal communications — carry the same voice as marketing.
-- Hiring filters effectively for cultural fit because the application process itself is on-brand; people who don't enjoy the voice self-select out.
+- **The company describes itself in its own brand voice, in public corporate copy.** Announcing the Handbook at ~$16B and 800+ employees, 14 years after starting "with a few dozen nerds above a Pittsburgh sports bar," it lists what it held onto as "a truly quirky culture, endless experiments, an obsession with thinking long-term, and our slightly unhinged sense of humor." Source: blog.duolingo.com/handbook (Duolingo blog, 2025-02-10; accessed 2026-09-22)
+- **Rituals ship with a prompt, not just swag.** With 350+ employees remote, Duolingo replaced generic swag boxes with monthly themed Interactive Care Packages: the "Outdoor Adventure" box paired a branded backpack and water bottle with geocaching directions, a lunch-and-learn with a Pittsburgh outdoors nonprofit, and a photo scavenger hunt judged by local photographers — with everything posted back to one Slack channel. Source: blog.duolingo.com/thinking-outside-the-box-engaging-our-team-with-interactive-care-packages (Duolingo blog, 2020-09-24; accessed 2026-09-22)
 - Employees ("Duos") are a named group with their own internal recognition and language.
+- Office design and the on-brand application process are Handbook material; the blog documents the rituals, not the rooms. Source: handbook.duolingo.com
+
+**The limit Duolingo admits.** "It's almost impossible to offer one singular experience that all our 350+ Duos will enjoy." The outdoor scavenger hunt shipped with alternative prompts — photograph the view from your window, share a pre-COVID outdoor photo — precisely because the primary activity excluded people who couldn't safely go outside. Quirk scales by adding ramps, not by raising attendance.
 
 ## The transferable pattern
 
@@ -38,4 +40,4 @@ Anti-pattern: brand quirk on the outside, generic SaaS culture on the inside. Em
 
 ## See also
 
-[[talent-density]] · [[../duo-voice/references/wholesome-unhinged]] · [[../duo-growth/references/founder-mode-marketing]] · [[dogfooding-culture]]
+[[talent-density]] · [[make-asking-cheap]] · [[../duo-voice/references/wholesome-unhinged]] · [[../duo-growth/references/founder-mode-marketing]] · [[dogfooding-culture]]

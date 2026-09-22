@@ -15,10 +15,11 @@ The product question is not whether to use variable reward — it's how to use i
 
 ## What Duolingo does
 
-- **Treasure chests / gem drops** appear after some lessons, not all. The user can't compute the expected value precisely.
+- **Friends Quests** are variable on three axes at once: a **randomly paired** active friend, a **randomly assigned** challenge, and a treasure-chest reward — plus a surprise XP boost a partner can send you unprompted (Source: blog.duolingo.com/friends-quests (Duolingo blog, 2022-09-09; accessed 2026-09-22)).
+- **Achievements** mix predictable milestones with deliberate outliers: "some rare badges for dedicated learners... plus some fun surprises along the way (like the night owl achievement!)" (blog.duolingo.com/achievement-badges (Duolingo blog, 2023-12-11; accessed 2026-09-22)).
+- **Reward chests** now feed the Energy system — perfect lessons, adding a friend and chests all grant bonus energy (blog.duolingo.com/duolingo-energy (Duolingo blog, 2025-07-03; accessed 2026-09-22)).
 - **League outcomes** depend on others' activity, so even consistent behavior produces variable rank.
-- **Character cameos** (Lily appearing, Duo reacting in a new way) are intermittent surprises within an otherwise predictable flow.
-- The base XP reward is *fixed* — variable reward is layered *on top* of a reliable baseline, not used as the baseline itself.
+- The base XP reward is *fixed* — variable reward is layered *on top* of a reliable baseline, not used as the baseline itself. Duolingo tunes that baseline deliberately: when leaderboard XP was grindable, they **rebalanced XP toward path lessons** so the reliable reward tracked real learning (blog.duolingo.com/time-spent-learning-well (Duolingo blog, 2024-06-13; accessed 2026-09-22)).
 
 ## The transferable pattern
 

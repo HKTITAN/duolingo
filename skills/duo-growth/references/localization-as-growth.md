@@ -13,10 +13,12 @@ For a product with global appeal, localization is the highest-leverage growth le
 
 ## What Duolingo does
 
-- The product ships in 40+ source languages — not just translated UI, but localized course content for each language pair.
+- **Localizes the register, not the dictionary.** Research found Duolingo's Hindi UI was too hard for native Hindi speakers — the in-app currency was मणि (*mani*) while users actually said "coin." Replacing Hindi words in onboarding with English words like "language" and "level" in Roman script produced a **+1% increase in onboarding completion**. Source: blog.duolingo.com/language-learning-for-the-next-billion-duolingo-in-india (Duolingo blog, 2020-09-24; accessed 2026-09-22)
+- **Treats market defaults as an experiment, not a setting.** Over **95% of English learners in India had phones set to English**, which hid the English-for-Hindi-speakers course mid-list. Surfacing it at the top regardless of phone language: **+2% daily active users**. Removing the Duolingo Plus upsell entirely in India (subscriptions were unfamiliar to newly-online learners): **+6% DAU**. Same source.
+- **Re-tests wins per locale rather than rolling them out.** A rewritten German push-notification opt-in ("notifications are proven to foster learning success") lifted opt-in **8%**. The same framing in Spanish had **no significant impact** — "it was not a one-size-fits-all solution." Source: blog.duolingo.com/copy-testing-experiments (Duolingo blog, 2022-01-14; accessed 2026-09-22)
+- **Widens access to existing content before funding new content.** The Korean course was reopened from 3 source languages to **27**, making **9 million more users eligible** — cheaper than building a new course. Source: blog.duolingo.com/korean-course-updates (Duolingo blog, 2026-07-07; accessed 2026-09-22)
+- **Where the blocker is the cost of access, not the price, they bought down the access cost.** For the Zulu launch, Duolingo partnered with Vodacom, South Africa's leading network, to **zero-rate the app for a year** so learners could do daily lessons with no data charges, alongside a partnership with the local literacy organization Nal'ibali. Zulu is spoken by roughly **12 million people**. A free product is not free if using it costs data, and price elasticity is irrelevant when the blocker sits upstream of your pricing. Source: blog.duolingo.com/welcome-zulu-to-the-language-family (Duolingo blog, 2022-08-26; accessed 2026-09-22)
 - Major markets get [[../duo-voice/references/localization-voice|local voice writers]], not just translators. The brand is rewritten, not just translated.
-- Region-specific characters or content moments emerge where culturally appropriate.
-- Marketing campaigns are locally produced — not just dubbed but reframed for the market.
 
 The strategy: rather than win one English-speaking market harder, win 40 markets adequately. The aggregate is much larger.
 
@@ -38,4 +40,4 @@ Tension: the cost is real. Localization for a small market may not pay back. The
 
 ## See also
 
-[[brand-as-acquisition]] · [[../duo-voice/references/localization-voice]] · [[../duo-product/references/take-the-long-view]]
+[[brand-as-acquisition]] · [[../duo-voice/references/localization-voice]] · [[../duo-product/references/take-the-long-view]] · [[thresholds-you-do-not-control]]

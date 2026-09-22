@@ -13,10 +13,11 @@ A marketing stunt is a single, oversized, unrepeatable event that produces a pre
 
 ## What Duolingo does
 
-- **Duo's "death"** (2023) — a multi-week stunt with mock obituaries, mourning users, and a comeback that produced national press coverage.
-- **Super Bowl ads** — irreverent, on-brand, far cheaper-per-impression than the price tag suggests because the brand is already known going in.
-- **Halloween / yearly cycles** — character costumes, wraps, and seasonal stunts that reward attention without creating expectation of always-on novelty.
-- **Tied to the product, not separate from it** — the stunt always loops back to in-app activity, not just press.
+- **Super Bowl, 2024** — a **five-second** spot built from a meme learners had already invented about a widget illustration; Duolingo used social listening to pick which of its own memes to buy airtime for, and made the creative in-house. Source: blog.duolingo.com/super-bowl-commercial-2024 (Duolingo blog, 2024-02-12; accessed 2026-09-22)
+- **The loop back to product was the hard part, and it was engineered.** The spot was paired with a push notification timed to the airing. Duolingo's previous largest push was 500,000 learners in 60 seconds *and it caused crashes*; three engineering teams rebuilt the notification system from October onward to hit **4 million learners in 5 seconds**. Result: **95% of eligible learners within 3.9 seconds, 99% within 5.7 seconds.** Same source.
+- **Halloween / yearly cycles** — Duolingo publishes a 15-minute DIY costume guide (green clothes plus paper semicircles for Duo; "all you need to think is purple" for Lily) under **#Owloween**, promising to feature entries. The stunt costs nearly nothing and the fans build the assets. Source: blog.duolingo.com/duolingo-halloween-costumes (Duolingo blog, 2021-10-20; accessed 2026-09-22)
+- **Competition inside a closed institution** — the Duolingo Language Challenge ran in Westminster in 2025 with MPs and peers competing for a Language Champion title, and expanded in 2026 to parliamentary staffers plus university vice chancellors. The Education Secretary took up Spanish after hearing the Skills Minister had signed up for French. The leaderboard *is* the campaign. Source: blog.duolingo.com/westminster-language-challenge (Duolingo blog, 2026-03-11; accessed 2026-09-22)
+- **Duo's "death"** — a multi-week stunt with mock obituaries and mourning users. Duolingo's blog does not document it, so the details here are secondhand; do not cite a blog URL for it.
 
 ## The transferable pattern
 

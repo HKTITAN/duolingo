@@ -13,10 +13,12 @@ The handbook lists *"We optimize 'clock speed,' minimizing gaps between steps to
 
 ## What Duolingo does
 
-- Reviews are scheduled close to outputs — a finished experiment is reviewed within a week, not next quarter.
-- Decision-makers are accessible — the answer to "who decides this" is always close to the team doing the work.
+- **Leaders are told to decide on less information than they want, and to sort by reversibility rather than certainty.** Duolingo's engineering leadership talk argues that completely irreversible decisions are rare, and that the skill required is the humility to admit a failure, reverse course and pick the better path. That is the mechanism that actually compresses the decision gap. Source: blog.duolingo.com/engineering-leadership-lessons (Duolingo blog, 2026-09-16; accessed 2026-09-22)
+- **"Ship it" is published as a balance, not a speed setting** — "the balance between ideological perfection and pragmatic excellence, because that sweet spot allows us to innovate and improve at lightning speed." Source: blog.duolingo.com/operating-principles (Duolingo blog, 2023-12-01; accessed 2026-09-22)
 - Process additions face a clock-speed test: does this slow the loop? If yes and it doesn't justify the cost, it's cut ([[no-process-without-purpose]]).
-- The cultural norm is to *hate* idle work — a project sitting unattended for a week is a problem, not a normal state.
+- The "clock speed" phrasing is a Handbook line under *Ship It*; it does not appear anywhere on the blog. Source: handbook.duolingo.com
+
+**Tension.** The same leadership post notes that leadership is structurally lonely — fewer peers by the pyramid math, and a power imbalance that blocks casual peer contact. The judgment being trusted to move fastest is therefore also the least peer-reviewed judgment in the org. Reversibility is what caps that bill.
 
 ## The transferable pattern
 
@@ -36,4 +38,4 @@ A useful exercise: take your last project, plot when each step *finished* and wh
 
 ## See also
 
-[[green-machine]] · [[no-process-without-purpose]] · [[../duo-product/references/ship-it]] · [[../duo-experimentation/references/experiment-cadence]]
+[[green-machine]] · [[no-process-without-purpose]] · [[ramp-senior-leaders-out-loud]] · [[../duo-product/references/ship-it]] · [[../duo-experimentation/references/experiment-cadence]]

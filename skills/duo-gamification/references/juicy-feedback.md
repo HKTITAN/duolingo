@@ -23,6 +23,10 @@ Watch any single lesson:
 
 The cumulative effect: a five-minute session contains 30+ small emotional payoffs.
 
+Duolingo treats this as a production discipline, not a garnish. On the streak milestone animation, "timing is everything" — the team ran **multiple passes of rough animation** purely to find the rhythm and energy before refining, and rebuilt the metaphor entirely (balloons → a phoenix) because the original read as cute rather than celebratory. Source: blog.duolingo.com/streak-milestone-design-animation (Duolingo blog, 2022-01-21; accessed 2026-09-22)
+
+They also police the other direction. In the 2026 core tabs refresh the team cut decorative artwork from headers with the note: consistent, "but it can also feel forced, especially if it occupies significant space without signaling anything useful." Source: blog.duolingo.com/core-tabs-redesign (Duolingo blog, 2026-02-04; accessed 2026-09-22)
+
 ## The transferable pattern
 
 Three rules:
@@ -31,7 +35,7 @@ Three rules:
 2. **Easing curves overshoot, then settle.** Linear or constant-easing motion reads as machine-generated. A 20% overshoot reads as character.
 3. **Failure has its own juice.** A wrong answer should not just be "not the right one" — it should be a *moment*, just a softer one.
 
-Anti-pattern: making every interaction equally juicy. Without contrast, juice becomes noise. Reserve the loudest feedback for the rarest events.
+Anti-pattern: making every interaction equally juicy. Without contrast, juice becomes noise. Reserve the loudest feedback for the rarest events — and hold every flourish to Duolingo's own test: does it *signal* something, or is it just filling space?
 
 ## Apply to your product
 

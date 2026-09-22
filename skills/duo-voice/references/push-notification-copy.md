@@ -15,10 +15,16 @@ This is the highest-leverage copy surface in the whole product, and the most und
 
 ## What Duolingo does
 
-- Notifications are character-driven; they read like a person, not a system.
-- Threat copy ([[threat-copy]]) is the most famous variant — exaggerated, in-joke, comically specific.
-- Tone is varied: not every notification is unhinged. A user who had a great session yesterday gets an earnest follow-up; a user who's been gone a week gets a different register.
-- Personalization is on substance, not just `{firstName}` insertion. The notification references what the user actually did or didn't do.
+Source: blog.duolingo.com/hi-its-duo-the-ai-behind-the-meme (Duolingo blog, 2020-09-03; accessed 2026-09-22) · blog.duolingo.com/product-principles (Duolingo blog, 2024-02-21; accessed 2026-09-22)
+
+The copy is hand-written; the *selection* is a machine. Duolingo keeps a pool of pre-written notification templates and, since 2019, picks one per learner per day with a bandit algorithm trained on **~200 million practice reminders collected over 34 days**. Four findings from that system are the real content of this node:
+
+- **Template quality varies enormously, and it varies by language.** "Time for [language]" is one of the best options for Chinese learners and usually a poor one for English learners. The winner is per-audience, not global.
+- **Scoring had to be de-biased.** Some templates only fire for learners with a streak wager, or only on Mondays — audiences that would have completed a lesson regardless. Each template is scored only against other templates sent to the same type of learner.
+- **Novelty decays, and they measured it.** A notification a learner has never seen is unusually persuasive, and repetition kills that. Because a conventional bandit converges on one winner and reuses it, they had to explicitly demote recently-seen reminders — spacing repeats using the same **forgetting curve** they use to schedule vocabulary review.
+- **Volume is deliberately capped.** Their VP of Product names the tempting alternative and rejects it: a growth team "could get quick wins by increasing our daily active users" by sending a lot of push notifications. "That's why we invest heavily in the daily streak and don't send tons of push notifications to our users every day."
+
+Personalization is on substance — streak, language studied, what the learner did or didn't do — not `{firstName}` insertion.
 
 ## The transferable pattern
 

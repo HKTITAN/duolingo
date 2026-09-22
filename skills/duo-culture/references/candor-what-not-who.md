@@ -15,10 +15,13 @@ The discipline: feedback names the work, the impact, the alternative. It does no
 
 ## What Duolingo does
 
-- Reviews and code/design critiques surface concrete issues — "this flow has three steps where one would do" — not character judgments.
+- **"Be candid and kind" is one of the 12 published operating principles**, with the good-intent clause attached: "We embrace transparency and kindness as we collaborate, and we always assume good intent, even when ideas differ." Source: blog.duolingo.com/operating-principles (Duolingo blog, 2023-12-01; accessed 2026-09-22)
+- **Owning a mistake is the cheapest available move.** Luis von Ahn describes the norm as saying "Hey, my bad" rather than assigning blame, alongside structured after-action reviews. Source: blog.duolingo.com/the-bear-luis-von-ahn-interview (Duolingo blog, 2024-06-27; accessed 2026-09-22)
 - Disagreement is routed to evidence ([[../duo-experimentation/references/show-dont-tell]]) when possible, removing the need for personal challenge.
 - Status doesn't shield from feedback; the same rule applies up and down the org chart.
-- Feedback culture is taught explicitly to new managers; it doesn't transmit by osmosis.
+- The exact "what, not who" wording is a Handbook line; it does not appear on the blog. Source: handbook.duolingo.com
+
+**Why blameless is load-bearing, not soft.** Von Ahn ties it directly to risk: an experimental culture of big swings will fail some of the time, and a team that hunts for blame stops proposing the swings. Candor about the *work* is what makes blamelessness about the *person* affordable — you keep the criticism and the risk-taking both.
 
 ## The transferable pattern
 
@@ -42,4 +45,4 @@ Three rules:
 
 ## See also
 
-[[talent-density]] · [[hire-slow-fire-fast]] · [[../duo-experimentation/references/show-dont-tell]] · [[../duo-product/references/raise-the-bar]]
+[[talent-density]] · [[hire-slow-fire-fast]] · [[make-asking-cheap]] · [[../duo-experimentation/references/show-dont-tell]] · [[../duo-product/references/raise-the-bar]]

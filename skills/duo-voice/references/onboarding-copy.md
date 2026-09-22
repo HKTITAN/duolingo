@@ -15,6 +15,12 @@ The shift: treat onboarding as a *first conversation*, not a setup wizard.
 
 ## What Duolingo does
 
+Source: blog.duolingo.com/lessons-from-asia-turning-local-research-into-global-experiments (Duolingo blog, 2021-02-02; accessed 2026-09-22)
+
+The sharpest published example is a one-word edit. In Japan, new learners who already had English experience were skipping the placement test and starting from zero — then churning because the content was too easy. Interviews found the label was the blocker, not the flow: *"The word 'test' scares me. It makes me feel nervous."* Renaming "take a placement test" to "check your English level" **doubled placement tests taken** and increased retention. Run globally, it improved placement completion and retention across the board.
+
+The lesson the node's rules rest on: users decide whether to enter a flow from the label alone, before they can evaluate the payoff. Change the word before you change the flow.
+
 - The first interaction is a question with character (illustrated, posed, framed as if asked by a person), not a profile form.
 - The product asks *why are you here* before it asks *who are you* — motivation precedes account.
 - Each screen has a single decision and a single character; cognitive load is one beat at a time.
@@ -23,12 +29,13 @@ The shift: treat onboarding as a *first conversation*, not a setup wizard.
 
 ## The transferable pattern
 
-Four rules:
+Five rules:
 
 1. **Lead with motivation, not profile.** "Why are you here?" beats "Tell us about you."
 2. **One decision per screen.** Multi-field forms train the user to slow down at the worst possible moment.
 3. **Defer the account.** Let the user feel value before the email-and-password wall. Anonymous-first is a real option.
 4. **Voice everywhere.** Even loading screens, transition screens, and "skip" links carry brand.
+5. **Audit your labels for threat words.** Any step named with a word that carries evaluation anxiety — test, assessment, verify, review — will be avoided by exactly the users it would help most.
 
 Anti-pattern: "5 of 12: Set up your preferences." The user reads this and quits.
 

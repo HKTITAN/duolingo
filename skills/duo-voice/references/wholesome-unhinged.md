@@ -9,7 +9,7 @@ metadata:
 
 ## Concept
 
-The handbook describes Duolingo's brand voice as *"wholesome but unhinged."* The friction between those two words is the whole brief.
+The two-word framing is *"wholesome but unhinged"* — the friction between those words is the whole brief. Note the provenance: the phrase as such comes from the Duolingo Handbook (handbook.duolingo.com), not from the blog. What the blog states in Duolingo's own words is the second half: the company describes itself as having kept, at ~$16B and 800+ employees, "a truly quirky culture, endless experiments, an obsession with thinking long-term, and our slightly unhinged sense of humor."
 
 - **Wholesome alone** is Mailchimp circa 2012 — friendly, beige, forgettable.
 - **Unhinged alone** is a brand that punches at users — Wendy's Twitter, before it stopped being funny.
@@ -17,6 +17,10 @@ The handbook describes Duolingo's brand voice as *"wholesome but unhinged."* The
 
 ## What Duolingo does
 
+Source: blog.duolingo.com/handbook (Duolingo blog, 2025-02-10; accessed 2026-09-22) · blog.duolingo.com/building-character (Duolingo blog, 2020-11-10; accessed 2026-09-22)
+
+- The unhinged half is an explicit company-culture claim, not a copy style bolted on afterwards — it sits in the same sentence as "thinking long-term" in the Handbook announcement, and the Handbook's 5 principles were written as lessons learned over 14 years rather than aspirations.
+- The wholesome floor is engineered into the character design. The cast was built to "continually walk the line between authentic and outrageous": teach someone to order food, and "what happens after they order that food is where the magic happens." Viking and space-alien concepts were rejected for being "too far removed from the reality of language learning" — the outrageous only works anchored to a real, useful scenario.
 - The character roster includes earnest figures (Lily, Zari, Eddy) and a chaotic one (Duo). The chaos is balanced by the cast.
 - Threats ([[threat-copy]]) are framed in a way that signals comedy, not menace — exaggeration, absurd specificity, in-on-the-joke phrasing.
 - Wholesome surfaces (onboarding, learning content, achievements) are unironically warm. The unhinged shows up in marginal copy: notifications, marketing, social.

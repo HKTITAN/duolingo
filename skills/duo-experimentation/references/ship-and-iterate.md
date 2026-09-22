@@ -15,10 +15,13 @@ This is the *Ship It* principle of the handbook applied to experimentation speci
 
 ## What Duolingo does
 
-- Not every change is tested. Bug fixes, copy improvements, obvious quality-of-life wins ship.
-- Tests are reserved for decisions where the team's prior is genuinely uncertain or the stakes are high.
-- The decision *whether* to test is made fast — debating "should we test this" for a week defeats the purpose.
+Duolingo's growth guidelines name this anti-pattern outright: **don't pull your punches.** If you have a good new feature but want to change things about it, don't shut it down to tweak and re-test. If the imperfect version is *strictly an improvement* over what exists, launch it to new users — that starts the compound gains — and make the improvements through follow-up experiments. Source: blog.duolingo.com/growth-principles (Duolingo blog, 2023-11-03; accessed 2026-09-22)
+
+- **The companion rule is symmetric:** decide as soon as you're confident you have the data. Letting a finished experiment sit on the back burner "collecting more data" is the same mistake with the sign flipped.
 - Reversibility is the relevant axis. Easily-reversed changes can ship and be measured in production; hard-to-reverse changes need testing.
+- Ordering matters for the same reason — Duolingo prioritizes high-ROI experiments first because an earlier launch pays compound interest for longer.
+
+**The limit is written into the rule itself.** It only licenses shipping when the version is *strictly* an improvement. It says nothing about the case that actually generates the arguments — better on one axis, worse on another — and treating it as general permission to ship rough work is a misreading.
 
 ## The transferable pattern
 

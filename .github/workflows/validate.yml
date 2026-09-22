@@ -13,5 +13,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
       - name: Validate skill graph
         run: python scripts/validate.py
+
+      - name: Check citations are dated and resolve to a real post
+        run: python scripts/stamp_citations.py

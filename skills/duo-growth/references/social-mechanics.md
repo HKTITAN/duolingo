@@ -13,9 +13,9 @@ Social mechanics serve two jobs: they make existing users stick (friends to comp
 
 ## What Duolingo does
 
-- **Friend leaderboards** that show streaks, league position, and recent activity.
-- **Activity feed** — light, character-driven, never overwhelming.
-- **Friend invites** integrated into onboarding paths so friends-of-friends naturally surface.
+- **The graph is an activation metric, and it has a number.** Duolingo states that **learners who add friends are 5.6x more likely to finish their course**, and pushes contact syncing from the profile tab on the strength of it. Learners with **at least one shared streak are 22% more likely to complete their daily lesson**. Source: blog.duolingo.com/friends-social-features (Duolingo blog, 2023-06-06; accessed 2026-09-22)
+- **Friend leaderboards, a Feed, and weekly Friends Quests** stack on top of that one graph rather than each building their own — high-five friends for milestones like 10 lessons in a day, a 365-day streak, or a Diamond League promotion. Same source.
+- **Solo completeness is shipped, not assumed.** Duolingo launched a **universal matching system so learners without friends can still join Friends Quests** — the social feature does not require a social graph to enter. Source: blog.duolingo.com/product-highlights (Duolingo blog, 2025-12-10; accessed 2026-09-22)
 - **Presence signals** — users see their friends' activity without it being an attention tax.
 - The mechanics are *additive* — a solo user has a fine experience; a user with friends has a better one. No one is locked out by their network.
 

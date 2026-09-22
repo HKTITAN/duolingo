@@ -15,10 +15,16 @@ The implication: most short-term marketing decisions destroy a small amount of b
 
 ## What Duolingo does
 
-- Characters are built as durable IP, not seasonal mascots — Duo's design has remained consistent across many years.
+Source: blog.duolingo.com/duolingo-company-strategy (Duolingo blog, 2025-04-07; accessed 2026-09-22)
+
+- The public framing is corporate, not just cosmetic: Duolingo describes its vision as **"a 100-year company redefining how the world learns"** — the horizon is stated in the strategy document, not left to the marketing team.
+- The strategy names the short-term tactics it refuses: **"Spammy notifications, deceptive patterns, and heavy paid acquisition are short-term tactics."** The brand asset is protected by declining the levers that would cash it in.
+- Characters are built as durable IP, not seasonal mascots. The character cast took **18 months of design** — workshops, scrapped rounds, outside professionals — before shipping, and every character is constructed from Duo's own four components (geometric body-plus-wings, oversized eyes, distinct silhouette, detached feet) so the cast reads as one world. "Duo is the most important visual aspect of our brand." (blog.duolingo.com/building-character (Duolingo blog, 2020-11-10; accessed 2026-09-22))
 - Brand voice ([[../duo-voice/references/wholesome-unhinged]]) is documented, taught, and protected against drift.
 - Marketing stunts ([[../duo-growth/references/marketing-stunts]]) are big and rare rather than small and constant.
 - The product surfaces (icon, mascot, sound, voice) are aligned so the brand carries across channels without explanation.
+
+Note the wording drift: the Handbook (handbook.duolingo.com) frames this as a **100-year brand**; the public strategy post frames it as a **100-year company**. The brand is the asset, but the horizon is applied to the whole business.
 
 ## The transferable pattern
 

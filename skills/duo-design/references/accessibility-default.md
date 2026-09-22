@@ -15,11 +15,15 @@ The framing matters: accessibility is the floor, not a feature.
 
 ## What Duolingo does
 
-- **Color-not-only** for state communication: a wrong answer is red *and* shaped/iconed differently from a correct one.
-- **Type respects system scaling**: large-text settings make the product larger, not broken.
-- **Motion has a reduce-motion variant**: animations turn off or simplify when the OS preference is set ([[juicy-motion]]).
-- **Screen reader paths are tested**: every primary flow can be completed with VoiceOver / TalkBack.
-- **Contrast meets WCAG** standards as a default token-level invariant — components can't accidentally produce poor contrast because the role tokens don't allow it.
+Source: blog.duolingo.com/learning-with-hearing-aids (Duolingo blog, 2026-01-20; accessed 2026-09-22) and blog.duolingo.com/inclusive-testing-technology (Duolingo blog, 2022-01-27; accessed 2026-09-22)
+
+- **Escape hatches sit at the granularity of the blocked modality, not the session.** For listening there are four, graduated: "Can't listen now" skips every listening exercise in that lesson; DuoRadio offers "Do this later" and never blocks progress; a settings toggle disables listening exercises outright; and the Practice Hub offers a listening-only lesson for when the learner *does* want it. None of these costs progress or the streak. WHO estimates 1.5 billion people — nearly 20% of the world — live with hearing loss.
+- **Every timed stimulus has a decomposed version.** The turtle button replays a sentence slowly with pauses inserted between words; the speaker can be tapped unlimited times, including after entering an answer and before submitting.
+- **Load is removed from the task itself, not just restyled.** The Duolingo English Test dropped the test-center visit, shortened the exam with computer-adaptive testing instead of demanding three hours of sustained concentration, and uses large type and minimal scrolling to cut visual and working-memory load. 26% of Americans — one in four — have a disability.
+- **The opt-out is honored but not treated as permanent.** A learner who disabled listening and later enters a listening-only practice lesson is re-prompted to turn it back on.
+- **Color-not-only, contrast as a token-level invariant, reduce-motion variants, and screen-reader QA** are Handbook-level design rules (handbook.duolingo.com); the public blog does not document them, so do not cite one for them.
+
+**The tension Duolingo names.** Design alone is not sufficient: the DET post concedes that even a well-designed test stays inaccessible for some people, so a human accommodations team is still required. Accessibility work does not terminate in a passing audit.
 
 ## The transferable pattern
 

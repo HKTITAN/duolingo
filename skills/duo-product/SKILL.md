@@ -24,17 +24,27 @@ This skill is structured as a **graph**: scan the descriptions below, follow onl
 
 - [[references/hundred-year-brand]] — the asset class the long view is investing in.
 - [[references/intuitive-by-default]] — products shouldn't have to explain themselves.
+- [[references/performance-is-access]] — speed on the worst hardware in your user base is an access problem, not a polish item.
 
 ## Bar-raising applied
 
 - [[references/dogfooding]] — using the product daily as a quality forcing function.
 - [[references/polish]] — what "polished" actually means in review, with concrete tests.
 - [[references/ownership-clarity]] — every critical task has one owner; ambiguous ownership is the bug.
+- [[references/scope-floor-for-v1]] — a numeric floor below which you don't launch, plus the promise never to call it finished.
+- [[references/quality-tiers-by-reversibility]] — tier effort by audience and how hard the work is to take back.
 
 ## Ship-it applied
 
 - [[references/ruthless-prioritization]] — how to cut, not how to fit more in.
 - [[references/kill-criteria-product]] — the rules for stopping a project, not just an experiment.
+- [[references/bounded-deliberation]] — give open decisions an option budget and a time box, and tier advice by experience level.
+
+## Scoping and framing what you build
+
+- [[references/difficulty-with-mitigations]] — publish what's hard about your domain, paired line-by-line with the mechanism that answers it.
+- [[references/teach-the-invariant]] — build the shared core, name the axes of variation, hand off the rest.
+- [[references/fit-the-artifact-to-the-moment]] — when users have no time, ship the flat lookup page, not the guided flow.
 
 ## Sibling skills
 

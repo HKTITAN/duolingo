@@ -13,10 +13,15 @@ Most prioritization frameworks (RICE, ICE, MoSCoW) are tools for *fitting more i
 
 ## What Duolingo does
 
-- Roadmaps are short enough that the team can name everything on them in a single review.
-- "Quickly cut what isn't working" is part of [[ship-it]] — projects don't earn permanence by existing; they earn it by performing.
-- Ownership clarity ([[ownership-clarity]]) makes cutting clean — there's one person to talk to, not a committee.
+Source: blog.duolingo.com/growth-model-duolingo (Duolingo blog, 2023-02-17; accessed 2026-09-22)
+
+- **They found the one lever by simulating all of them.** With DAU stagnating in 2018, the Data Science team built a Markov model of seven user states, then systematically pulled each transition rate to see the downstream DAU effect. One lever dominated: **Current User Retention Rate (CURR)**. They staffed a team on CURR alone — not on the other six — and DAU grew **4x since 2019**.
+- **Order is treated as a decision, not a residue.** Duolingo's growth guidelines say to sequence by ROI, because the highest-ROI work "will have a longer period of paying compound interest," and note this gets overlooked when a team plans a quarter as a list of things to accomplish: *"Order matters!"* (blog.duolingo.com/growth-principles (Duolingo blog, 2023-11-03; accessed 2026-09-22))
+- **Optimize the biggest hurdle, not the most enthusiastic user.** Friend Streak was broken into a 6-step funnel; the team identified sending the *initial invite* as the choke point and concluded a **1% gain there** exposes far more learners than optimizing the power users who already hold 5 streaks (blog.duolingo.com/product-lessons-friend-streak (Duolingo blog, 2024-09-20; accessed 2026-09-22)).
+- **Prioritize on the user's behalf, too.** Chess Game Review was scoped from the start to surface only key moments out of a 40-plus-move game, explicitly to avoid the information overload of standard engine analysis. Completeness is not a feature; it hands the ranking problem back to the person least able to do it (blog.duolingo.com/engineering-game-review (Duolingo blog, 2026-09-08; accessed 2026-09-22)).
 - Saying no is treated as a senior skill, not an obstruction.
+
+Tension the Growth Model post admits: a single prioritized metric eventually saturates. **90% of DAU now sit in the Current User state**, which makes CURR an increasingly imprecise and hard-to-move measure — the same trap DAU itself fell into in 2018. A focus metric buys a phase of growth, not a permanent one, and you have to plan its replacement before it stalls.
 
 ## The transferable pattern
 
@@ -36,4 +41,4 @@ A useful test: if you suddenly had to do half as much, what would you keep? That
 
 ## See also
 
-[[ship-it]] · [[kill-criteria-product]] · [[take-the-long-view]] · [[../duo-experimentation/references/kill-criteria]] · [[../duo-culture/references/no-process-without-purpose]]
+[[ship-it]] · [[kill-criteria-product]] · [[bounded-deliberation]] · [[teach-the-invariant]] · [[take-the-long-view]] · [[../duo-experimentation/references/kill-criteria]] · [[../duo-culture/references/no-process-without-purpose]]

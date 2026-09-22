@@ -13,11 +13,14 @@ A progress bar tells the user *where they are* and *how much is left*. In a gami
 
 ## What Duolingo does
 
-- Progress bars in lessons fill with smooth motion as questions are answered, with a small overshoot when complete.
-- Bars are visually weighty — colored, rounded, prominent in the layout.
-- Filling animations have rhythm — increments correspond to user actions, not constant time.
-- Completion has a small celebration of its own: bar fills, holds, transitions to the next screen.
-- Variants exist for unit-level and section-level progress, each visually distinct so users learn to recognize each.
+Source: blog.duolingo.com/new-duolingo-home-screen-design (Duolingo blog, 2022-05-06; accessed 2026-09-22)
+
+- The home screen *is* the progress bar. On November 1, 2022 Duolingo replaced the branching skill tree with a single linear path; each circle equals one crown level of a skill, and levels from different skills are interleaved so that review reads as forward motion rather than going "back" to a cracked skill.
+- The path is deliberately *longer* than the tree it replaced. The post answers "Did you add a ton of extra lessons?" with no — same content, redistributed, plus practice and Stories inline. Duolingo took a longer-looking bar in exchange for an honest one.
+- Progress is tiered and each tier looks different: per-character bars run gray → partially gold → fully gold in the Japanese characters tab (blog.duolingo.com/learning-asian-language-duolingo (Duolingo blog, 2021-12-16; accessed 2026-09-22)), while the Duolingo Score shows a separate bar filling *between* two whole-number scores — "a granular measure of what you've learned" that a CEFR level is too coarse to give (blog.duolingo.com/duolingo-score (Duolingo blog, 2024-10-23; accessed 2026-09-22)).
+- Long-scroll navigation got its own affordance rather than a shorter bar: a floating arrow button in the bottom-right jumps you back to your current spot.
+
+**The standard Duolingo holds progress numbers to.** For the 2020 Year in Review the team brainstormed every possible stat, then deliberately omitted streak and percentage-of-course-completed because those values shift when courses are updated — "to avoid confusion over inaccurate information" (blog.duolingo.com/duolingo-2020-year-in-review (Duolingo blog, 2021-05-03; accessed 2026-09-22)). They left their single most emotionally loaded number off the flagship celebration rather than show one they couldn't stand behind.
 
 ## The transferable pattern
 
@@ -40,4 +43,4 @@ Anti-patterns:
 
 ## See also
 
-[[../duo-gamification/references/progression-design]] · [[juicy-motion]] · [[celebration-design]]
+[[../duo-gamification/references/progression-design]] · [[juicy-motion]] · [[celebration-design]] · [[required-path-not-optional-branch]] · [[capability-labels]]

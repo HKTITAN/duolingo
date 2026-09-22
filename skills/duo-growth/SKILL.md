@@ -27,11 +27,24 @@ This skill is structured as a **graph**: scan the descriptions below, follow onl
 - [[references/marketing-stunts]] — Duo's "death," the Super Bowl ad, the meme-able press cycle.
 - [[references/gen-z-positioning]] — why the brand voice matched a generation, and what that costs.
 
+## Credentials and standards
+
+- [[references/own-the-gate]] — the credential between your users and the outcome they want is a more defensible business than the instruction.
+- [[references/make-your-metric-the-standard]] — peg your in-product score to a scale the outside world already trusts; standards are adopted by payoff, not decree.
+- [[references/displace-an-accredited-incumbent]] — enter upstream as a cheap first-stage filter, let the buyer's workflow generate your validation data.
+
+## Borrowed audiences
+
+- [[references/novelty-entry-products]] — the cheap, fandom-adjacent offering, justified by one crossover number and shipped on someone else's calendar.
+- [[references/borrowed-motivation]] — anchor acquisition to a passion the user already has, and annotate what they already consume.
+
 ## Distribution
 
 - [[references/localization-as-growth]] — translating the product (and the joke) for 40+ markets as the actual growth lever.
 - [[references/earned-media]] — designing for press coverage, not buying it.
 - [[references/founder-mode-marketing]] — the CEO and a mascot manager doing what most companies hand to a 20-person agency.
+- [[references/distribution-through-intermediaries]] — users who carry a cohort behind them are a channel; sell instrumentation, never replacement.
+- [[references/thresholds-you-do-not-control]] — a platform limit degrades acquisition overnight; alert on headroom, not on trend.
 
 ## Sibling skills
 

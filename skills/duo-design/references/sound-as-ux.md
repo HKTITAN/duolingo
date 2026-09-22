@@ -15,10 +15,13 @@ The discipline: sound is *part of the design system*, not a layer added late. Ca
 
 ## What Duolingo does
 
-- Lessons have sound design throughout: correct answer, wrong answer, lesson complete, level up — each distinct, recognizable, calibrated.
-- Sound is *consistent across surfaces* — the lesson-complete sound is the same on iOS, Android, and web. It's part of the brand.
-- Sound respects the user: mute on the device mutes the product, system-level audio settings are honored.
-- Notifications have sound IDs assigned to context (streak vs. league vs. friend activity), so users learn to recognize the sender by sound.
+Source: blog.duolingo.com/a-good-read-building-duolingo-abc-for-android (Duolingo blog, 2022-10-06; accessed 2026-09-22)
+
+- Audio is load-bearing, not garnish: Duolingo ABC "relies heavily on audio narration and animation," and narration is assembled at runtime from separate clips — *the letter team* + [first letter] + [second letter] + *says* + [phoneme] — so one recorded set covers every letter team in the curriculum.
+- Sound and motion are synchronized in code as a single unit. The app uses Kotlin coroutines' `awaitAll` to run an icon pulse and its audio cue simultaneously and wait for both before advancing, precisely because the callback pattern gave "no clear solution to the simultaneous case." Sound added late cannot be synchronized; it has to be in the same execution graph as the animation.
+- Sound has a measurable shipping cost: assets are 32% of the app binary, sound effects among them (blog.duolingo.com/emerge-tool-app-size (Duolingo blog, 2023-07-14; accessed 2026-09-22)).
+- Audio is controllable at the granularity of the exercise, not the app. The turtle button replays a sentence slowly with pauses inserted between words; the speaker can be tapped unlimited times, including after entering an answer and before submitting; and a learner can skip all listening exercises in a lesson or disable them in settings without losing progress or their streak (blog.duolingo.com/learning-with-hearing-aids (Duolingo blog, 2026-01-20; accessed 2026-09-22)).
+- Cross-platform sound identity and per-context notification sound IDs are Handbook material (handbook.duolingo.com); the public blog does not document a sound-design system.
 
 ## The transferable pattern
 

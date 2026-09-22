@@ -18,7 +18,9 @@ This skill is structured as a **graph**: scan the descriptions below, follow onl
 
 - [[references/wholesome-unhinged]] — the two-word brand brief and how to operationalize it.
 - [[references/character-archetypes]] — Duo, Lily, Zari, Eddy and what each one is allowed to say.
+- [[references/persona-as-generator]] — define a persona as a desire blocked by an obstacle, and write far more biography than you will ever show.
 - [[references/screenshot-bait]] — copy written so users *want* to share it; the cheapest growth channel.
+- [[references/in-group-vocabulary]] — why borrowing a community's words ends their usefulness, and when a brand still has standing to use them.
 
 ## Surfaces (one node per copy surface)
 
@@ -29,9 +31,20 @@ This skill is structured as a **graph**: scan the descriptions below, follow onl
 - [[references/celebration-copy]] — what to say when something good happens, without sounding corporate.
 - [[references/threat-copy]] — the deliberately-funny menace that turned an owl into a meme.
 
+## Failure and framing
+
+- [[references/no-fault-phrasing]] — write the bad outcome as something that happened *to* the user, not something they caused.
+- [[references/staff-failure-stories]] — your most credentialed people publishing their own mistakes is the strongest permission structure you have.
+- [[references/unmarked-framing]] — to make something ordinary, depict it without comment and describe differences symmetrically.
+
+## Content at volume
+
+- [[references/recurring-cast-in-content]] — a rigid template, a fixed named cast, and one running example turn commodity content into brand.
+
 ## Globalization
 
 - [[references/localization-voice]] — keeping unhinged consistent across 40+ languages where the joke doesn't always translate.
+- [[references/one-name-per-entity]] — proper names stay identical in every locale, because shared references are what let user culture compound.
 
 ## Sibling skills
 

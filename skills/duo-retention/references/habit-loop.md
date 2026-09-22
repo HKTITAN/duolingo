@@ -15,10 +15,16 @@ The investment beat is the load-bearing one: it's what turns a fun product into 
 
 ## What Duolingo does
 
-- **Trigger:** evening push notification, often character-driven ([[../duo-voice/references/push-notification-copy]]).
-- **Action:** a 3–5 minute lesson, scoped so completion is achievable in any spare moment.
-- **Variable reward:** XP earned, league movement, occasional treasure chests, character reactions ([[variable-reward]]).
+Source: blog.duolingo.com/how-duolingo-streak-builds-habit (Duolingo blog, 2022-01-31; accessed 2026-09-22) — Duolingo cites the habit literature directly: repeat an action often enough in the same context and doing it starts to feel automatic.
+
+- **Trigger:** push notification, often character-driven ([[../duo-voice/references/push-notification-copy]]). Duolingo calls notifications "one of the biggest factors affecting whether a learner forms a learning habit" (blog.duolingo.com/lessons-from-asia-turning-local-research-into-global-experiments (Duolingo blog, 2021-02-02; accessed 2026-09-22)).
+- **Action:** a short lesson, scoped so completion is achievable in any spare moment — "even if it's just for five minutes."
+- **Variable reward:** XP earned, league movement, reward chests, character reactions ([[variable-reward]]).
 - **Investment:** streak day, league standing, completed unit on the path. All of these *belong to the user* and would be lost on churn.
+
+Two numbers show how much the investment beat carries: learners who reach a **7-day streak are 2.4x more likely to use Duolingo the next day and 3.6x more likely to complete their course**. And polish on the investment beat alone pays — adding a milestone animation to the streak-extend screen raised the chance a brand-new learner was still there 7 days later by **+1.7%**.
+
+Duolingo also tested the *framing* of the ask. Copy that named the behaviour ("Reach a 7 day streak to start building a daily habit") beat copy that named the reward ("This starts your streak! Keep it going tomorrow!"), and habit-framed notification opt-in copy lifted opt-ins **5%** (blog.duolingo.com/putting-in-work-the-habit-of-language-learning (Duolingo blog, 2021-01-08; accessed 2026-09-22)).
 
 ## The transferable pattern
 

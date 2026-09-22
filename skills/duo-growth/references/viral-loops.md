@@ -13,9 +13,10 @@ A viral loop is a mechanic where the act of using the product naturally produces
 
 ## What Duolingo does
 
-- **Friend leaderboards** — competitive streaks and league standings work better when you can see friends. Adding friends is a casual, organic ask.
-- **Streak share screens** — milestones produce shareable moments at week boundaries (7/30/100/365 days), each timed to land when the user is at peak emotional payoff.
-- **Story-format wraps** — yearly recaps users post to social, designed to fit standard story formats with character cameos.
+- **They measured who actually shares, and it was lopsided.** In 2020, **learners in the top 10% of XP earners produced more than half of all Year-in-Review shares**. The fix was not to remove the percentile stat — it was the single most-shared element — but to add a second, non-performance artifact: "learner styles," personality archetypes mapped to app habits. That second share surface "significantly boosted share rates." Source: blog.duolingo.com/year-in-review-behind-the-scenes (Duolingo blog, 2022-12-08; accessed 2026-09-22)
+- **The loop is measured on non-users.** Millions share the cards, making **#Duolingo365 a trending Twitter hashtag every year**, and after the 2021 launch Duolingo saw a significant spike in *new* users. Same source.
+- **The artifact is an image, by decision.** Duolingo evaluated sharing the website link, a truncated site preview, and a condensed stats "card," and chose the card so "both the learner and their friends" see the important stats "without having to scroll through the entire webpage." Source: blog.duolingo.com/duolingo-2020-year-in-review (Duolingo blog, 2021-05-03; accessed 2026-09-22)
+- **Streak share screens** — a share card learners can "save, post, or #humblebrag ... without having to leave the Duolingo app." Leaving to screenshot and crop is where the pride leaks out. Source: blog.duolingo.com/streak-milestone-design-animation (Duolingo blog, 2022-01-21; accessed 2026-09-22)
 - **The product surface itself is shareable** — screenshots of weird notifications, character moments, and lessons spread because the brand is the loop.
 
 ## The transferable pattern
@@ -27,6 +28,8 @@ Three rules:
 3. **Make non-sharing a default, not a friction.** The user must affirmatively share. Sneaking shares into actions is brand damage.
 
 Anti-pattern: viral loops that demand an invitation to access core value (LinkedIn early-2010s style). Short-term growth, long-term brand damage.
+
+Tension: the fix for a top-decile-only share loop is a second artifact, and that is not cheap — Duolingo had to design, illustrate and localize the learner styles across all 25 UI languages, which it calls the single largest project its localization team takes on each year.
 
 ## Apply to your product
 

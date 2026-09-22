@@ -1,0 +1,29 @@
+{
+  "name": "duolingo",
+  "version": "2.0.0",
+  "description": "The Duolingo playbook as agent skills — retention, streaks, gamification, learning science, curriculum, efficacy, product metrics, experimentation, growth, brand, voice, culture, engineering, observability, and LLM feature design. Distilled from 750 posts on blog.duolingo.com plus the Handbook and Design System. Start at the /duolingo router; UI craft routes out to design-engineering.",
+  "author": {
+    "name": "HKTITAN",
+    "email": "harshitkhemani@gmail.com",
+    "url": "https://github.com/HKTITAN"
+  },
+  "homepage": "https://github.com/HKTITAN/duolingo",
+  "repository": "https://github.com/HKTITAN/duolingo",
+  "license": "MIT",
+  "keywords": [
+    "duolingo",
+    "skill-router",
+    "retention",
+    "gamification",
+    "learning-science",
+    "product-metrics",
+    "experimentation",
+    "growth",
+    "culture",
+    "engineering",
+    "llm-features"
+  ],
+  "commands": [
+    "./commands/duolingo.md"
+  ]
+}

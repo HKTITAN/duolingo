@@ -9,14 +9,19 @@ metadata:
 
 ## Concept
 
-The metric you pick decides what your experiments optimize for. Pick the wrong primary, and a year of testing will move it — at the cost of the metric you actually cared about. Most teams pick proximate metrics (clicks, sessions, immediate revenue) because they're easier to detect. Duolingo's discipline is to pick metrics that *map to long-term retention* even when they're harder to move.
+The metric you pick decides what your experiments optimize for. Pick the wrong primary, and a year of testing will move it — at the cost of the metric you actually cared about. Most teams pick proximate metrics (clicks, sessions, immediate revenue) because they're easier to detect. Duolingo's discipline is to build the metric you actually care about — even when it takes three rewrites and is harder to move than the one you already have.
 
 ## What Duolingo does
 
-- The primary metric for most retention experiments is some flavor of cohort retention — Day-1, Day-7, Day-30, Day-90 — not session count or DAU.
+Duolingo's primary quality metric is not retention and not sessions. It is **Time Spent Learning Well (TSLW)**, a proprietary proxy for learning — and its history is two rejected predecessors. Source: blog.duolingo.com/time-spent-learning-well (Duolingo blog, 2024-06-13; accessed 2026-09-22)
+
+1. **Total Sessions** — rejected. Session length varies enormously, so the metric rewarded learners grinding short easy sessions and penalized ones doing harder, longer, newer content. "More sessions = more learning" was wrong.
+2. **Total Time Spent Learning** — rejected as a total. It skewed to a small set of studious learners; a competitive change like Leaderboards could grow it almost entirely through people already doing more than enough. Fixed by changing the target to *the percentage of learners spending at least 15 minutes/day*.
+3. **Time Spent Learning Well** — shipped. Not all learning time is equal, so path lessons (the ones that introduce new material) count full and everything else counts half: `TSLW = minutes learning on path + 0.5 × minutes learning in other lessons`.
+
+- The weighting is load-bearing, not cosmetic. Rebalancing XP so path lessons paid proportionately to effort was worth roughly **+1.8M minutes/day** at full adjustment (**+1.1M** at partial).
 - Revenue tests are bound to retention guardrails ([[../duo-retention/references/retention-vs-revenue]]) — a revenue lift that costs retention is a loss.
-- "Engagement" is broken into specific behaviors (lessons completed, perfect lessons, streak extended) rather than treated as a single number.
-- The handbook's *Take the Long View* is what authorizes choosing harder-to-move metrics.
+- The stated backstop on all of it: *"they can't learn if they churn."* TSLW is explicitly not to be maximized at the cost of the learner coming back tomorrow — a day where all someone does is extend a streak is an acceptable day.
 
 ## The transferable pattern
 
@@ -42,4 +47,4 @@ Three rules:
 
 ## See also
 
-[[show-dont-tell]] · [[guardrail-metrics]] · [[../duo-retention/references/forever-product]] · [[../duo-retention/references/churn-diagnostics]]
+[[show-dont-tell]] · [[guardrail-metrics]] · [[outcome-not-engagement]] · [[invariant-metric-for-redesigns]] · [[../duo-retention/references/forever-product]] · [[../duo-retention/references/churn-diagnostics]]

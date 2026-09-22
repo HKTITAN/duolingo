@@ -1,0 +1,33 @@
+{
+  "name": "duolingo",
+  "owner": {
+    "name": "HKTITAN",
+    "email": "harshitkhemani@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "duolingo",
+      "source": "./",
+      "description": "The Duolingo playbook as agent skills — a /duolingo router over granular skills for retention, streaks, gamification, learning science, curriculum, efficacy, product metrics, experimentation, growth, brand, voice, culture, engineering, observability, and LLM feature design. Distilled from 750 posts on blog.duolingo.com plus the Handbook and Design System.",
+      "version": "2.0.0",
+      "author": {
+        "name": "HKTITAN",
+        "email": "harshitkhemani@gmail.com",
+        "url": "https://github.com/HKTITAN"
+      },
+      "license": "MIT",
+      "category": "product",
+      "homepage": "https://github.com/HKTITAN/duolingo",
+      "keywords": [
+        "duolingo",
+        "skill-router",
+        "retention",
+        "gamification",
+        "learning-science",
+        "product-metrics",
+        "growth",
+        "culture"
+      ]
+    }
+  ]
+}

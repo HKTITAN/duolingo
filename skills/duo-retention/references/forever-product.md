@@ -13,7 +13,13 @@ A "forever product" is one judged by lifetime user value, not next-quarter reven
 
 ## What Duolingo does
 
-The Duolingo Handbook (2025), Principle #1 *Take the Long View*, states: *"If it helps in the short-term, but hurts Duolingo in the long-term, it's not right."* The handbook lists deliberate trade-offs the company has made — limiting ad density, capping push notifications, declining quick-revenue features — when retention modeling showed long-term cost.
+Source: blog.duolingo.com/duolingo-company-strategy (Duolingo blog, 2025-04-07; accessed 2026-09-22) — Duolingo states the position and, unusually, names the tactics it is refusing: *"Spammy notifications, deceptive patterns, and heavy paid acquisition are short-term tactics."* The stated alternative is long-term engagement, on the grounds that "motivation is the hardest part of learning." They run **750+ A/B tests per quarter** against that.
+
+The structural reason they can hold the line is the flywheel: **~80% of users are acquired organically**, not bought, so growth does not depend on a payback window (blog.duolingo.com/growth-model-duolingo (Duolingo blog, 2023-02-17; accessed 2026-09-22)).
+
+The operating version of the principle is blunter. Duolingo's quality metric, Time Spent Learning Well, deliberately accepts sessions that do not move it — a quick Ramp Up Challenge, or just extending the streak — under the philosophy **"they can't learn if they churn"** (blog.duolingo.com/time-spent-learning-well (Duolingo blog, 2024-06-13; accessed 2026-09-22)). A shallow day that prevents a break outranks a deep day that causes burnout.
+
+The Duolingo Handbook (2025), Principle #1 *Take the Long View*, states the same rule as a test: *"If it helps in the short-term, but hurts Duolingo in the long-term, it's not right."* (handbook.duolingo.com)
 
 ## The transferable pattern
 

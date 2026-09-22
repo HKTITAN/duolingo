@@ -13,10 +13,16 @@ Dogfooding is the practice of the people building a product being heavy users of
 
 ## What Duolingo does
 
-- The handbook explicitly mentions: *"We constantly dogfood our products to identify bugs and propose improvements."*
-- Streaks, leagues, and lessons are visible in employees' daily lives — leadership included.
-- Bug reports from internal users are a recognized class with their own routing, not a curiosity.
-- The cultural expectation is that if you wouldn't tolerate something as a user, you don't ship it as a builder.
+Source: blog.duolingo.com/dogfooding-app (Duolingo blog, 2024-03-01; accessed 2026-09-22)
+
+- **More than 70% of the company dogfoods**, including the CEO, who uses the internal build every day across multiple courses on multiple device types. Employees run the latest internal build on Android, iOS, and Web.
+- Internal bug reports have their own tooling: **Shake-to-Report** (shake the phone, get a form) auto-attaches a screenshot, the user's active experiments, device, app version, course and lesson state, a log file, and a Fullstory recording of what happened just before the bug.
+- A **Release Dashboard** reads telemetry (ANR, crashes, OOM, frame rates) from each dogfooding build and produces a reliable signal within a few hours; **Jeeves** clusters dogfooding and external feedback into trending "spikes."
+- The gate is real: on Monday mornings QA reviews weekend dogfooding bugs and **rollout does not begin while any blocking or significant-UX bug is open**.
+- A twice-yearly Language Challenge pays a financial incentive for employees to dogfood language courses consistently over a 6-month period.
+- It catches real launch risk. Weeks before Math and Music shipped on iOS, persistent dogfooding reports plus elevated Crashlytics numbers led the team to add targeted logging and find the root cause: an edge case from pausing songs in a specific pattern.
+
+Dogfooding also carries early product bets. The first internal Friend Streak build was entirely on-device — if you started a streak with someone, they were never told. The team calls it an "uber prototype"; Duos loved even that hacky version, and that engagement won leadership buy-in (blog.duolingo.com/product-lessons-friend-streak (Duolingo blog, 2024-09-20; accessed 2026-09-22)).
 
 ## The transferable pattern
 
@@ -39,4 +45,4 @@ Anti-patterns:
 
 ## See also
 
-[[raise-the-bar]] · [[polish]] · [[intuitive-by-default]] · [[../duo-culture/references/dogfooding-culture]]
+[[raise-the-bar]] · [[polish]] · [[intuitive-by-default]] · [[performance-is-access]] · [[../duo-culture/references/dogfooding-culture]]

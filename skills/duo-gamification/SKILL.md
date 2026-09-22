@@ -19,18 +19,28 @@ This skill is structured as a **graph**: scan the descriptions below, follow onl
 - [[references/juicy-feedback]] — the bouncy, sound-rich response to every correct answer that turns a checkbox into a moment.
 - [[references/celebration-moments]] — bigger payoffs at session/level/streak boundaries; how often, how loud, how to keep them surprising.
 - [[references/character-reactions]] — Duo, Lily, Eddy: characters as the emotional channel for feedback.
+- [[references/celebration-artifacts]] — milestone rewards the user can print, wear, bake or post, instead of a badge that dies in the app.
 
 ## Progression layer
 
 - [[references/xp-system]] — the abstract currency that lets every action contribute to a single forward-motion metric.
 - [[references/progression-design]] — units, sections, paths: how the visible structure of progress shapes effort.
 - [[references/ramp-up-difficulty]] — flow-state pacing: never too easy, never a wall.
+- [[references/two-regimes-of-one-counter]] — one accumulating counter motivates by momentum early and by protected value late; tune for both.
+- [[references/nested-deadlines]] — short horizons inside long ones, so a near-term checkpoint is always live.
+- [[references/beat-your-own-best]] — personal records alongside fixed thresholds, and status placed where other people see it.
+- [[references/rate-by-opponent-strength]] — score the difficulty of what was beaten, not the win count, and ship the caveat that ratings lag real progress.
 
 ## Constraint layer (where "fun" gets serious)
 
 - [[references/hearts-and-energy]] — capped attempts as a forcing function for engagement *and* a monetization lever.
 - [[references/power-ups]] — purchasable or earned consumables that tilt the difficulty curve.
 - [[references/combo-multipliers]] — within-session momentum rewards.
+- [[references/self-imposed-stakes]] — let users voluntarily raise their own stakes, so the constraint is theirs rather than yours.
+
+## Social layer
+
+- [[references/co-op-pairing]] — shared goals between two users, and why partner selection has to filter on recent activity.
 
 ## Anti-patterns
 
@@ -46,5 +56,5 @@ This skill is structured as a **graph**: scan the descriptions below, follow onl
 ## Sources
 
 - Duolingo Handbook (2025), Principle #5: *Make It Fun*
-- design.duolingo.com — character system, motion, sound
+- blog.duolingo.com design and engineering posts — character system, motion, sound
 - blog.duolingo.com — gamification and game-design posts

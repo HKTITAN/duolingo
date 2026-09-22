@@ -19,17 +19,28 @@ This skill is structured as a **graph**: scan the descriptions below, follow onl
 - [[references/show-dont-tell]] — the principle: metrics decide, not titles.
 - [[references/hypothesis-design]] — what makes a testable hypothesis vs. a wish.
 - [[references/ab-test-structure]] — variant/control, randomization unit, exposure rules.
+- [[references/ladder-of-evidence]] — four methods with four blind spots: interviews, controlled experiments, A/B tests, outcome studies.
 
 ## Metrics
 
 - [[references/metric-selection]] — picking a primary metric that actually maps to long-term retention, not the easiest-to-move one.
-- [[references/guardrail-metrics]] — the metrics that *must not* go down, even if the primary does up.
+- [[references/guardrail-metrics]] — the metrics that *must not* go down, even if the primary does up; includes the cannibalization check.
 - [[references/sample-size]] — how big, how long; the cost of stopping early.
+- [[references/outcome-not-engagement]] — engagement proves a feature was tolerable; only a holdout delta on the targeted failure proves it worked.
+- [[references/invariant-metric-for-redesigns]] — judge a structural redesign on the terminal outcome, not the proxies it was tuned for.
+
+## Measurement design
+
+- [[references/design-the-population]] — who is eligible to enter a comparison decides what it measures.
+- [[references/baseline-at-first-contact]] — capture a self-reported starting level once, or you cannot separate teaching from selection.
+- [[references/probes-inside-the-product]] — embed the measurement in ordinary usage instead of building a separate test surface.
+- [[references/quasi-experiments]] — causal reads without randomization: self-as-control, matched cohorts, within-stratum scoring.
 
 ## Pitfalls
 
 - [[references/novelty-effects]] — the lift that decays after week three; how to detect and discount it.
 - [[references/ship-and-iterate]] — when "good enough to ship" beats "perfect to test."
+- [[references/unmeasurable-wins]] — changes you cannot A/B test by construction, and how measurability quietly steers the roadmap.
 
 ## Discipline
 

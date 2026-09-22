@@ -14,9 +14,10 @@ A referral program rewards a user for inviting another. Most are bad: they feel 
 ## What Duolingo does
 
 - Referral mechanics are present but rarely leaned on; the engine of growth is brand and product, not paid-out invites ([[brand-as-acquisition]]).
-- When invites surface, they're tied to a real moment (e.g. asking who you're learning with, friend leaderboards) rather than asked cold.
+- **The invite step is the bottleneck, and they proved it before optimizing.** The Friend Streak team wrote the full funnel — eligible → sends an invite → maintains one shared streak → sends more invites → has 5 shared streaks → maintains them daily — and found the **initial invite** was the biggest hurdle: "If we made a 1% gain at that step, we'd have a much larger population exposed to the Friend Streak than if we only optimized for our power users." Source: blog.duolingo.com/product-lessons-friend-streak (Duolingo blog, 2024-09-20; accessed 2026-09-22)
+- **They killed the "super-inviter" idea with data.** Before raising the 5-invite cap, network analysis asked whether one friend inviting dozens would actually capture people who wouldn't otherwise join. It showed those users "were much less likely to be captured simply through letting users invite dozens of people" — and learners who reached 5 Friend Streaks were already well retained. They didn't ship the increase. Same source.
+- **Rewards stay in-product, and the invite unit is a shared thing, not a payout.** The Family Plan lets a learner invite up to 5 people onto one Super account with no household or surname requirement — the reward is splitting a subscription, not cash. Source: blog.duolingo.com/friends-social-features (Duolingo blog, 2023-06-06; accessed 2026-09-22)
 - The referred user gets the same product, not a watered-down or invitation-gated version. The first session is for the new user, not the referrer's reward.
-- Rewards, when offered, tend to be in-product (gems, streak freezes) rather than cash — preserving the brand's amateur, charming surface.
 
 ## The transferable pattern
 

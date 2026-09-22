@@ -15,11 +15,15 @@ A streak is a [[loss-aversion]]-powered habit engine. Without loss aversion as t
 
 ## What Duolingo does
 
-- The streak resets to zero on a missed day — the cliff is intentional, not friendly.
-- The qualifying action is small (one short lesson) so the bar to extend never feels like effort once the habit is formed.
+Source: blog.duolingo.com/improving-the-streak (Duolingo blog, 2020-11-19; accessed 2026-09-22)
+
+- Until 2019 the streak only extended if you hit your **self-chosen daily goal**. Duolingo found that learners on the highest "intense" tier were the *least* likely to be on a streak — almost 40% of learners active two days in a row with no streak had picked "intense." The goal had become a barrier to the habit.
+- They A/B tested separating the two mechanics. One lesson now extends the streak; daily-goal progress is shown beside it. Result: **+3.3% Day-14 retention, +1% daily active learners, +10.5% share of daily learners on a streak within 20 days** (+19% for new learners), all relative. A year on, just over half of daily learners held a 7+ day streak, versus about a third before.
+- The streak still resets to zero on a missed day — the cliff is intentional. The one exception is [[streak-freeze]].
+- Reaching 7 days is the published activation bar: those learners are **3.6x more likely to complete their course** (blog.duolingo.com/how-duolingo-streak-builds-habit (Duolingo blog, 2022-01-31; accessed 2026-09-22)).
 - Streaks are made socially visible (profile, leaderboards) so they accrue identity weight, not just numerical weight.
-- Long streaks unlock badges, milestones, and occasional press cycles ("365-day club") that reinforce identity.
-- The reset rule has one explicit exception: [[streak-freeze]].
+
+Tension Duolingo names out loud: once the streak stopped enforcing the daily goal, **fewer learners actually reached their daily goals**. They took lower per-day output in exchange for continuity — "we can't teach people if they stop using Duolingo."
 
 ## The transferable pattern
 

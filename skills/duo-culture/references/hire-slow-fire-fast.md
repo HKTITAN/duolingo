@@ -15,10 +15,10 @@ Most companies do one of the two. Both is rare and load-bearing.
 
 ## What Duolingo does
 
-- Hiring loops are deliberately slow; rushing to fill is a recognized anti-pattern.
+- **"Never settle on talent" is one of the 12 published operating principles**, and it widens the bar past raw ability: "we value kindness, collaboration, and growth in addition to talent." Source: blog.duolingo.com/operating-principles (Duolingo blog, 2023-12-01; accessed 2026-09-22)
+- **The hire-slow half has a number attached: >90% annual employee retention**, which Duolingo calls "a true rarity in tech" and names as the return on "we expect our talent to stay and grow with Duolingo." A slow funnel is only defensible if the people you do hire stay; that figure is the receipt. Source: blog.duolingo.com/duolingo-company-strategy (Duolingo blog, 2025-04-07; accessed 2026-09-22)
 - Performance feedback is candid and frequent ([[candor-what-not-who]]) so a struggling hire isn't surprised by an exit conversation.
-- When fit is genuinely wrong, exits happen — humanely, with severance and care, but quickly enough that the team isn't dragged.
-- Managers are trained on both halves; firing fast is treated as a managerial skill, not an unpleasant edge case.
+- **The fire-fast half is Handbook material, not blog material.** "Better a hole than a hire that lowers the bar" is published; Duolingo does not write publicly about exits, and a company reporting >90% retention is not a natural source of fire-fast evidence. Source: handbook.duolingo.com — treat the second half of this node as borrowed playbook, not observed Duolingo practice.
 
 ## The transferable pattern
 
@@ -32,6 +32,8 @@ Anti-patterns:
 - Performance improvement plans designed to delay rather than to recover. The structure is honest only if recovery is genuinely possible.
 - "We'll see if it gets better." Months of wait usually conclude what was already known in week three.
 
+**The candidate is running the same test on you.** An engineering director weighing four offers asked employees at each company what they disliked about it: "They all had good answers when I asked about things they didn’t like about the company, but even then it was easy to see that they were happy there." He also read the difficulty of the loop as a positive — "it was a good sign that the team cared about keeping the bar high." Naming real problems without anxiety is costly to fake; deflection is what a pitch sounds like. Source: blog.duolingo.com/why-i-chose-duolingo-fabio-lessa (Duolingo blog, 2020-10-26; accessed 2026-09-22)
+
 ## Apply to your product
 
 - When was the last time your team made a hire that didn't work out? How long did the company wait?
@@ -40,4 +42,4 @@ Anti-patterns:
 
 ## See also
 
-[[talent-density]] · [[candor-what-not-who]] · [[../duo-product/references/raise-the-bar]] · [[no-process-without-purpose]]
+[[talent-density]] · [[candor-what-not-who]] · [[interview-the-real-work]] · [[publish-the-evaluation-process]] · [[../duo-product/references/raise-the-bar]] · [[no-process-without-purpose]]

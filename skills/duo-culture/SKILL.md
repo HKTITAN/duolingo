@@ -24,12 +24,23 @@ This skill is structured as a **graph**: scan the descriptions below, follow onl
 - [[references/talent-density]] — "better a hole than a hire that lowers the bar."
 - [[references/hire-slow-fire-fast]] — the protocol for both directions.
 - [[references/candor-what-not-who]] — feedback rule that lets criticism survive at scale.
+- [[references/interview-the-real-work]] — evaluate people in the medium the job uses, including on work they did not write.
+- [[references/publish-the-evaluation-process]] — a secret format measures who already knew it, not who is better at the job.
+
+## Ramping people
+
+- [[references/simulate-the-high-stakes-ritual]] — onboard judgment-heavy roles with a low-stakes replica of your most demanding ritual.
+- [[references/make-asking-cheap]] — a published stuck threshold, a mentor with no evaluative stake, and belonging that starts at signature.
+- [[references/ramp-senior-leaders-out-loud]] — say the onboarding number, and walk new leaders down through the layers they will later redesign.
+- [[references/managers-keep-practising-the-craft]] — budget craft time every cycle, or reviews decay into proxy signals.
 
 ## Process
 
 - [[references/no-process-without-purpose]] — process is a tax; only add it if it improves decisions.
 - [[references/ownership-clarity-culture]] — every critical task has one owner; this is a culture rule, not a project-management rule.
 - [[references/async-vs-meetings]] — when to converge in real time and when to commit to writing.
+- [[references/audit-the-inherited-standard]] — an inherited rule records who held authority when it was written, not which option was better.
+- [[references/conventions-ratify-practice]] — bodies codify what practitioners already do; win working practice before you write the rule.
 
 ## Identity
 

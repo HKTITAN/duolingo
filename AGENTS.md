@@ -4,7 +4,7 @@ Guidance for AI coding agents working in this repository. Format: [agents.md](ht
 
 ## What this repo is
 
-A library of [Agent Skills](https://agentskills.io/specification) that extract Duolingo's public playbook — the [Duolingo Handbook](https://handbook.duolingo.com), the [Duolingo Blog](https://blog.duolingo.com/archive/), and the [Duolingo Design System](https://design.duolingo.com) — into reusable thinking tools for **anyone** building a brand, product, system, or culture.
+A library of [Agent Skills](https://agentskills.io/specification) that extract Duolingo's public playbook — the [Duolingo Handbook](https://handbook.duolingo.com) and 750 English posts from the [Duolingo Blog](https://blog.duolingo.com/archive/) — into reusable thinking tools for **anyone** building a brand, product, system, or culture.
 
 This is not "skills about Duolingo." Duolingo is the case study and source. The user's product is the target. Every node ends with an "Apply to your product" section.
 
@@ -28,18 +28,41 @@ This repo contains **only Markdown** — no source code to compile, no runtime t
 
 The closest `AGENTS.md` to the file you're editing wins; only this top-level one exists today.
 
-## The eight skills
+## The skills
 
-| Skill | Domain |
+44 skills plus a router. `skills/duolingo/` is the **router** — `/duolingo` — and every
+other skill is a leaf it dispatches to. Run `python scripts/validate.py` to see the current
+count; the router is CI-checked to reach every leaf, and to name no leaf that doesn't exist.
+
+The leaves are grouped into eight families, defined in
+`skills/duolingo/references/map.md` (generated from what is on disk):
+
+| Family | Covers |
 |---|---|
-| `duo-retention` | habit loops, streaks, churn, day-N hooks |
-| `duo-gamification` | XP, juicy feedback, leagues, progression |
-| `duo-voice` | "wholesome but unhinged" copy, character archetypes, push notification patterns |
-| `duo-experimentation` | A/B testing, hypothesis design, "show don't tell" |
-| `duo-product` | take the long view, ship it, raise the bar |
-| `duo-growth` | viral loops, brand-as-acquisition, marketing stunts |
-| `duo-culture` | the Green Machine, talent density, candor |
-| `duo-design` | juicy motion, character system, design tokens |
+| They stop coming back | retention, streaks, return triggers, perceived progress, attachment |
+| They are here but flat | gamification, learner motivation |
+| The product has to teach them something | memory and decay, progression, rules, difficulty, prior knowledge, attention, efficacy |
+| The words and the face | voice, characters, naming, design rationale, inclusive access |
+| Deciding and measuring | product, metrics, score credibility, adoption, monetization, category entry, growth model, experimentation |
+| Reaching people | growth, localization, data reports, timely publishing, segmentation, validity, expert content |
+| Building it | backend, mobile, reliability, infra cost, ML, agent platform, LLM features, AI strategy |
+| The team | culture |
+
+**UI craft is deliberately out of scope for the whole pack.** Easing curves, contrast ratios,
+token values and component props route out to
+[design-engineering](https://github.com/AgentsORG/design-engineering) via
+`skills/duolingo/references/design-handoff.md`. This pack owns *why* an interface should
+behave a certain way; it must never invent a token value or an easing curve.
+
+### Adding a skill
+
+A new skill needs enough evidence to stand up: roughly **13+ extracted claims, at least 4 of
+them load-bearing**, which supports 6-13 nodes. Below that bar it belongs as nodes on an
+existing skill, not as a skill of its own. Padding a thin skill to look substantial is the
+failure this bar exists to prevent.
+
+Every new skill must also be added to a family in `skills/duolingo/SKILL.md` — CI fails if a
+skill is unreachable from the router.
 
 ## Authoring rules
 
@@ -66,11 +89,39 @@ Each skill is a **graph**, not a monolithic file. Inspired by [Akshay Pachaar's 
 Every reference node delivers four sections, in this order:
 
 1. **Concept** — one paragraph, the idea in plain English.
-2. **What Duolingo does** — the actual move, with a citation (handbook page, blog URL, or design system page).
+2. **What Duolingo does** — the actual move, with the real numbers, and a dated citation.
 3. **The transferable pattern** — the rule, separated from Duolingo specifics.
 4. **Apply to your product** — 2–3 prompts the reader can answer about their own thing.
 
 If a node only has #1 and #2, it's a content dump, not a skill. Reject in review.
+
+### Self-containment (non-negotiable)
+
+**A node must be fully useful with no network access.** Never write "see the full post at
+blog.duolingo.com/x" or otherwise defer the substance to the live site. Sources rot:
+`design.duolingo.com` already 301-redirects to a four-post blog hub, which silently turned
+every citation pointing at it into a dead end.
+
+So:
+
+- **Inline the substance.** The figure, the mechanism, the tradeoff, the reason it worked —
+  in the node. The URL is provenance, not a pointer to go read.
+- **Keep the numbers.** `+0.38% relative DAU`, `400 gems`, `two freezes`, `weekend DAU falls
+  5–10%`. Numbers are the part an agent cannot invent and the part that makes a claim
+  checkable. A node that drops them to stay short has thrown away its evidence.
+- **Stamp the citation with a date**, so a future reader knows when it was true:
+
+  ```text
+  Source: blog.duolingo.com/friend-streak (Duolingo blog, 2024-08-05; accessed 2026-09-22)
+  ```
+
+  `python scripts/stamp_citations.py --write` applies this format mechanically.
+
+- **Never invent a URL.** Every cited blog slug must exist in `scripts/sources.json`, the
+  bibliography of all 842 crawled English posts. CI fails the build otherwise — a
+  plausible-but-wrong citation is worse than none, because it survives review.
+- **Mark retired systems.** Duolingo has replaced hearts with energy and the tree with the
+  path. A node presenting a retired system as current is a liability; say what changed.
 
 ### Wikilink conventions
 
@@ -81,12 +132,16 @@ If a node only has #1 and #2, it's a content dump, not a skill. Reject in review
 
 Don't introduce a new wikilink target without creating the corresponding file.
 
-## Adding a new skill
+## Adding a new skill — the procedure
+
+Clear the evidence bar in "Adding a skill" above first, then:
 
 1. Create `skills/<name>/SKILL.md` with valid frontmatter (`name` matching the directory).
-2. Add `skills/<name>/references/` with at least three nodes.
-3. Cross-link the new skill from at least one existing skill's MoC.
-4. Update the skill table and tree in `README.md`.
+2. Add `skills/<name>/references/` with at least six nodes.
+3. Add a row for it to the right family table in `skills/duolingo/SKILL.md`, with a real
+   phrase a user would type — not a topic label. CI fails if the router can't reach it.
+4. Cross-link it from at least one sibling skill's MoC.
+5. Regenerate the README (it is generated from what is on disk, never hand-edited).
 
 ## Adding a new node to an existing skill
 
@@ -102,13 +157,28 @@ Run the local validator before opening a PR. CI runs the same script on every PR
 python scripts/validate.py
 ```
 
+```bash
+pip install pyyaml
+python scripts/validate.py
+python scripts/stamp_citations.py          # report; --write to apply
+```
+
 The validator checks:
 
-- Every `SKILL.md` has spec-compliant frontmatter (`name` matches dir, `description` ≤ 1024 chars).
-- Every `references/*.md` has `name`, `summary`, and `metadata.internal: true`.
-- Every wikilink `[[...]]` resolves to an existing file (code-span wikilinks like `` `[[wikilinks]]` `` in prose are ignored).
-- Every reference node has all four required body sections (`## Concept`, `## What Duolingo does`, `## The transferable pattern`, `## Apply to your product`).
-- No orphan nodes — every reference is reachable from at least one `SKILL.md` via wikilink traversal.
+- Every `SKILL.md` has spec-compliant frontmatter, parsed with a **real YAML parser**
+  (`name` matches dir, `description` ≤ 1024 chars, `compatibility` ≤ 500, no top-level
+  `version`/`homepage`/`author` — those belong under `metadata`).
+- Every `references/*.md` has `name`, `summary`, and `metadata.internal: true` as an
+  **unquoted boolean** — the skills CLI tests `=== true`, so the string `"true"` silently
+  fails to hide the node.
+- Every wikilink `[[...]]` resolves (code-span wikilinks in prose are ignored — which also
+  means a backticked `` `[[link]]` `` is NOT part of the graph).
+- Every concept node has the four body sections **and** cites a duolingo.com source.
+- Every cited blog slug exists in `scripts/sources.json`. A fabricated or mistyped URL
+  fails the build.
+- No node defers substance to the live site ("see the full post at…").
+- No orphan nodes — everything is reachable from a `SKILL.md` by traversal.
+- **The router reaches every skill**, and names no skill that doesn't exist.
 
 CI workflow lives at `.github/workflows/validate.yml`.
 

@@ -15,10 +15,14 @@ Without clear ownership, decisions stall, polish degrades, and accountability di
 
 ## What Duolingo does
 
-- Each feature, each surface, each metric has a named owner.
-- Ownership is a thing you can hand off, not a permanent assignment — but the handoff is explicit, not assumed.
-- Cross-functional initiatives have a single accountable owner even when the work spans teams.
-- "Whose call is this?" is a question with a fast, named answer.
+Source: blog.duolingo.com/product-principles (Duolingo blog, 2024-02-21; accessed 2026-09-22)
+
+- The VP of Product hands a team a problem, not a spec, and says so explicitly: *"A product team may be tasked with figuring out how we can use our model to teach math—and now it's that team's problem. I've placed my trust in them: You own this, and you are fully autonomous in proposing solutions to solve it."*
+- Ownership is framed as the *payoff* of the long view, not a separate rule: freeing teams from the pressure to ship immediately is what "empowers them to take full ownership of problems" — because an owner who cannot choose the three-month build over the three-week hack does not actually own the outcome.
+- New PMs are given ownership as the training method, not as a graduation. Product Bootcamp gives them **full ownership of a problem with two days to solve it**, with design and product leadership on check-ins rather than in the driver's seat (blog.duolingo.com/product-bootcamp (Duolingo blog, 2025-03-14; accessed 2026-09-22)).
+- Each feature, each surface, each metric has a named owner; "whose call is this?" has a fast, named answer.
+
+Tension worth naming: what the blog documents is **team-level autonomy with a named accountable team**, not a single-name DRI per task. The one-name rule below is the transferable sharpening of it. The non-negotiable half is the one Duolingo states outright — **authority travels with ownership**. A team told to own a problem but not to choose the solution owns nothing.
 
 ## The transferable pattern
 

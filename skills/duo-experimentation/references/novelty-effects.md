@@ -15,10 +15,13 @@ Most teams ship novelty as if it were durable improvement and discover the truth
 
 ## What Duolingo does
 
-- Long-running experiments (two weeks, sometimes longer) on changes prone to novelty — UI redesigns, new mechanics, copy refreshes.
-- Decay analysis: explicitly checking whether the lift in week 1 holds in week 2 and week 3.
-- Some tests carry post-ship monitoring even after they're shipped, to catch decay that wasn't visible at the test horizon.
-- "Look good early, fade later" is a recognized pattern; experiments are designed to detect it before deciding.
+Duolingo's push-notification bandit is the clearest published case of *measuring* novelty rather than assuming it. Source: blog.duolingo.com/hi-its-duo-the-ai-behind-the-meme (Duolingo blog, 2020-09-03; accessed 2026-09-22)
+
+- They **hypothesized** that a notification a learner had never seen would be unusually persuasive and that the effect would wear off — then **confirmed it in the data**, against the results of **~200 million practice reminders sent over a 34-day period** (the dataset is public on Harvard Dataverse; the method was published at KDD 2020).
+- The fix is structural, not a warning in a doc: the bandit **demotes templates the learner has seen recently**, and the spacing between repeats is set by **the same forgetting curve Duolingo uses to model vocabulary decay**. The interval you'd wait before re-testing a word is roughly the interval to wait before reusing a message.
+- This runs directly against how bandits are supposed to behave. A conventional bandit finds the best arm and exploits it repeatedly — which is precisely the behavior that destroys that arm. They had to teach their own optimizer to stop over-exploiting.
+
+The reframe worth stealing: novelty decay is not a reason to distrust a result. It is a quantity you can estimate from your own logs and then schedule around.
 
 ## The transferable pattern
 

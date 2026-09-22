@@ -13,10 +13,11 @@ Earned media is press coverage you didn't pay for. Most companies treat it as lu
 
 ## What Duolingo does
 
+- **Ships an artifact users publish for them.** Year-in-Review cards are shared by millions of learners, which makes **#Duolingo365 a trending Twitter hashtag every year**; after the 2021 launch Duolingo saw "a significant spike in new users," which they attribute to non-users seeing the shared stats. The share card *is* the press kit. Source: blog.duolingo.com/year-in-review-behind-the-scenes (Duolingo blog, 2022-12-08; accessed 2026-09-22)
+- **Engineers the coverage moment, not just the creative.** The 2024 Super Bowl spot was paired with a push notification fired the instant the ad aired: **95% of eligible learners in 3.9 seconds, 99% within 5.7 seconds** — over 4 million people. The resulting "WHY DID I GET A DUOLINGO NOTIFICATION THE SAME TIME THE COMMERCIAL CAME ON" reaction was the story journalists wrote. Source: blog.duolingo.com/super-bowl-commercial-2024 (Duolingo blog, 2024-02-12; accessed 2026-09-22)
 - [[marketing-stunts]] are designed for press: each one has a one-line summary a journalist can lift, an image they can use, and a hook tied to the cultural moment.
 - The brand voice ([[../duo-voice/references/wholesome-unhinged]]) is itself news-worthy — articles about "the Duolingo owl threatening users" write themselves.
-- Quarterly results, product launches, and brand moments are paired with social content that primes the press cycle (the TikTok video drops the day before the press release).
-- The PR team plays both sides: pitching the journalists who'd write the piece, and hosting the screenshots/clips/quotes the journalists will need.
+- Social content primes the audience before the press beat lands, and in-app moments catch the traffic it produces.
 
 ## The transferable pattern
 

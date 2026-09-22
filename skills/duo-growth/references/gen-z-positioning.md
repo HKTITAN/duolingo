@@ -16,9 +16,9 @@ The win is real. The risk is generational drift: a voice that lands with one coh
 ## What Duolingo does
 
 - Brand voice and content style read as native to the Gen-Z social ecosystem (TikTok, ironic-mode Twitter, parasocial mascot accounts).
-- Hires reflect the audience — content writers and social managers from the same cohort the brand serves.
+- **The demand data backs the bet, in the categories where it bets.** In the U.S., **83% of people studying Japanese, Korean or Chinese are under 30 and 42% are aged 13–17** — against 65% and 28% for Spanish, English and French. Duolingo names the cause directly: "It's truly Gen Z leading the way and driving the incredible growth of Japanese and Korean in the overall U.S. ranking." Source: blog.duolingo.com/special-report-asian-and-pacific-language-trends-on-duolingo (Duolingo blog, 2021-05-13; accessed 2026-09-22)
+- **But the cohort shape does not travel.** 75% of learners in India are under 30, while in **Germany only 46% are — and 36% are 40 or older**, spread evenly across ages. A voice tuned to a 13–17 cohort is addressing a minority of the user base in a top market. Source: blog.duolingo.com/dear-duolingo-how-does-language-learning-differ-between-generations (Duolingo blog, 2022-05-03; accessed 2026-09-22)
 - The product's wholesome floor (learning a language) keeps it acceptable to parents and teachers, even when the marketing is unhinged.
-- Brand decisions explicitly track the platforms and patterns the audience moves through.
 
 ## The transferable pattern
 

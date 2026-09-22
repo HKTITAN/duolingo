@@ -13,7 +13,17 @@ Most "we have a retention problem" framings are too coarse to act on. The first 
 
 ## What Duolingo does
 
-Duolingo's blog and engineering posts repeatedly describe segmenting cohorts by day-1, day-3, day-7, day-30 retention and treating each as a separate problem. The handbook's *Show Don't Tell* principle ([[../duo-experimentation/references/show-dont-tell]]) means each segment gets its own experiment program, not one omnibus "improve retention" project.
+Source: blog.duolingo.com/growth-model-duolingo (Duolingo blog, 2023-02-17; accessed 2026-09-22)
+
+In 2018 DAU growth stalled and the team could not find A/B tests that moved it. Their fix was to stop treating DAU as one number. The **Growth Model** is a Markov model that classifies every learner into one of **7 mutually exclusive daily states** — New, Current, Reactivated, Resurrected, At-Risk WAU, At-Risk MAU, Dormant — and tracks the transition rate between each pair. DAU is then just the sum of the active states.
+
+They simulated pulling each transition lever 2% month-over-month and found one dominated: **Current User Retention Rate (CURR)**. A team was staffed on CURR alone. **DAU grew 4x from 2019.**
+
+One state they measured by hand first: **resurrection** (≥30 days inactive, then back). It was much bigger than expected — **~5% of DAU on a given day** — and those users are **~20% less likely than a new user to still be active at both 7 and 14 days**. The day a newsletter announced the Japanese course launch, resurrections spiked from 5% to 8% of DAU (blog.duolingo.com/back-from-the-brink-what-duolingo-learned-about-its-resurrected-users (Duolingo blog, 2017-08-30; accessed 2026-09-22)).
+
+Tension Duolingo names: the fix ate itself. Current Users are now **90% of DAU**, so CURR has become an average over a monolith again — "an increasingly imprecise measure," at risk of becoming unmovable exactly the way DAU was in 2018. A segmentation that works stops working once the segment you optimized swallows the population.
+
+The handbook's *Show Don't Tell* principle ([[../duo-experimentation/references/show-dont-tell]]) means each segment gets its own experiment program, not one omnibus "improve retention" project.
 
 ## The transferable pattern
 

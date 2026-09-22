@@ -13,10 +13,10 @@ The handbook lists under [[../duo-product/references/ship-it|Ship It]]: *"We'll 
 
 ## What Duolingo does
 
-- New processes are proposed with a justification: which decisions are worse without this process? How will we know if it's working?
-- Existing processes are sunsetted when they stop justifying themselves; a process that "always existed" is not protected.
-- Reviews and meetings are evaluated for clock-speed cost ([[clock-speed]]).
-- The cultural language is "let's add a process for this" said reluctantly, not enthusiastically.
+- **The biggest process Duolingo refuses is the roadmap itself**: "We don't have a detailed 3- or 5-year strategic plan or product roadmap. We've found that even the most detailed and well-researched plans and product roadmaps can't hold a candle to what we can build when we test, learn, and iterate." That is the principle at its most expensive — declining the one artifact most companies treat as non-optional. Source: blog.duolingo.com/duolingo-company-strategy (Duolingo blog, 2025-04-07; accessed 2026-09-22)
+- **"Reduce complexity" is one of the 12 published operating principles**, scoped to internal machinery as well as product: "From our internal communication style to our external product, we do our best to keep things easily understandable and accessible." Source: blog.duolingo.com/operating-principles (Duolingo blog, 2023-12-01; accessed 2026-09-22)
+- **Some process is built to dissolve.** During the Kotlin migration Duolingo created a "Kotlin checker" reviewer role to spread best practices, then grew its membership until it contained every Android developer "and was no longer necessary." Source: blog.duolingo.com/migrating-duolingos-android-app-to-100-kotlin (Duolingo blog, 2020-04-06; accessed 2026-09-22)
+- Reviews and meetings are evaluated for clock-speed cost ([[clock-speed]]). The "we'll only introduce a new process if it helps us make faster, better decisions" wording is the Handbook's. Source: handbook.duolingo.com
 
 ## The transferable pattern
 
@@ -36,4 +36,4 @@ A useful test: count the meetings on a senior person's calendar this week. How m
 
 ## See also
 
-[[clock-speed]] · [[green-machine]] · [[ownership-clarity-culture]] · [[../duo-product/references/ship-it]] · [[../duo-product/references/ruthless-prioritization]]
+[[clock-speed]] · [[green-machine]] · [[ownership-clarity-culture]] · [[audit-the-inherited-standard]] · [[conventions-ratify-practice]] · [[../duo-product/references/ship-it]] · [[../duo-product/references/ruthless-prioritization]]

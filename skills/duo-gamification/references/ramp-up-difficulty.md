@@ -13,10 +13,15 @@ Flow state (Csikszentmihalyi) is the band between boredom (too easy) and anxiety
 
 ## What Duolingo does
 
-- A new concept introduces with high-context exercises (matching, listen-and-pick) before requiring full production (translate, speak).
-- Content within a unit gets harder; the next unit resets to a new manageable starting point.
-- The path visualizes spaced practice — review nodes appear between new content so users hit older material at calibrated intervals.
-- Difficulty is *experimentally* calibrated: completion rates, error rates, and session-length metrics tell the team where the curve is too steep or too flat.
+Duolingo's stated target is Krashen's **i + 1** — input just slightly beyond what the learner already has — which they map onto Vygotsky's zone of proximal development. The curve is specified in numbers, not vibes. Source: blog.duolingo.com/right-level-of-difficulty (Duolingo blog, 2024-04-02; accessed 2026-09-22)
+
+- **5–7 new words per lesson.** Everything else in the sentence is already-taught vocabulary, so the unfamiliar share stays inside what's decodable.
+- **90/10 in Stories.** Learning designers hold 90% of a story to known vocabulary and grammar; the remaining 10% is new and has to be guessed from context. Anything harder to guess gets a check-the-meaning exercise attached.
+- A new concept introduces with high-context exercises (recognize the word) before requiring full production (type it out yourself).
+- The path interleaves review nodes with new content so learners hit older material at calibrated intervals.
+- Difficulty is calibrated per learner by **Birdbrain**, a model that predicts whether a specific learner will get a specific exercise right, and feeds that to the lesson generator. It reached 20%+ of lessons personalized within seven months of launch. Source: blog.duolingo.com/learning-how-to-help-you-learn-introducing-birdbrain (Duolingo blog, 2020-10-07; accessed 2026-09-22)
+
+Duolingo names both failure modes explicitly: "i + 20" content discourages and loses the learner, "i + 0" content stagnates and bores them.
 
 ## The transferable pattern
 
@@ -26,7 +31,7 @@ Three rules:
 2. **Reset the floor at each grouping.** A new unit shouldn't start at the previous unit's end-difficulty; users need a runway.
 3. **Calibrate by data, not gut.** "This feels right" produces curves designed for the designer, not the median user. Use completion rate as the primary signal.
 
-A useful rule: aim for ~80% success rate on first attempt at any given exercise. Below 50% is punishing; above 95% is unrewarding.
+A useful starting ratio, borrowed from Duolingo's Stories spec: **~90% of any unit of content should be material the user has already met, ~10% new.** That is a concrete, checkable target — unlike "make it challenging but not too hard.
 
 ## Apply to your product
 

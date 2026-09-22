@@ -13,10 +13,12 @@ The product version of this principle ([[../duo-product/references/ownership-cla
 
 ## What Duolingo does
 
-- Every recurring meeting has a stated owner; ownership is on the calendar entry.
-- Internal tools, rituals, and processes have a person whose name is on them.
+- **Ownership is handed over as a problem, not a spec.** A team gets "figure out how we teach math," and the VP of Product's framing is explicit: "now it's that team's problem. I've placed my trust in them: You own this, and you are fully autonomous in proposing solutions to solve it." The autonomy is bounded by exactly **three** principles — take the long view, build for the global user, if it can be better make it better — not by a specification. Source: blog.duolingo.com/product-principles (Duolingo blog, 2024-02-21; accessed 2026-09-22)
+- **Ownership is genuinely temporary when the job is temporary.** The Kotlin migration's "Kotlin checker" reviewer role existed to spread expertise, and was retired once every Android developer qualified — transferred until redundant, rather than hardened into a permanent gate. Source: blog.duolingo.com/migrating-duolingos-android-app-to-100-kotlin (Duolingo blog, 2020-04-06; accessed 2026-09-22)
 - "Whose call is this" has a fast answer at every level of the company.
-- Ownership is *transferable* — it's not a permanent identity, but it's never absent.
+- The calendar-level conventions — an owner named on every recurring meeting and internal tool — are Handbook practice rather than published blog practice. Source: handbook.duolingo.com
+
+**The principles are what make the autonomy safe.** Without a short shared tiebreaker set, "you own this" produces divergent local optima; with one, it produces answers the spec-writer would not have reached. Ownership and principles ship together, or neither works.
 
 ## The transferable pattern
 

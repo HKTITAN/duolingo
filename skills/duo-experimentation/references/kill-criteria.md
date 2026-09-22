@@ -15,10 +15,14 @@ The fix isn't "be more rigorous." It's to commit, in writing, before the data ar
 
 ## What Duolingo does
 
-- Every experiment registers a stopping rule before it starts.
-- The rule covers both the *win* condition (primary metric clears MDE with confidence) and the *kill* condition (primary flat past X duration, or guardrail breached).
-- Killed experiments are reviewed for learnings even though they won't ship — the goal is to update the team's prior, not to recover the test.
-- "Let's let it run another week" is not a default; it requires a stated reason that wasn't part of the original criteria.
+Two published kills, both made against the metric the work itself was optimizing:
+
+- **The ads model that kept improving while revenue didn't move.** Duolingo's first in-house-ad model predicted a learner's baseline probability of buying a subscription. Improving it kept improving the model's own offline performance — and stopped increasing total revenue, because it was cannibalizing purchases from other hooks by targeting learners who would have bought anyway. They abandoned the framing and rebuilt XGBoost as a contextual bandit selecting learners for whom the ad *raised* purchase probability most. Source: blog.duolingo.com/machine-learning-ads (Duolingo blog, 2025-03-18; accessed 2026-09-22)
+- **The shorter-lessons test.** Duolingo shortened lessons expecting learners would do more of them. Time Spent Learning Well went *down*. They published the failed hypothesis rather than re-cutting the data until it looked better. Source: blog.duolingo.com/time-spent-learning-well (Duolingo blog, 2024-06-13; accessed 2026-09-22)
+
+Operationally: experiments that break code or hurt metrics are paused until fixed rather than read as results, and unsuccessful experiments are shut down at the end of the ramp. Source: blog.duolingo.com/improving-duolingo-one-experiment-at-a-time (Duolingo blog, 2020-01-10; accessed 2026-09-22)
+
+The transferable lesson from the ads case: **the kill signal has to sit one level above the metric the team is optimizing**, or the failure is invisible. Every offline number said the project was going well.
 
 ## The transferable pattern
 
@@ -38,4 +42,4 @@ The harder discipline: kill the test when it's *trending positive but underpower
 
 ## See also
 
-[[show-dont-tell]] · [[sample-size]] · [[ship-and-iterate]] · [[../duo-product/references/kill-criteria-product]]
+[[show-dont-tell]] · [[sample-size]] · [[ship-and-iterate]] · [[unmeasurable-wins]] · [[../duo-product/references/kill-criteria-product]]

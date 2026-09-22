@@ -15,10 +15,13 @@ Without an XP-equivalent, products with multiple action types ("you did three le
 
 ## What Duolingo does
 
-- Every lesson, review, story, and challenge produces XP at calibrated rates.
+- Every lesson, review, story, and challenge produces XP at calibrated rates. Source: blog.duolingo.com/duolingo-101-how-to-learn-a-language-on-duolingo (Duolingo blog, 2024-12-02; accessed 2026-09-22)
 - XP feeds three downstream systems: the daily quest target ([[../duo-retention/references/daily-quests]]), the league ranking ([[../duo-retention/references/leagues]]), and the long-term level/profile.
-- XP per action is *not* equal — harder activities pay more, but the spread is small, so users don't game the easy lane.
+- XP per action is *not* equal — and Duolingo has re-priced it deliberately. Learners were grinding cheap XP to climb the leaderboard, which made the competition "feel unfair" to learners focused on content. Duolingo **increased XP along the path** so rewards became proportionate to effort and learning outcomes. The experiment: a partial adjustment moved **+1.1M minutes/day**, the full adjustment **+1.8M minutes/day**. Source: blog.duolingo.com/time-spent-learning-well (Duolingo blog, 2024-06-13; accessed 2026-09-22)
+- The same post shows what XP is really an input to: their quality metric, **TSLW = minutes on path + 0.5 × minutes in other lessons** — path work is literally worth double.
 - XP boosts (15-min double-XP) are a [[../duo-retention/references/variable-reward]] surface and a monetization option.
+
+The tension Duolingo names in that post: XP is the currency *and* the thing people cheat. Monthly Challenges had to be switched from XP-based to Quest-based because learners spent the last few days of the month earning XP in bulk.
 
 ## The transferable pattern
 
@@ -39,4 +42,4 @@ Anti-pattern: XP that buys nothing and feeds nothing. It becomes a vanity counte
 
 ## See also
 
-[[progression-design]] · [[ramp-up-difficulty]] · [[../duo-retention/references/leagues]] · [[../duo-retention/references/daily-quests]]
+[[progression-design]] · [[ramp-up-difficulty]] · [[../duo-retention/references/leagues]] · [[../duo-retention/references/daily-quests]] · [[nested-deadlines]] · [[beat-your-own-best]] · [[rate-by-opponent-strength]]

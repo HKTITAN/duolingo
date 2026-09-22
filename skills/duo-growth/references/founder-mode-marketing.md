@@ -15,7 +15,9 @@ This is one version of "founder mode" applied specifically to marketing.
 
 ## What Duolingo does
 
-- The CEO (Luis von Ahn) is publicly visible and on-brand — interviews, social, public communication all consistent with the company voice.
+- **Keeps the creative in-house, explicitly.** Duolingo wrote its 2024 Super Bowl commercial itself rather than hiring an agency, and gave three reasons: "We understand our brand better than anyone. We know how to toe the line between funny and too far"; it's faster ("ship it" is an operating principle); and it lets teams collaborate. Source: blog.duolingo.com/super-bowl-commercial-2024 (Duolingo blog, 2024-02-12; accessed 2026-09-22)
+- **The founder is the approval path, and it is short.** On being asked how a five-second ad about the owl's backside got approved: the marketing team presented it to CEO Luis von Ahn, who said **"This is weird. I like it."** The post names the mechanism — "there's a lot of freedom. Leadership encourages us to listen to what our learners like and have fun with them." Same source.
+- The CEO is publicly visible and on-brand; his own framing of the company's two best decisions — give the product away free, and make learning fun — is published under his byline, not a comms team's. Source: blog.duolingo.com/duolingos-values-a-letter-from-the-ceo (Duolingo blog, 2020-04-15; accessed 2026-09-22)
 - Brand and product report close to the top, not as separate fiefdoms with their own goals.
 - Hiring for brand-bearing roles (writers, social leads, mascot performers) is high-bar and slow ([[../duo-culture/references/hire-slow-fire-fast]]) — a single bad hire can degrade the asset.
 - Big brand decisions (the death stunt, Super Bowl creative, mascot evolution) involve leadership directly.

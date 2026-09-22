@@ -14,11 +14,14 @@ A celebration is the high-amplitude version of [[juicy-feedback]] — reserved f
 ## What Duolingo does
 
 - **Lesson end:** XP tally with motion, character reaction, sound, milestone-style summary.
-- **Streak milestones:** distinct visual treatment at 7, 30, 50, 100, 365 days; each different.
+- **Streak milestones:** Duo transforms into a phoenix — chosen over the original number-balloons art because balloons were "cute, but not quite celebratory enough." Milestones are treated "like power ups in a video game," with the mascot himself physically changing. Named examples run 50, 100, 365, 1,000 days. Source: blog.duolingo.com/streak-milestone-design-animation (Duolingo blog, 2022-01-21; accessed 2026-09-22)
+- **Shareable by design:** the same project shipped a one-tap share card, so the celebration leaves the app without the user leaving the app.
 - **League promotion:** layered animation with characters, leaderboard reshuffle, occasional treasure chest.
-- **Level up:** unit completion gets a guidebook reveal or unit-end gauntlet.
+- **Outside the app entirely:** around the Streak Society, Duolingo publishes **9 celebration formats** — a printable mock certificate, formal party invitations with a dress code, a joke doctor's note, party kits, playlists. Source: blog.duolingo.com/streak-celebration-parties (Duolingo blog, 2024-01-25; accessed 2026-09-22)
 
 The frequency is calibrated: small celebrations after every lesson, bigger ones at week boundaries, peak ones at long-term milestones.
+
+The self-deprecation is load-bearing. The certificate's own copy says "We cannot promise that this certificate does anything in the 'real' world." An earnest version of the same artifact would be unshareable.
 
 ## The transferable pattern
 
@@ -38,4 +41,4 @@ Anti-pattern: a single full-screen celebration after every action. Users learn t
 
 ## See also
 
-[[juicy-feedback]] · [[character-reactions]] · [[../duo-voice/references/celebration-copy]] · [[../duo-design/references/celebration-design]] · [[../duo-retention/references/variable-reward]]
+[[juicy-feedback]] · [[character-reactions]] · [[../duo-voice/references/celebration-copy]] · [[../duo-design/references/celebration-design]] · [[../duo-retention/references/variable-reward]] · [[celebration-artifacts]] · [[two-regimes-of-one-counter]]

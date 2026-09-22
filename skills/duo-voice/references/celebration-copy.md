@@ -13,10 +13,13 @@ Celebration copy is what the product says when the user wins. The defaults are b
 
 ## What Duolingo does
 
+Source: blog.duolingo.com/achievement-badges (Duolingo blog, 2023-12-11; accessed 2026-09-22)
+
+- The 2023 Achievements redesign started from a diagnosis of the old one: badges were "buried in the profile page," hard to find and "harder to celebrate," with no easy way for a learner to share a win.
+- The fix added a new award class — the **personal record** — for most XP in a day, perfect lessons, longest streak, best league finish. A learner who "just *crushed*" a day gets celebrated without crossing any milestone.
+- Awards are tiered by difficulty (adding a friend is a beginner award; a year-long streak is a rare one) and include deliberate oddities like the night-owl achievement, so the set isn't one register repeated.
 - Streak milestones, league promotions, and lesson completions each have distinct copy registers — they don't all say "Nice work!"
-- Lines reference what the user actually did: "Your 7-day streak is the longest you've had this month." Specificity beats generic praise.
 - Some celebrations are deadpan ("Adequate."), some over-the-top ("LEGENDARY."), some character-cameo'd ("Lily is reluctantly impressed.") — register variety prevents fatigue.
-- Negative-coded humor is allowed: a celebration can be ironic ("Eddy assumed you'd quit by now. Eddy was wrong.")
 
 ## The transferable pattern
 

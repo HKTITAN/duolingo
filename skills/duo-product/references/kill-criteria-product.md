@@ -13,10 +13,14 @@ The experimentation skill has its own [[../duo-experimentation/references/kill-c
 
 ## What Duolingo does
 
-- Projects have explicit success criteria at start; failure to meet them is a stop signal, not a permission to keep going.
-- Sunsetting a feature is treated as legitimate work, not a failure to be hidden.
-- Cumulative cost matters: a feature shipped years ago that drags maintenance and complexity is a candidate for cutting, even if it's not "broken."
+Source: blog.duolingo.com/duolingo-energy (Duolingo blog, 2025-07-03; accessed 2026-09-22)
+
+- **A core system that isn't "broken" can still be cut.** Hearts had been the free-tier mistake economy for years. Duolingo replaced it with Energy because the data said beginners were **2x more likely to run out of hearts mid-lesson** — discouraging exactly the users least able to absorb it. The stated reason was not a bug; it was "not the most effective way to support learning."
+- **Killing a project you already designed for counts too.** The Friend Streak team had deliberately designed the UI to scale past 5 slots, then ran a data science exercise on retention and uptake per additional slot to forecast whether "the juice was worth the squeeze." It wasn't: the population with large active friend groups was small, and users at 5 streaks were already well-retaining. They shipped the cap and did not run the expansion tests (blog.duolingo.com/product-lessons-friend-streak (Duolingo blog, 2024-09-20; accessed 2026-09-22)).
+- **Content gets killed at commissioning, not in production.** A partner pitched a Spanish story about a journalist investigating unsolved murders; Duolingo's country marketing manager in Mexico argued it down on two grounds — too complex for the intermediate level, and it didn't feel like Duolingo. They went back to the drawing board mid-pandemic and took a bank-heist story instead (blog.duolingo.com/true-crime-meets-spanish-learning (Duolingo blog, 2020-12-03; accessed 2026-09-22)).
 - The decision to kill is owned and made — it's not allowed to drift to no decision.
+
+The pattern across all three: the stop decision is made against a **pre-stated user outcome** (does this help people learn, does this move the invite step, does this fit the level and the tone), not against sunk cost or against whether anything is visibly failing.
 
 ## The transferable pattern
 
@@ -36,4 +40,4 @@ The hardest part is cultural. Most orgs have implicit rules that punish stopping
 
 ## See also
 
-[[ship-it]] · [[ruthless-prioritization]] · [[take-the-long-view]] · [[../duo-experimentation/references/kill-criteria]]
+[[ship-it]] · [[ruthless-prioritization]] · [[scope-floor-for-v1]] · [[take-the-long-view]] · [[../duo-experimentation/references/kill-criteria]]

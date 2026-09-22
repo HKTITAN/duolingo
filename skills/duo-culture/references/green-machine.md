@@ -22,10 +22,11 @@ Each step maps to one of the five principles. The Green Machine is the *machine*
 
 ## What Duolingo does
 
-- The loop is taught explicitly to new hires; it's the language teams use to talk about how work happens.
-- Every team / project / experiment runs some version of these six steps; the model is fractal.
-- The "stop what doesn't" half of step 6 is treated with as much weight as the "double down" half — see [[../duo-product/references/kill-criteria-product]].
-- Process additions are evaluated against the loop: does this make any of the six steps better? If not, cut.
+- **Publicly, Duolingo states the Green Machine in three moves, not six**: "gather excellent people, give them space to experiment, and then double down on what works." The six steps above are the Handbook's expansion of the same loop — treat three as the canonical formulation and six as the working checklist. Source: blog.duolingo.com/duolingo-company-strategy (Duolingo blog, 2025-04-07; accessed 2026-09-22) and blog.duolingo.com/handbook (Duolingo blog, 2025-02-10; accessed 2026-09-22)
+- **The loop is what replaces the roadmap.** "We don't have a detailed 3- or 5-year strategic plan or product roadmap" — because even well-researched plans lose to test, learn, iterate. Beliefs and Strategy Pillars steer the machine's *direction*; they do not specify its output. Source: blog.duolingo.com/duolingo-company-strategy (Duolingo blog, 2025-04-07; accessed 2026-09-22)
+- **Step 1 is the step with a published number behind it**: >90% annual employee retention, which the company names as the evidence that "gather excellent people" is working. Source: blog.duolingo.com/duolingo-company-strategy (Duolingo blog, 2025-04-07; accessed 2026-09-22)
+- **The model is fractal, and provably so.** Product Ops ran the Green Machine on an internal training program — Product Bootcamp — defining qualitative and quantitative success measures with leadership up front, shipping a rough V1, and iterating to V2 on feedback. Source: blog.duolingo.com/product-bootcamp (Duolingo blog, 2025-03-14; accessed 2026-09-22)
+- The "stop what doesn't" half of the last step is treated with as much weight as the "double down" half — see [[../duo-product/references/kill-criteria-product]].
 
 ## The transferable pattern
 
@@ -54,4 +55,4 @@ Three rules:
 
 ## See also
 
-[[clock-speed]] · [[talent-density]] · [[../duo-product/references/ship-it]] · [[../duo-experimentation/references/experiment-cadence]]
+[[clock-speed]] · [[talent-density]] · [[simulate-the-high-stakes-ritual]] · [[../duo-product/references/ship-it]] · [[../duo-experimentation/references/experiment-cadence]]
