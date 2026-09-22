@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duolingo Skills — visuals</title>
+<style>
+  :root {
+    --bg: #0b0e14; --card: #131822; --edge: #222a36;
+    --ink: #e9eef5; --dim: #7d8898; --faint: #59616e;
+    --accent: #58CC02;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 56px 16px 96px; }
+  header { border-bottom: 1px solid var(--edge); padding-bottom: 28px; margin-bottom: 40px; }
+  h1 { margin: 0 0 8px; font-size: 30px; letter-spacing: -0.4px; }
+  h1 code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--accent); }
+  .sub { color: var(--dim); font-size: 15px; margin: 0; }
+  section { margin: 0 0 56px; }
+  h2 { font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--dim); margin: 0 0 6px; }
+  .cap { color: var(--faint); font-size: 13.5px; margin: 0 0 16px; max-width: 76ch; line-height: 1.55; }
+  figure { margin: 0; background: var(--card); border: 1px solid var(--edge); border-radius: 14px; overflow: hidden; }
+  figure img { display: block; width: 100%; height: auto; }
+  .live { display: inline-flex; align-items: center; gap: 7px; margin-top: 12px; font-size: 13px;
+          color: var(--accent); text-decoration: none; border: 1px solid rgba(88,204,2,0.35);
+          padding: 7px 13px; border-radius: 9px; transition: background 140ms cubic-bezier(0.25,1,0.5,1); }
+  .live:hover { background: rgba(88,204,2,0.1); }
+  .grid { display: grid; gap: 28px; }
+  @media (min-width: 900px) { .grid.two { grid-template-columns: 1fr 1fr; } }
+  footer { color: var(--faint); font-size: 13px; border-top: 1px solid var(--edge); padding-top: 24px; }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1><code>/duolingo</code> &mdash; visuals</h1>
+    <p class="sub">Generated from the repo's real state and real router runs. Open the live links to see the motion.</p>
+  </header>
+
+  <section>
+    <h2>The pack</h2>
+    <p class="cap">44 skills in eight families, with live node counts. Regenerated from what is on disk, so it cannot drift.</p>
+    <figure><img src="assets/skill-map.svg" alt="The 44 skills grouped into eight families"></figure>
+  </section>
+
+  <section>
+    <h2>How the router works</h2>
+    <p class="cap">Gate, then posture, then family and skill. Gate row 1 hands every UI-craft question to design-engineering.</p>
+    <figure><img src="assets/router-flow.svg" alt="Gate, posture, family, answer"></figure>
+  </section>
+
+  <section>
+    <h2>Real runs</h2>
+    <p class="cap">Actual output from agents that loaded the router and followed it, set in a terminal.</p>
+    <div class="grid two">
+      <figure><img src="assets/run-payroll-streak.svg" alt="The router declining to build a daily streak"></figure>
+      <figure><img src="assets/run-empty-state.svg" alt="Duolingo rationale plus design-engineering craft"></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Designs &mdash; Duolingo + design-engineering</h2>
+    <p class="cap">
+      Built by reading both packs: the Duolingo skills decide <em>what and when</em>, design-engineering decides
+      <em>how it is built</em>. Every duration, easing curve and radius traces to a node &mdash; none were invented.
+      The <strong>live</strong> links open the animated version.
+    </p>
+
+    <div class="grid">
+      <div>
+        <figure><img src="designs/celebration.svg" alt="First dashboard complete"></figure>
+        <a class="live" href="designs/celebration.html">&#9654; live &mdash; first dashboard complete</a>
+      </div>
+      <div>
+        <figure><img src="designs/empty-state.svg" alt="Empty state, before and after"></figure>
+        <a class="live" href="designs/empty-state.html">&#9654; live &mdash; empty state</a>
+      </div>
+      <div>
+        <figure><img src="designs/run-streak.svg" alt="Run-streak and health score"></figure>
+        <a class="live" href="designs/run-streak.html">&#9654; live &mdash; run-streak</a>
+      </div>
+      <div>
+        <figure><img src="designs/teach-step.svg" alt="A lesson step that teaches"></figure>
+        <a class="live" href="designs/teach-step.html">&#9654; live &mdash; lesson step</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="https://github.com/HKTITAN/duolingo">HKTITAN/duolingo</a> &middot;
+    craft companion <a href="https://github.com/AgentsORG/design-engineering">AgentsORG/design-engineering</a>
+  </footer>
+</div>
+</body>
+</html>
